@@ -1,0 +1,30 @@
+<div ng-controller="addUserController as ctrl">
+	    <h1>Create user</h1>
+
+	    <form role="form">
+
+	        <input id="email" placeholder="email" ng-model="user.email">
+
+	        <input id="firstName" placeholder="first name" ng-model="user.firstName">
+
+	        <input id="lastName" placeholder="last name" ng-model="user.lastName">
+
+	        <input id="password" placeholder="password" ng-model="user.password">
+
+			<br><br>
+	        <input id="addressLine1" placeholder="address line 1" ng-model="user.addressLine1">
+
+	        <input id="addressLine2" placeholder="address line 2" ng-model="user.addressLine2">
+
+	        <input id="town" placeholder="town" ng-model="user.town">
+
+	        <input id="city" placeholder="city" ng-model="user.city">
+
+	        <input id="postcode" placeholder="postcode" ng-model="user.postcode">
+
+
+	        <button type="submit" ng-click="ctrl.addUser(user)">addUser</button>
+
+	    </form>
+
+</div>
