@@ -11,6 +11,10 @@ import javax.ws.rs.Produces;
 
 import com.qa.cinema.service.ticket.TicketService;
 
+/**
+ * @author AlexNewton
+ */
+
 @Path("/ticket")
 public class TicketEndPoint {
 
