@@ -16,6 +16,8 @@
 			});
 		}
 		init();
+		
+		
 	};
 
 	angular.module('bookingApp').controller('getBookingController', [ '$state', 'bookingDal', GetBookingController ]);
