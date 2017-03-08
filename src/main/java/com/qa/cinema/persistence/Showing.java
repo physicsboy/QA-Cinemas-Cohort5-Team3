@@ -22,8 +22,10 @@ public class Showing {
 		
 	}
 	
-	public Showing(String dateTime){
+	public Showing(Movie movie, String dateTime, Screen screen){
+		this.movie = movie;
 		this.dateTime = dateTime;
+		this.screen = screen;
 	}
 
 	public Long getId() {
