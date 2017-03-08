@@ -46,11 +46,11 @@ public class Showing {
 		this.dateTime = dateTime;
 	}
 
-	public Integer getScreen() {
+	public Screen getScreen() {
 		return screen;
 	}
 
 	public void setScreenID(Screen screen) {
-		this.screen = screenID;
+		this.screen = screen;
 	}
 }
