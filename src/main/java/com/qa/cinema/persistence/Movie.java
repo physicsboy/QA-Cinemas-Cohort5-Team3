@@ -12,26 +12,32 @@ public class Movie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title;
+	private String posterURL;
 	private String genre;
+	private String description;
 	private String year;
+	private String classification;
+	private String cast;
+	private String length;
 
 	public Movie() {
 	}
 
-	public Movie(Long id, String title, String genre, String year) {
+	public Movie(String title, String posterURL, String genre, String description, String year, String classification,
+			String cast, String length) {
 		super();
-		this.id = id;
 		this.title = title;
+		this.posterURL = posterURL;
 		this.genre = genre;
+		this.description = description;
 		this.year = year;
+		this.classification = classification;
+		this.cast = cast;
+		this.length = length;
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
@@ -40,6 +46,14 @@ public class Movie {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getPosterURL() {
+		return posterURL;
+	}
+
+	public void setPosterURL(String posterURL) {
+		this.posterURL = posterURL;
 	}
 
 	public String getGenre() {
@@ -56,6 +70,38 @@ public class Movie {
 
 	public void setYear(String year) {
 		this.year = year;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getClassification() {
+		return classification;
+	}
+
+	public void setClassification(String classification) {
+		this.classification = classification;
+	}
+
+	public String getCast() {
+		return cast;
+	}
+
+	public void setCast(String cast) {
+		this.cast = cast;
+	}
+
+	public String getLength() {
+		return length;
+	}
+
+	public void setLength(String length) {
+		this.length = length;
 	}
 
 }
