@@ -14,8 +14,14 @@ public class Showing {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="id")
 	private Movie movie;
 	private String dateTime;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="screenId")
 	private Screen screen;
 	
 	public Showing() {
