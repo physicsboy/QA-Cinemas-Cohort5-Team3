@@ -14,9 +14,9 @@ public class Showing {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Long movieID;
+	private Movie movie;
 	private String dateTime;
-	private Integer screenID;
+	private Screen screen;
 	
 	public Showing() {
 		
@@ -30,12 +30,12 @@ public class Showing {
 		return id;
 	}
 
-	public Long getMovieID() {
-		return movieID;
+	public Movie getMovie() {
+		return movie;
 	}
 
-	public void setMovieID(Long movieID) {
-		this.movieID = movieID;
+	public void setMovieID(Movie movie) {
+		this.movie = movie;
 	}
 
 	public String getDateTime() {
@@ -46,11 +46,11 @@ public class Showing {
 		this.dateTime = dateTime;
 	}
 
-	public Integer getScreenID() {
-		return screenID;
+	public Integer getScreen() {
+		return screen;
 	}
 
-	public void setScreenID(Integer screenID) {
-		this.screenID = screenID;
+	public void setScreenID(Screen screen) {
+		this.screen = screenID;
 	}
 }

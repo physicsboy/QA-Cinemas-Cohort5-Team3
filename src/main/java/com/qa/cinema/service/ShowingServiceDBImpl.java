@@ -30,8 +30,4 @@ public class ShowingServiceDBImpl implements ShowingService {
 		return util.getJSONForObject(showing);
 	}
 	
-	private Showing findShowing(Long id){
-		return manager.find(Showing.class, id);
-	}
-
 }
