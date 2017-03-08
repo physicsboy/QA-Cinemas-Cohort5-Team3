@@ -1,8 +1,10 @@
+/**
+ * Mark Lester
+ */
+
 package com.qa.cinema.persistence;
 
 import static org.junit.Assert.*;
-
-import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -10,7 +12,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.qa.cinema.service.MapScreenService;
+import com.qa.cinema.service.screen.MapScreenService;
+
+
 
 public class MapScreenServiceTest {
 
@@ -37,39 +41,50 @@ public class MapScreenServiceTest {
 	
 	
 	@Test
-	public void getScreens() {
-		assertEquals(2,service.getScreens().size());
+	public void getScreenObjects() {
+		assertEquals(2,service.getScreenObjects().size());
 	}
 
+	@Test
+	public void getScreenObject() {
+		Screen s = service.getScreenObject(1);
+		assertEquals('a',s.getColumn());
+	}
+	
 	
 	@Test
 	public void getScreen() {
-		Screen s = service.getScreen(1);
-		assertEquals('a',s.getColumn());
+		String s = service.getScreen(1);
+		assertEquals("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}", s);
 	}
 
 	@Test
+	public void getScreens() {
+		assertEquals("[{\"ScreenId\":1,\"column\":\"a\",\"row\":1},{\"ScreenId\":2,\"column\":\"b\",\"row\":2}]",service.getScreens());
+	}
+	
+	
+	@Test
 	public void addScreen() {
-		service.addScreen(screen);
-		assertEquals(3,service.getScreens().size());
+		service.addScreen("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}");
+		assertEquals(3,service.getScreenObjects().size());
 	}
 
 	@Test
 	public void deleteScreen() {
-		int numberOfScreens = service.getScreens().size();
-		Screen s = service.getScreen(1);
-		service.deleteScreen(s);
+		int numberOfScreens = service.getScreenObjects().size();
+		Screen s = service.getScreenObject(1);
+		service.deleteScreen(1);
 		service.getScreen(1);
-		assertEquals(numberOfScreens - 1, service.getScreens().size());
+		assertEquals(numberOfScreens - 1, service.getScreenObjects().size());
 	}
 
 	@Test
 	public void updateScreen() {
 		Screen screen = new Screen('q', (byte)1);
 		screen.setScreenId(1);
-		
-		service.updateScreen(screen);
-		assertEquals('q',service.getScreen(1).getColumn());
+		service.updateScreen(1,"{\"ScreenId\":1,\"column\":\"q\",\"row\":1}");
+		assertEquals('q',service.getScreenObject(1).getColumn());
 	}
 
 }
