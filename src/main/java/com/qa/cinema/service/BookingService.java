@@ -1,5 +1,10 @@
 package com.qa.cinema.service;
 
+/**
+ * 
+ * @author Sam.Jarvis
+ *
+ */
 public interface BookingService {
 	
 	public String getAllBookings();

@@ -10,6 +10,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Sam.Jarvis
+ *
+ */
 public class BookingTest {
 	
 	Booking testBooking;

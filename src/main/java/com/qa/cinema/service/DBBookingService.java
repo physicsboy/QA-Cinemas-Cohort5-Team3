@@ -10,6 +10,11 @@ import javax.persistence.Query;
 import com.qa.cinema.persistence.Booking;
 import com.qa.cinema.util.JSONUtil;
 
+/**
+ * 
+ * @author Sam.Jarvis
+ *
+ */
 public class DBBookingService implements BookingService {
 	
 	@PersistenceContext(unitName = "primary")
