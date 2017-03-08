@@ -16,7 +16,11 @@ import javax.persistence.TemporalType;
 
 import com.qa.cinema.persistence.Ticket;
 
-
+/**
+ * 
+ * @author Sam.Jarvis
+ *
+ */
 @Entity
 public class Booking {
 	
