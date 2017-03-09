@@ -1,3 +1,6 @@
+/**
+ * Mark Lester
+ */
 package com.qa.cinema.service.screen;
 
 import java.util.ArrayList;
@@ -73,7 +76,7 @@ public class MapScreenService implements ScreenService{
 	}
 
 	@Override
-	public String addScreen(String screen) {
+	public String createScreen(String screen) {
 		Screen aScreen = util.getObjectForJSON(screen, Screen.class);
 		screens.add(aScreen);
 		return "Screen screen";

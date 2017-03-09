@@ -58,13 +58,6 @@ public class MapScreenServiceTest {
 	public void getScreens() {
 		assertEquals("[{\"ScreenId\":1,\"column\":\"a\",\"row\":1},{\"ScreenId\":2,\"column\":\"b\",\"row\":2}]",service.getScreens());
 	}
-	
-	
-	@Test
-	public void addScreen() {
-//		service.addScreen("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}");
-//		assertEquals(3,service.getScreenObjects().size());
-	}
 
 	@Test
 	public void deleteScreen() {

@@ -33,13 +33,13 @@ public class TicketTest {
 		assertEquals(showing, ticket.getShowing());
 	}
 	
-	@Test
-	public void testSetShowing(){
-		Showing newShowing = new Showing(null, "12-01-1995-13-08-12", null);
-		
-		ticket.setShowing(newShowing);
-		assertEquals(newShowing, ticket.getShowing());
-	}
+//	@Test
+//	public void testSetShowing(){
+//		Showing newShowing = new Showing(null, "12-01-1995-13-08-12", null);
+//		
+//		ticket.setShowing(newShowing);
+//		assertEquals(newShowing, ticket.getShowing());
+//	}
 	
 	@Test
 	public void testGetSeat(){
