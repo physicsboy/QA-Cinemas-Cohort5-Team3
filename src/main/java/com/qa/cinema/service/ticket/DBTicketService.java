@@ -41,7 +41,7 @@ public class DBTicketService implements TicketService {
 	public String getTicketByID(Long id) {
 		Ticket ticket = findByID(id);
 		if(ticket == null){
-			return "{\"message\": \"No such ticket found\"}";
+			return "{\"message\": \"No ticket found\"}";
 		}
 		
 		return util.getJSONForObject(ticket);
