@@ -16,7 +16,7 @@ import org.junit.Test;
  *
  */
 public class BookingTest {
-	
+
 	Booking testBooking;
 	List<Ticket> tickets;
 	Ticket testTicket;
@@ -25,55 +25,56 @@ public class BookingTest {
 
 	@Before
 	public void setUp() throws Exception {
-		tickets = new ArrayList<Ticket>;
+		tickets = new ArrayList<Ticket>();
+		testTicket = new Ticket(null, "G5", "CHILD", 4.40f);
+		testTicket2 = new Ticket(null, "G6", "ADULT", 6.70f);
 		tickets.add(testTicket);
-		testBooking = new Booking(datetime,tickets,"payment@email.com","user@email.com");
+		testBooking = new Booking(datetime, tickets, "payment@email.com", "user@email.com");
 		tickets.add(testTicket2);
 	}
-	
+
 	@Test
 	public void constructorTest() {
 		assertNotNull("Constructor Success", testBooking);
 	}
-	
+
 	@Test
-	public void getId(){
-		
+	public void getId() {
+		assertNull(testBooking.getBookingId());
 	}
 
 	@Test
 	public void getDateTest() {
-		assertEquals(testBooking.getDateBooked(),datetime);
+		assertEquals(testBooking.getDateBooked(), datetime);
 	}
-	
+
 	@Test
 	public void getTicketListTest() {
 		assertEquals(testTicket, testBooking.getTickets().get(0));
 	}
-	
+
 	@Test
 	public void getPaymentEmail() {
 		assertEquals("payment@email.com", testBooking.getPaymentEmail());
 	}
-	
+
 	@Test
 	public void getUserEmail() {
 		assertEquals("user@email.com", testBooking.getUserEmail());
 	}
-	
-	
+
 	@Test
 	public void setTicketListTest() {
 		testBooking.setTickets(tickets);
 		assertEquals(testTicket2, testBooking.getTickets().get(1));
 	}
-	
+
 	@Test
 	public void setPaymentEmail() {
 		testBooking.setPaymentEmail("newpayment@email.com");
 		assertEquals("newpayment@email.com", testBooking.getPaymentEmail());
 	}
-	
+
 	@Test
 	public void setUserEmail() {
 		testBooking.setUserEmail("newuser@email.com");
