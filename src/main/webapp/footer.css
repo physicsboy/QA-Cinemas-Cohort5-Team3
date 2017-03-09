@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+footer{
+	background: #1C1C1C;
+	color: #F6F6F6; /* copyright text color*/	
+	
+}
+
+
+ .col-md-3 {
+ 	 border-right:solid #F6F6F6 2px;
+	 height:208px;
+}
+
+@media only screen and (max-width: 	991px) { 
+	 .col-md-3 {
+	 	 border-right: 0px;
+	}
+	.col-md-3 {
+/* 		border-bottom: solid #F6F6F6 2px; */
+	}
+}
+
+.col-md-3:last-child { /* STOPS DIVIDER ON LAST RIGHT HAND COLUMN */
+	border-right:0px;
+}
+
+
+
+.row li a { /* PILL BUTTON TEXT COLOUR */
+	color: #F6F6F6; 
+} 
+
+.nav.nav-pills li a:hover, .nav.nav-pills li a:focus{
+	color: #1C1C1C;
+	background: #F6F6F6;
+	font-weight: bold;
+}
+
+
+footer .nav-pills li.active a, footer .nav-pills li.active a:hover,  footer .nav-pills li.active a:focus{
+    background: black;
+}
+
+hr {
+	/* make horizontal divider = 2px  */
+	
+}

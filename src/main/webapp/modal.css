@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+.modal-backdrop.in {
+	opacity: 0.92;
+}
+
+.modal-content {
+	background-color: #1C1C1C;
+	color: #F6F6F6;
+}
+
+.text-right a {
+	color: #F6F6F6;
+}
+
+.close { /* x button to close */
+	color: #F6F6F6;
+	opacity: 0.5;
+}
+
+.modal-open {
+	overflow: hidden;
+	/* BROWSER SCROLLBAR DISAPPEARS - DONT KNOW WHY OR HOW TO FIX */
+}
+
+#myModal .modal-dialog {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	width: 500px;
+	border-color: green; /* CHANGE TO AN APPROPRIATE COLOUR */
+}
+
+#myModal .form-group, .text-right {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.modal-title {
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+.modal-footer {
+	padding-right: 30px;
+}
+
+.btn {
+	color: #F6F6F6;
+}
+
+.btn:hover {
+	color: #F6F6F6;
+	text-decoration: underline;
+}
+
+.btn-primary {
+	border: 0 none;
+	color: black;
+	/* CHANGE text to black before rollover TO AN APPROPRIATE COLOUR */
+	background: #F6F6F6;
+	font-weight: bold;
+}
+
+.btn-primary:hover {
+	background: black;
+}
+
+.btn-primary:focus {
+	background: #F6F6F6;
+	color: #1C1C1C;
+}
+
+.btn-primary:active { /* DOESN'T WORK TO CHANGE CLICK COLOUR */
+	background: white;
+}
