@@ -14,6 +14,8 @@
 <link href="footer.css" rel="stylesheet" media="screen">
 <link href="modal.css" rel="stylesheet" media="screen">
 <!--   <script src="app/feature/dashboard/dashboard-controller.js"></script>-->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
 footer {
@@ -23,28 +25,26 @@ footer {
 </style>
 
 <body>
+<div id="wrap">
+	
 
-<!-- ADD THE VIEWS HERE -->
-    <div ui-view></div>
+	<!-- Angular modules-->
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/ui-router.min.js"></script>
+
+	<!-- App and state manager-->
+	<script src="app/app.js"></script>
+	<script src="app/app-state-manager.js"></script>
+
+	<!-- Services-->
+	<script src="app/service/dal/dal.js"></script>
+	<script src="app/service/dal/movie.js"></script>
 
 
-    <!-- Angular modules-->
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/ui-router.min.js"></script>
-
-    <!-- App and state manager-->
-    <script src="app/app.js"></script>
-    <script src="app/app-state-manager.js"></script>
-
-    <!-- Services-->
-    <script src="app/service/dal/dal.js"></script>
-    <script src="app/service/dal/movie.js"></script>
-    
-
-    <!-- Features-->
-    <!--<script src="app/feature/dashboard/dashboard-controller.js"></script>-->
-    <script src="app/feature/movie/add/add-movie-controller.js"></script>
-    <script src="app/feature/movie/get/get-movie-controller.js"></script>
+	<!-- Features-->
+	<!--<script src="app/feature/dashboard/dashboard-controller.js"></script>-->
+	<script src="app/feature/movie/add/add-movie-controller.js"></script>
+	<script src="app/feature/movie/get/get-movie-controller.js"></script>
 
 	<!-- NAVBAR -->
 	<header>
@@ -143,10 +143,16 @@ footer {
 	</div>
 
 	<!-- PAGE VIEW -->
-	<div ui-view></div>
+	<div ui-view id="view">
+	
 
+			
+			
+		<div class="push"></div>
+	</div>
+</div>
 
-	<footer>
+	<footer class="footer-distributed">
 		<div class="container text-center">
 			<hr />
 			<div class="row">
@@ -156,7 +162,7 @@ footer {
 							<li><a href="#" ui-sref="frontpage">Home</a></li>
 						</ul>
 					</div> -->
-					<div class="col-md-3">
+					<div class="col-md-3" id=test>
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#" ui-sref="whatson"><b>What's
 										on</b></a></li>
@@ -164,7 +170,7 @@ footer {
 							<li><a href="#" ui-sref="filmlist">Coming soon</a></li>
 						</ul>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3" id=test>
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#" ui-sref="aboutus"><b>About
 										Us</b></a></li>
@@ -174,7 +180,7 @@ footer {
 							<li><a href="#" ui-sref="classifications">Classifications</a></li>
 						</ul>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3" id=test>
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#" ui-sref="myaccount"><b>My
 										Account</b></a></li>
@@ -183,7 +189,7 @@ footer {
 							<li><a href="#" ui-sref="bookings">My bookings</a></li>
 						</ul>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3" id=test>
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#" ui-sref="help"><b>Help</b></a></li>
 							<li><a href="#" ui-sref="contactus">Contact us</a></li>
@@ -194,14 +200,29 @@ footer {
 			<hr>
 			<div class="row">
 				<div class="col-lg-12">
-					<ul class="nav nav-pills nav-justified">
-						<li><a href="#" ui-sref="tos">Terms of Service</a></li>
-						<li><a href="#" ui-sref="privacy">Privacy</a></li>
-						<li>&copy QA Cinema Blue.</li>
-						<hr />
-					</ul>
+					<div class="col-md-3" id="footer-foot">&copy QA Cinema Blue.
+					</div>
+					<div class="col-md-3" id="footer-foot">
+						<a href="#" ui-sref="tos">Terms of Service</a>
+					</div>
+					<div class="col-md-3" id="footer-foot">
+						<a href="#" ui-sref="privacy">Privacy</a>
+					</div>
+					<div class="col-md-3">
+						<div class="social-media">
+							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+								class="fa fa-twitter"></i></a> <a href="#"><i
+								class="fa fa-youtube"></i></a> <a href="#"><i
+								class="fa fa-github"></i></a> <a href="#"><i
+								class="fa fa-google"></i></a> <a href="#"><i
+								class="fa fa-instagram"></i></a> <a href="#"><i
+								class="fa fa-tumblr"></i></a>
+						</div>
+
+					</div>
 				</div>
 			</div>
+			<hr>
 		</div>
 	</footer>
 
