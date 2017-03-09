@@ -6,6 +6,7 @@
 
     var AddBookingController =  function($state, bookingDal) {
         var vm = this;
+        vm.test = "test";
 
         vm.addBooking = function(bookingToAdd) {
             console.log("This is the value of booking to add " + bookingToAdd);
@@ -22,5 +23,5 @@
         };
     };
 
-    angular.module('bookingApp').controller('addBookingController', ['$state','bookingDal',AddBookingController]);
+    angular.module('movieApp').controller('addBookingController', ['$state','bookingDal',AddBookingController]);
 }());

@@ -2,6 +2,8 @@ package com.qa.cinema.service;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,6 +17,8 @@ import com.qa.cinema.util.JSONUtil;
  * @author Sam.Jarvis
  *
  */
+@Stateless
+@Default
 public class DBBookingService implements BookingService {
 	
 	@PersistenceContext(unitName = "primary")

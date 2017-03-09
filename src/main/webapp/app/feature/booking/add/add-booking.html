@@ -1,1 +1,18 @@
-<div ng-controller="addBookingController as ctrl">{{4+4}}</div>
+<div ng-controller="addBookingController as ctrl">
+    <form role="form">
+
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toDateString();
+        </script>
+        <input id="dateBooked" placeholder="Date Booked" ng-model="booking.dateBooked">
+
+        <input id="paymentEmail" placeholder="Payment Email" ng-model="booking.paymentEmail">
+
+        <input id="userEmail" placeholder="Account Email" ng-model="booking.userEmail">
+
+        <button type="submit" ng-click="ctrl.addBooking(booking)">add Booking</button>
+
+    </form>
+</div>

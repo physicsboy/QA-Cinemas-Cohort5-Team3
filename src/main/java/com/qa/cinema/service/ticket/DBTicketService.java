@@ -38,6 +38,7 @@ public class DBTicketService implements TicketService {
 
 	@Override
 	public String getTicketByID(Long id) {
+		
 		Query query = manager.createQuery("select t from Ticket t where t.id = " + id);
 		Ticket ticket =  (Ticket) query.getSingleResult();
 		

@@ -26,21 +26,17 @@ public class Booking {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="booking_id")
 	private Long bookingId;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="booking_date_booked")
 	private Date dateBooked;
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="ticket_booking_id")
 	private List<Ticket> tickets;
 	
-	@Column(name="booking_payment_email")
 	private String paymentEmail;
-	
-	@Column(name="booking_user_email")
+
 	private String userEmail;
 	
 	public Booking(){

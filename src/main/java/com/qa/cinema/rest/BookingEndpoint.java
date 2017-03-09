@@ -16,7 +16,7 @@ import com.qa.cinema.service.BookingService;
  * @author Sam.Jarvis
  *
  */
-@Path("/movie")
+@Path("/booking")
 public class BookingEndpoint {
 
 	@Inject
