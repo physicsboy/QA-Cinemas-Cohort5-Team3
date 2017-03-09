@@ -39,6 +39,7 @@ public class DBTicketService implements TicketService {
 
 	@Override
 	public String getTicketByID(Long id) {
+
 		Ticket ticket = findByID(id);
 		if(ticket == null){
 			return "{\"message\": \"No ticket found\"}";

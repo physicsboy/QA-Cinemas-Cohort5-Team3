@@ -28,7 +28,7 @@ templateUrl : "app/feature/user/add-user/add-u.html"
 templateUrl : "app/feature/user/get-user/add-u.html"
 }).state("getshowing",{url : "/getshowing",
 templateUrl : "app/feature/showing/get-showing/get-showing.html"
-})
+});
 
 });
 }());

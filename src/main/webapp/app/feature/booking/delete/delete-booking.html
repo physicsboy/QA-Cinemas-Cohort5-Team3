@@ -1,1 +1,13 @@
-<div ng-controller="deleteBookingController as ctrl">{{4+4}}</div>
+<div ng-controller="deleteBookingController as ctrl">
+	<div ng-controller="getBookingController as getctrl">
+		{{getctrl.bookings}}
+		<form role="form">
+			<input id="ID to Delete" placeholder="ID" ng-model="booking.id">
+
+			<button type="submit" ng-click="ctrl.deleteBooking(booking)">addMovie</button>
+		</form>
+
+
+	</div>
+
+</div>

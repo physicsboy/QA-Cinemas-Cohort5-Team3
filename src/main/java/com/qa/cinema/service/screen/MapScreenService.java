@@ -73,13 +73,6 @@ public class MapScreenService implements ScreenService{
 	}
 
 	@Override
-	public String addScreen(String screen) {
-		Screen aScreen = util.getObjectForJSON(screen, Screen.class);
-		screens.add(aScreen);
-		return "Screen screen";
-	}
-
-	@Override
 	public String deleteScreen(int id) {
 		for(Screen s: screens){
 			if(s.getScreenId() == id){
@@ -101,6 +94,12 @@ public class MapScreenService implements ScreenService{
 		}
 		screens.add(updatedScreen);
 		return "Screen updated";
+	}
+
+	@Override
+	public String createScreen(String screen) {
+		screens.add(util.getObjectForJSON(screen, Screen.class));
+		return "Screen created";
 	}
 
 	
