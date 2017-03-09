@@ -20,5 +20,5 @@
 			});
 		};
 	};
-	angular.module('cinema').controller('deleteUserController', [ '$state', 'userDal', DeleteUserController ]);
+	angular.module('movieApp').controller('deleteUserController', [ '$state', 'userDal', DeleteUserController ]);
 }());
