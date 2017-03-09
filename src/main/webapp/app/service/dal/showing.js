@@ -11,15 +11,15 @@
         };
 
         this.saveShowing = function (showingToSave) {
-            return dal.http.POST("rest/showing/json",showingToSave);
+            return dal.http.POST("rest/showing/json", showingToSave);
         };
 
         this.updateShowing = function (showingToUpdateId,showingToUpdate) {
-            return dal.http.PUT("rest/showing/json/" +showingToUpdateId,showingToUpdate);
+            return dal.http.PUT("rest/showing/json/" + showingToUpdateId, showingToUpdate);
         };
 
-        this.deleteShowing = function (showingToDeleteId) {
-            return dal.http.DELETE("/rest/showing/json/" +showingToDeleteId);
+        this.deleteShowing = function (showingToDelete) {
+            return dal.http.DELETE("/rest/showing/json/", showingToDelete);
         };
 
     }
