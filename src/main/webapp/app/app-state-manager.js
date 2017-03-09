@@ -15,9 +15,9 @@ templateUrl : "app/feature/dashboard/dashboard-partial.html"
 }).state("getmovie",{url : "/getmovie",
 templateUrl : "app/feature/movie/get-movie/get-movie.html"
 }).state("getbooking",{url : "/getbooking",
-templateUrl : "app/feature/booking/get-booking/get-booking.html"
+templateUrl : "app/feature/booking/get/get-booking.html"
 }).state("addbooking",{url : "/addbooking",
-templateUrl : "app/feature/booking/add-booking/add-booking.html"
+templateUrl : "app/feature/booking/add/add-booking.html"
 }).state("getscreen",{url : "/getscreen",
 templateUrl : "app/feature/screen/get-screen/get-screen.html"
 }).state("getticket",{url : "/getticket",

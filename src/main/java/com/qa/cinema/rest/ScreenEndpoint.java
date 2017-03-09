@@ -12,6 +12,8 @@ import javax.ws.rs.Produces;
 
 import com.qa.cinema.service.screen.ScreenService;
 
+
+@Path("/screen")
 public class ScreenEndpoint {
 	
 
@@ -20,28 +22,35 @@ public class ScreenEndpoint {
 
 	@Path("/json")
 	@GET
-	@Produces({"application/json/screen"})
+	@Produces({"application/json"})
 	public String getAllScreens() {
 		return service.getScreens();
 	}
 	
+	@Path("/json/{id}")
+	@GET
+	@Produces({"application/json"})
+	public String getScreen(@PathParam("id") int id) {
+		return service.getScreen(id);
+	}
+	
 	@Path("/json")
 	@POST
-	@Produces({ "application/json/screen" })
-	public String addMovie(String screen) {
-		return service.addScreen(screen);
+	@Produces({ "application/json" })
+	public String createScreen(String screen) {
+		return service.createScreen(screen);
 	}
 	
 	@Path("/json/{id}")
 	@PUT
-	@Produces({ "application/json/screen" })
+	@Produces({ "application/json" })
 	public String updateScreen(@PathParam("id") int id, String screen) {
 		return service.updateScreen(id, screen);
 	}
 
 	@Path("/json/{id}")
 	@DELETE
-	@Produces({ "application/json/screen" })
+	@Produces({ "application/json" })
 	public String deleteMovie(@PathParam("id") int id) {
 		return service.deleteScreen(id);
 	}

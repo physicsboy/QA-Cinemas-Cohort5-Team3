@@ -37,4 +37,29 @@ public class DBUserService implements UserService {
 		return "{\"message\": \"User sucessfully added\"}";
 	}
 
+	@Override
+	public String updateUser(String email, String user) {
+		User updateUser = util.getObjectForJSON(user, User.class);
+		User userInDB = findUser(email);
+		if (userInDB != null) {
+			userInDB = updateUser;
+			manager.merge(user);
+		}
+		return "{\"message\": \"user sucessfully updated\"}";
+	}
+
+	@Override
+	public String deleteUser(String email) {
+		User userInDB = findUser(email);
+		if (userInDB != null) {
+			manager.remove(userInDB);
+		}
+		return "{\"message\": \"user sucessfully deleted\"}";
+	}
+
+	private User findUser(String email) {
+		return manager.find(User.class, email);
+	}
+
+
 }
