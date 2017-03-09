@@ -20,5 +20,5 @@
 		
 	};
 
-	angular.module('bookingApp').controller('getBookingController', [ '$state', 'bookingDal', GetBookingController ]);
+	angular.module('movieApp').controller('getBookingController', [ '$state', 'bookingDal', GetBookingController ]);
 }());

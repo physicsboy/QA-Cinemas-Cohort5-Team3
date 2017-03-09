@@ -2,6 +2,8 @@ package com.qa.cinema.service;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,6 +17,8 @@ import com.qa.cinema.util.JSONUtil;
  * @author Sam.Jarvis
  *
  */
+@Stateless
+@Default
 public class DBBookingService implements BookingService {
 	
 	@PersistenceContext(unitName = "primary")
@@ -50,9 +54,10 @@ public class DBBookingService implements BookingService {
 	public String updateBooking(Long id, String updatedBooking) {
 		Booking updateBooking = util.getObjectForJSON(updatedBooking, Booking.class);
 		Booking bookingInDB = findBooking(new Long(id));
+		
 		if (bookingInDB != null) {
-			bookingInDB = updateBooking;
-			em.merge(updatedBooking);
+			updateBooking.setId(bookingInDB.getBookingId()); 
+			em.merge(updateBooking);
 		}
 		return "{\"message\": \"Booking sucessfully updated\"}";
 	}
