@@ -2,6 +2,8 @@ package com.qa.cinema.service.ticket;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,6 +16,9 @@ import com.qa.cinema.util.JSONUtil;
 /**
  * @author AlexNewton
  */
+
+@Stateless
+@Default
 public class DBTicketService implements TicketService {
 	
 	
