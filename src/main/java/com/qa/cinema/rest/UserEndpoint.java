@@ -34,14 +34,14 @@ public class UserEndpoint {
 	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateMovie(@PathParam("id") String email, String movie) {
-		return service.updateUser(email, movie);
+	public String updateUser(@PathParam("id") String email, String user) {
+		return service.updateUser(email, user);
 	}
 
 	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMovie(@PathParam("id") String email) {
+	public String deleteUser(@PathParam("id") String email) {
 		return service.deleteUser(email);
 	}
 }
