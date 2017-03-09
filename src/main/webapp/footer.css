@@ -35,11 +35,13 @@ footer{
 	color: #1C1C1C;
 	background: #F6F6F6;
 	font-weight: bold;
+	border-radius: 0px;
 }
 
 
 footer .nav-pills li.active a, footer .nav-pills li.active a:hover,  footer .nav-pills li.active a:focus{
     background: black;
+    border-radius: 0px;
 }
 
 hr {
