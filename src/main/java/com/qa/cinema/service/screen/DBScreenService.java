@@ -1,6 +1,7 @@
 package com.qa.cinema.service.screen;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,7 +12,8 @@ import com.qa.cinema.util.JSONUtil;
 
 import java.util.Collection;
 
-@ApplicationScoped
+@Stateless
+@Default
 public class DBScreenService implements ScreenService{
 
 	
@@ -42,10 +44,10 @@ public class DBScreenService implements ScreenService{
 
 
 	@Override
-	public String addScreen(String screen) {
+	public String createScreen(String screen) {
 		Screen aScreen = util.getObjectForJSON(screen, Screen.class);
 		em.persist(aScreen);
-		return "Screen successfully added.";
+		return "{\"message\": \"movie sucessfully updated\"}";
 	}
 
 
@@ -56,7 +58,7 @@ public class DBScreenService implements ScreenService{
 		if (screen != null) {
 			em.remove(screen);
 		}
-		return "Screen successfully deleted.";
+		return "{\"message\": \"movie sucessfully updated\"}";
 		
 	}
 
