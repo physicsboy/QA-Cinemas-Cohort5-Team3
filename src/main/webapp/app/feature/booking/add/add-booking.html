@@ -4,9 +4,12 @@
 
         <script>
             var d = new Date();
-            document.getElementById("demo").innerHTML = d.toDateString();
+            var d2 = parseInt(d.getTime()/1000);
+            var d3 = d.toDateString();
+            document.getElementById("demo").innerHTML = d2 + d3;
         </script>
-        <input id="dateBooked" placeholder="Date Booked" ng-model="booking.dateBooked">
+        <p id="demo"></p>
+        <input id="dateBooked" placeholder={{d3}} ng-model="booking.dateBooked">
 
         <input id="paymentEmail" placeholder="Payment Email" ng-model="booking.paymentEmail">
 

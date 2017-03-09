@@ -20,5 +20,5 @@
 			});
 		};
 	};
-	angular.module('cinema').controller('updateBookingController', [ '$state', 'bookingDal', UpdateBookingController ]);
+	angular.module('movieApp').controller('updateBookingController', [ '$state', 'bookingDal', UpdateBookingController ]);
 }());

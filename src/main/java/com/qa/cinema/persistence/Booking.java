@@ -80,6 +80,11 @@ public class Booking {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+
+
+	public void setId(Long bookingId) {
+		this.bookingId = bookingId;	
+	}
 	
 		
 }

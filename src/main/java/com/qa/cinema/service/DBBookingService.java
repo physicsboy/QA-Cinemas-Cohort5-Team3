@@ -54,9 +54,10 @@ public class DBBookingService implements BookingService {
 	public String updateBooking(Long id, String updatedBooking) {
 		Booking updateBooking = util.getObjectForJSON(updatedBooking, Booking.class);
 		Booking bookingInDB = findBooking(new Long(id));
+		
 		if (bookingInDB != null) {
-			bookingInDB = updateBooking;
-			em.merge(updatedBooking);
+			updateBooking.setId(bookingInDB.getBookingId()); 
+			em.merge(updateBooking);
 		}
 		return "{\"message\": \"Booking sucessfully updated\"}";
 	}
