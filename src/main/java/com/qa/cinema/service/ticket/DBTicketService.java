@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -38,8 +39,10 @@ public class DBTicketService implements TicketService {
 
 	@Override
 	public String getTicketByID(Long id) {
-		Query query = manager.createQuery("select t from Ticket t where t.id = " + id);
-		Ticket ticket =  (Ticket) query.getSingleResult();
+		Ticket ticket = findByID(id);
+		if(ticket == null){
+			return "{\"message\": \"No such ticket found\"}";
+		}
 		
 		return util.getJSONForObject(ticket);
 	}
@@ -65,35 +68,33 @@ public class DBTicketService implements TicketService {
 	@Override
 	public String updateTicket(Long idToUpdate, String newTicket) {
 		Ticket ticketToUpdate = findByID(idToUpdate);
-		if(ticketToUpdate!=null){
-			Ticket updatedTicket = util.getObjectForJSON(newTicket, Ticket.class);
-			updatedTicket.setId(ticketToUpdate.getId());
-			manager.merge(updatedTicket);
-			
-			return "{\"message\": \"Ticket updated sucessfully\"}";
+		
+		if(ticketToUpdate == null){
+			return "{\"message\": \"No ticket found\"}";
 		}
 		
-		return "{\"message\": \"No ticket found\"}";
+		Ticket updatedTicket = util.getObjectForJSON(newTicket, Ticket.class);
+		updatedTicket.setId(ticketToUpdate.getId());
+		manager.merge(updatedTicket);
+		
+		return "{\"message\": \"Ticket updated sucessfully\"}";
 	}
 
 	@Override
 	public String deleteTicket(Long idToDelete) {
 		Ticket ticketToDelete = findByID(idToDelete);
 		
-		if(ticketToDelete!=null){
-			manager.remove(ticketToDelete);
-			
-			return "{\"message\": \"Ticket deleted sucessfully\"}";
+		if(ticketToDelete == null){
+			return "{\"message\": \"No ticket found\"}";
 		}
 		
-		return "{\"message\": \"No ticket found\"}";
+		manager.remove(ticketToDelete);
+		return "{\"message\": \"Ticket deleted sucessfully\"}";
 	}
 	
 	
 	private Ticket findByID(Long id){
 		return manager.find(Ticket.class, id);
 	}
-
-	
 	
 }

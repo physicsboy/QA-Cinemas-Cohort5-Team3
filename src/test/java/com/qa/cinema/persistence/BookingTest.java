@@ -24,7 +24,7 @@ public class BookingTest {
 	Date datetime = Calendar.getInstance().getTime();
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		tickets = new ArrayList<Ticket>();
 		testTicket = new Ticket(null, "G5", "CHILD", 4.40f);
 		testTicket2 = new Ticket(null, "G6", "ADULT", 6.70f);
