@@ -18,8 +18,8 @@
             return dal.http.PUT("rest/movie/json/" + movieToUpdateId, movieToUpdate);
         };
 
-        this.deleteMovie = function (movieToDeleteId) {
-            return dal.http.DELETE("/rest/movie/json/" + movieToDeleteId);
+        this.deleteMovie = function (movieToDelete) {
+            return dal.http.DELETE("/rest/movie/json/", movieToDeleteId);
         };
 
     }

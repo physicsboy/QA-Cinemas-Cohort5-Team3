@@ -20,5 +20,5 @@
 			});
 		};
 	};
-	angular.module('cinema').controller('updateUserController', [ '$state', 'userDal', UpdateUserController ]);
+	angular.module('movieApp').controller('updateUserController', [ '$state', 'userDal', UpdateUserController ]);
 }());

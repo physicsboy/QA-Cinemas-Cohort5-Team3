@@ -18,8 +18,8 @@
             return dal.http.PUT("rest/booking/json/" + bookingToUpdateId, bookingToUpdate);
         };
 
-        this.deleteBooking = function (bookingToDeleteId) {
-            return dal.http.DELETE("/rest/booking/json/" + bookingToDeleteId);
+        this.deleteBooking = function (bookingToDelete) {
+            return dal.http.DELETE("/rest/booking/json/", bookingToDelete);
         };
 
     }
