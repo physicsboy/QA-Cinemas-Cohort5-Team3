@@ -56,8 +56,8 @@ public class DBMovieService implements MovieService {
 		Movie updateMovie = util.getObjectForJSON(movie, Movie.class);
 		Movie movieInDB = findMovie(new Long(movieId));
 		if (movieInDB != null) {
-			movieInDB = updateMovie;
-			em.merge(movie);
+			updateMovie.setID(movieInDB.getId());
+			em.merge(updateMovie);
 		}
 		return "{\"message\": \"movie sucessfully updated\"}";
 	}
