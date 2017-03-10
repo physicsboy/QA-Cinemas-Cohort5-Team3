@@ -11,7 +11,6 @@
                 vm.errorMessage = error;
             });
         };
-        init();
 
         vm.getMovieByTitle = function getMovieByTitle() {
             movieDal.getMovieByTitle().then(function (results) {

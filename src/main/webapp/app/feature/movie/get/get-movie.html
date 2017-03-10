@@ -1,0 +1,41 @@
+<div ng-controller="getMovieController as ctrl">
+
+    <h2>Movies Page</h2>
+
+    {{ctrl.getMovies()}}
+
+    <br/><br/>
+    <table class="table table-striped">
+
+
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Description</th>
+            <th>Year</th>
+            <th>Classification</th>
+            <th>Cast</th>
+            <th>Length</th>
+        </tr>
+        <tr ng-repeat="movie in ctrl.movies">
+            <td>{{movie.title}}</td>
+            <td>{{movie.genre}}</td>
+            <td>{{movie.description}}</td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.classification}}</td>
+            <td>{{movie.cast}}</td>
+            <td>{{movie.length}}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        $http.get("welcome.htm")
+            .then(function(response) {
+                $scope.myWelcome = response.data;
+            });
+    });
+</script>
