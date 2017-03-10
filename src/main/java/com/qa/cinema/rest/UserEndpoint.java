@@ -31,7 +31,7 @@ public class UserEndpoint {
 	@Path("/json/user/{id}")
 	@GET
 	@Produces({ "application/json" })
-	public String getTicketByID(@PathParam("id") String email) {
+	public String getUserByID(@PathParam("id") String email) {
 		return service.getUserByID(email);
 	}
 

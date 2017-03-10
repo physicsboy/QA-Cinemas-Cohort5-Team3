@@ -3,6 +3,7 @@ package com.qa.cinema.service.user;
 /**
  * @author Matt Gordon
  */
+
 public interface UserService {
 	String getAllUsers();
 
