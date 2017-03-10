@@ -39,6 +39,10 @@ public class Movie {
 	public Long getId() {
 		return id;
 	}
+	
+	public void setID(Long id) {
+		this.id = id;
+	}
 
 	public String getTitle() {
 		return title;
