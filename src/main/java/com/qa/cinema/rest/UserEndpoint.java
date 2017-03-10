@@ -15,41 +15,41 @@ import com.qa.cinema.service.user.UserService;
  * @author Matt Gordon
  */
 
-@Path("/cinema")
+@Path("/user")
 public class UserEndpoint {
 
 	@Inject
 	private UserService service;
 
-	@Path("/json/user")
+	@Path("/json")
 	@GET
 	@Produces({ "application/json" })
 	public String getAllUsers() {
 		return service.getAllUsers();
 	}
 	
-	@Path("/json/user/{id}")
+	@Path("/json/{id}")
 	@GET
 	@Produces({ "application/json" })
 	public String getUserByID(@PathParam("id") String email) {
 		return service.getUserByID(email);
 	}
 
-	@Path("/json/user")
+	@Path("/json")
 	@POST
 	@Produces({ "application/json" })
 	public String addUser(String user) {
 		return service.createUser(user);
 	}
 	
-	@Path("/json/user/{id}")
+	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
 	public String updateUser(@PathParam("id") String email, String user) {
 		return service.updateUser(email, user);
 	}
 
-	@Path("/json/user/{id}")
+	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
 	public String deleteUser(@PathParam("id") String email) {
