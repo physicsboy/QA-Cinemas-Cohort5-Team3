@@ -21,7 +21,7 @@ public class BookingTest {
 	List<Ticket> tickets;
 	Ticket testTicket;
 	Ticket testTicket2;
-	Date datetime = Calendar.getInstance().getTime();
+	Long datetime = Calendar.getInstance().getTime().getTime();
 
 	@Before
 	public void setUp() {
