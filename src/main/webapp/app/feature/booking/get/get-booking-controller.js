@@ -16,7 +16,24 @@
 			});
 		}
 		init();
-		
+
+        vm.getBookingByID = function(id){
+            bookingDal.getBookingByID(id).then(function (results) {
+                vm.bookings = results;
+            }, function (error) {
+                vm.error = true;
+                vm.errorMessage = error;
+            });
+        };
+
+        vm.getBookingsByUserID = function(id){
+            bookingDal.getBookingsByUserID(id).then(function (results) {
+                vm.bookings = results;
+            }, function (error) {
+                vm.error = true;
+                vm.errorMessage = error;
+            });
+        };
 		
 	};
 

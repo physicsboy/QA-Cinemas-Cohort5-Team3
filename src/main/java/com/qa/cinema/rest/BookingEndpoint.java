@@ -29,11 +29,18 @@ public class BookingEndpoint {
 		return service.getAllBookings();
 	}
 	
-	@Path("/json/{id}")
+	@Path("/json/user/{id}")
 	@GET
 	@Produces({ "application/json" })
 	public String getBookingsByUserId(@PathParam("id") Long userId) {
 		return service.getBookingsByUserId(userId);
+	}
+	
+	@Path("/json/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String getBookingsById(@PathParam("id") Long bookingId) {
+		return service.getBookingByBookingId(bookingId);
 	}
 
 	@Path("/json")
