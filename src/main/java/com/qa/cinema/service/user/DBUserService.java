@@ -1,4 +1,4 @@
-package com.qa.cinema.service;
+package com.qa.cinema.service.user;
 
 import java.util.Collection;
 
@@ -8,10 +8,18 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
+import com.qa.cinema.persistence.Ticket;
 import com.qa.cinema.persistence.User;
 import com.qa.cinema.util.JSONUtil;
 
+/**
+ * @author Matt Gordon
+ */
 
 @Stateless
 @Default
@@ -28,6 +36,17 @@ public class DBUserService implements UserService {
 		Query query = manager.createQuery("Select u FROM User u");
 		Collection<User> users = (Collection<User>) query.getResultList();
 		return util.getJSONForObject(users);
+	}
+
+	@Override
+	public String getUserByID(String email) {
+
+		User user = findByID(email);
+		if (user == null) {
+			return "{\"message\": \"No user found\"}";
+		}
+
+		return util.getJSONForObject(user);
 	}
 
 	@Override
@@ -61,5 +80,8 @@ public class DBUserService implements UserService {
 		return manager.find(User.class, email);
 	}
 
+	private User findByID(String email) {
+		return manager.find(User.class, email);
+	}
 
 }

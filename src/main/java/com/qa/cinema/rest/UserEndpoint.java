@@ -9,7 +9,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.cinema.service.UserService;
+import com.qa.cinema.service.user.UserService;
+
+/**
+ * @author Matt Gordon
+ */
 
 @Path("/cinema")
 public class UserEndpoint {
@@ -23,6 +27,13 @@ public class UserEndpoint {
 	public String getAllUsers() {
 		return service.getAllUsers();
 	}
+	
+	@Path("/json/user/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String getTicketByID(@PathParam("id") String email) {
+		return service.getUserByID(email);
+	}
 
 	@Path("/json/user")
 	@POST
@@ -31,14 +42,14 @@ public class UserEndpoint {
 		return service.createUser(user);
 	}
 	
-	@Path("/json/{id}")
+	@Path("/json/user/{id}")
 	@PUT
 	@Produces({ "application/json" })
 	public String updateUser(@PathParam("id") String email, String user) {
 		return service.updateUser(email, user);
 	}
 
-	@Path("/json/{id}")
+	@Path("/json/user/{id}")
 	@DELETE
 	@Produces({ "application/json" })
 	public String deleteUser(@PathParam("id") String email) {
