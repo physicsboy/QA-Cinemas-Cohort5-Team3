@@ -1,10 +1,10 @@
 (function() {
 
-    var GetScreenController =  function(screenDal) {
+    var GetScreensController =  function(screenDal) {
         var vm = this;
 
         function init() {
-            movieDal.getScreen().then(
+            screenDal.getScreen().then(
 	            function (results) {
 	                vm.screens  = results;
 	            }, function (error) {
@@ -16,5 +16,5 @@
         init();
     };
 
-    angular.module('screenApp').controller('getScreenController', ['screenDal', GetScreenController]);
+    angular.module('movieApp').controller('getScreensController', ['screenDal', GetScreensController]);
 }());

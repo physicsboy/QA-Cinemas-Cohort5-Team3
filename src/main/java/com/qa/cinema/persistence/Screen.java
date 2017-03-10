@@ -15,7 +15,7 @@ public class Screen {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int ScreenId;
+	private int screenId;
 	private char column;
 	private byte row;
 	
@@ -33,10 +33,10 @@ public class Screen {
 	
 	
 	public int getScreenId() {
-		return ScreenId;
+		return screenId;
 	}
 	public void setScreenId(int screenId) {
-		ScreenId = screenId;
+		this.screenId = screenId;
 	}
 	
 	

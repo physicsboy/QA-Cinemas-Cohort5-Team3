@@ -1,22 +1,24 @@
 (function() {
 
-    var updateScreenController =  function($state, screenDal) {
+    var UpdateScreenController =  function($state, screenDal) {
         var vm = this;
 
-        vm.addScreen = function(screenToUpdate) {
+        vm.updateScreen = function(screenToUpdate) {
             console.log("This is the value of screen to add " + screenToUpdate);
             console.log(screenToUpdate);
             var screenToJson = JSON.stringify(screenToUpdate);
             console.log(screenToJson);
-            screenDal.saveScreen(screenToUpdate).then(function (results) {
-                vm.screenAddMessage  = results;
+            screenDal.updateScreen(screenToUpdate).then(function (results) {
+            	console.log("Looking good");
+                vm.screenUpdateMessage  = results;
                 $state.go('updatescreen');
             }, function (error) {
+            	console.log("Looking bad");
                 vm.error = true;
                 vm.errorMessage = error;
             });
         };
     };
 
-    angular.module('screenApp').controller('updateScreenController', ['$state','screenDal',UpdateScreenController]);
+    angular.module('movieApp').controller('updateScreenController', ['$state','screenDal',UpdateScreenController]);
 }());

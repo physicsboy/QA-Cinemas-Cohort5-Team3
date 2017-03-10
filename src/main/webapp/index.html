@@ -24,45 +24,6 @@ footer {
 
 <body>
 
-	<!-- Angular modules-->
-	<script src="scripts/jquery-1.10.2.js"></script>
-	<script src="scripts/angular.js"></script>
-	<script src="scripts/ui-router.min.js"></script>
-	<script src="scripts/bootstrap.min.js"></script>
-
-	<!-- BOOTSTRAP CSS TO ENABLE NAVBAR TO RENDER PROPERLY -->
-	<link rel="stylesheet" href="scripts/bootstrap.min.css">
-
-
-	<!-- App and state manager-->
-	<script src="app/app.js"></script>
-	<script src="app/app-state-manager.js"></script>
-
-	<!-- Services-->
-	<script src="app/service/dal/dal.js"></script>
-	<script src="app/service/dal/movie.js"></script>
-	<script src="app/service/dal/booking.js"></script>
-
-	<!-- Features-->
-	<!--<script src="app/feature/dashboard/dashboard-controller.js"></script>-->
-	<script src="app/feature/movie/add/add-movie-controller.js"></script>
-	<script src="app/feature/movie/get/get-movie-controller.js"></script>
-	<script src="app/feature/booking/get/get-booking-controller.js"></script>
-	<script src="app/feature/booking/add/add-booking-controller.js"></script>
-	<script src="app/feature/booking/update/update-booking-controller.js"></script>
-	<script src="app/feature/booking/delete/delete-booking-controller.js"></script>
-
-
-
-
-
-    <!-- Services-->
-    <script src="app/service/dal/dal.js"></script>
-    <script src="app/service/dal/movie.js"></script>
-
-
-
-
 	<!-- NAVBAR -->
 	<div class="navigation">
 		<nav class="navbar navbar-inverse navbar-static-top" role="navigation"
@@ -78,7 +39,6 @@ footer {
 					</button>
 				</div>
 
-
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -91,7 +51,7 @@ footer {
 							data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a ui-sref="#">Offers</a></li>
-								<li><a ui-sref="#">VIP</a></li>
+								<li><a ui-sref="vip">VIP</a></li>
 								<li><a ui-sref="#">Stuff</a></li>
 								<li><a ui-sref="#">Classifications</a></li>
 								<li><a ui-sref="#">Screens</a></li>
@@ -107,45 +67,20 @@ footer {
 							data-toggle="dropdown" href="#">Booking <span class="caret"></span></a>
 
 							<ul class="dropdown-menu">
-								<li><a ui-sref="addbooking">Payments</a></li>
+								<li><a ui-sref="#">Payments</a></li>
 								<li><a ui-sref="addbooking">Add Booking</a></li>
 								<li><a ui-sref="getbooking">Get Bookings</a></li>
 							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Screens <span class="caret"></span></a>
+
+							<ul class="dropdown-menu">
+								<li><a ui-sref="#">Screens</a></li>
+								<li><a ui-sref="createscreen">Add Screen</a></li>
+								<li><a ui-sref="getscreens">Show All Screens</a></li>
+								<li><a ui-sref="getscreen">Find Screen</a></li>
+							</ul></li>
 					</ul>
-
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav">
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">What's On <span
-									class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a ui-sref="#">Now Showing</a></li>
-									<li><a ui-sref="#">Coming Soon</a></li>
-								</ul></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a ui-sref="#">Offers</a></li>
-									<li><a ui-sref="vip">VIP</a></li>
-									<li><a ui-sref="#">Stuff</a></li>
-									<li><a ui-sref="#">Classifications</a></li>
-									<li><a ui-sref="#">Screens</a></li>
-								</ul></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">Facilities <span
-									class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a ui-sref="#">Screens</a></li>
-									<li><a ui-sref="#">Find Us</a></li>
-								</ul></li>
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">Booking <span class="caret"></span></a>
-
-								<ul class="dropdown-menu">
-									<li><a ui-sref="#">Payments</a></li>
-								</ul></li>
-						</ul>
-
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a ui-sref="#"><span class="glyphicon glyphicon-user"
@@ -196,7 +131,7 @@ footer {
 	<!-- PAGE VIEW -->
 	<h1>This is the index.html page</h1>
 	<div ui-view></div>
-<h1>The view is above me</h1>
+	<h1>The view is above me</h1>
 
 	<footer>
 		<div class="container text-center">
@@ -249,7 +184,7 @@ footer {
 					<ul class="nav nav-pills nav-justified">
 						<li><a href="#" ui-sref="tos">Terms of Service</a></li>
 						<li><a href="#" ui-sref="privacy">Privacy</a></li>
-						<li> &copy QA Cinema Blue.</li>
+						<li>&copy QA Cinema Blue.</li>
 						<hr>
 					</ul>
 				</div>
@@ -257,8 +192,7 @@ footer {
 		</div>
 	</footer>
 
-
-
+	<!-- BOOTSTRAP CSS TO ENABLE NAVBAR TO RENDER PROPERLY -->
 	<link rel="stylesheet" href="scripts/bootstrap.min.css">
 
 	<!-- Angular modules-->
@@ -274,29 +208,37 @@ footer {
 	<!-- Services-->
 	<script src="app/service/dal/dal.js"></script>
 	<script src="app/service/dal/movie.js"></script>
-    <script src="app/service/dal/booking.js"></script>
-    <script src="app/service/dal/screen.js"></script>
-    <script src="app/service/dal/showing.js"></script>
-    <script src="app/service/dal/ticket.js"></script>
-    <script src="app/service/dal/user.js"></script>
-
+	<script src="app/service/dal/booking.js"></script>
+	<script src="app/service/dal/screen.js"></script>
+	<script src="app/service/dal/showing.js"></script>
+	<script src="app/service/dal/ticket.js"></script>
+	<script src="app/service/dal/user.js"></script>
+	
 	<!-- Features-->
 	<!--<script src="app/feature/dashboard/dashboard-controller.js"></script>-->
 	<script src="app/feature/movie/add/add-movie-controller.js"></script>
 	<script src="app/feature/movie/get/get-movie-controller.js"></script>
-    <script src="app/feature/booking/add/add-booking-controller.js"></script>
-    <script src="app/feature/booking/get/get-booking-controller.js"></script>
-    <script src="app/feature/booking/update/update-booking-controller.js"></script>
-    <script src="app/feature/booking/delete/delete-booking-controller.js"></script>
-    <script src="app/feature/ticket/add-ticket/add-ticket-controller.js"></script>
-    <script src="app/feature/ticket/get-ticket/get-ticket-controller.js"></script>
-    <script src="app/feature/ticket/update-ticket/update-ticket-controller.js"></script>
-    <script src="app/feature/ticket/delete-ticket/delete-ticket-controller.js"></script>
-    <script src="app/feature/user/add-user/add-user-controller.js"></script>
-    <script src="app/feature/user/delete-user/delete-user-controller.js"></script>
-    <script src="app/feature/user/get-user/get-user-controller.js"></script>
-    <script src="app/feature/user/update-user/update-user-controller.js"></script>
-
+	<script src="app/feature/booking/add/add-booking-controller.js"></script>
+	<script src="app/feature/booking/get/get-booking-controller.js"></script>
+	<script src="app/feature/booking/update/update-booking-controller.js"></script>
+	<script src="app/feature/booking/delete/delete-booking-controller.js"></script>
+	<script src="app/feature/ticket/add-ticket/add-ticket-controller.js"></script>
+	<script src="app/feature/ticket/get-ticket/get-ticket-controller.js"></script>
+	<script
+		src="app/feature/ticket/update-ticket/update-ticket-controller.js"></script>
+	<script
+		src="app/feature/ticket/delete-ticket/delete-ticket-controller.js"></script>
+	<script src="app/feature/user/add-user/add-user-controller.js"></script>
+	<script src="app/feature/user/delete-user/delete-user-controller.js"></script>
+	<script src="app/feature/user/get-user/get-user-controller.js"></script>
+	<script src="app/feature/user/update-user/update-user-controller.js"></script>
+	
+	<script src="app/feature/screen/create-screen/create-screen-controller.js"></script>
+	<script src="app/feature/screen/delete-screen/delete-screen-controller.js"></script>
+	<script src="app/feature/screen/get-all-screens/get-screens-controller.js"></script>
+	<script src="app/feature/screen/get-screen/get-screen-controller.js"></script>
+	<script src="app/feature/screen/update-screen/update-screen-controller.js"></script>
+	
 
 
 </body>
