@@ -11,6 +11,12 @@
         vm.addBooking = function(bookingToAdd) {
             console.log("This is the value of booking to add " + bookingToAdd);
             console.log(bookingToAdd);
+            var date = new Date();
+            var formatDate = date.toISOString();
+            var trimDate = formatDate.substring(0,10);
+            console.log(trimDate);
+            bookingToAdd.dateBooked = trimDate;
+            console.log(bookingToAdd);            
             var bookingToJson = JSON.stringify(bookingToAdd);
             console.log(bookingToJson);
             bookingDal.saveBooking(bookingToAdd).then(function (results) {

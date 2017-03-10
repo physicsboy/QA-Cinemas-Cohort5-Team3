@@ -15,5 +15,5 @@
         }
         init();
     };
-    angular.module('cinema').controller('getUserController', ['userDal', GetUserController]);
+    angular.module('movieApp').controller('getUserController', ['userDal', GetUserController]);
 }());
