@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 
 import com.qa.cinema.service.ShowingService;
 
-@Path("/movieApp/showing")
+@Path("/showing")
 public class ShowingEndPoint {
 
 	

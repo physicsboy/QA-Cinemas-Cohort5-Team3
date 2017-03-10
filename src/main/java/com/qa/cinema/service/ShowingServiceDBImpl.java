@@ -38,7 +38,7 @@ public class ShowingServiceDBImpl implements ShowingService {
 	}
 	
 	public String getShowingByMovie(Long movieID){
-		Query query = manager.createQuery("SELECT s FROM Showing s WHERE movie.id =" + movieID);
+		Query query = manager.createQuery("SELECT s FROM Showing s WHERE movie_Id =" + movieID);
 		@SuppressWarnings("unchecked")
 		Collection<Showing> showing = (Collection<Showing>) query.getResultList();
 		return util.getJSONForObject(showing);
