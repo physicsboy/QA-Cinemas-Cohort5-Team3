@@ -9,22 +9,33 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.cinema.service.UserService;
+import com.qa.cinema.service.user.UserService;
 
-@Path("/cinema")
+/**
+ * @author Matt Gordon
+ */
+
+@Path("/user")
 public class UserEndpoint {
 
 	@Inject
 	private UserService service;
 
-	@Path("/json/user")
+	@Path("/json")
 	@GET
 	@Produces({ "application/json" })
 	public String getAllUsers() {
 		return service.getAllUsers();
 	}
+	
+	@Path("/json/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String getUserByID(@PathParam("id") String email) {
+		return service.getUserByID(email);
+	}
 
-	@Path("/json/user")
+	@Path("/json")
 	@POST
 	@Produces({ "application/json" })
 	public String addUser(String user) {
@@ -34,14 +45,14 @@ public class UserEndpoint {
 	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateMovie(@PathParam("id") String email, String movie) {
-		return service.updateUser(email, movie);
+	public String updateUser(@PathParam("id") String email, String user) {
+		return service.updateUser(email, user);
 	}
 
 	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMovie(@PathParam("id") String email) {
+	public String deleteUser(@PathParam("id") String email) {
 		return service.deleteUser(email);
 	}
 }
