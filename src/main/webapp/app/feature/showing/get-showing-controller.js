@@ -16,5 +16,5 @@
         init();
     };
 
-    angular.module('cinema').controller('getShowingController', [getShowingController]);
+    angular.module('movieApp').controller('getShowingController', [getShowingController]);
 }());
