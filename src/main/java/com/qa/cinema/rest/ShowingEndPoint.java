@@ -26,16 +26,16 @@ public class ShowingEndPoint {
 		return service.getAllShowings();
 	}
 	
-	@Path("/json")
+	@Path("/json/{id}")
 	@GET
-	@Produces({"application/josn"})
+	@Produces({"application/json"})
 	public String getShowingByShowingId(@PathParam("id")Long showingId){
 		return service.getShowingById(showingId);
 	}
 	
-	@Path("/json")
+	@Path("/json/movie/{id}")
 	@GET
-	@Produces({"application/josn"})
+	@Produces({"application/json"})
 	public String getShowingByMovieId(@PathParam("id")Long movieId){
 		return service.getShowingByMovie(movieId);
 	}
