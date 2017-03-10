@@ -18,13 +18,13 @@ public class Movie {
 	private String year;
 	private String classification;
 	private String cast;
-	private String length;
+	private int length;
 
 	public Movie() {
 	}
 
 	public Movie(String title, String posterURL, String genre, String description, String year, String classification,
-			String cast, String length) {
+			String cast, int length) {
 		super();
 		this.title = title;
 		this.posterURL = posterURL;
@@ -96,11 +96,11 @@ public class Movie {
 		this.cast = cast;
 	}
 
-	public String getLength() {
+	public int getLength() {
 		return length;
 	}
 
-	public void setLength(String length) {
+	public void setLength(int length) {
 		this.length = length;
 	}
 

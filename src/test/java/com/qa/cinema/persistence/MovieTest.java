@@ -1,6 +1,7 @@
 package com.qa.cinema.persistence;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,13 +13,13 @@ public class MovieTest {
 	@Before
 	public void TestSetup() {
 		movie = new Movie("The Lord of the Rings", "1234.image.com", "Fantasy",
-				"Two hobbits seek to destroy the ring", "2001", "PG", "Ian McKellen", "228 mins");
+				"Two hobbits seek to destroy the ring", "2001", "PG", "Ian McKellen", 228);
 	}
 
-//	 @Test
-//	 public void TestGetId() {
-//	 assertEquals(1, movie.getId());
-//	 }
+	@Test
+	public void TestGetId() {
+	 assertNull(movie.getId());
+ 	}
 
 	@Test
 	public void TestGetTitle() {
@@ -99,13 +100,13 @@ public class MovieTest {
 
 	@Test
 	public void TestGetLength() {
-		assertEquals("228 mins", movie.getLength());
+		assertEquals(228, movie.getLength());
 	}
 
 	@Test
 	public void TestSetLength() {
-		movie.setLength("170 mins");
-		assertEquals("170 mins", movie.getLength());
+		movie.setLength(170);
+		assertEquals(170, movie.getLength());
 	}
 
 }

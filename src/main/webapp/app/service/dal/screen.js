@@ -15,11 +15,11 @@
         };
 
         this.updateScreen = function (screenToUpdateId,screenToUpdate) {
-            return dal.http.PUT("rest/screen/json/" +screenToUpdateId,screenToUpdate);
+            return dal.http.PUT("rest/screen/json/" + screenToUpdateId, screenToUpdate);
         };
 
-        this.deleteScreen = function (screenToDeleteId) {
-            return dal.http.DELETE("/rest/screen/json/" +screenToDeleteId);
+        this.deleteScreen = function (screenToDelete) {
+            return dal.http.DELETE("/rest/screen/json/", screenToDelete);
         };
 
     }
