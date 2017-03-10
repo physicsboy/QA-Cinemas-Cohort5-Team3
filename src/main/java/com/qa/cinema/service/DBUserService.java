@@ -43,7 +43,7 @@ public class DBUserService implements UserService {
 		User userInDB = findUser(email);
 		if (userInDB != null) {
 			userInDB = updateUser;
-			manager.merge(user);
+			manager.merge(userInDB);
 		}
 		return "{\"message\": \"user sucessfully updated\"}";
 	}

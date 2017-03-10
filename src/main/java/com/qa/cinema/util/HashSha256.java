@@ -4,14 +4,14 @@ import java.security.MessageDigest;
 
 import javax.xml.bind.DatatypeConverter;
 
-public class PwHashSha256 {
+public class HashSha256 {
 	/**
 	 * Returns a hexadecimal encoded SHA-256 hash for the input String.
 	 * 
 	 * @param data
 	 * @return
 	 */
-	private static String getSHA256Hash(String data) {
+	public static String getSHA256Hash(String data) {
 		String result = null;
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
