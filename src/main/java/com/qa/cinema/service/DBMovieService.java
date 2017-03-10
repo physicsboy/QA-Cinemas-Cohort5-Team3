@@ -31,54 +31,48 @@ public class DBMovieService implements MovieService {
 
 	@Override
 	public String listMovieByTitle(String title) {
-		Movie movieInDB = findMovieTitle(new String(title));
-		return util.getJSONForObject(movieInDB);
+		Query query = em.createQuery("SELECT m FROM Movie m WHERE m.title LIKE " + title);
+		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
+		return util.getJSONForObject(movies);
 
 	}
 
 	@Override
 	public String listMovieByGenre(String genre) {
-		Movie movieInDB = findMovieGenre(new String(genre));
-		return util.getJSONForObject(movieInDB);
+		Query query = em.createQuery("SELECT m FROM Movie m WHERE m.genre LIKE " + genre);
+		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
+		return util.getJSONForObject(movies);
 	}
 
-	// @Override
-	// public String createNewMovie(String movie) {
-	// Movie newMovie = util.getObjectForJSON(movie, Movie.class);
-	// em.persist(newMovie);
-	// return "{\"message\": \"movie sucessfully added\"}";
-	// }
-	//
-	// @Override
-	// public String updateMovie(Long movieId, String movie) {
-	// Movie updateMovie = util.getObjectForJSON(movie, Movie.class);
-	// Movie movieInDB = findMovie(new Long(movieId));
-	// if (movieInDB != null) {
-	// movieInDB = updateMovie;
-	// em.merge(movie);
-	// }
-	// return "{\"message\": \"movie sucessfully updated\"}";
-	// }
-	//
-	// @Override
-	// public String deleteMovie(Long movieId) {
-	// Movie movieInDB = findMovie(new Long(movieId));
-	// if (movieInDB != null) {
-	// em.remove(movieInDB);
-	// }
-	// return "{\"message\": \"movie sucessfully deleted\"}";
-	// }
-
-	// private Movie findMovie(Long id) {
-	// return em.find(Movie.class, id);
-	// }
-
-	private Movie findMovieTitle(String title) {
-		return em.find(Movie.class, title);
+	@Override
+	public String createNewMovie(String movie) {
+		Movie newMovie = util.getObjectForJSON(movie, Movie.class);
+		em.persist(newMovie);
+		return "{\"message\": \"movie sucessfully added\"}";
 	}
-	
-	private Movie findMovieGenre(String genre) {
-		return em.find(Movie.class, genre);
+
+	@Override
+	public String updateMovie(Long movieId, String movie) {
+		Movie updateMovie = util.getObjectForJSON(movie, Movie.class);
+		Movie movieInDB = findMovie(new Long(movieId));
+		if (movieInDB != null) {
+			movieInDB = updateMovie;
+			em.merge(movie);
+		}
+		return "{\"message\": \"movie sucessfully updated\"}";
+	}
+
+	@Override
+	public String deleteMovie(Long movieId) {
+		Movie movieInDB = findMovie(new Long(movieId));
+		if (movieInDB != null) {
+			em.remove(movieInDB);
+		}
+		return "{\"message\": \"movie sucessfully deleted\"}";
+	}
+
+	private Movie findMovie(Long id) {
+		return em.find(Movie.class, id);
 	}
 
 }

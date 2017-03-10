@@ -8,9 +8,9 @@ public interface MovieService {
 	
 	String listMovieByGenre(String genre);
 
-//	String createNewMovie(String movie);
-//
-//	String updateMovie(Long movieId, String movie);
-//
-//	String deleteMovie(Long movieId);
+	String createNewMovie(String movie);
+
+	String updateMovie(Long movieId, String movie);
+
+	String deleteMovie(Long movieId);
 }

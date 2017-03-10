@@ -26,22 +26,22 @@ public class MapMovieService implements MovieService {
 		return null;
 	}
 
-//	@Override
-//	public String createNewMovie(String movie) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String updateMovie(Long movieId, String movie) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String deleteMovie(Long movieId) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public String createNewMovie(String movie) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateMovie(Long movieId, String movie) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteMovie(Long movieId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

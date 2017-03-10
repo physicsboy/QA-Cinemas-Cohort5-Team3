@@ -6,16 +6,45 @@ import org.junit.Test;
 import com.qa.cinema.persistence.Showing;
 public class ShowingTest {
 	
-	Showing showing;
+	
+	//public Movie(String title, String posterURL, String genre, String description, String year, String classification,
+	//String cast, int length) {
 
+	
+	Movie movie = new Movie("Lord of the Rings", "Poster.jpg", "Fantasy", "Frodo visits a volcano to dispose of some old heirloom", "2003", "PG", "Ian Mckellen", 2);
+	Screen screen = new Screen();
+	Showing showing = new Showing(movie, "040320017183500", screen);
+	
 	@Test
 	public void testObject() {
 		
-		/*Showing showing = new Showing("09-04-2017 11:35:00");
-		
 		assertNotNull(showing);
-		equals(showing == new Showing("09-04-2017 11:35:00"));
-*/		
+		Showing showingTwo = showing;
+		assertEquals(showing, showingTwo);
+		
+	}
+	
+	@Test
+	public void testDateTime(){
+		showing.setDateTime("050320017183500");
+		
+		equals(showing.getDateTime());
+	}
+	
+	@Test
+	public void testScreen(){
+		
+		showing.setScreen(screen);
+		
+		assertEquals(screen, showing.getScreen());
+	}
+	
+	@Test
+	public void testMovie(){
+		
+		showing.setMovie(movie);
+		
+		assertEquals(movie, showing.getMovie());
 	}
 	
 }
