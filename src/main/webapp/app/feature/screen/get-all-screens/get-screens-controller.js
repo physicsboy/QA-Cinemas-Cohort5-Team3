@@ -7,6 +7,10 @@
             screenDal.getScreen().then(
 	            function (results) {
 	                vm.screens  = results;
+	                
+	                
+	                
+	                
 	            }, function (error) {
 	                vm.error = true;
 	                vm.errorMessage = error;

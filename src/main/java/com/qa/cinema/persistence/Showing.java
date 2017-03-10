@@ -42,7 +42,7 @@ public class Showing {
 		return movie;
 	}
 
-	public void setMovieID(Movie movie) {
+	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
 
@@ -58,7 +58,7 @@ public class Showing {
 		return screen;
 	}
 
-	public void setScreenID(Screen screen) {
+	public void setScreen(Screen screen) {
 		this.screen = screen;
 	}
 }
