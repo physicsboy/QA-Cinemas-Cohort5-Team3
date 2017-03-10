@@ -32,12 +32,21 @@ public class DBBookingService implements BookingService {
 		Query query = em.createQuery("SELECT b FROM Booking b");
 		@SuppressWarnings("unchecked")
 		Collection<Booking> bookings = (Collection<Booking>) query.getResultList();
+
 		return util.getJSONForObject(bookings);
 	}
 
 	@Override
+	public String getBookingByBookingId(Long bookingId) {
+		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.booking_id = "+bookingId);
+		@SuppressWarnings("unchecked")
+		Collection<Booking> bookings = (Collection<Booking>) query.getResultList();
+		return util.getJSONForObject(bookings);
+	}
+	
+	@Override
 	public String getBookingsByUserId(Long userId) {
-		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.booking_id = "+userId);
+		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.user_id = "+userId);
 		@SuppressWarnings("unchecked")
 		Collection<Booking> bookings = (Collection<Booking>) query.getResultList();
 		return util.getJSONForObject(bookings);
@@ -74,5 +83,7 @@ public class DBBookingService implements BookingService {
 	private Booking findBooking(Long id) {
 		return em.find(Booking.class, id);
 	}
+
+
 
 }
