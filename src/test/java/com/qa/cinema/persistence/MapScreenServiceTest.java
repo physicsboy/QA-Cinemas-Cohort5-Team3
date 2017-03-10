@@ -55,18 +55,18 @@ public class MapScreenServiceTest {
 	@Test
 	public void getScreen() {
 		String s = service.getScreen(1);
-		assertEquals("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}", s);
+		assertEquals("{\"screenId\":1,\"column\":\"a\",\"row\":1}", s);
 	}
 
 	@Test
 	public void getScreens() {
-		assertEquals("[{\"ScreenId\":1,\"column\":\"a\",\"row\":1},{\"ScreenId\":2,\"column\":\"b\",\"row\":2}]",service.getScreens());
+		assertEquals("[{\"screenId\":1,\"column\":\"a\",\"row\":1},{\"screenId\":2,\"column\":\"b\",\"row\":2}]",service.getScreens());
 	}
 	
 	
 	@Test
 	public void createScreen() {
-		service.createScreen("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}");
+		service.createScreen("{\"screenId\":1,\"column\":\"a\",\"row\":1}");
 		assertEquals(3,service.getScreenObjects().size());
 	}
 
@@ -83,7 +83,7 @@ public class MapScreenServiceTest {
 	public void updateScreen() {
 		Screen screen = new Screen('q', (byte)1);
 		screen.setScreenId(1);
-		service.updateScreen(1,"{\"ScreenId\":1,\"column\":\"q\",\"row\":1}");
+		service.updateScreen(1,"{\"screenId\":1,\"column\":\"q\",\"row\":1}");
 		assertEquals('q',service.getScreenObject(1).getColumn());
 	}
 

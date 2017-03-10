@@ -20,6 +20,7 @@
 
 <div id="wrap">
 
+
 	<!-- NAVBAR -->
 	<div class="navigation">
 		<nav class="navbar navbar-inverse navbar-static-top" role="navigation"
@@ -35,7 +36,6 @@
 					</button>
 				</div>
 
-
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -48,7 +48,7 @@
 							data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a ui-sref="#">Offers</a></li>
-								<li><a ui-sref="#">VIP</a></li>
+								<li><a ui-sref="vip">VIP</a></li>
 								<li><a ui-sref="#">Stuff</a></li>
 								<li><a ui-sref="#">Classifications</a></li>
 								<li><a ui-sref="getscreen">Screens</a></li>
@@ -63,6 +63,7 @@
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Booking <span class="caret"></span></a>
 
 							<ul class="dropdown-menu">
+								<li><a ui-sref="#">Payments</a></li>
 								<li><a ui-sref="addbooking">Add Booking</a></li>
 								<li><a ui-sref="getbooking">Get Bookings</a></li>
 								<li><a ui-sref="deletebooking">Delete Bookings</a></li>
@@ -101,6 +102,10 @@
 								<li><a ui-sref="deleteuser">Delete users</a></li>
 								<li><a ui-sref="updateuser">Update users</a></li>
 							</ul></li>
+
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Screens <span class="caret"></span></a>
+
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Showing <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a ui-sref="addshowing">Add showing</a></li>
@@ -111,9 +116,13 @@
 
 
 					</ul>
-
-
-
+						<ul class="dropdown-menu">
+							<li><a ui-sref="#">Screens</a></li>
+							<li><a ui-sref="createscreen">Add Screen</a></li>
+							<li><a ui-sref="getscreens">Show All Screens</a></li>
+							<li><a ui-sref="getscreen">Find Screen</a></li>
+						</ul></li>
+					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a ui-sref="#"><span class="glyphicon glyphicon-user"
@@ -160,6 +169,7 @@
 				</div>
 			</div>
 		</div>
+
 
 		<!-- PAGE VIEW -->
 		<div ui-view id="view">
@@ -219,12 +229,14 @@
 			<hr>
 			<div class="row">
 				<div class="col-lg-12">
+
 					<ul class="nav nav-pills nav-justified">
 						<li><a href="#" ui-sref="tos">Terms of Service</a></li>
 						<li><a href="#" ui-sref="privacy">Privacy</a></li>
 						<li>&copy QA Cinema Blue.</li>
 						<hr>
 					</ul>
+
 				</div>
 			</div>
 			<hr>
@@ -265,15 +277,16 @@
     <script src="app/feature/booking/update/update-booking-controller.js"></script>
     <script src="app/feature/booking/delete/delete-booking-controller.js"></script>
 
-<script src="app/feature/screen/add-screen/add-screen-controller.js"></script>
-<script src="app/feature/screen/delete-screen/delete-screen-controller.js"></script>
-<script src="app/feature/screen/get-screen/get-screen-controller.js"></script>
-<script src="app/feature/screen/update-screen/update-screen-controller.js"></script>
+	<script src="app/feature/screen/create-screen/create-screen-controller.js"></script>
+	<script src="app/feature/screen/delete-screen/delete-screen-controller.js"></script>
+	<script src="app/feature/screen/get-all-screens/get-screens-controller.js"></script>
+	<script src="app/feature/screen/get-screen/get-screen-controller.js"></script>
+	<script src="app/feature/screen/update-screen/update-screen-controller.js"></script>
 
-<script src="app/feature/showing/add-showing/add-showing-controller.js"></script>
-<script src="app/feature/showing/delete-showing/delete-showing-controller.js"></script>
-<script src="app/feature/showing/get-showing/get-showing-controller.js"></script>
-<script src="app/feature/showing/update-showing/update-showing-controller.js"></script>
+	<script src="app/feature/showing/add-showing/add-showing-controller.js"></script>
+	<script src="app/feature/showing/delete-showing/delete-showing-controller.js"></script>
+	<script src="app/feature/showing/get-showing/get-showing-controller.js"></script>
+	<script src="app/feature/showing/update-showing/update-showing-controller.js"></script>
 
     <script src="app/feature/ticket/add-ticket/add-ticket-controller.js"></script>
     <script src="app/feature/ticket/get-ticket/get-ticket-controller.js"></script>
@@ -284,10 +297,6 @@
     <script src="app/feature/user/delete-user/delete-user-controller.js"></script>
     <script src="app/feature/user/get-user/get-user-controller.js"></script>
     <script src="app/feature/user/update-user/update-user-controller.js"></script>
-
-
-
-
 
 
 </body>
