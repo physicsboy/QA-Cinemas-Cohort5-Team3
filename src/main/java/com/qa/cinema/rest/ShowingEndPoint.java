@@ -47,7 +47,7 @@ public class ShowingEndPoint {
 		return service.addShowing(showing);
 	}
 	
-	@Path("/json")
+	@Path("/json/{id}")
 	@PUT
 	@Produces({"application/json"})
 	public String updateShowing(@PathParam("id") Long showingId, String showing){
