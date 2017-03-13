@@ -1,6 +1,21 @@
-<div ng-controller="getMovieController as movieCtrl" class="container-fluid">
-    <link href="get-specific-movie.css">
+<style>
+    .custom-header{
+        text-decoration: underline;
+        text-align: left;
+        color: #1b6d85;
+        font-size: x-large;
+        font-weight: bold;
+    }
 
+    .movie-poster{
+        margin-bottom: 40px;
+        width: 55%;
+        align-content: center;
+        display: block;
+    }
+</style>
+
+<div ng-controller="getMovieController as movieCtrl" class="container-fluid" style="">
     <div>
         <select
                 ng-model="chosenMovie"
@@ -9,9 +24,9 @@
     </div>
 
     <div class="container-fluid">
-        <div class="col-md-6">
+        <div class="col-md-6" >
             </br>
-            <img src='{{chosenMovie.posterURL}}'/>
+            <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive"  />
         </div>
 
         <div class="col-md-6">
