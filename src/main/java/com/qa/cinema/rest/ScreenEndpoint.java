@@ -51,7 +51,7 @@ public class ScreenEndpoint {
 	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMovie(@PathParam("id") int id) {
+	public String deleteScreen(@PathParam("id") int id) {
 		return service.deleteScreen(id);
 	}
 		
