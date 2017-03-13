@@ -12,7 +12,7 @@ public class MovieTest {
 
 	@Before
 	public void TestSetup() {
-		movie = new Movie("The Lord of the Rings", "1234.image.com", "Fantasy",
+		movie = new Movie("The Lord of the Rings", "1234.image.com", "1234.trailer.com", "Fantasy",
 				"Two hobbits seek to destroy the ring", "2001", "PG", "Ian McKellen", 228);
 	}
 
@@ -41,6 +41,17 @@ public class MovieTest {
 	public void TestSetPosterURL() {
 		movie.setPosterURL("5678.image.com");
 		assertEquals("5678.image.com", movie.getPosterURL());
+	}
+	
+	@Test
+	public void TestGetTrailerURL() {
+		assertEquals("1234.trailer.com", movie.getTrailerURL());
+	}
+
+	@Test
+	public void TestSetTrailerURL() {
+		movie.setTrailerURL("5678.triler.com");
+		assertEquals("5678.triler.com", movie.getTrailerURL());
 	}
 
 	@Test

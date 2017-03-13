@@ -14,8 +14,8 @@
         vm.getMovies();
 
 
-        vm.getMovieByTitle = function getMovieByTitle() {
-            movieDal.getMovieByTitle().then(function (results) {
+        vm.getMovieByTitle = function getMovieByTitle(title) {
+            movieDal.getMovieByTitle(title).then(function (results) {
                 vm.movies = results;
             }, function (error) {
                 vm.error = true;

@@ -5,10 +5,15 @@
 
 package com.qa.cinema.persistence;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Screen {
@@ -16,18 +21,19 @@ public class Screen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int screenId;
-	private char column;
-	private byte row;
+	private String url;
 	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name="screen_ID")
+	private List<Seat> seats;
 	
 	
 	public Screen() {
 	}
 	
-	public Screen(char column, byte row) {
+	public Screen(String url) {
 		super();
-		this.column = column;
-		this.row = row;
+		this.url = url;
 	}
 	
 	
@@ -40,19 +46,19 @@ public class Screen {
 	}
 	
 	
-	public char getColumn() {
-		return column;
+	public String getURL() {
+		return url;
 	}
-	public void setColumn(char column) {
-		this.column = column;
+	public void setURL(String url) {
+		this.url = url;
 	}
 	
 	
-	public byte getRow() {
-		return row;
+	public List<Seat> getSeats() {
+		return seats;
 	}
-	public void setRow(byte row) {
-		this.row = row;
+	public void setSeats(List<Seat> seats) {
+		this.seats = seats;
 	}
 	
 	
