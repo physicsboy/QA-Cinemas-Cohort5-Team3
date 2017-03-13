@@ -13,6 +13,7 @@ public class Movie {
 	private Long id;
 	private String title;
 	private String posterURL;
+	private String trailerURL;
 	private String genre;
 	private String description;
 	private String year;
@@ -23,11 +24,12 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(String title, String posterURL, String genre, String description, String year, String classification,
+	public Movie(String title, String posterURL, String trailerURL, String genre, String description, String year, String classification,
 			String cast, int length) {
 		super();
 		this.title = title;
 		this.posterURL = posterURL;
+		this.trailerURL = trailerURL;
 		this.genre = genre;
 		this.description = description;
 		this.year = year;
@@ -58,6 +60,14 @@ public class Movie {
 
 	public void setPosterURL(String posterURL) {
 		this.posterURL = posterURL;
+	}
+	
+	public String getTrailerURL() {
+		return trailerURL;
+	}
+
+	public void setTrailerURL(String trailerURL) {
+		this.trailerURL = trailerURL;
 	}
 
 	public String getGenre() {
