@@ -1,6 +1,7 @@
 .custom-header{
-    text-underline: wave;
-    text-align: left;
-    size: auto;
-    color: #1b6d85;
-}
+     text-decoration: underline;
+     text-align: left;
+     color: #1b6d85;
+     font-size: x-large;
+     font-weight: bold;
+ }
