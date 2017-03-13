@@ -1,0 +1,27 @@
+<div ng-controller="getMovieController as movieCtrl" class="container-fluid">
+    <link href="get-specific-movie.css">
+
+    <div>
+        <select
+                ng-model="chosenMovie"
+                ng-options="movie as movie.title for movie in movieCtrl.movies">
+        </select>
+    </div>
+
+    <div class="container-fluid">
+        <div class="col-md-6">
+            </br>
+            <img src='{{chosenMovie.posterURL}}'/>
+        </div>
+
+        <div class="col-md-6">
+            <p class="custom-header">Description</p>
+            {{chosenMovie.description}} <br/>
+            <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/>
+            {{chosenMovie.cast}} <br/>
+            {{chosenMovie.genre}} <br/>
+            {{chosenMovie.length}} <br/>
+        </div>
+    </div>
+
+</div>

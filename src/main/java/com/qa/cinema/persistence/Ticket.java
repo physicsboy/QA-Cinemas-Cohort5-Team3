@@ -25,8 +25,8 @@ public class Ticket {
 	@JoinColumn(referencedColumnName="id")
 	private Showing showing;
 	
-	@OneToOne
-	@JoinColumn(referencedColumnName="SeatId")
+	@ManyToOne
+	@JoinColumn(referencedColumnName="seatId")
 	private Seat seat;
 	
 	private String type;

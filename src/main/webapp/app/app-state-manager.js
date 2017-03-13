@@ -63,6 +63,8 @@
             	templateUrl : "app/feature/showing/update/update-showing.html"
             }).state("deleteshowing",{url : "/deleteshowing",
                 templateUrl : "app/feature/showing/delete/delete-showing.html"
+            }).state("getspecificmovie",{url : "/getspecificmovie",
+                templateUrl : "app/feature/movie/get/specific-movie/get-specific-movie.html"
             })
        });
  }());

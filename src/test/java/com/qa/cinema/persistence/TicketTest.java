@@ -18,7 +18,7 @@ public class TicketTest {
 	@Before
 	public void setUp() {
 		seat = new Seat();
-		seat.setSeatId(1);
+		seat.setSeatId(1L);
 		ticket = new Ticket(null, seat , "Child", 9.99f);
 		
 	}
@@ -49,13 +49,13 @@ public class TicketTest {
 	
 	@Test
 	public void testGetSeat(){
-		assertEquals(1, ticket.getSeat().getSeatId());
+		assertEquals(new Long(1), ticket.getSeat().getSeatId());
 	}
 	
 	@Test
 	public void testSetSeat(){
 		ticket.setSeat(seat);
-		assertEquals(1, ticket.getSeat().getSeatId());
+		assertEquals(new Long(1), ticket.getSeat().getSeatId());
 	}
 	
 	@Test
