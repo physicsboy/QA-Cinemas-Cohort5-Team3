@@ -39,9 +39,6 @@ public class ScreenTest {
 	private Screen screen1;
 	private Screen screen2;
 	
-	
-	
-	
 	@Test
 	public void getScreenIdScreen1() {
 		assertEquals(1,screen1.getScreenId());

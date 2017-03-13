@@ -28,8 +28,7 @@ public class Booking {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long bookingId;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateBooked;
+	private Long dateBooked;
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="ticket_booking_id")
@@ -44,7 +43,7 @@ public class Booking {
 	}
 	
 	
-	public Booking(Date dateBooked, List<Ticket> tickets, String paymentEmail, String userEmail) {
+	public Booking(Long dateBooked, List<Ticket> tickets, String paymentEmail, String userEmail) {
 		super();
 		this.dateBooked = dateBooked;
 		this.tickets = tickets;
@@ -56,7 +55,7 @@ public class Booking {
 		return bookingId;
 	}
 	
-	public Date getDateBooked() {
+	public Long getDateBooked() {
 		return dateBooked;
 	}
 	

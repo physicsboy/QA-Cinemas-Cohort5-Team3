@@ -16,10 +16,10 @@ INSERT INTO showing VALUES (2, '2017-11-03', 3, 3);
 INSERT INTO showing VALUES (3, '2017-15-03', 4, 1);
 INSERT INTO showing VALUES (4, '2017-12-03', 2, 4);
 
-INSERT INTO booking VALUES (1, '2017-09-03', 'alex@alex.com', 'alex@alex.com');
-INSERT INTO booking VALUES (2, '2017-11-03', 'sma@sam.com', 'sam@sam.com');
-INSERT INTO booking VALUES (3, '2017-12-03', 'fred@fred.com', 'alex@alex.com');
-INSERT INTO booking VALUES (3, '2017-12-03', 'fred@fred.com', 'alex@alex.com');
+INSERT INTO booking VALUES (1, 915814235000, 'alex@alex.com', 'alex@alex.com');
+INSERT INTO booking VALUES (2, 995894235000, 'sma@sam.com', 'sam@sam.com');
+INSERT INTO booking VALUES (3, 985824235000, 'fred@fred.com', 'alex@alex.com');
+INSERT INTO booking VALUES (3, 945884235000, 'fred@fred.com', 'alex@alex.com');
 
 
 INSERT INTO ticket VALUES (1, 6.99, 'A1', 'Child', 1, 1),

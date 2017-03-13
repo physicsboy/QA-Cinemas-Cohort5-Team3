@@ -6,12 +6,16 @@
 
     function ScreenDal (dal) {
 
-        this.getScreens = function () {
+        this.getAllScreens = function () {
             return dal.http.GET("rest/screen/json");
         };
+        
+        this.getScreen = function () {
+            return dal.http.GET("rest/screen/json"  + screenToGetId);
+        };
 
-        this.saveScreen = function (screenToSave) {
-            return dal.http.POST("rest/screen/json",screenToSave);
+        this.createScreen = function (screenToCreate) {
+            return dal.http.POST("rest/screen/json", screenToCreate);
         };
 
         this.updateScreen = function (screenToUpdateId,screenToUpdate) {

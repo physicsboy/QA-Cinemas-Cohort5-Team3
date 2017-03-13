@@ -1,21 +1,11 @@
 <div ng-controller="addBookingController as ctrl">
-    <form role="form">
+	<form role="form">
 
+		<input id="paymentEmail" placeholder="Payment Email" ng-model="booking.paymentEmail">
+		<input id="userEmail" placeholder="Account Email" ng-model="booking.userEmail">
 
-        <script>
-            var d = new Date();
-            var d2 = parseInt(d.getTime()/1000);
-            var d3 = d.toDateString();
-            document.getElementById("demo").innerHTML = d2 + d3;
-        </script>
-        <p id="demo"></p>
-        <input id="dateBooked" placeholder={{d3}} ng-model="booking.dateBooked">
+		<button type="submit" ng-click="ctrl.addBooking(booking)">Add Booking</button>
+		
 
-        <input id="paymentEmail" placeholder="Payment Email" ng-model="booking.paymentEmail">
-
-        <input id="userEmail" placeholder="Account Email" ng-model="booking.userEmail">
-
-        <button type="submit" ng-click="ctrl.addBooking(booking)">add Booking</button>
-
-    </form>
+	</form>
 </div>
