@@ -1,38 +1,30 @@
 <div ng-controller="getMovieController as ctrl">
 
-    {{ctrl.getMovies()}}
-
     <br/><br/>
 
-    <!--<div class = container>-->
-        <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">-->
-            <!--&lt;!&ndash; Indicators &ndash;&gt;-->
-            <!--<ol class="carousel-indicators">-->
-                <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
-                <!--<div ng-repeat="movie in ctrl.movies">-->
-                <!--<li data-target="#myCarousel" data-slide-to="{{movie.id}}"></li>-->
-                <!--</div>-->
-            <!--</ol>-->
+    <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">-->
+        <!--&lt;!&ndash; Indicators &ndash;&gt;-->
+        <!--<ol class="carousel-indicators" ng-repeat="movie in ctrl.movies">-->
+            <!--<li data-target="#myCarousel" data-slide-to="$index" ng-class="{'active': $index == 0}"></li>-->
+        <!--</ol>-->
 
-            <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-            <!--<div class="carousel-inner" role="listbox">-->
-                <!--<div class="item" ng-class="{active: $index == 0}" ng-repeat="movie in ctrl.movies">-->
-                    <!--<img src="{{movie.posterURL}}">-->
-                <!--</div>-->
+        <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+        <!--<div class="carousel-inner" role="listbox" ng-repeat="movie in ctrl.movies">-->
+            <!--<div class="item" ng-class="{'active': $index == 0}">-->
+                <!--{{movie.trailerURL}}-->
             <!--</div>-->
         <!--</div>-->
 
-            <!--&lt;!&ndash; Left and right controls &ndash;&gt;-->
-            <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">-->
-                <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
-                <!--<span class="sr-only">Previous</span>-->
-            <!--</a>-->
-            <!--<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
-                <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
-                <!--<span class="sr-only">Next</span>-->
-            <!--</a>-->
-        <!--</div>-->
-
+        <!-- Left and right controls -->
+        <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">-->
+            <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+            <!--<span class="sr-only">Previous</span>-->
+        <!--</a>-->
+        <!--<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
+            <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+            <!--<span class="sr-only">Next</span>-->
+        <!--</a>-->
+    <!--</div>-->
 
     <div class = container>
         <div class = "OurMovies">Our Movies</div>
@@ -46,6 +38,7 @@
         </div>
     </div>
 
-</div>
+    
 
 </div>
+
