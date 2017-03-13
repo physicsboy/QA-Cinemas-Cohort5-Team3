@@ -22,12 +22,15 @@ public class BookingTest {
 	Ticket testTicket;
 	Ticket testTicket2;
 	Long datetime = Calendar.getInstance().getTime().getTime();
-
+	private Seat seat;
+	
 	@Before
 	public void setUp() {
+		seat = new Seat();
+		seat.setSeatId(1L);
 		tickets = new ArrayList<Ticket>();
-		testTicket = new Ticket(null, "G5", "CHILD", 4.40f);
-		testTicket2 = new Ticket(null, "G6", "ADULT", 6.70f);
+		testTicket = new Ticket(null, seat, "CHILD", 4.40f);
+		testTicket2 = new Ticket(null, seat, "ADULT", 6.70f);
 		tickets.add(testTicket);
 		testBooking = new Booking(datetime, tickets, "payment@email.com", "user@email.com");
 		tickets.add(testTicket2);
