@@ -25,8 +25,8 @@ public class MapScreenService implements ScreenService{
 	}
 	
 	private void init(){
-		screeen1 = new Screen('a', (byte)1);
-		screeen2 = new Screen('b', (byte)2);
+		screeen1 = new Screen("some/url1");
+		screeen2 = new Screen("some/url2");
 		
 		screeen1.setScreenId(1);
 		screeen2.setScreenId(2);

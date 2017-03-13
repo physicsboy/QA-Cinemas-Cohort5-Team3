@@ -13,12 +13,18 @@ public class TicketTest {
 	
 	private Ticket ticket;
 	private Showing showing;
+	private Seat seat;
 
 	@Before
 	public void setUp() {
-		ticket = new Ticket(null, "A53", "Child", 9.99f);
+		seat = new Seat();
+		seat.setSeatId(1);
+		ticket = new Ticket(null, seat , "Child", 9.99f);
 		
 	}
+	
+	
+	
 	
 	@Test
 	public void testNoArgsConstructor(){
@@ -43,13 +49,13 @@ public class TicketTest {
 	
 	@Test
 	public void testGetSeat(){
-		assertEquals("A53", ticket.getSeat());
+		assertEquals(1, ticket.getSeat().getSeatId());
 	}
 	
 	@Test
 	public void testSetSeat(){
-		ticket.setSeat("A27");
-		assertEquals("A27", ticket.getSeat());
+		ticket.setSeat(seat);
+		assertEquals(1, ticket.getSeat().getSeatId());
 	}
 	
 	@Test
