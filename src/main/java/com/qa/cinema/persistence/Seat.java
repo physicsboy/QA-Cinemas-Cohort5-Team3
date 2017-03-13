@@ -14,38 +14,30 @@ public class Seat {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int seatId;
+	private Long seatId;
 	private int column;
 	private char row;
 	private int block;
-	
-	@OneToOne
-	@JoinColumn(referencedColumnName="ticketId")
-	private Ticket ticket;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="seats")
-	private Screen screen;
-	
+
 	
 	public Seat() {
 		super();
 	}
 	
-	public Seat(int column, char row, int block, Screen screen) {
+	public Seat(int column, char row, int block) {
 		super();
 		this.column = column;
 		this.row = row;
 		this.block = block;
-		this.screen = screen;
+	
 	}
 
 	
 	
-	public int getSeatId() {
+	public Long getSeatId() {
 		return seatId;
 	}
-	public void setSeatId(int seatId) {
+	public void setSeatId(Long seatId) {
 		this.seatId = seatId;
 	}
 
@@ -71,14 +63,6 @@ public class Seat {
 	}
 	public void setBlock(int block) {
 		this.block = block;
-	}
-	
-	
-	public Screen getScreen() {
-		return screen;
-	}
-	public void setScreen(Screen screen) {
-		this.screen = screen;
 	}
 	
 	

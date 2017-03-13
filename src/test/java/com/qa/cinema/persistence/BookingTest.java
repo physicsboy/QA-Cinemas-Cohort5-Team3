@@ -27,7 +27,7 @@ public class BookingTest {
 	@Before
 	public void setUp() {
 		seat = new Seat();
-		seat.setSeatId(1);
+		seat.setSeatId(1L);
 		tickets = new ArrayList<Ticket>();
 		testTicket = new Ticket(null, seat, "CHILD", 4.40f);
 		testTicket2 = new Ticket(null, seat, "ADULT", 6.70f);

@@ -31,7 +31,7 @@ public class ScreenTest {
 	@Before
 	public void setUp() throws Exception {
 		seats = new ArrayList<Seat>();
-		seat2 = new Seat(2,'b',2, screen1);
+		seat2 = new Seat(2,'b',2);
 		seats.add(seat2);
 		screen1 = new Screen();
 		screen1.setURL("some/location 1");

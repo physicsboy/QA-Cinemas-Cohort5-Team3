@@ -10,29 +10,21 @@ import org.junit.Test;
 
 public class SeatTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		screen2 = new Screen("some/location 2");
 		screen2.setScreenId(1);
-		seat2 = new Seat(2,'b',2, screen2);
+		seat2 = new Seat(2,'b',2);
 		seat1 = new Seat();
-		seat1.setSeatId(1);
+		seat1.setSeatId(1L);
 		seat1.setRow('a');
 		seat1.setColumn(1);
 		seat1.setBlock(1);
-		seat1.setScreen(screen2);
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 	}
 
 	Screen screen2 = new Screen();
@@ -42,7 +34,7 @@ public class SeatTest {
 	
 	@Test
 	public void  getSeatIdSetterTest() {
-		assertEquals(1, seat1.getSeatId());
+		assertEquals(new Long(1), seat1.getSeatId());
 	}
 	
 
@@ -74,15 +66,6 @@ public class SeatTest {
 	@Test
 	public void  getBlockSetterTest() {
 		assertEquals(2, seat2.getBlock());
-	}
-	
-	@Test
-	public void  getScreenConstructerTest() {
-		assertEquals("some/location 2", seat1.getScreen().getURL());
-	}
-	@Test
-	public void  getScreenSetterTest() {
-		assertEquals("some/location 2", seat2.getScreen().getURL());
 	}
 
 }
