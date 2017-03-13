@@ -29,7 +29,7 @@ public class MapScreenServiceTest {
 	@Before
 	public void setUp() throws Exception {
 		service = new MapScreenService();
-		screen = new Screen('c', (byte)3);
+		screen = new Screen("Some/url1");
 	}
 
 	@After
@@ -48,19 +48,19 @@ public class MapScreenServiceTest {
 	@Test
 	public void getScreenObject() {
 		Screen s = service.getScreenObject(1);
-		assertEquals('a',s.getColumn());
+		assertEquals("some/url1",s.getURL());
 	}
 	
 	
 	@Test
 	public void getScreen() {
 		String s = service.getScreen(1);
-		assertEquals("{\"screenId\":1,\"column\":\"a\",\"row\":1}", s);
+		assertEquals("{\"screenId\":1,\"url\":\"some/url1\"}", s);
 	}
 
 	@Test
 	public void getScreens() {
-		assertEquals("[{\"screenId\":1,\"column\":\"a\",\"row\":1},{\"screenId\":2,\"column\":\"b\",\"row\":2}]",service.getScreens());
+		assertEquals("[{\"screenId\":1,\"url\":\"some/url1\"},{\"screenId\":2,\"url\":\"some/url2\"}]",service.getScreens());
 	}
 	
 	
@@ -81,10 +81,10 @@ public class MapScreenServiceTest {
 
 	@Test
 	public void updateScreen() {
-		Screen screen = new Screen('q', (byte)1);
+		Screen screen = new Screen("Some/url1");
 		screen.setScreenId(1);
-		service.updateScreen(1,"{\"screenId\":1,\"column\":\"q\",\"row\":1}");
-		assertEquals('q',service.getScreenObject(1).getColumn());
+		service.updateScreen(1,"{\"screenId\":1,\"url\":\"some/url10\"}");
+		assertEquals("some/url10",service.getScreenObject(1).getURL());
 	}
 
 }
