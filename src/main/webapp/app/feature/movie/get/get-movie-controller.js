@@ -11,6 +11,7 @@
                 vm.errorMessage = error;
             });
         };
+
         vm.getMovies();
 
 

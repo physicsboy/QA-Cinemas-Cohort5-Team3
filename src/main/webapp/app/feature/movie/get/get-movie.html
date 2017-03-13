@@ -1,0 +1,23 @@
+<div ng-controller="getMovieController as ctrl">
+
+    <h2>Movies Page</h2>
+
+    {{ctrl.getMovies()}}
+
+    <br/><br/>
+
+    <div ng-repeat="movie in ctrl.movies" class="row">
+        {{movie.posterURL}}
+    </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        $http.get("welcome.htm")
+            .then(function(response) {
+                $scope.myWelcome = response.data;
+            });
+    });
+</script>
