@@ -3,149 +3,157 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="movieApp">
 
-
+<div id="wrap">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <title>QA Cinema Blue</title>
 
-<!-- <link href="index.css" rel="stylesheet" media="screen"> -->
-<link href="navbar.css" rel="stylesheet" media="screen">
-<link href="footer.css" rel="stylesheet" media="screen">
-<link href="modal.css" rel="stylesheet" media="screen">
-<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="CSS/navbar.css" rel="stylesheet" media="screen">
+<link href="CSS/footer.css" rel="stylesheet" media="screen">
+<link href="CSS/modal.css" rel="stylesheet" media="screen"> 
+<!-- <link href="CSS/navbar-collapse.css" rel="stylesheet" media="screen"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
-<div id="wrap">
+	
 
 
-	<!-- NAVBAR -->
-	<div class="navigation">
-		<nav class="navbar navbar-inverse navbar-static-top" role="navigation"
-			id="navibar">
+		<!-- NAVBAR -->
+		<div class="navigation">
+			<nav class="navbar navbar-inverse navbar-static-top"
+				role="navigation" id="navibar">
 
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" ui-sref="#">QA Cinema</a>
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#myNavbar">
-						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-				</div>
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" ui-sref="#">QA Cinema Blue</a>
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#myNavbar">
+							<span class="icon-bar"></span> 
+							<span class="icon-bar"></span> 
+							<span class="icon-bar"></span>
+						</button>
+					</div>
 
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">What's On <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="getshowing">Now Showing</a></li>
-								<li><a ui-sref="getshowing">Coming Soon</a></li>
-							</ul></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="#">Offers</a></li>
-								<li><a ui-sref="vip">VIP</a></li>
-								<li><a ui-sref="#">Stuff</a></li>
-								<li><a ui-sref="#">Classifications</a></li>
-								<li><a ui-sref="getscreen">Screens</a></li>
-							</ul></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Facilities <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="getscreen">Screens</a></li>
-								<li><a ui-sref="#">Find Us</a></li>
-							</ul></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Booking <span class="caret"></span></a>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav navbar-nav">
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">What's On <span
+									class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="getshowing">Now Showing</a></li>
+									<li><a ui-sref="getshowing">Coming Soon</a></li>
+								</ul></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="#">Offers</a></li>
+									<li><a ui-sref="vip">VIP</a></li>
+									<li><a ui-sref="#">Stuff</a></li>
+									<li><a ui-sref="#">Classifications</a></li>
+									<li><a ui-sref="getscreen">Screens</a></li>
+								</ul></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Facilities <span
+									class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="getscreen">Screens</a></li>
+									<li><a ui-sref="#">Find Us</a></li>
+								</ul></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Booking <span class="caret"></span></a>
 
-							<ul class="dropdown-menu">
-								<li><a ui-sref="#">Payments</a></li>
-								<li><a ui-sref="addbooking">Add Booking</a></li>
-								<li><a ui-sref="getbooking">Get Bookings</a></li>
-								<li><a ui-sref="deletebooking">Delete Bookings</a></li>
-								<li><a ui-sref="updatebooking">Update Bookings</a></li>
-							</ul></li>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="#">Payments</a></li>
+									<li><a ui-sref="addbooking">Add Booking</a></li>
+									<li><a ui-sref="getbooking">Get Bookings</a></li>
+									<li><a ui-sref="deletebooking">Delete Bookings</a></li>
+									<li><a ui-sref="updatebooking">Update Bookings</a></li>
+								</ul></li>
 
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Movie <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a ui-sref="addmovie">Add movie</a></li>
-							<li><a ui-sref="getmovie">Get movies</a></li>
-							<li><a ui-sref="deletemovie">Delete movies</a></li>
-							<li><a ui-sref="getmovie">Update movies</a></li>
-						</ul></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Movie <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="addmovie">Add movie</a></li>
+									<li><a ui-sref="getmovie">Get movies</a></li>
+									<li><a ui-sref="deletemovie">Delete movies</a></li>
+									<li><a ui-sref="getmovie">Update movies</a></li>
+								</ul></li>
 
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Screen <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="addscreen">Add screen</a></li>
-								<li><a ui-sref="getscreen">Get screens</a></li>
-								<li><a ui-sref="deletescreen">Delete screens</a></li>
-								<li><a ui-sref="updatescreen">Update screens</a></li>
-							</ul></li>
-
-
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ticket <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="addticket">Add ticket</a></li>
-								<li><a ui-sref="getticket">Get tickets</a></li>
-								<li><a ui-sref="deleteticket">Delete tickets</a></li>
-								<li><a ui-sref="updateticket">Update tickets</a></li>
-							</ul></li>
-
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">User <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="adduser">Add user</a></li>
-								<li><a ui-sref="getuser">Get users</a></li>
-								<li><a ui-sref="deleteuser">Delete users</a></li>
-								<li><a ui-sref="updateuser">Update users</a></li>
-							</ul></li>
-
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Screens <span class="caret"></span></a>
-
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Showing <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="addshowing">Add showing</a></li>
-								<li><a ui-sref="getshowing">Get showings</a></li>
-								<li><a ui-sref="deleteshowing">Delete showings</a></li>
-								<li><a ui-sref="updateshowing">Update showings</a></li>
-							</ul></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Screen <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="addscreen">Add screen</a></li>
+									<li><a ui-sref="getscreen">Get screens</a></li>
+									<li><a ui-sref="deletescreen">Delete screens</a></li>
+									<li><a ui-sref="updatescreen">Update screens</a></li>
+								</ul></li>
 
 
-					</ul>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Ticket <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="addticket">Add ticket</a></li>
+									<li><a ui-sref="getticket">Get tickets</a></li>
+									<li><a ui-sref="deleteticket">Delete tickets</a></li>
+									<li><a ui-sref="updateticket">Update tickets</a></li>
+								</ul></li>
+
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">User <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="adduser">Add user</a></li>
+									<li><a ui-sref="getuser">Get users</a></li>
+									<li><a ui-sref="deleteuser">Delete users</a></li>
+									<li><a ui-sref="updateuser">Update users</a></li>
+								</ul></li>
+
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Screens <span class="caret"></span></a>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">Showing <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="addshowing">Add showing</a></li>
+									<li><a ui-sref="getshowing">Get showings</a></li>
+									<li><a ui-sref="deleteshowing">Delete showings</a></li>
+									<li><a ui-sref="updateshowing">Update showings</a></li>
+								</ul></li>
+
+
+						</ul>
 						<ul class="dropdown-menu">
 							<li><a ui-sref="#">Screens</a></li>
 							<li><a ui-sref="createscreen">Add Screen</a></li>
 							<li><a ui-sref="getscreens">Show All Screens</a></li>
 							<li><a ui-sref="getscreen">Find Screen</a></li>
-						</ul></li>
-					</ul>
+						</ul>
+						</li>
+						</ul>
 
-					<ul class="nav navbar-nav navbar-right">
-						<li><a ui-sref="#"><span class="glyphicon glyphicon-user"
-								aria-hidden="true"></span> Sign Up</a></li>
-						<li><a ui-sref="#myModal" data-toggle="modal"
-							data-target="#myModal"><span
-								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-								Login</a></li>
-					</ul>
+						<ul class="nav navbar-nav navbar-right" id="log-in-area">
+							<li><a ui-sref="#" id="sign-in"><span
+									class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									Sign Up</a></li>
+							<li><a ui-sref="#LogInModal" data-toggle="modal"
+								data-target="#LogInModal" id="log-in"><span
+									class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+									Login</a></li>
+						</ul>
 
-			</div>
-		</nav>
-	</div>
+					</div>
+			</nav>
+		</div>
 
 		<!-- MODAL FOR LOGGING IN WHEN CLICKING "LOG-IN" BUTTON ON NAVBAR -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModal">
+		<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">×</button>
-						<h4 class="modal-title">Log-in</h4>
+						<h4 class="modal-title">Log-in  to your QA Cinema Blue account</h4>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
@@ -163,8 +171,50 @@
 						</p>
 					</div>
 					<div class="modal-footer">
-						<a ui-sref="#" data-dismiss="modal" class="btn">Close</a> <a
+						<a ui-sref="#" data-dismiss="modal" class="btn" id="closeButton">Close</a> <a
 							ui-sref="#" class="btn btn-primary">Log-in</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- MODAL FOR "CONTACT US" BUTTON ON FOOTER -->
+		<div class="modal fade" id="ContactUs" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title">Contact Us</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Your name</label> <input
+								class="form-control" id="name" placeholder="Enter your name"
+								type="text">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Your email address</label> <input
+								class="form-control" id="Email" placeholder="Enter your email"
+								type="email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Subject</label> <input
+								class="form-control" id="exampleInputPassword1"
+								placeholder="Subject" type="text">
+						</div>
+						<div class="form-group">
+							<label for="messageText">Message</label></br>
+							<textarea rows="4" cols="59" id="Message" placeholder="Please write your message here and click submit afterwards..."></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="message-check" id="check">
+						<input type="checkbox" name="newsletter" value="yes"> Send a copy to yourself
+						</div>
+						<div class="submit-button" id="sub">
+							<input type="submit" class="btn btn-default" value="go fuck yourself">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -185,7 +235,7 @@
 		<div class="container text-center">
 			<hr />
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-12 hidden-xs hidden-sm">
 					<!-- <div class="col-md-3">
 						<ul class="nav nav-pills nav-stacked">
 							<li><a href="#" ui-sref="frontpage">Home</a></li>
@@ -195,8 +245,8 @@
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#" ui-sref="whatson"><b>What's
 										on</b></a></li>
-							<li><a href="#" ui-sref="getshowing">Now showing</a></li>
-							<li><a href="#" ui-sref="getshowing">Coming soon</a></li>
+							<li><a href="#" ui-sref="current">Now showing</a></li>
+							<li><a href="#" ui-sref="filmlist">Coming soon</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3" id=test>
@@ -215,28 +265,42 @@
 										Account</b></a></li>
 							<li><a href="#" ui-sref="login">Log in</a></li>
 							<li><a href="#" ui-sref="gold">Gold Member</a></li>
-							<li><a href="#" ui-sref="getbooking">My bookings</a></li>
+							<li><a href="#" ui-sref="bookings">My bookings</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3" id=test>
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#" ui-sref="help"><b>Help</b></a></li>
-							<li><a href="#" ui-sref="contactus">Contact us</a></li>
+							<li><a ui-sref="#LogInModal" data-toggle="modal" data-target="#ContactUs" id="#ContactUs">Contact us</a></li>
+						
+						
 						</ul>
 					</div>
 				</div>
 			</div>
-			<hr>
+			<hr id:"foot-hr">
 			<div class="row">
 				<div class="col-lg-12">
+					<div class="col-md-3" id="footer-foot">&copy QA Cinema Blue.
+					</div>
+					<div class="col-md-3" id="footer-foot">
+						<a href="#" ui-sref="tos">Terms of Service</a>
+					</div>
+					<div class="col-md-3" id="footer-foot">
+						<a href="#" ui-sref="privacy">Privacy</a>
+					</div>
+					<div class="col-md-3">
+						<div class="social-media">
+							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+								class="fa fa-twitter"></i></a> <a href="#"><i
+								class="fa fa-youtube"></i></a> <a href="#"><i
+								class="fa fa-github"></i></a> <a href="#"><i
+								class="fa fa-google"></i></a> <a href="#"><i
+								class="fa fa-instagram"></i></a> <a href="#"><i
+								class="fa fa-tumblr"></i></a>
+						</div>
 
-					<ul class="nav nav-pills nav-justified">
-						<li><a href="#" ui-sref="tos">Terms of Service</a></li>
-						<li><a href="#" ui-sref="privacy">Privacy</a></li>
-						<li>&copy QA Cinema Blue.</li>
-						<hr>
-					</ul>
-
+					</div>
 				</div>
 			</div>
 			<hr>
@@ -272,31 +336,37 @@
 	<script src="app/feature/movie/get/get-movie-controller.js"></script>
 
 
-    <script src="app/feature/booking/add/add-booking-controller.js"></script>
-    <script src="app/feature/booking/get/get-booking-controller.js"></script>
-    <script src="app/feature/booking/update/update-booking-controller.js"></script>
-    <script src="app/feature/booking/delete/delete-booking-controller.js"></script>
+	<script src="app/feature/booking/add/add-booking-controller.js"></script>
+	<script src="app/feature/booking/get/get-booking-controller.js"></script>
+	<script src="app/feature/booking/update/update-booking-controller.js"></script>
+	<script src="app/feature/booking/delete/delete-booking-controller.js"></script>
 
-	<script src="app/feature/screen/create-screen/create-screen-controller.js"></script>
-	<script src="app/feature/screen/delete-screen/delete-screen-controller.js"></script>
-	<script src="app/feature/screen/get-all-screens/get-screens-controller.js"></script>
+	<script
+		src="app/feature/screen/create-screen/create-screen-controller.js"></script>
+	<script
+		src="app/feature/screen/delete-screen/delete-screen-controller.js"></script>
+	<script
+		src="app/feature/screen/get-all-screens/get-screens-controller.js"></script>
 	<script src="app/feature/screen/get-screen/get-screen-controller.js"></script>
-	<script src="app/feature/screen/update-screen/update-screen-controller.js"></script>
+	<script
+		src="app/feature/screen/update-screen/update-screen-controller.js"></script>
 
 	<script src="app/feature/showing/add-showing/add-showing-controller.js"></script>
-	<script src="app/feature/showing/delete-showing/delete-showing-controller.js"></script>
+	<script
+		src="app/feature/showing/delete-showing/delete-showing-controller.js"></script>
 	<script src="app/feature/showing/get-showing/get-showing-controller.js"></script>
-	<script src="app/feature/showing/update-showing/update-showing-controller.js"></script>
+	<script
+		src="app/feature/showing/update-showing/update-showing-controller.js"></script>
 
-    <script src="app/feature/ticket/add/add-ticket-controller.js"></script>
-    <script src="app/feature/ticket/get/get-ticket-controller.js"></script>
-    <script src="app/feature/ticket/update/update-ticket-controller.js"></script>
-    <script src="app/feature/ticket/delete/delete-ticket-controller.js"></script>
+	<script src="app/feature/ticket/add/add-ticket-controller.js"></script>
+	<script src="app/feature/ticket/get/get-ticket-controller.js"></script>
+	<script src="app/feature/ticket/update/update-ticket-controller.js"></script>
+	<script src="app/feature/ticket/delete/delete-ticket-controller.js"></script>
 
-    <script src="app/feature/user/add-user/add-user-controller.js"></script>
-    <script src="app/feature/user/delete-user/delete-user-controller.js"></script>
-    <script src="app/feature/user/get-user/get-user-controller.js"></script>
-    <script src="app/feature/user/update-user/update-user-controller.js"></script>
+	<script src="app/feature/user/add-user/add-user-controller.js"></script>
+	<script src="app/feature/user/delete-user/delete-user-controller.js"></script>
+	<script src="app/feature/user/get-user/get-user-controller.js"></script>
+	<script src="app/feature/user/update-user/update-user-controller.js"></script>
 
 
 </body>
