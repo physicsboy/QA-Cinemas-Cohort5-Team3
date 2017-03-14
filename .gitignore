@@ -3,10 +3,7 @@ target
 .classpath
 .factorypath
 .project
-<<<<<<< HEAD
 .idea/workspace.xml
-=======
 .idea
->>>>>>> d18601ea133ab43f6ed0322b1d586293131b3045
 .sonar
 .idea/*
