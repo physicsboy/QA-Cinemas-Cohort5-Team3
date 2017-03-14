@@ -3,10 +3,9 @@
 
     var getShowingController =  function(showingDal) {
         var vm = this;
-        vm.test = "test";
 
         function init(){
-            showingDal.getShowing().then(function (results) {
+            showingDal.getShowings().then(function (results) {
                 vm.showing = results;
             }, function (error) {
                 vm.error = true;
@@ -35,5 +34,5 @@
 
     };
 
-    angular.module('movieApp').controller('getShowingController', [getShowingController]);
+    angular.module('movieApp').controller('getShowingController', ['showingDal', getShowingController]);
 }());

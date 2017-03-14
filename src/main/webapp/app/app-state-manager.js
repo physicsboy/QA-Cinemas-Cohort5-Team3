@@ -56,13 +56,13 @@
             }).state("deleteuser",{url : "/deleteuser",
                 templateUrl : "app/feature/user/delete/delete-user.html"
             }).state("getshowing",{url : "/getshowing",
-            	templateUrl : "app/feature/showing/get/get-showing.html"
+            	templateUrl : "app/feature/showing/get-showing/get-showing.html"
             }).state("addshowing",{url : "/addshowing",
-            	templateUrl : "app/feature/showing/add/add-showing.html"
+            	templateUrl : "app/feature/showing/add-showing/add-showing.html"
             }).state("updateshowing",{url : "/updateshowing",
-            	templateUrl : "app/feature/showing/update/update-showing.html"
+            	templateUrl : "app/feature/showing/update-showing/update-showing.html"
             }).state("deleteshowing",{url : "/deleteshowing",
-                templateUrl : "app/feature/showing/delete/delete-showing.html"
+                templateUrl : "app/feature/showing/delete-showing/delete-showing.html"
             })
        });
  }());
