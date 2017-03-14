@@ -1,18 +1,17 @@
 package com.qa.cinema.persistence;
 
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import com.qa.cinema.persistence.Ticket;
 
@@ -30,10 +29,6 @@ public class Booking {
 	
 	private Long dateBooked;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name="ticket_booking_id")
-	private List<Ticket> tickets;
-	
 	private String paymentEmail;
 
 	private String userEmail;
@@ -43,10 +38,9 @@ public class Booking {
 	}
 	
 	
-	public Booking(Long dateBooked, List<Ticket> tickets, String paymentEmail, String userEmail) {
+	public Booking(Long dateBooked, String paymentEmail, String userEmail) {
 		super();
 		this.dateBooked = dateBooked;
-		this.tickets = tickets;
 		this.paymentEmail = paymentEmail;
 		this.userEmail = userEmail;
 	}
@@ -58,15 +52,7 @@ public class Booking {
 	public Long getDateBooked() {
 		return dateBooked;
 	}
-	
-	
-	public List<Ticket> getTickets() {
-		return tickets;
-	}
-	
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
-	}
+
 	public String getPaymentEmail() {
 		return paymentEmail;
 	}

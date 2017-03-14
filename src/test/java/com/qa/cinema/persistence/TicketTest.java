@@ -1,9 +1,9 @@
-package com.qa.cinema.persistence;
+/*package com.qa.cinema.persistence;
 
 
-/**
+*//**
  * @author AlexNewton
- */
+ *//*
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -88,3 +88,4 @@ public class TicketTest {
 	}
 
 }
+ -->*/
