@@ -3,5 +3,6 @@ target
 .classpath
 .factorypath
 .project
-.idea
+.idea/workspace.xml
 .sonar
+.idea/*
