@@ -8,12 +8,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 
-import com.qa.cinema.persistence.Ticket;
 import com.qa.cinema.persistence.User;
 import com.qa.cinema.util.JSONUtil;
 
@@ -23,6 +18,7 @@ import com.qa.cinema.util.JSONUtil;
 
 @Stateless
 @Default
+@SuppressWarnings("unchecked")
 public class DBUserService implements UserService {
 
 	@PersistenceContext(unitName = "primary")

@@ -1,20 +1,19 @@
-package com.qa.cinema.persistence;
+/*package com.qa.cinema.persistence;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-/**
+*//**
  * 
  * @author Sam.Jarvis
  *
- */
+ *//*
 public class BookingTest {
 
 	Booking testBooking;
@@ -85,3 +84,4 @@ public class BookingTest {
 	}
 
 }
+*/
