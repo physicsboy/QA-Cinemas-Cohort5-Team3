@@ -1,0 +1,34 @@
+<div ng-controller="getShowingController as ctrl">
+
+    <h1>Showings</h1>
+
+    <input id="movieId" placeholder="movieId" ng-model="showing.movieId">
+
+    <table  class="table table-striped">
+
+    <tr ng-repeat = "showing in ctrl.showings">
+        <td id="dayShowing">{{showing.dateTime}}</td>
+        <td>{{showing.screen.screenId}}</td>
+        <td>{{showing.movie.title}}</td>
+        <td>{{showing.movie.length}}</td>
+        <td>{{showing.movie.classification}}</td>
+    </tr>
+
+    </table>
+
+
+    <button type = "submit" ng-click ="ctrl.getShowingByMovie(movieId); show=!show">Movie by Id</button>
+    <div ng-show="show">
+        <h2>Suprise</h2>
+        <td>{{getShowings.id}}</td>
+        <td>{{showing.dateTime}}</td>
+        <td>{{showing.movie.id}}</td>
+
+
+   <tr ng-repeat="ShowingForMovie" ng-click="open(this.id)">
+
+
+   </tr>
+    </div>
+
+</div>
