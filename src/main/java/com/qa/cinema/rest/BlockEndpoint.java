@@ -1,3 +1,7 @@
+/**
+ * @Author Martin Green
+ * @Author Mark lester
+ */
 package com.qa.cinema.rest;
 
 
@@ -10,25 +14,21 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.cinema.service.screen.BlockService;
-
-
-
+import com.qa.cinema.service.block.BlockService;
 
 
 
 @Path("/Block")
 public class BlockEndpoint {
 	
-
 	@Inject
 	private BlockService service;
 
 	@Path("/json")
 	@GET
 	@Produces({"application/json"})
-	public String getAllBlocks() {
-		return service.getBlocks();
+	public String getAllBlocks(int screenId) {
+		return service.getAllBlocks(screenId);
 	}
 	
 	@Path("/json/{id}")
@@ -38,19 +38,104 @@ public class BlockEndpoint {
 		return service.getBlock(id);
 	}
 	
+	
 	@Path("/json")
 	@POST
 	@Produces({ "application/json" })
-	public String createBlock(String Block) {
-		return service.createBlock(Block);
+	public String addBlock(String block) {
+		return service.addBlock(block);
+	}
+	
+	
+	
+	
+	
+	@Path("/json/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String increaseColCount(int increase, String block) {
+		return service.increaseColCount(increase,block);
 	}
 	
 	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateBlock(@PathParam("id") int id, String Block) {
-		return service.updateBlock(id, Block);
+	public String decreaseColCount(int decrease, String block) {
+		return service.decreaseColCount(decrease, block);
 	}
+	
+	@Path("/json/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String increaseRowCount(int increase,String block) {
+		return service.increaseRowCount(increase,block);
+	}
+	
+	@Path("/json/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String decreaseRowCount(int decrease, String block) {
+		return service.decreaseRowCount(decrease,block);
+	}
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String increaseStatingCol(int increase, String block) {
+		return service.increaseStatingCol(increase,block);
+	}
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String decreaseStatingCol(int decrease,String block) {
+		return service.decreaseStatingCol(decrease,block);
+	}
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String increaseStartingRow(int increase,String block) {
+		return service.increaseStartingRow(increase,block);
+	}
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String decreaseStartingRow(int decrease,String block) {
+		return service.decreaseStartingRow(decrease,block);
+	}
+	
+	
+	
+	
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateXPosition(String block) {
+		return service.updateXPosition(block);
+	}
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateYPosition(String block) {
+		return service.updateYPosition(block);
+	}
+	
+	@Path("/json")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateAngle(String block) {
+		return service.updateAngle(block);
+	}
+	
+	
+	
+	
+	
+	
 
 	@Path("/json/{id}")
 	@DELETE
@@ -58,6 +143,7 @@ public class BlockEndpoint {
 	public String deleteBlock(@PathParam("id") int id) {
 		return service.deleteBlock(id);
 	}
-		
+	
+	
 		
 }
