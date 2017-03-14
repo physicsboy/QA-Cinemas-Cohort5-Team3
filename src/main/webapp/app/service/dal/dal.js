@@ -57,10 +57,9 @@
                     });
                     return deferred.promise;
                 },
-
                 DELETE: function (apiPath, itemToDelete) {
                     var deferred = $q.defer();
-                    $http.DELETE(apiPath + itemToDelete.id).then(function () {
+                    $http.delete(apiPath + itemToDelete.id).then(function () {
                         deferred.resolve();
                     }, function (e) {
                         deferred.reject(e);
