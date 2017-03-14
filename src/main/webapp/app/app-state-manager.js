@@ -40,13 +40,13 @@
 			}).state("deletescreen",{url : "/deletescreen",
 				templateUrl : "app/feature/screen/delete-screen/delete-showing.html"
 			}).state("getticket",{url : "/getticket",
-            	templateUrl : "app/feature/ticket/get/get-ticket.html"
+            	templateUrl : "app/feature/ticket/get/get.html"
             }).state("addticket",{url : "/addticket",
             	templateUrl : "app/feature/ticket/add/add-ticket.html"
             }).state("updateticket",{url : "/updateticket",
-            	templateUrl : "app/feature/ticket/update/update-ticket.html"
+            	templateUrl : "app/feature/ticket/update/update.html"
             }).state("deleteticket",{url : "/deleteticket",
-                templateUrl : "app/feature/ticket/delete/delete-ticket.html"
+                templateUrl : "app/feature/ticket/delete/delete.html"
             }).state("getuser",{url : "/getuser",
             	templateUrl : "app/feature/user/get/get-user.html"
             }).state("adduser",{url : "/adduser",
@@ -63,6 +63,9 @@
             	templateUrl : "app/feature/showing/update-showing/update-showing.html"
             }).state("deleteshowing",{url : "/deleteshowing",
                 templateUrl : "app/feature/showing/delete-showing/delete-showing.html"
+            }).state("getspecificmovie",{url : "/getspecificmovie",
+                templateUrl : "app/feature/movie/get/specific-movie/get-specific-movie.html"
+
             })
        });
  }());

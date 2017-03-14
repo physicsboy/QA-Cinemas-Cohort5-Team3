@@ -2,12 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbd07521-0154-442a-8419-f918fcaa2ccd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/QA-Cinemas-Cohort5-Team3.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml.lnk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Block.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Seat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/BlockEndpoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/screen/BlockService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/CSS/modal.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/CSS/navbar-collapse.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/CSS/navbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/bookingSeats/Seating.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/bookingSeats/Seating.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/bookingSeats/Seating.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/SeatTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/QA-Cinemas-Cohort5-Team3.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/modal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/navbar.css" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/delete-ticket/delete-ticket-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/delete/delete-ticket-controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/delete-ticket/delete-ticket.css" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/delete/delete-ticket.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/delete-ticket/delete-ticket.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/delete/delete-ticket.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/get-ticket/get-ticket-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/get/get-ticket-controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/get-ticket/get-ticket.css" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/get/get-ticket.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/get-ticket/get-ticket.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/get/get-ticket.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/update-ticket/update-ticket-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/update/update-ticket-controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/update-ticket/update-ticket.css" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/update/update-ticket.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/update-ticket/update-ticket.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/update/update-ticket.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/footer.css" afterPath="$PROJECT_DIR$/src/main/webapp/CSS/footer.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Movie.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Movie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Screen.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Screen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Ticket.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Ticket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/BookingEndpoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/BookingEndpoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/ScreenEndpoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/ScreenEndpoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/BookingService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/BookingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBBookingService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBBookingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBMovieService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBMovieService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/screen/MapScreenService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/screen/MapScreenService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/import.sql" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/booking/delete/delete-booking.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/booking/delete/delete-booking.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/booking/get/get-booking.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/booking/get/get-booking.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/booking/update/update-booking.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/booking/update/update-booking.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie-controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/screen/create-screen/create-screen.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/screen/create-screen/create-screen.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/add/add-ticket.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/ticket/add/add-ticket.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/service/dal/dal.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/service/dal/dal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/service/dal/movie.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/service/dal/movie.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/BookingTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/BookingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/MapScreenServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/MapScreenServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/MovieTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/MovieTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/ScreenTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/ScreenTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/ShowingTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/ShowingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/TicketTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/qa/cinema/persistence/TicketTest.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +81,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/booking/get/get-booking.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="306">
-                  <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+                  <caret line="27" column="6" lean-forward="false" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -58,11 +111,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="get-showing.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="get-showing.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="561">
-                  <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+                  <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -72,7 +125,17 @@
             <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing-controller.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="272">
-                  <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+                  <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="app-state-manager.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="668">
+                  <caret line="64" column="65" lean-forward="false" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
                   <folding />
                 </state>
               </provider>
@@ -116,11 +179,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/app/service/dal/showing.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showings/get-showing-controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showings/get-showing.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/feature/showing/delete-showing/delete-showing.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/feature/showing/delete-showing/delete-showing-controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing-controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js" />
       </list>
     </option>
   </component>
@@ -131,9 +194,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
-    <option name="height" value="1050" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -390,6 +454,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="showing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="delete-showing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA-Cinemas-Cohort5-Team3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA-Cinemas-Cohort5-Team3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="screen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -562,18 +664,18 @@
       <workItem from="1489401857604" duration="101000" />
       <workItem from="1489401966786" duration="1906000" />
       <workItem from="1489403883702" duration="10566000" />
-      <workItem from="1489481586027" duration="8849000" />
+      <workItem from="1489481586027" duration="9440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21422000" />
+    <option name="totallyTimeSpent" value="22013000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1050" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35932562" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -768,14 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="74" lean-forward="false" selection-start-line="30" selection-start-column="74" selection-end-line="30" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/screen/get-screen/get-screen.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -787,7 +881,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/booking/get/get-booking.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <caret line="27" column="6" lean-forward="false" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -827,7 +921,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing-controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -835,7 +929,15 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/showing/get-showing/get-showing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="64" column="65" lean-forward="false" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
           <folding />
         </state>
       </provider>

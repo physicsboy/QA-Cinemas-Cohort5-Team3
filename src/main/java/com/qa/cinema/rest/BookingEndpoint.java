@@ -60,8 +60,8 @@ public class BookingEndpoint {
 	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMovie(@PathParam("id") Long bookingId) {
-		return service.deletebooking(bookingId);
+	public String deleteBooking(@PathParam("id") Long bookingId) {
+		return service.deleteBooking(bookingId);
 	}
 }
 

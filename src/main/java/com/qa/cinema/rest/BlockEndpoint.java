@@ -10,49 +10,53 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.cinema.service.screen.ScreenService;
+import com.qa.cinema.service.screen.BlockService;
 
 
-@Path("/screen")
-public class ScreenEndpoint {
+
+
+
+
+@Path("/Block")
+public class BlockEndpoint {
 	
 
 	@Inject
-	private ScreenService service;
+	private BlockService service;
 
 	@Path("/json")
 	@GET
 	@Produces({"application/json"})
-	public String getAllScreens() {
-		return service.getScreens();
+	public String getAllBlocks() {
+		return service.getBlocks();
 	}
 	
 	@Path("/json/{id}")
 	@GET
 	@Produces({"application/json"})
-	public String getScreen(@PathParam("id") int id) {
-		return service.getScreen(id);
+	public String getBlock(@PathParam("id") int id) {
+		return service.getBlock(id);
 	}
 	
 	@Path("/json")
 	@POST
 	@Produces({ "application/json" })
-	public String createScreen(String screen) {
-		return service.createScreen(screen);
+	public String createBlock(String Block) {
+		return service.createBlock(Block);
 	}
 	
 	@Path("/json/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateScreen(@PathParam("id") int id, String screen) {
-		return service.updateScreen(id, screen);
+	public String updateBlock(@PathParam("id") int id, String Block) {
+		return service.updateBlock(id, Block);
 	}
 
 	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteScreen(@PathParam("id") int id) {
-		return service.deleteScreen(id);
+	public String deleteBlock(@PathParam("id") int id) {
+		return service.deleteBlock(id);
 	}
 		
 		

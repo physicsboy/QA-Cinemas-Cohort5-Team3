@@ -72,7 +72,7 @@ public class DBBookingService implements BookingService {
 	}
 
 	@Override
-	public String deletebooking(Long id) {
+	public String deleteBooking(Long id) {
 		Booking bookingInDB = findBooking(new Long(id));
 		if (bookingInDB != null) {
 			em.remove(bookingInDB);

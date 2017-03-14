@@ -11,6 +11,9 @@ import javax.persistence.Query;
 
 import com.qa.cinema.persistence.Movie;
 import com.qa.cinema.util.JSONUtil;
+import com.qa.cinema.service.MovieService;
+
+
 
 @Stateless
 @Default
@@ -31,7 +34,7 @@ public class DBMovieService implements MovieService {
 
 	@Override
 	public String listMovieByTitle(String title) {
-		Query query = em.createQuery("SELECT m FROM Movie m WHERE m.title LIKE " + title);
+		Query query = em.createQuery("SELECT m FROM Movie m WHERE LOWER(m.title) LIKE LOWER('%" + title + "%')");
 		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
 		return util.getJSONForObject(movies);
 

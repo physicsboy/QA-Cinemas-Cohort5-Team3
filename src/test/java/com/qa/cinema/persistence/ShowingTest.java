@@ -11,7 +11,7 @@ public class ShowingTest {
 	//String cast, int length) {
 
 	
-	Movie movie = new Movie("Lord of the Rings", "Poster.jpg", "Fantasy", "Frodo visits a volcano to dispose of some old heirloom", "2003", "PG", "Ian Mckellen", 2);
+	Movie movie = new Movie("Lord of the Rings", "Poster.jpg", "1234.trailer.com", "Fantasy", "Frodo visits a volcano to dispose of some old heirloom", "2003", "PG", "Ian Mckellen", 2);
 	Screen screen = new Screen();
 	Showing showing = new Showing(movie, "040320017183500", screen);
 	
