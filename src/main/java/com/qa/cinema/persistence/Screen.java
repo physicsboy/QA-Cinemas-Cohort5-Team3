@@ -20,7 +20,7 @@ public class Screen {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int screen_Id;
+	private int screenId;
 	private String url;
 	
 	@OneToMany(fetch = FetchType.LAZY)
