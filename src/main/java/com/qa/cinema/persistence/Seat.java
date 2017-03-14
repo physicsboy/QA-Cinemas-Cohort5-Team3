@@ -17,7 +17,8 @@ public class Seat {
 	private Long seatId;
 	private int column;
 	private char row;
-	private int block;
+
+	private int blockID;
 
 	
 	public Seat() {
@@ -28,7 +29,7 @@ public class Seat {
 		super();
 		this.column = column;
 		this.row = row;
-		this.block = block;
+		this.blockID = block;
 	
 	}
 
@@ -59,10 +60,10 @@ public class Seat {
 	
 	
 	public int getBlock() {
-		return block;
+		return blockID;
 	}
 	public void setBlock(int block) {
-		this.block = block;
+		this.blockID = block;
 	}
 	
 	
