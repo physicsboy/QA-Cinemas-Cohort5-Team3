@@ -36,15 +36,15 @@ public class Block {
 	public Block() {
 	}
 
-	public Block(int colCount, char rowCount, int xPosition, int yPosition) {
+	public Block(int colCount, int rowCount, int xPosition, int yPosition) {
 		this(colCount, rowCount, xPosition, yPosition, 180, 'A', 1);
 	}
 
-	public Block(int colCount, char rowCount, int xPosition, int yPosition, char startingRow, int startingCol) {
+	public Block(int colCount, int rowCount, int xPosition, int yPosition, char startingRow, int startingCol) {
 		this(colCount, rowCount, xPosition, yPosition, 180, startingRow, startingCol);
 	}
 
-	public Block(int colCount, char rowCount, int xPosition, int yPosition, int angle, char startingRow, int startingCol) {
+	public Block(int colCount, int rowCount, int xPosition, int yPosition, int angle, char startingRow, int startingCol) {
 		this.colCount = colCount;
 		this.rowCount = rowCount;
 		this.xPosition = xPosition;
@@ -77,7 +77,7 @@ public class Block {
 	public int getRowCount() {
 		return rowCount;
 	}
-	public void setRowCount(char rowCount) {
+	public void setRowCount(int rowCount) {
 		this.rowCount = rowCount;
 	}
 
