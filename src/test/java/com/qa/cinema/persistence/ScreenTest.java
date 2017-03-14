@@ -10,26 +10,14 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.OneToMany;
-
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ScreenTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		seats = new ArrayList<Seat>();
 		seat2 = new Seat(2,'b',Seat.SeatType.STANDARD);
 		seats.add(seat2);
@@ -42,7 +30,7 @@ public class ScreenTest {
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown(){
 	}
 
 	private Screen screen1;

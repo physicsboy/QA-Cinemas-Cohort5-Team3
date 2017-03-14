@@ -11,7 +11,19 @@
         margin-bottom: 40px;
         width: 55%;
         align-content: center;
-        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
     }
 </style>
 
@@ -26,16 +38,21 @@
     <div class="container-fluid">
         <div class="col-md-6" >
             </br>
-            <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive"  />
+            <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive" />
         </div>
 
         <div class="col-md-6">
             <p class="custom-header">Description</p>
-            {{chosenMovie.description}} <br/>
-            <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/>
-            {{chosenMovie.cast}} <br/>
-            {{chosenMovie.genre}} <br/>
-            {{chosenMovie.length}} <br/>
+            {{chosenMovie.description}} <br/><br/>
+            <p class="custom-header">Classification</p>
+            <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/><br/>
+            <p class="custom-header">Cast</p>
+            {{chosenMovie.cast}} <br/><br/>
+            <p class="custom-header">Genre</p>
+            {{chosenMovie.genre}} <br/> <br/>
+            <p class="custom-header">Length</p>
+            {{chosenMovie.length}} <br/><br/>
+            <button class="button" ng-click='{{chosenMovie.trailerURL}}'></button>
         </div>
     </div>
 

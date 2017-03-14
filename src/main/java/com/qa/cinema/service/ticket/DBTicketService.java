@@ -6,7 +6,6 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -50,7 +49,7 @@ public class DBTicketService implements TicketService {
 
 	@Override
 	public String getAllTicketsForBooking(Long bookingID) {
-		Query query = manager.createQuery("Select t from Booking.tickets t where Booking.booking_id = " + bookingID);
+		Query query = manager.createQuery("Select t from Ticket t where t.booking.bookingId = " + bookingID);
 	
 		@SuppressWarnings("unchecked")
 		Collection<Ticket> tickets = (Collection<Ticket>) query.getResultList();
