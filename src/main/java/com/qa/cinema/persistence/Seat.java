@@ -43,7 +43,7 @@ public class Seat {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long seatId;
+	private Long seatID;
 	private int column;
 	private char row;
 	private SeatType type;
@@ -68,10 +68,10 @@ public class Seat {
 	
 	
 	public Long getSeatId() {
-		return seatId;
+		return seatID;
 	}
-	public void setSeatId(Long seatId) {
-		this.seatId = seatId;
+	public void setSeatId(Long newSeatId) {
+		this.seatID = newSeatId;
 	}
 
 	
