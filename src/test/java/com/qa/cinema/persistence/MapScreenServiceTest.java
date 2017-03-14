@@ -7,9 +7,7 @@ package com.qa.cinema.persistence;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.qa.cinema.service.screen.MapScreenService;
@@ -18,22 +16,15 @@ import com.qa.cinema.service.screen.MapScreenService;
 
 public class MapScreenServiceTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		service = new MapScreenService();
 		screen = new Screen("Some/url1");
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 	}
 	
 	MapScreenService service;
@@ -73,7 +64,6 @@ public class MapScreenServiceTest {
 	@Test
 	public void deleteScreen() {
 		int numberOfScreens = service.getScreenObjects().size();
-		Screen s = service.getScreenObject(1);
 		service.deleteScreen(1);
 		service.getScreen(1);
 		assertEquals(numberOfScreens - 1, service.getScreenObjects().size());

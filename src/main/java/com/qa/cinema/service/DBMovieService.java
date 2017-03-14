@@ -17,6 +17,7 @@ import com.qa.cinema.service.MovieService;
 
 @Stateless
 @Default
+@SuppressWarnings("unchecked")
 public class DBMovieService implements MovieService {
 
 	@PersistenceContext(unitName = "primary")
