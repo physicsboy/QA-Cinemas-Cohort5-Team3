@@ -1,15 +1,21 @@
 <div ng-controller="getShowingController as ctrl">
-    {{4+4}}
 
-    <h1>TEST </h1>
+    <h1>Showings</h1>
 
     <input id="movieId" placeholder="movieId" ng-model="showing.movieId">
 
-    <table>
-        <td>{{showing.id}}</td>
-        <td>{{showing.dateTime}}</td>
-        <td>{{showing.movie.id}}</td>
+    <table  class="table table-striped">
+
+    <tr ng-repeat = "showing in ctrl.showings">
+        <td id="dayShowing">{{showing.dateTime}}</td>
+        <td>{{showing.screen.screenId}}</td>
+        <td>{{showing.movie.title}}</td>
+        <td>{{showing.movie.length}}</td>
+        <td>{{showing.movie.classification}}</td>
+    </tr>
+
     </table>
+
 
     <button type = "submit" ng-click ="ctrl.getShowingByMovie(movieId); show=!show">Movie by Id</button>
     <div ng-show="show">
@@ -24,5 +30,24 @@
 
    </tr>
     </div>
+
+</div>
+<div ng-controller="getBookingController as ctrl">
+
+    <table  class="table table-striped">
+
+
+
+        <tr ng-repeat = "booking in ctrl.bookings">
+            <td id="datebooked">{{booking.dateBooked | date:'dd MMM yyyy HH:mm'}}</td>
+            <td ><p ng-repeat = "ticket in booking.tickets">{{ticket.id}}</p></td>
+            <td ><p ng-repeat = "ticket in booking.tickets">{{ticket.showing.movie.title}}</p></td>
+            <td ><p ng-repeat = "ticket in booking.tickets">{{ticket.seat}}</p></td>
+            <td>{{booking.paymentEmail}}</td>
+            <td>{{booking.userEmail}}</td>
+
+        </tr>
+
+    </table>
 
 </div>
