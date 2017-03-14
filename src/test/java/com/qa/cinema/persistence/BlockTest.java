@@ -88,7 +88,7 @@ public class BlockTest {
 	@Test
 	public void getRowCountConstructerTest() {
 		assertEquals(2,block2.getRowCount());
-	}
+
 
 	
 	@Test
