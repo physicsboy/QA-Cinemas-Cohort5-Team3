@@ -17,12 +17,6 @@ INSERT INTO movie VALUES (13, 'Ralph Finnnes, Maria Carey et Al', 'U', 'In a wor
 INSERT INTO movie VALUES (14, 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page', '15', 'mystery and dreaming', 'Action, Sci-Fi', 148, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg', 'Inception', '<iframe width="560" height="315" src="https://www.youtube.com/embed/LHgQSwgKygk" frameborder="0" allowfullscreen></iframe>', '2010-07-08');
 INSERT INTO movie VALUES (15, 'Tom Hiddleston, Samuel L. Jackson, Brie Larson', '18', 'Humanity tries to save itself from a rather large ape.', 'Action', 120, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 'Kong: Skull Island', '<iframe width="560" height="315" src="https://www.youtube.com/embed/LHgQSwgKygk" frameborder="0" allowfullscreen></iframe>', '2017-03-01');
 INSERT INTO movie VALUES (16, 'Roy Scheider, Robert Shaw, Richard Dreyfuss', '12A', 'A big shark is eating people. The special effects are on point.', 'Adventure', 96, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 'Jaws', '<iframe width="560" height="315" src="https://www.youtube.com/embed/LHgQSwgKygk" frameborder="0" allowfullscreen></iframe>', '1975-01-10');
-=======
-INSERT INTO movie VALUES (1, 'Ralph Finnnes, Maria Carey et Al', 'U', 'In a world full of lego..... there is batman', 'Adventure', 118,'Lego Batman Movie','2017-03-10');
-INSERT INTO movie VALUES (2, 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page', '15', 'mystery and dreaming', 'Action, Sci-Fi', 148, 'Inception', '2010-07-08');
-INSERT INTO movie VALUES (3, 'Tom Hiddleston, Samuel L. Jackson, Brie Larson', '18', 'Humanity tries to save itself from a rather large ape.', 'Action', 120, 'Kong: Skull Island', '2017-03-01');
-INSERT INTO movie VALUES (4, 'Roy Scheider, Robert Shaw, Richard Dreyfuss', '12A', 'A big shark is eating people. The special effects are on point.', 'Adventure', 96, 'Jaws', '1975-01-10');
->>>>>>> 9dc1c9f8d502876e7c3e8e408e2fb0b424541194
 
 INSERT INTO screen VALUES (1, 'url'),(2, 'url'),(3, 'lol'),(4, 'abc');
 
