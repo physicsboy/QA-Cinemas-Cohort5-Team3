@@ -23,7 +23,6 @@ public class ScreenTest {
 		seats.add(seat2);
 		screen1 = new Screen();
 		screen1.setURL("some/location 1");
-		screen1.setSeats(seats);
 		screen1.setScreenId(1);
 		screen2 = new Screen("some/location 2");
 		
@@ -55,10 +54,6 @@ public class ScreenTest {
 	}
 	
 	
-	@Test
-	public void getSeats() {
-		assertEquals('b', screen1.getSeats().get(0).getRow());
-	}
 	
 
 }

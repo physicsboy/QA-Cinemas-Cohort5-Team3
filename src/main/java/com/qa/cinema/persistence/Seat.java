@@ -48,10 +48,6 @@ public class Seat {
 	private char row;
 	private SeatType type;
 
-	@ManyToOne
-	@JoinColumn(name = "seatId")
-	private Block block;
-
 	
 	public Seat() {
 		super();
@@ -90,13 +86,7 @@ public class Seat {
 		this.row = row;
 	}
 	
-	
-	public Block getBlock() {
-		return block;
-	}
-	public void setBlock(Block block) {
-		this.block = block;
-	}
+
 
 	
 	public SeatType getType() {

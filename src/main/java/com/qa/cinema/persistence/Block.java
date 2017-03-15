@@ -25,9 +25,6 @@ public class Block {
 	private char startingRow;
 	private int startingCol;
 	
-	@ManyToOne
-	@JoinColumn(name = "screenId")
-	private Screen screen;
 	
 	@OneToMany
 	@JoinColumn(name = "seatId")
@@ -126,16 +123,6 @@ public class Block {
 		this.startingCol = startingCol;
 	}
 
-	
-	
-	public Screen getScreen() {
-		return screen;
-	}
-	public void setScreen(Screen screen) {
-		this.screen = screen;
-	}
-
-	
 	
 	public List<Seat> getSeats() {
 		return seats;

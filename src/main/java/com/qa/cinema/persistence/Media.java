@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * @author AlexNewton
+ */
+
 @Entity
 public class Media {
 	
@@ -13,14 +17,13 @@ public class Media {
 	private Long id;
 	
 	private String url;
-	private String type;
-	
+	private MediaType type;
 	
 	public Media(){
 		super();
 	}
 	
-	public Media(String url, String type){
+	public Media(String url, MediaType type){
 		this.url = url;
 		this.type = type;
 	}
@@ -42,11 +45,10 @@ public class Media {
 	}
 
 	public String getType() {
-		return type;
+		return type.getName();
 	}
 
-	public void setType(String type) {
+	public void setType(MediaType type) {
 		this.type = type;
 	}
-	
 }

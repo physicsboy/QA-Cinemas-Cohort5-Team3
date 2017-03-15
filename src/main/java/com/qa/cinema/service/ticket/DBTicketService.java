@@ -48,12 +48,10 @@ public class DBTicketService implements TicketService {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public String getAllTicketsForBooking(Long bookingID) {
-		Query query = manager.createQuery("Select t from Ticket t where t.booking.bookingId = " + bookingID);
-	
-		@SuppressWarnings("unchecked")
+		Query query = manager.createQuery("SELECT b.tickets FROM Booking b WHERE b.bookingId =" + bookingID);
 		Collection<Ticket> tickets = (Collection<Ticket>) query.getResultList();
-		
 		return util.getJSONForObject(tickets);
 	}
 
