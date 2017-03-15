@@ -28,6 +28,8 @@ public class Ticket {
 	@JoinColumn(referencedColumnName="seatId")
 	private Seat seat;
 	
+	private Long bookingID;
+	
 	
 	private String type;
 	private float price;
@@ -38,8 +40,9 @@ public class Ticket {
 	}
 
 
-	public Ticket(Showing showing, Seat seat, String type, float price) {
+	public Ticket(Long bookingID, Showing showing, Seat seat, String type, float price) {
 		super();
+		this.bookingID = bookingID;
 		this.showing = showing;
 		this.seat = seat;
 		this.type = type;
@@ -94,6 +97,16 @@ public class Ticket {
 
 	public void setPrice(float price) {
 		this.price = price;
+	}
+
+
+	public Long getBookingID() {
+		return bookingID;
+	}
+
+
+	public void setBookingID(Long bookingID) {
+		this.bookingID = bookingID;
 	}
 	
 	
