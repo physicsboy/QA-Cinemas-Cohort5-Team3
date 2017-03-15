@@ -1,9 +1,16 @@
 package com.qa.cinema.persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Movie {
@@ -12,24 +19,23 @@ public class Movie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title;
-	private String posterURL;
-	private String trailerURL;
 	private String genre;
 	private String description;
 	private String year;
 	private String classification;
 	private String cast;
 	private int length;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name="film_id")
+	private List<Media> media = new ArrayList<>();
 
 	public Movie() {
 	}
 
-	public Movie(String title, String posterURL, String trailerURL, String genre, String description, String year, String classification,
-			String cast, int length) {
+	public Movie(String title, String genre, String description, String year, String classification, String cast, int length) {
 		super();
 		this.title = title;
-		this.posterURL = posterURL;
-		this.trailerURL = trailerURL;
 		this.genre = genre;
 		this.description = description;
 		this.year = year;
@@ -54,22 +60,14 @@ public class Movie {
 		this.title = title;
 	}
 
-	public String getPosterURL() {
-		return posterURL;
+	public void addMedia(Media media){
+		this.media.add(media);
 	}
 
-	public void setPosterURL(String posterURL) {
-		this.posterURL = posterURL;
+	public List<Media> getMedia(){
+		return media;
 	}
 	
-	public String getTrailerURL() {
-		return trailerURL;
-	}
-
-	public void setTrailerURL(String trailerURL) {
-		this.trailerURL = trailerURL;
-	}
-
 	public String getGenre() {
 		return genre;
 	}

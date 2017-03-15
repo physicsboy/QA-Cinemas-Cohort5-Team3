@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 /**
  * 
@@ -29,6 +28,10 @@ public class Ticket {
 	@JoinColumn(referencedColumnName="seatId")
 	private Seat seat;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="bookingId")
+	private Booking booking;
+	
 	private String type;
 	private float price;
 	
@@ -38,8 +41,9 @@ public class Ticket {
 	}
 
 
-	public Ticket(Showing showing, Seat seat, String type, float price) {
+	public Ticket(Booking booking, Showing showing, Seat seat, String type, float price) {
 		super();
+		this.booking = booking;
 		this.showing = showing;
 		this.seat = seat;
 		this.type = type;

@@ -1,0 +1,13 @@
+<div ng-controller="deleteShowingController as ctrl">
+    <div ng-controller="getShowingController as getctrl">
+        {{getctrl.showings}}
+        <form role="form">
+            <input id="ID to Delete" placeholder="ID" ng-model="showing.id">
+
+            <button type="submit" ng-click="ctrl.deleteShowing(showing)">deleteShowing</button>
+        </form>
+
+
+    </div>
+
+</div>
