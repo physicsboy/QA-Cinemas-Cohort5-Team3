@@ -17,7 +17,6 @@ public class SeatTest {
 		seat1.setSeatId(1L);
 		seat1.setRow('a');
 		seat1.setColumn(1);
-		seat1.setBlock(block1);
 	}
 
 	@After
@@ -55,17 +54,4 @@ public class SeatTest {
 		assertEquals('b', seat2.getRow());
 	}
 	
-	
-	@Test
-	public void  getBlockConstructerTest() {
-		long id = seat1.getBlock().getBlockId();
-		assertEquals(1L, id);
-	}
-	
-	
-	
-	
-	
-	
-
 }

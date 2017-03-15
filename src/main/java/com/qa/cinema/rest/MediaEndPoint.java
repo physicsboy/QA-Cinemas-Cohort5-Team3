@@ -31,6 +31,14 @@ public class MediaEndPoint {
 		return service.getSingleMediaForFilmByType(id, type);
 	}
 	
+	@Path("/json/{mediaType}")
+	@GET
+	@Produces({"application/json"})
+	public String getAllByType(@PathParam("mediaType") String type) {
+		return service.getAllMediaByType(type);
+	}
+	
+	
 	
 	@Path("/json/{filmId}")
 	@POST
@@ -46,10 +54,10 @@ public class MediaEndPoint {
 		return service.updateMedia(id, updated);
 	}
 
-	@Path("/json/{id}")
+	@Path("/json/{mediaId}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMedia(@PathParam("id") Long id) {
+	public String deleteMedia(@PathParam("mediaId") Long id) {
 		return service.deleteMedia(id);
 	}
 }
