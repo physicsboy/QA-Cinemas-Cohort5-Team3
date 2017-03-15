@@ -7,3 +7,5 @@ target
 .idea
 .sonar
 .idea/*
+.src/main/webapp/index.html
+
