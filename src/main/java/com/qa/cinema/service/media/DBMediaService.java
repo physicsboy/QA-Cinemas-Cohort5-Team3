@@ -7,12 +7,14 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.Query;
+
+import org.hibernate.QueryException;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import com.qa.cinema.persistence.Media;
-import com.qa.cinema.persistence.MediaType;
 import com.qa.cinema.persistence.Movie;
 import com.qa.cinema.util.JSONUtil;
 
@@ -28,7 +30,6 @@ public class DBMediaService implements MediaService {
 
 	@Override
 	public String getAllMediaForFilmByType(Long filmID, String type) {
-		/*MediaType mediaType = getMediaType(type);*/
 		Collection<Media> media = getAllMediaForFilm(filmID, type);
 
 		return util.getJSONForObject(media);
@@ -36,7 +37,6 @@ public class DBMediaService implements MediaService {
 
 	@Override
 	public String getSingleMediaForFilmByType(Long filmID, String type) {
-		/*MediaType mediaType = getMediaType(type);*/
 		Collection<Media> media = getAllMediaForFilm(filmID, type);
 		
 		Random random = new Random();
@@ -85,29 +85,10 @@ public class DBMediaService implements MediaService {
 
 	
 	
-	private MediaType getMediaType(String type) {
-		System.out.println("TEST!!! - " + type.toUpperCase() + " - TEST!!!!");
-		switch (type.toUpperCase()) {
-		case "TRAILER":
-			return MediaType.TRAILER;
-		case "POSTER":
-			return MediaType.POSTER;
-		case "IMAGE":
-			System.out.println("TEST!!! - " + type.toUpperCase());
-			return MediaType.IMAGE;
-		case "OFFER":
-			return MediaType.OFFER;
-		default:
-			throw new NoResultException();
-
-		}
-	}
-	
-	
 	@SuppressWarnings("unchecked")
 	private Collection<Media> getAllMediaForFilm(Long filmID, String mediaType){
-		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID); 
-		
+		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID +
+				" AND m.type = " + "com.qa.cinema.persistence.MediaType." + mediaType.toUpperCase()); 
 		return (Collection<Media>) query.getResultList();
 	}
 	

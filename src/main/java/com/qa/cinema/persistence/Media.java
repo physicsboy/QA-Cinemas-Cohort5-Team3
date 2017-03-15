@@ -1,13 +1,13 @@
 package com.qa.cinema.persistence;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+/**
+ * @author AlexNewton
+ */
 
 @Entity
 public class Media {
@@ -19,13 +19,13 @@ public class Media {
 	private Long movieID;
 	
 	private String url;
-	private String type;
+	private MediaType type;
 	
 	public Media(){
 		super();
 	}
 	
-	public Media(Long movieID, String url, String type){
+	public Media(Long movieID, String url, MediaType type){
 		this.url = url;
 		this.type = type;
 		this.movieID = movieID;
@@ -56,10 +56,10 @@ public class Media {
 	}
 
 	public String getType() {
-		return type;
+		return type.getName();
 	}
 
-	public void setType(String type) {
+	public void setType(MediaType type) {
 		this.type = type;
 	}
 }

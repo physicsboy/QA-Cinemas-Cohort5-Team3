@@ -25,7 +25,7 @@
 
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" ui-sref="#">QA Cinema Blue</a>
+                    <a class="navbar-brand" ui-sref="getmovie">QA Cinema Blue</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse"
                             data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -36,14 +36,13 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown"><a class="dropdown-toggle"
-                                                data-toggle="dropdown" href="#">What's On <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >What's On <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="getshowing">Now Showing</a></li>
                                 <li><a ui-sref="getshowing">Coming Soon</a></li>
                             </ul></li>
                         <li class="dropdown"><a class="dropdown-toggle"
-                                                data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
+                                                data-toggle="dropdown"  >About Us <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="#">Offers</a></li>
                                 <li><a ui-sref="#">VIP</a></li>
@@ -52,14 +51,14 @@
                                 <li><a ui-sref="getscreen">Screens</a></li>
                             </ul></li>
                         <li class="dropdown"><a class="dropdown-toggle"
-                                                data-toggle="dropdown" href="#">Facilities <span
+                                                data-toggle="dropdown"  >Facilities <span
                                 class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="getscreen">Screens</a></li>
                                 <li><a ui-sref="#">Find Us</a></li>
 
                             </ul></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Booking <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Booking <span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="#">Payments</a></li>
@@ -69,7 +68,7 @@
 
                             </ul></li>
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Movie <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Movie <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="addmovie">Add movie</a></li>
                                 <li><a ui-sref="getmovie">Get movies</a></li>
@@ -78,7 +77,7 @@
                                 <li><a ui-sref="getspecificmovie">Get Specific Movie</a></li>
                             </ul></li>
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Screen <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Screen <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="addscreen">Add screen</a></li>
                                 <li><a ui-sref="getscreen">Get screens</a></li>
@@ -88,7 +87,7 @@
                             </ul></li>
 
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ticket <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Ticket <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="addticket">Add ticket</a></li>
                                 <li><a ui-sref="getticket">Get tickets</a></li>
@@ -97,7 +96,7 @@
 
                             </ul></li>
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">User <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >User <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="adduser">Add user</a></li>
                                 <li><a ui-sref="getuser">Get users</a></li>
@@ -106,7 +105,7 @@
                             </ul></li>
 
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Showing <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Showing <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="addshowing">Add showing</a></li>
                                 <li><a ui-sref="getshowing">Get showings</a></li>
@@ -119,7 +118,7 @@
 
 
                     <ul class="nav navbar-nav navbar-right" id="log-in-area">
-                        <li><a  href="#" ui-sref="#" id="sign-in"><span
+                        <li><a    ui-sref="#" id="sign-in"><span
                                 class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             Sign Up</a></li>
                         <li><a ui-sref="#LogInModal" data-toggle="modal"
@@ -212,48 +211,48 @@
     <div ui-view id="view">
         <div class="push"></div>
     </div>
-
+        <div id="wrap">
 <footer class="footer-distributed">
     <div class="container text-center">
-        <hr />
+        <hr>
         <div class="row">
             <div class="col-lg-12 hidden-xs hidden-sm">
                 <!-- <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#" ui-sref="frontpage">Home</a></li>
+                        <li><a   ui-sref="frontpage">Home</a></li>
                     </ul>
                 </div> -->
                 <div class="col-md-3" id=test>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#" ui-sref="getmovie"><b>What's
+                        <li class="active"><a   ui-sref="getmovie"><b>What's
                             on</b></a></li>
-                        <li><a href="#" ui-sref="getmovie">Now showing</a></li>
-                        <li><a href="#" ui-sref="getmovie">Coming soon</a></li>
+                        <li><a   ui-sref="getmovie">Now showing</a></li>
+                        <li><a   ui-sref="getmovie">Coming soon</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3" id=test>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#" ui-sref="#"><b>About
+                        <li class="active"><a   ui-sref="#"><b>About
                             Us</b></a></li>
-                        <li><a href="#" ui-sref="#">Offers</a></li>
-                        <li><a href="#" ui-sref="#">VIP</a></li>
-                        <li><a href="#" ui-sref="#">Local</a></li>
-                        <li><a href="#" ui-sref="#">Classifications</a></li>
+                        <li><a   ui-sref="#">Offers</a></li>
+                        <li><a   ui-sref="#">VIP</a></li>
+                        <li><a   ui-sref="#">Local</a></li>
+                        <li><a   ui-sref="#">Classifications</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3" id=test>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#" ui-sref="getuser"><b>My
+                        <li class="active"><a   ui-sref="getuser"><b>My
                             Account</b></a></li>
-                        <li><a href="#" ui-sref="getbooking">Log in</a></li>
-                        <li><a href="#" ui-sref="getbooking">Gold Member</a></li>
-                        <li><a href="#" ui-sref="getbooking">My bookings</a></li>
+                        <li><a   ui-sref="getbooking">Log in</a></li>
+                        <li><a   ui-sref="getbooking">Gold Member</a></li>
+                        <li><a   ui-sref="getbooking">My bookings</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3" id=test>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#" ui-sref="#"><b>Help</b></a></li>
-                        <li><a ui-sref="" data-toggle="modal" data-target="#ContactUs" id="#ContactUs">Contact us</a></li>
+                        <li class="active"><a   ui-sref="#"><b>Help</b></a></li>
+                        <li><a ui-sref="#" data-toggle="modal" data-target="#ContactUs" id="#ContactUs">Contact us</a></li>
 
 
                     </ul>
@@ -266,36 +265,38 @@
                 <div class="col-md-3" id="footer-foot">&copy QA Cinema Blue.
                 </div>
                 <div class="col-md-3" id="footer-foot">
-                    <a href="#" ui-sref="#">Terms of Service</a>
+                    <a   ui-sref="#">Terms of Service</a>
                 </div>
                 <div class="col-md-3" id="footer-foot">
-                    <a href="#" ui-sref="#">Privacy</a>
+                    <a   ui-sref="#">Privacy</a>
                 </div>
                 <div class="col-md-3">
                     <div class="social-media">
-                        <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-                            class="fa fa-twitter"></i></a> <a href="#"><i
-                            class="fa fa-youtube"></i></a> <a href="#"><i
-                            class="fa fa-github"></i></a> <a href="#"><i
-                            class="fa fa-google"></i></a> <a href="#"><i
-                            class="fa fa-instagram"></i></a> <a href="#"><i
+                        <a  ><i class="fa fa-facebook"></i></a> <a  ><i
+                            class="fa fa-twitter"></i></a> <a  ><i
+                            class="fa fa-youtube"></i></a> <a  ><i
+                            class="fa fa-github"></i></a> <a  ><i
+                            class="fa fa-google"></i></a> <a  ><i
+                            class="fa fa-instagram"></i></a> <a  ><i
                             class="fa fa-tumblr"></i></a>
                     </div>
 
                 </div>
             </div>
         </div>
-        <hr>
-    </div>
-</footer>
 
+        </hr>
+    </div>
+
+</footer>
+        </div>
 <!-- BOOTSTRAP CSS TO ENABLE NAVBAR TO RENDER PROPERLY -->
 <link rel="stylesheet" href="scripts/bootstrap.min.css">
 
 <!-- Angular modules-->
-<script src="scripts/jquery-2.0.3.min.js"></script>
+<script src="scripts/jquery-3.1.1.min.js"></script>
 <script src="scripts/angular.js"></script>
-<script src="scripts/ui-router.min.js"></script>
+<script src="scripts/angular-ui-router.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 
 <!-- App and state manager-->

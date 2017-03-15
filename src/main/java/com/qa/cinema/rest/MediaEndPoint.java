@@ -46,10 +46,10 @@ public class MediaEndPoint {
 		return service.updateMedia(id, updated);
 	}
 
-	@Path("/json/{id}")
+	@Path("/json/{mediaId}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMedia(@PathParam("id") Long id) {
+	public String deleteMedia(@PathParam("mediaId") Long id) {
 		return service.deleteMedia(id);
 	}
 }
