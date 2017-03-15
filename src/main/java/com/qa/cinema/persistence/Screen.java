@@ -25,7 +25,7 @@ public class Screen {
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="screen_ID")
-	private List<Seat> seats;
+	private List<Block> blocks;
 	
 	
 	public Screen() {
@@ -51,23 +51,6 @@ public class Screen {
 	}
 	public void setURL(String url) {
 		this.url = url;
-	}
-	
-	
-	public List<Seat> getSeats() {
-		return seats;
-	}
-	public void setSeats(List<Seat> seats) {
-		this.seats = seats;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 
 }
