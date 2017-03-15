@@ -46,11 +46,11 @@ INSERT INTO seat values (4, 1, 7, 2);
 INSERT INTO seat values (5, 1, 7, 0);
 
 
-INSERT INTO ticket VALUES (1, 1, 6.99, 'Child', 1, 1);
-INSERT INTO ticket VALUES (2, 1, 9.99, 'Adult', 2, 2);
-INSERT INTO ticket VALUES (3, 2, 5.99, 'Child', 3, 4);
-INSERT INTO ticket VALUES (4, 2, 7.99, 'Concession',3, 3);
-INSERT INTO ticket VALUES (5, 3, 6.99, 'Adult', 4, 4);
+INSERT INTO ticket VALUES (1, 6.99, 'Child', 1, 1, 1);
+INSERT INTO ticket VALUES (2, 9.99, 'Adult', 2, 2, 1);
+INSERT INTO ticket VALUES (3, 5.99, 'Child', 3, 4, 1);
+INSERT INTO ticket VALUES (4, 7.99, 'Concession',3, 3, 2);
+INSERT INTO ticket VALUES (5, 6.99, 'Adult', 4, 4, 3);
 
 
 /*MediaType:

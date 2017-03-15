@@ -45,6 +45,18 @@ public class DBMediaService implements MediaService {
 		Media mediaObj = (Media) media.toArray()[index];
 		return util.getJSONForObject(mediaObj);
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public String getAllMediaByType(String type) {
+		try{
+			Query query = manager.createQuery("Select m from Media m where m.type = " + "com.qa.cinema.persistence.MediaType." + type.toUpperCase()); 
+			Collection<Media> media = (Collection<Media>) query.getResultList();
+			return util.getJSONForObject(media);
+		}catch(IllegalArgumentException iae){
+			return "{\"message\": \"No Such Media Type\"}";
+		}
+	}
 
 	@Override
 	public String createMedia(Long filmId, String media) {
