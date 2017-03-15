@@ -4,7 +4,7 @@
 
 (function () {
 
-    var contactController = function(contactService) {
+    var ContactController = function(contactService, contactdal) {
 
         var vm = this;
         var string = [];
@@ -13,8 +13,8 @@
             contactService.sendEmail(emailToSend);
         };
 
-    }
+    };
 
-    angular.module('cinemaApp').controller('contactController', ['contactService', contactController]);
+    angular.module('movieApp').controller('contactController', ['contactService', ContactController]);
 
 }());
