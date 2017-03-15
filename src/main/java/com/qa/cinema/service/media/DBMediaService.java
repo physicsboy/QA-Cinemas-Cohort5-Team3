@@ -45,6 +45,19 @@ public class DBMediaService implements MediaService {
 		Media mediaObj = (Media) media.toArray()[index];
 		return util.getJSONForObject(mediaObj);
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public String getAllMediaByType(String type) {
+		Query query = manager.createQuery("Select m from Media m where m.type = " + "com.qa.cinema.persistence.MediaType." + type.toUpperCase()); 
+		Collection<Media> media = (Collection<Media>) query.getResultList();
+		
+		Random random = new Random();
+		int index = random.nextInt(media.size());
+		
+		Media mediaObj = (Media) media.toArray()[index];
+		return util.getJSONForObject(mediaObj);
+	}
 
 	@Override
 	public String createMedia(Long filmId, String media) {

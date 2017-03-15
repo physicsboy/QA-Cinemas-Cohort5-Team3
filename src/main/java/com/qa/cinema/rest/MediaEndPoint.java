@@ -31,6 +31,14 @@ public class MediaEndPoint {
 		return service.getSingleMediaForFilmByType(id, type);
 	}
 	
+	@Path("/json/{mediaType}")
+	@GET
+	@Produces({"application/json"})
+	public String getAllByType(@PathParam("mediaType") String type) {
+		return service.getAllMediaByType(type);
+	}
+	
+	
 	
 	@Path("/json/{filmId}")
 	@POST
