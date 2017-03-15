@@ -38,7 +38,7 @@ public class DBBookingService implements BookingService {
 
 	@Override
 	public String getBookingByBookingId(Long bookingId) {
-		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.booking_id = "+bookingId);
+		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.bookingId = "+bookingId);
 		@SuppressWarnings("unchecked")
 		Collection<Booking> bookings = (Collection<Booking>) query.getResultList();
 		return util.getJSONForObject(bookings);
