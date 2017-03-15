@@ -49,7 +49,7 @@ public class DBTicketService implements TicketService {
 
 	@Override
 	public String getAllTicketsForBooking(Long bookingID) {
-		Query query = manager.createQuery("Select t from Ticket t where t.booking.bookingId = " + bookingID);
+		Query query = manager.createQuery("Select t from Ticket t where t.bookingID = " + bookingID);
 	
 		@SuppressWarnings("unchecked")
 		Collection<Ticket> tickets = (Collection<Ticket>) query.getResultList();

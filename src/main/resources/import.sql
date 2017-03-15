@@ -7,6 +7,12 @@ INSERT INTO movie VALUES (4, 'Roy Scheider, Robert Shaw, Richard Dreyfuss', '12A
 
 INSERT INTO screen VALUES (1, 'url'),(2, 'url'),(3, 'lol'),(4, 'abc');
 
+INSERT INTO block VALUES( 1, 34, 3, 5, 6, 'a', 5, 3, 2);
+INSERT INTO block VALUES( 2, 34, 3, 5, 6, 'a', 5, 3, 1);
+INSERT INTO block VALUES( 3, 34, 3, 5, 6, 'a', 5, 3, 2);
+INSERT INTO block VALUES( 4, 34, 3, 5, 6, 'a', 5, 3, 3);
+INSERT INTO block VALUES( 5, 34, 3, 5, 6, 'a', 5, 3, 2);
+
 INSERT INTO user VALUES ('alex@alex.com','Alex','Name','Line 1 Street','Second','Townsville','Citydom','CT1 S50','password');
 INSERT INTO user VALUES ('fred@fred.com','Fred','Surname','987 Lane','Here','Nowheresville','Nowhere','NO9 8RT','password');
 INSERT INTO user VALUES ('sam@sam.com','Sam','Othername','123 Street','Place','Townstown','Citycity','CY3 9PL','password');
@@ -21,11 +27,11 @@ INSERT INTO booking VALUES (2, 995894235000, 'sma@sam.com', 'sam@sam.com');
 INSERT INTO booking VALUES (3, 985824235000, 'fred@fred.com', 'alex@alex.com');
 INSERT INTO booking VALUES (4, 945884235000, 'fred@fred.com', 'alex@alex.com');
 
-INSERT INTO SEAT values (1, 5, 7, 'a', 1);
-INSERT INTO SEAT values (2, 5, 7, 'a', 1);
-INSERT INTO SEAT values (3, 5, 7, 'a', 2);
-INSERT INTO SEAT values (4, 5, 7, 'a', 3);
-INSERT INTO SEAT values (5, 5, 7, 'b', 4);
+INSERT INTO seat values (1, 5, 7, 'a', 1);
+INSERT INTO seat values (2, 3, 7, 'a', 1);
+INSERT INTO seat values (3, 1, 7, 'a', 2);
+INSERT INTO seat values (4, 5, 7, 'a', 3);
+INSERT INTO seat values (5, 1, 7, 'b', 4);
 
 
 INSERT INTO ticket VALUES (1, 6.99, 'Child', 1, 1, 2);
@@ -33,3 +39,9 @@ INSERT INTO ticket VALUES (2, 9.99, 'Adult', 2, 2, 2);
 INSERT INTO ticket VALUES (3, 5.99, 'Child', 3, 4, 4);
 INSERT INTO ticket VALUES (4, 7.99, 'Concession',3, 3, 4);
 INSERT INTO ticket VALUES (5, 6.99, 'Adult', 4, 4,4);
+
+INSERT INTO media VALUES (1, 1, 'image', 'abc');
+INSERT INTO media VALUES (2, 1, 'image', 'abc');
+INSERT INTO media VALUES (3, 1, 'trailer', 'abc');
+INSERT INTO media VALUES (4, 2, 'image', 'abc');
+INSERT INTO media VALUES (5, 3, 'image', 'abc');

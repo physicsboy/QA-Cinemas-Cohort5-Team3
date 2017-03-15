@@ -106,7 +106,7 @@ public class DBMediaService implements MediaService {
 	
 	@SuppressWarnings("unchecked")
 	private Collection<Media> getAllMediaForFilm(Long filmID, String mediaType){
-		Query query = manager.createQuery("Select m from Movie.media m where Movie.id = " + filmID); 
+		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID); 
 		
 		return (Collection<Media>) query.getResultList();
 	}

@@ -21,7 +21,7 @@ import com.qa.cinema.service.screen.BlockService;
 public class BlockEndpoint {
 	
 
-	@Inject
+	//@Inject
 	private BlockService service;
 
 	@Path("/json")

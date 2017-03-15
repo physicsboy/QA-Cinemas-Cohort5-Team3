@@ -3,6 +3,7 @@ package com.qa.cinema.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class Movie {
 	private String cast;
 	private int length;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name="film_id")
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "movieID")
 	private List<Media> media = new ArrayList<>();
 
 	public Movie() {
@@ -115,5 +116,6 @@ public class Movie {
 	public void setLength(int length) {
 		this.length = length;
 	}
+	
 
 }
