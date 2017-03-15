@@ -51,13 +51,6 @@ public class BookingEndpoint {
 	}
 
 	@Path("/json/{id}")
-	@PUT
-	@Produces({ "application/json" })
-	public String updateBooking(@PathParam("id") Long bookingId, String updatedBooking) {
-		return service.updateBooking(bookingId, updatedBooking);
-	}
-
-	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
 	public String deleteBooking(@PathParam("id") Long bookingId) {

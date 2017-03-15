@@ -17,8 +17,6 @@
                     templateUrl : "app/feature/booking/get/get-booking.html"
                 }).state("addbooking",{url : "/addbooking",
                     templateUrl : "app/feature/booking/add/add-booking.html"
-                }).state("updatebooking",{url : "/updatebooking",
-                    templateUrl : "app/feature/booking/update/update-booking.html"
                 }).state("deletebooking",{url : "/deletebooking",
                     templateUrl : "app/feature/booking/delete/delete-booking.html"
                 }).state("getmovie",{url : "/getmovie",
