@@ -6,10 +6,8 @@ package arquillian;
 
 
 import static org.junit.Assert.*;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -45,7 +43,6 @@ public class ScreenArquillianTest {
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
             .addPackage(Screen.class.getPackage())
-            .addClass(ArquillianTestData.class)
             .addAsResource("wildfly-persistence.xml", "META-INF/persistence.xml")
             .addAsResource("import.sql")
             .addAsWebInfResource("wildfly-ds.xml")
@@ -61,9 +58,19 @@ public class ScreenArquillianTest {
         assertEquals("lol", screen.getURL());
     }
     
-      
-   
-   
+    @Test
+    public final void testGetId() throws Exception {
+    	Screen screen;
+    	screen = em.find(Screen.class, 3);
+        assertEquals(3, screen.getScreenId());
+    }
     
+//    @Test
+//    public final void testGetBlocks() throws Exception {
+//    	Screen screen;
+//    	int size = em.find(Screen.class, 3).getBlocks().size();
+//        assertEquals(3, size);
+//    }
+
     
 }
