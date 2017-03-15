@@ -88,7 +88,7 @@ public class BlockTest {
 	@Test
 	public void getRowCountConstructerTest() {
 		assertEquals(2,block2.getRowCount());
-
+	}
 
 	
 	@Test
@@ -153,7 +153,5 @@ public class BlockTest {
 		long id = block1.getSeats().get(0).getSeatId();
 		assertEquals(1L, id);
 	}
-	
-	
 	
 }
