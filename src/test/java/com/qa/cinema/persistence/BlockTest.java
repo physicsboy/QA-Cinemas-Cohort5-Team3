@@ -37,7 +37,6 @@ public class BlockTest {
 		block1.setAngle(180);
 		block1.setColCount(1);
 		block1.setRowCount(1);
-		block1.setScreen(screen1);
 		block1.setSeats(seats);
 		block1.setStartingCol(1);
 		block1.setStartingRow('a');
@@ -139,13 +138,6 @@ public class BlockTest {
 	public void getStartingColConstructerTest() {
 		assertEquals(2,block2.getStartingCol());
 	}
-
-	
-	@Test
-	public void getScreen() {
-		assertEquals(1,block1.getScreen().getScreenId());
-	}
-	
 
 	
 	@Test

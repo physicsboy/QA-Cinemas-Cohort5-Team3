@@ -66,7 +66,6 @@ public class DBBlockService implements BlockService {
 		for(char newCol = firstNewCol; newCol <= lastColToAdd; newCol++){
 			for(int newRow = firstNewRow; newRow <= lastRowToAdd; newRow++){
 				Seat seat = new Seat(newRow, newCol, Seat.SeatType.STANDARD);
-				seat.setBlock(block);
 				em.persist(seat);
 			}
 		}
