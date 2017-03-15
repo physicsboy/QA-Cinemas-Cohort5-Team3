@@ -39,7 +39,7 @@
                 vm.error = true;
                 vm.errorMessage = error;
             });
-        }
+        };
     };
 
     angular.module('movieApp').controller('getMovieController', ['movieDal', GetMovieController]);

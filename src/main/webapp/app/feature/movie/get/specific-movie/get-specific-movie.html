@@ -1,5 +1,5 @@
 <style>
-    .custom-header{
+    .custom-header {
         text-decoration: underline;
         text-align: left;
         color: #1b6d85;
@@ -7,7 +7,7 @@
         font-weight: bold;
     }
 
-    .movie-poster{
+    .movie-poster {
         margin-bottom: 40px;
         width: 55%;
         align-content: center;
@@ -15,44 +15,66 @@
         margin-right: auto;
     }
 
-    .button {
-        background-color: #4CAF50; /* Green */
+    /* Style the buttons that are used to open and close the accordion panel */
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        text-align: left;
         border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
+        outline: none;
+        transition: 0.4s;
     }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    button.accordion.active, button.accordion:hover {
+        background-color: #ddd;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    div.panel {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+    }
+
 </style>
 
 <div ng-controller="getMovieController as movieCtrl" class="container-fluid" style="">
     <div>
         <select
                 ng-model="chosenMovie"
-                ng-options="movie as movie.title for movie in movieCtrl.movies">
+                ng-init="chosenMovie=movieCtrl.movies[0]"
+                ng-options="movie.title for movie in movieCtrl.movies track by movie.id">
         </select>
     </div>
 
     <div class="container-fluid">
-        <div class="col-md-6" >
+        <div class="col-md-6">
             </br>
-            <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive" />
+            <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive"/>
         </div>
 
         <div class="col-md-6">
-            <p class="custom-header">Description</p>
-            {{chosenMovie.description}} <br/><br/>
-            <p class="custom-header">Classification</p>
-            <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/><br/>
-            <p class="custom-header">Cast</p>
-            {{chosenMovie.cast}} <br/><br/>
-            <p class="custom-header">Genre</p>
-            {{chosenMovie.genre}} <br/> <br/>
-            <p class="custom-header">Length</p>
-            {{chosenMovie.length}} <br/><br/>
-            <button class="button" ng-click='{{chosenMovie.trailerURL}}'></button>
+
+            <div>
+                <p class="custom-header">Description</p>
+                {{chosenMovie.description}} <br/><br/>
+                <p class="custom-header">Classification</p>
+                <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/><br/>
+                <p class="custom-header">Cast</p>
+                {{chosenMovie.cast}} <br/><br/>
+                <p class="custom-header">Genre</p>
+                {{chosenMovie.genre}} <br/> <br/>
+                <p class="custom-header">Length</p>
+                {{chosenMovie.length}} <br/><br/>
+
+
+                Show Trailer <img src="http://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" width=20px height="20px"/>
+            </div>
+
         </div>
     </div>
 
