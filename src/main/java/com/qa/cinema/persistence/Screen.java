@@ -60,10 +60,5 @@ public class Screen {
 	public void setBlocks(List<Block> blocks) {
 		this.blocks = blocks;
 	}
-	
-	
-	
-	
-	
 
 }

@@ -65,12 +65,12 @@ public class ScreenArquillianTest {
         assertEquals(3, screen.getScreenId());
     }
     
-    @Test
-    public final void testGetBlocks() throws Exception {
-    	Screen screen;
-    	int size = em.find(Screen.class, 3).getBlocks().size();
-        assertEquals(3, size);
-    }
-    
+//    @Test
+//    public final void testGetBlocks() throws Exception {
+//    	Screen screen;
+//    	int size = em.find(Screen.class, 3).getBlocks().size();
+//        assertEquals(3, size);
+//    }
+
     
 }
