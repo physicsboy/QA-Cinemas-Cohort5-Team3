@@ -1,6 +1,7 @@
 package com.qa.cinema.persistence;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,7 +34,7 @@ public class Booking {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "bookingID")
-	private List<Ticket> tickets;
+	private List<Ticket> tickets = new ArrayList<>();
 	
 	public Booking(){
 		
