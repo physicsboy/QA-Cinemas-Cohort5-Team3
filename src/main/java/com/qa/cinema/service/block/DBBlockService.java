@@ -44,6 +44,8 @@ public class DBBlockService implements BlockService {
 		return util.getJSONForObject(blocks);
 	}
 
+	
+	
 	@Override
 	public String increaseColCount(int increase, String block) {
 		Block blockObj = util.getObjectForJSON(block, Block.class);
@@ -56,28 +58,28 @@ public class DBBlockService implements BlockService {
 		int rowCount = block.getRowCount();
 		int startingRow = block.getStartingRow();
 		
-		int newRowCount = rowCount + increase;
+		int firstNewRow = (startingRow + rowCount + 1);
+		int lastRowToAdd = (firstNewRow + increase + 1);
 		char firstNewCol = (char)(startingCol + colCount + 1);
 		int lastColToAdd = firstNewCol + increase;
 		
-		
 		for(char newCol = firstNewCol; newCol <= lastColToAdd; newCol++){
-			for(int newRow = startingRow; newRow <= newRowCount; newRow++){
+			for(int newRow = firstNewRow; newRow <= lastRowToAdd; newRow++){
 				Seat seat = new Seat(newRow, newCol, Seat.SeatType.STANDARD);
 				seat.setBlock(block);
 				em.persist(seat);
 			}
-			
 		}
-		
-		
 	}
 
+	
+	
 	@Override
 	public String increaseRowCount(int increase, String block) {
-		// TODO Auto-generated method stub
+		Block blockObj = util.getObjectForJSON(block, Block.class);
 		return null;
 	}
+	
 
 	@Override
 	public String decreaseColCount(int decrease, String block) {
