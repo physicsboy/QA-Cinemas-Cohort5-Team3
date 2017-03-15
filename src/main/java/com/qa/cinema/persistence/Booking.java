@@ -6,13 +6,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
 /**
  * 
  * @author Sam.Jarvis
@@ -32,9 +30,9 @@ public class Booking {
 	private String userEmail;
 	
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "bookingID")
-	private List<Ticket> tickets = new ArrayList<>();
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "Booking_bookingID")
+	private List<Ticket> tickets;
 	
 	public Booking(){
 		

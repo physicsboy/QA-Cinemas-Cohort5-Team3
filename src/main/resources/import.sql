@@ -46,11 +46,11 @@ INSERT INTO seat values (4, 1, 7, 2);
 INSERT INTO seat values (5, 1, 7, 0);
 
 
-INSERT INTO ticket VALUES (1, 1, 6.99, 'Child', 1, 1);
-INSERT INTO ticket VALUES (2, 1, 9.99, 'Adult', 2, 2);
-INSERT INTO ticket VALUES (3, 2, 5.99, 'Child', 3, 4);
-INSERT INTO ticket VALUES (4, 2, 7.99, 'Concession',3, 3);
-INSERT INTO ticket VALUES (5, 3, 6.99, 'Adult', 4, 4);
+INSERT INTO ticket VALUES (1, 6.99, 'Child', 1, 1, 1);
+INSERT INTO ticket VALUES (2, 9.99, 'Adult', 2, 2, 1);
+INSERT INTO ticket VALUES (3, 5.99, 'Child', 3, 4, 1);
+INSERT INTO ticket VALUES (4, 7.99, 'Concession',3, 3, 2);
+INSERT INTO ticket VALUES (5, 6.99, 'Adult', 4, 4, 3);
 
 
 /*MediaType:
@@ -58,19 +58,19 @@ INSERT INTO ticket VALUES (5, 3, 6.99, 'Adult', 4, 4);
     1 - TRAILER
     2 - IMAGE
     3 - OFFER*/
-INSERT INTO media VALUES (1, 1, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU2NTA0NDM0MF5BMl5BanBnXkFtZTgwMDMzMTQzMTI@._V1_SY1000_CR0,0,666,1000_AL_.jpg');
-INSERT INTO media VALUES (2, 2, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg');
-INSERT INTO media VALUES (3, 3, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_SY1000_CR0,0,676,1000_AL_.jpg');
-INSERT INTO media VALUES (4, 4, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTYzODYzODU2Ml5BMl5BanBnXkFtZTgwNTc1MTA2NzE@._V1_SY1000_CR0,0,674,1000_AL_.jpg');
-INSERT INTO media VALUES (5, 5, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_SY1000_CR0,0,647,1000_AL_.jpg');
-INSERT INTO media VALUES (6, 6, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5NTk0Njg2N15BMl5BanBnXkFtZTgwNzk5Nzk3MDI@._V1_SY1000_CR0,0,631,1000_AL_.jpg');
-INSERT INTO media VALUES (7, 7, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTYxMjk0NDg4Ml5BMl5BanBnXkFtZTgwODcyNjA5OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg');
-INSERT INTO media VALUES (8, 8, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg');
-INSERT INTO media VALUES (9, 9, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjE2NDkxNTY2M15BMl5BanBnXkFtZTgwMDc2NzE0MTI@._V1_SY1000_CR0,0,648,1000_AL_.jpg');
-INSERT INTO media VALUES (10, 10, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3MjAzOTQxNF5BMl5BanBnXkFtZTgwOTc5OTY1OTE@._V1_SY1000_CR0,0,631,1000_AL_.jpg');
-INSERT INTO media VALUES (11, 11, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg');
-INSERT INTO media VALUES (12, 12, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_SY1000_CR0,0,640,1000_AL_.jpg');
-INSERT INTO media VALUES (13, 13, 0, 'amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SY1000_SX675_AL_.jpg');
-INSERT INTO media VALUES (14, 14, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg5Njg1MzIwNl5BMl5BanBnXkFtZTgwNDU1NjczMDI@._V1_SY1000_SX675_AL_.jpg');
-INSERT INTO media VALUES (15, 15, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg');
-INSERT INTO media VALUES (16, 16, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SY1000_SX675_AL_.jpg');
+INSERT INTO media VALUES (1, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU2NTA0NDM0MF5BMl5BanBnXkFtZTgwMDMzMTQzMTI@._V1_SY1000_CR0,0,666,1000_AL_.jpg', 1);
+INSERT INTO media VALUES (2, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 2);
+INSERT INTO media VALUES (3, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_SY1000_CR0,0,676,1000_AL_.jpg', 3);
+INSERT INTO media VALUES (4, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTYzODYzODU2Ml5BMl5BanBnXkFtZTgwNTc1MTA2NzE@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 4);
+INSERT INTO media VALUES (5, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_SY1000_CR0,0,647,1000_AL_.jpg', 5);
+INSERT INTO media VALUES (6, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5NTk0Njg2N15BMl5BanBnXkFtZTgwNzk5Nzk3MDI@._V1_SY1000_CR0,0,631,1000_AL_.jpg', 6);
+INSERT INTO media VALUES (7, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTYxMjk0NDg4Ml5BMl5BanBnXkFtZTgwODcyNjA5OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 7);
+INSERT INTO media VALUES (8, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 8);
+INSERT INTO media VALUES (9, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjE2NDkxNTY2M15BMl5BanBnXkFtZTgwMDc2NzE0MTI@._V1_SY1000_CR0,0,648,1000_AL_.jpg', 9);
+INSERT INTO media VALUES (10, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3MjAzOTQxNF5BMl5BanBnXkFtZTgwOTc5OTY1OTE@._V1_SY1000_CR0,0,631,1000_AL_.jpg', 10);
+INSERT INTO media VALUES (11, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 11);
+INSERT INTO media VALUES (12, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_SY1000_CR0,0,640,1000_AL_.jpg', 12);
+INSERT INTO media VALUES (13, 0, 'amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SY1000_SX675_AL_.jpg', 13);
+INSERT INTO media VALUES (14, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg5Njg1MzIwNl5BMl5BanBnXkFtZTgwNDU1NjczMDI@._V1_SY1000_SX675_AL_.jpg', 14);
+INSERT INTO media VALUES (15, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg', 15);
+INSERT INTO media VALUES (16, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SY1000_SX675_AL_.jpg', 16);

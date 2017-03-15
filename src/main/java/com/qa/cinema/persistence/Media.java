@@ -16,8 +16,6 @@ public class Media {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long movieID;
-	
 	private String url;
 	private MediaType type;
 	
@@ -25,18 +23,9 @@ public class Media {
 		super();
 	}
 	
-	public Media(Long movieID, String url, MediaType type){
+	public Media(String url, MediaType type){
 		this.url = url;
 		this.type = type;
-		this.movieID = movieID;
-	}
-
-	public Long getMovieID() {
-		return movieID;
-	}
-
-	public void setMovieID(Long movieID) {
-		this.movieID = movieID;
 	}
 
 	public Long getId() {
