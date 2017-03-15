@@ -8,10 +8,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.Query;
 
-import org.hibernate.QueryException;
-
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import com.qa.cinema.persistence.Media;
@@ -99,8 +96,8 @@ public class DBMediaService implements MediaService {
 	
 	@SuppressWarnings("unchecked")
 	private Collection<Media> getAllMediaForFilm(Long filmID, String mediaType){
-		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID +
-				" AND m.type = " + "com.qa.cinema.persistence.MediaType." + mediaType.toUpperCase()); 
+		Query query = manager.createQuery("SELECT med FROM Movie m JOIN m.media med WHERE m.id =" + filmID +
+				" AND med.type = " + "com.qa.cinema.persistence.MediaType." + mediaType.toUpperCase()); 
 		return (Collection<Media>) query.getResultList();
 	}
 	
