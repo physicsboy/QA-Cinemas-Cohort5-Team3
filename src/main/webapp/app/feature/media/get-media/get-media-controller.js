@@ -3,8 +3,8 @@
     var GetMediaController = function (mediaDal) {
         var vm = this;
 
-        vm.getAllMedia = function getAllMedia() {
-            mediaDal.getAllMedia().then(function (results) {
+        vm.getAllMedia = function getAllMedia(filmId, type) {
+            mediaDal.getAllMedia(filmId, type).then(function (results) {
                 vm.movies = results;
             }, function (error) {
                 vm.error = true;
@@ -13,8 +13,8 @@
         };
         vm.getAllMedia();
 
-        vm.getMedia = function getMedia() {
-            mediaDal.getMedia().then(function (results) {
+        vm.getMedia = function getMedia(filmId, type) {
+            mediaDal.getMedia(filmId, type).then(function (results) {
                 vm.movies = results;
             }, function (error) {
                 vm.error = true;

@@ -2,7 +2,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
 
-<div ng-controller="getMovieController as ctrl">
+<div ng-controller="getMovieController as ctrlMov">
+<div ng-controller="getMediaController as ctrlMed">
 
     <br/><br/>
 
@@ -11,13 +12,13 @@
     <div class=container>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
-                <ol class="carousel-indicators" ng-repeat="movie in ctrl.movies">
+                <ol class="carousel-indicators" ng-repeat="media in ctrlMed">
                     <li data-target="#myCarousel" data-slide-to="$index" ng-class="{'active': $index == 0}"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item" ng-class="{active:!$index}" ng-repeat="movie in ctrl.movies">
+                    <div class="item" ng-class="{active:!$index}" ng-repeat="media in ctrlMed.media">
                         <img ng-src='{{movie.posterURL}}' style=width:200px;height:295px;/>
                     </div>
                 </div>
@@ -47,6 +48,7 @@
         </div>
 </body>
 
+</div>
 </div>
 
 
