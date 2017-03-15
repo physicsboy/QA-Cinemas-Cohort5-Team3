@@ -51,6 +51,19 @@ public class Screen {
 	}
 	public void setURL(String url) {
 		this.url = url;
-	}	
+	}
+
+
+	public List<Block> getBlocks() {
+		return blocks;
+	}
+	public void setBlocks(List<Block> blocks) {
+		this.blocks = blocks;
+	}
+	
+	
+	
+	
+	
 
 }
