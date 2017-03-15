@@ -12,7 +12,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import com.qa.cinema.persistence.Media;
-import com.qa.cinema.persistence.MediaType;
 import com.qa.cinema.persistence.Movie;
 import com.qa.cinema.util.JSONUtil;
 
@@ -28,16 +27,16 @@ public class DBMediaService implements MediaService {
 
 	@Override
 	public String getAllMediaForFilmByType(Long filmID, String type) {
-		/*MediaType mediaType = getMediaType(type);*/
-		Collection<Media> media = getAllMediaForFilm(filmID, type);
+		int mediaType = getMediaType(type);
+		Collection<Media> media = getAllMediaForFilm(filmID, mediaType);
 
 		return util.getJSONForObject(media);
 	}
 
 	@Override
 	public String getSingleMediaForFilmByType(Long filmID, String type) {
-		/*MediaType mediaType = getMediaType(type);*/
-		Collection<Media> media = getAllMediaForFilm(filmID, type);
+		int mediaType = getMediaType(type);
+		Collection<Media> media = getAllMediaForFilm(filmID, mediaType);
 		
 		Random random = new Random();
 		int index = random.nextInt(media.size());
@@ -85,28 +84,25 @@ public class DBMediaService implements MediaService {
 
 	
 	
-	private MediaType getMediaType(String type) {
-		System.out.println("TEST!!! - " + type.toUpperCase() + " - TEST!!!!");
+	private int getMediaType(String type) {
 		switch (type.toUpperCase()) {
-		case "TRAILER":
-			return MediaType.TRAILER;
 		case "POSTER":
-			return MediaType.POSTER;
+			return 0;
+		case "TRAILER":
+			return 1;
 		case "IMAGE":
-			System.out.println("TEST!!! - " + type.toUpperCase());
-			return MediaType.IMAGE;
+			return 2;
 		case "OFFER":
-			return MediaType.OFFER;
+			return 3;
 		default:
 			throw new NoResultException();
-
 		}
 	}
 	
 	
 	@SuppressWarnings("unchecked")
-	private Collection<Media> getAllMediaForFilm(Long filmID, String mediaType){
-		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID); 
+	private Collection<Media> getAllMediaForFilm(Long filmID, int mediaType){
+		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID + " AND m.type = " + mediaType); 
 		
 		return (Collection<Media>) query.getResultList();
 	}

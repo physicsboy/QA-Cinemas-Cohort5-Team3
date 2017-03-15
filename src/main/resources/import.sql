@@ -1,4 +1,4 @@
-<!-- @author AlexNewton -->
+/* @author AlexNewton */
 
 INSERT INTO movie VALUES (1, 'Ralph Finnnes, Maria Carey et Al', 'U', 'In a world full of lego..... there is batman', 'Adventure', 118, 'Lego Batman Movie', '2017-03-10');
 INSERT INTO movie VALUES (2, 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page', '15', 'mystery and dreaming', 'Action, Sci-Fi', 148, 'Inception', '2010-07-08');
@@ -42,8 +42,14 @@ INSERT INTO ticket VALUES (3, 2, 5.99, 'Child', 3, 4);
 INSERT INTO ticket VALUES (4, 2, 7.99, 'Concession',3, 3);
 INSERT INTO ticket VALUES (5, 3, 6.99, 'Adult', 4, 4);
 
-INSERT INTO media VALUES (1, 1, 'image', 'abc');
-INSERT INTO media VALUES (2, 1, 'image', 'abc');
-INSERT INTO media VALUES (3, 1, 'trailer', 'abc');
-INSERT INTO media VALUES (4, 2, 'image', 'abc');
-INSERT INTO media VALUES (5, 3, 'image', 'abc');
+
+/*MediaType:
+    0 - POSTER
+    1 - TRAILER
+    2 - IMAGE
+    3 - OFFER*/
+INSERT INTO media VALUES (1, 1, 0, 'abc');
+INSERT INTO media VALUES (2, 1, 0, 'abc');
+INSERT INTO media VALUES (3, 1, 1, 'abc');
+INSERT INTO media VALUES (4, 2, 2, 'abc');
+INSERT INTO media VALUES (5, 3, 3, 'abc');
