@@ -7,6 +7,9 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.Query;
+
+import org.hibernate.QueryException;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -27,16 +30,14 @@ public class DBMediaService implements MediaService {
 
 	@Override
 	public String getAllMediaForFilmByType(Long filmID, String type) {
-		int mediaType = getMediaType(type);
-		Collection<Media> media = getAllMediaForFilm(filmID, mediaType);
+		Collection<Media> media = getAllMediaForFilm(filmID, type);
 
 		return util.getJSONForObject(media);
 	}
 
 	@Override
 	public String getSingleMediaForFilmByType(Long filmID, String type) {
-		int mediaType = getMediaType(type);
-		Collection<Media> media = getAllMediaForFilm(filmID, mediaType);
+		Collection<Media> media = getAllMediaForFilm(filmID, type);
 		
 		Random random = new Random();
 		int index = random.nextInt(media.size());
@@ -84,26 +85,10 @@ public class DBMediaService implements MediaService {
 
 	
 	
-	private int getMediaType(String type) {
-		switch (type.toUpperCase()) {
-		case "POSTER":
-			return 0;
-		case "TRAILER":
-			return 1;
-		case "IMAGE":
-			return 2;
-		case "OFFER":
-			return 3;
-		default:
-			throw new NoResultException();
-		}
-	}
-	
-	
 	@SuppressWarnings("unchecked")
-	private Collection<Media> getAllMediaForFilm(Long filmID, int mediaType){
-		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID + " AND m.type = " + mediaType); 
-		
+	private Collection<Media> getAllMediaForFilm(Long filmID, String mediaType){
+		Query query = manager.createQuery("Select m from Media m where m.movieID = " + filmID +
+				" AND m.type = " + "com.qa.cinema.persistence.MediaType." + mediaType.toUpperCase()); 
 		return (Collection<Media>) query.getResultList();
 	}
 	
