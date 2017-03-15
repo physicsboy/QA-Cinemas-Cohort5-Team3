@@ -49,14 +49,13 @@ public class DBMediaService implements MediaService {
 	@Override
 	@SuppressWarnings("unchecked")
 	public String getAllMediaByType(String type) {
-		Query query = manager.createQuery("Select m from Media m where m.type = " + "com.qa.cinema.persistence.MediaType." + type.toUpperCase()); 
-		Collection<Media> media = (Collection<Media>) query.getResultList();
-		
-		Random random = new Random();
-		int index = random.nextInt(media.size());
-		
-		Media mediaObj = (Media) media.toArray()[index];
-		return util.getJSONForObject(mediaObj);
+		try{
+			Query query = manager.createQuery("Select m from Media m where m.type = " + "com.qa.cinema.persistence.MediaType." + type.toUpperCase()); 
+			Collection<Media> media = (Collection<Media>) query.getResultList();
+			return util.getJSONForObject(media);
+		}catch(IllegalArgumentException iae){
+			return "{\"message\": \"No Such Media Type\"}";
+		}
 	}
 
 	@Override
