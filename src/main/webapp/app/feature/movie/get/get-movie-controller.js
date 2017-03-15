@@ -44,3 +44,4 @@
 
     angular.module('movieApp').controller('getMovieController', ['movieDal', GetMovieController]);
 }());
+
