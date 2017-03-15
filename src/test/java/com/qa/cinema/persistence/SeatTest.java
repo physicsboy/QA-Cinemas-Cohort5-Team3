@@ -11,21 +11,20 @@ public class SeatTest {
 
 	@Before
 	public void setUp() {
-		screen2 = new Screen("some/location 2");
-		screen2.setScreenId(1);
-		seat2 = new Seat(2,'b',2);
+		block1.setBlockId(1L);
+		seat2 = new Seat(2,'b',Seat.SeatType.STANDARD);
 		seat1 = new Seat();
 		seat1.setSeatId(1L);
 		seat1.setRow('a');
 		seat1.setColumn(1);
-		seat1.setBlock(1);
+		seat1.setBlock(block1);
 	}
 
 	@After
 	public void tearDown() {
 	}
 
-	Screen screen2 = new Screen();
+	Block block1 = new Block();
 	Seat seat1 = new Seat();
 	Seat seat2 = new Seat();
 	
@@ -59,11 +58,14 @@ public class SeatTest {
 	
 	@Test
 	public void  getBlockConstructerTest() {
-		assertEquals(1, seat1.getBlock());
+		long id = seat1.getBlock().getBlockId();
+		assertEquals(1L, id);
 	}
-	@Test
-	public void  getBlockSetterTest() {
-		assertEquals(2, seat2.getBlock());
-	}
+	
+	
+	
+	
+	
+	
 
 }
