@@ -1,12 +1,14 @@
 "use strict";
 
-(function() {
+(function () {
+
+    function MediaDal(dal) {
 
         this.getAllMedia = function (filmId, type) {
-            return dal.http.GET("rest/media/json/all" + filmId + "/" + type)
+            return dal.http.GET("rest/media/json/all/" + filmId + "/" + type)
         };
 
-        this.getSingleMedia = function (filmId, type){
+        this.getSingleMedia = function (filmId, type) {
             return dal.http.GET("rest/media/json/" + filmId + "/" + type)
         };
 
@@ -20,6 +22,8 @@
 
         this.deleteMedia = function (mediaToDeleteId) {
             return dal.http.DELETE("rest/media/json/" + mediaToDeleteId)
-        }
+        };
+    }
 
+    angular.module("movieApp").service("mediaDal", ["dal", MediaDal]);
 }());
