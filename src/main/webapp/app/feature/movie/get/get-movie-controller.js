@@ -1,6 +1,6 @@
 (function () {
 
-    var GetMovieController = function (movieDal) {
+    var GetMovieController = function (movieDal, $stateParams) {
         var vm = this;
 
         vm.getMovies = function getMovies() {
@@ -12,6 +12,15 @@
             });
         };
         vm.getMovies();
+
+        vm.getMovieById = function getMovieById() {
+            movieDal.getMovieById($stateParams.movieId).then(function (results) {
+                vm.movies = results;
+            }, function (error) {
+                vm.error = true;
+                vm.errorMessage = error;
+            });
+        };
 
         vm.getMovieByTitle = function getMovieByTitle(title) {
             movieDal.getMovieByTitle(title).then(function (results) {
