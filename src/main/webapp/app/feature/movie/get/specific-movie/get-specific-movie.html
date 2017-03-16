@@ -6,7 +6,6 @@
         font-size: x-large;
         font-weight: bold;
     }
-
     .movie-poster {
         margin-bottom: 40px;
         width: 55%;
@@ -14,7 +13,6 @@
         margin-left: auto;
         margin-right: auto;
     }
-
     /* Style the buttons that are used to open and close the accordion panel */
     button.accordion {
         background-color: #eee;
@@ -27,63 +25,76 @@
         outline: none;
         transition: 0.4s;
     }
-
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     button.accordion.active, button.accordion:hover {
         background-color: #ddd;
     }
-
     /* Style the accordion panel. Note: hidden by default */
     div.panel {
         padding: 0 18px;
         background-color: white;
         display: none;
     }
-
 </style>
 
 <div ng-controller="getMovieController as movieCtrl" class="container-fluid" style="">
     <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
-    <div>
-        <select
-                ng-model="chosenMovie"
-                ng-init="chosenMovie=movieCtrl[0]"
-                ng-options="movie.title for movie in movieCtrl.movies track by movie.id"
-                ng-change="showingCtrl.getShowingByMovie(chosenMovie.id)">
-        </select>
-    </div>
+        <div>
+            <select
 
-    <div class="container-fluid">
-        <div class="col-md-6">
-            </br>
-            <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive"/>
+                    ng-model="chosenMovie"
+                    ng-init="chosenMovie=movieCtrl[0]"
+                    ng-options="movie.title for movie in movieCtrl.movies track by movie.id"
+                    ng-change="showingCtrl.getShowingByMovie(chosenMovie.id)"
+                    ng-click="show=!show">
+            </select
+                    >
         </div>
 
-        <div class="col-md-6">
-
-            <div>
-                <p class="custom-header">Description</p>
-                {{chosenMovie.description}} <br/><br/>
-                <p class="custom-header">Classification</p>
-                <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/><br/>
-                <p class="custom-header">Cast</p>
-                {{chosenMovie.cast}} <br/><br/>
-                <p class="custom-header">Genre</p>
-                {{chosenMovie.genre}} <br/> <br/>
-                <p class="custom-header">Length</p>
-                {{chosenMovie.length}} <br/><br/>
-
-                <select  ng-model="ticket.showing.idShowing" ng-disabled="!chosenMovie.id">
-                    <option value="" disabled selected>Select Showing</option>
-                    <option ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}</option>
-                </select>
-
-
-                Show Trailer <img src="http://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" width=20px height="20px"/>
+        <div class="container-fluid">
+            <div class="col-md-6">
+                </br>
+                <img src='{{chosenMovie.posterURL}}' class="movie-poster img-responsive"/>
             </div>
 
+            <div class="col-md-6">
+
+                <div>
+                    <p class="custom-header">Description</p>
+                    {{chosenMovie.description}} <br/><br/>
+                    <p class="custom-header">Classification</p>
+                    <a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/><br/>
+                    <p class="custom-header">Cast</p>
+                    {{chosenMovie.cast}} <br/><br/>
+                    <p class="custom-header">Genre</p>
+                    {{chosenMovie.genre}} <br/> <br/>
+                    <p class="custom-header">Length</p>
+                    {{chosenMovie.length}} <br/><br/>
+
+
+
+                    <table  class="table table-striped" ng-show="show" ng-model="ticket.showing.idShowing" ng-disabled="!chosenMovie.id">
+                        <option value="" disabled selected>Showings for this movie</option>
+                        <tr ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}
+                            <td id="dayShowing">{{showing.dateTime}}</td>
+                            <td>{{showing.screen.screenId}}</td>
+                            <td>{{showing.movie.title}}</td>
+                            <td>{{showing.movie.length}}</td>
+                            <td>{{showing.movie.classification}}</td>
+                        </tr>
+
+                    </table>
+
+                    <tr ng-repeat = "showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}>
+
+                    </tr>
+
+
+                    Show Trailer <img src="http://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" width=20px height="20px"/>
+                </div>
+
+            </div>
         </div>
-    </div>
 
         <ul>
             <li ng-repeat="e in showings | filter: {showings: {movie: chosenMovie.title}}">
@@ -92,8 +103,8 @@
         </ul>
         <table class="table table-striped">
             <tr ng-repeat="showings in showingCtrl">
-            <td ng-repeat="showings in showings.movies">{{showings.id}}</td>
-            <td ng-repeat="showings in showings.movies">{{showings.dateTime}}</td>
+                <td ng-repeat="showings in showings.movies">{{showings.id}}</td>
+                <td ng-repeat="showings in showings.movies">{{showings.dateTime}}</td>
             </tr>
         </table>
 
