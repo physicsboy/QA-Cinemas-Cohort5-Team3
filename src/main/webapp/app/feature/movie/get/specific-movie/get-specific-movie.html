@@ -43,11 +43,13 @@
 </style>
 
 <div ng-controller="getMovieController as movieCtrl" class="container-fluid" style="">
+    <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
     <div>
         <select
                 ng-model="chosenMovie"
-                ng-init="chosenMovie=movieCtrl.movies[0]"
-                ng-options="movie.title for movie in movieCtrl.movies track by movie.id">
+                ng-init="chosenMovie=movieCtrl[0]"
+                ng-options="movie.title for movie in movieCtrl.movies track by movie.id"
+                ng-change="showingCtrl.getShowingByMovie(chosenMovie.id)">
         </select>
     </div>
 
@@ -71,6 +73,11 @@
                 <p class="custom-header">Length</p>
                 {{chosenMovie.length}} <br/><br/>
 
+                <select  ng-model="ticket.showing.idShowing" ng-disabled="!chosenMovie.id">
+                    <option value="" disabled selected>Select Showing</option>
+                    <option ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}</option>
+                </select>
+
 
                 Show Trailer <img src="http://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" width=20px height="20px"/>
             </div>
@@ -78,4 +85,18 @@
         </div>
     </div>
 
+        <ul>
+            <li ng-repeat="e in showings | filter: {showings: {movie: chosenMovie.title}}">
+                {{e.movie.title}}
+            </li>
+        </ul>
+        <table class="table table-striped">
+            <tr ng-repeat="showings in showingCtrl">
+            <td ng-repeat="showings in showings.movies">{{showings.id}}</td>
+            <td ng-repeat="showings in showings.movies">{{showings.dateTime}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
 </div>

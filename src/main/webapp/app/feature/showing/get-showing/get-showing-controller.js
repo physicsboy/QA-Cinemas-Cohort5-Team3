@@ -15,6 +15,7 @@
         init();
 
         vm.getShowingByMovie = function(id){
+            console.log(id);
             showingDal.getShowingByMovie(id).then(function (results) {
                 vm.showings = results;
             }, function (error) {
