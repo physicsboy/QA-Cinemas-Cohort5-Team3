@@ -27,12 +27,12 @@ public class MovieEndpoint {
 	public String getAllMovies() {
 		return service.listAllMovies();
 	}
-
-	@Path("/title/json/{title}")
+	
+	@Path("/json/{id}")
 	@GET
 	@Produces({ "application/json" })
-	public String getMovieByTitle(@PathParam("title") String title) {
-		return service.listMovieByTitle(title);
+	public String getMovieById(@PathParam("id") Long id) {
+		return service.getMovieById(id);
 	}
 
 	@Path("/genre/json/{genre}")

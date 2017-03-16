@@ -70,7 +70,7 @@ INSERT INTO media VALUES (9, 0, 'https://images-na.ssl-images-amazon.com/images/
 INSERT INTO media VALUES (10, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3MjAzOTQxNF5BMl5BanBnXkFtZTgwOTc5OTY1OTE@._V1_SY1000_CR0,0,631,1000_AL_.jpg', 10);
 INSERT INTO media VALUES (11, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 11);
 INSERT INTO media VALUES (12, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_SY1000_CR0,0,640,1000_AL_.jpg', 12);
-INSERT INTO media VALUES (13, 0, 'amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SY1000_SX675_AL_.jpg', 13);
+INSERT INTO media VALUES (13, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SY1000_SX675_AL_.jpg', 13);
 INSERT INTO media VALUES (14, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg5Njg1MzIwNl5BMl5BanBnXkFtZTgwNDU1NjczMDI@._V1_SY1000_SX675_AL_.jpg', 14);
 INSERT INTO media VALUES (15, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg', 15);
 INSERT INTO media VALUES (16, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SY1000_SX675_AL_.jpg', 16);
