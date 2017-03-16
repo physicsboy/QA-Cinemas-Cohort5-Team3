@@ -1,0 +1,16 @@
+package com.qa.cinema.service;
+
+public interface ShowingService {
+	
+	String getAllShowings();
+	
+	String addShowing(String showing);
+	
+	String deleteShowing(Long id);
+	
+	String getShowingById(Long showingId);
+	
+	String getShowingByMovie(Long movieID);
+	
+	String updateShowing(Long showingId, String showing);
+}
