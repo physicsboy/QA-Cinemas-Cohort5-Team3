@@ -41,11 +41,14 @@
     <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
         <div>
             <select
+
                     ng-model="chosenMovie"
                     ng-init="chosenMovie=movieCtrl[0]"
                     ng-options="movie.title for movie in movieCtrl.movies track by movie.id"
-                    ng-change="showingCtrl.getShowingByMovie(chosenMovie.id)">
-            </select>
+                    ng-change="showingCtrl.getShowingByMovie(chosenMovie.id)"
+                    ng-click="show=!show">
+            </select
+                    >
         </div>
 
         <div class="container-fluid">
@@ -68,10 +71,23 @@
                     <p class="custom-header">Length</p>
                     {{chosenMovie.length}} <br/><br/>
 
-                    <select  ng-model="ticket.showing.idShowing" ng-disabled="!chosenMovie.id">
-                        <option value="" disabled selected>Select Showing</option>
-                        <option ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}</option>
-                    </select>
+
+
+                    <table  class="table table-striped" ng-show="show" ng-model="ticket.showing.idShowing" ng-disabled="!chosenMovie.id">
+                        <option value="" disabled selected>Showings for this movie</option>
+                        <tr ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}
+                            <td id="dayShowing">{{showing.dateTime}}</td>
+                            <td>{{showing.screen.screenId}}</td>
+                            <td>{{showing.movie.title}}</td>
+                            <td>{{showing.movie.length}}</td>
+                            <td>{{showing.movie.classification}}</td>
+                        </tr>
+
+                    </table>
+
+                    <tr ng-repeat = "showing in showingCtrl.showings" value="{{showing.id}}" >{{showing.dateTime}}>
+
+                    </tr>
 
 
                     Show Trailer <img src="http://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" width=20px height="20px"/>
