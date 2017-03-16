@@ -10,8 +10,7 @@
 
                 $urlRouterProvider.otherwise("/getmovie");
 
-                $stateProvider.state("#",{
-                    url : "/app/feature/movie/get/get-movie.html",
+                $stateProvider.state("home",{url : "/app/feature/movie/get/get-movie.html",
                     templateUrl : "index.html"
                 }).state("getbooking",{url : "/getbooking",
                     templateUrl : "app/feature/booking/get/get-booking.html"
