@@ -25,6 +25,7 @@
 #navibar .navbar-brand, 
 #myNavbar .navbar-right li a {
 	color: #F6F6F6;
+	cursor: pointer;
 }
 
 #log-in-area{
@@ -40,6 +41,7 @@
 
 .nav.navbar-nav .dropdown a {
 	color: #F6F6F6;
+	cursor: pointer;
 }
 
 /* Modify dropdown menu font */
