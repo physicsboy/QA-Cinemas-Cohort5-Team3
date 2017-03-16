@@ -1,7 +1,7 @@
 /** @author James Lamkin */
 (function() {
 
-    var GetShowingController =  function($state, showingDal, $stateParams) {
+    var GetShowingController =  function($state, showingDal) {
         var vm = this;
 
         function init(){
@@ -15,7 +15,8 @@
         init();
 
         vm.getShowingByMovie = function(id){
-            showingDal.getShowingByMovie($stateParams.id).then(function (results) {
+            console.log(id);
+            showingDal.getShowingByMovie(id).then(function (results) {
                 vm.showings = results;
             }, function (error) {
                 vm.error = true;
@@ -34,5 +35,5 @@
 
     };
 
-    angular.module('movieApp').controller('getShowingController', ['$state', 'showingDal', '$stateParams', GetShowingController]);
+    angular.module('movieApp').controller('getShowingController', ['$state', 'showingDal', GetShowingController]);
 }());

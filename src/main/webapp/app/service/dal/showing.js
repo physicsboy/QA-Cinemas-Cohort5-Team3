@@ -11,7 +11,7 @@
         };
 
         this.getShowingByMovie = function(id){
-            return dal.http.GET("rest/showing/json/movie" + id)
+            return dal.http.GET("rest/showing/json/movie/" + id)
         };
 
         this.getShowingById = function(id){
