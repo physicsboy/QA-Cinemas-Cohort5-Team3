@@ -6,6 +6,8 @@ public interface MediaService {
 	
 	String getSingleMediaForFilmByType(Long filmID, String type);
 	
+	String getAllMediaByType(String type);
+	
 	String createMedia(Long filmId, String media);
 	
 	String updateMedia(Long id, String newMedia);
