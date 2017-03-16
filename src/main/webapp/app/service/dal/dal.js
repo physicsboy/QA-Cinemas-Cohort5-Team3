@@ -40,6 +40,7 @@
 
                 PUT: function (apiPath, itemToSave) {
                     var deferred = $q.defer();
+                    console.log("Item in Dal: "+itemToSave);
                     $http(
                         {
                             method: "put",

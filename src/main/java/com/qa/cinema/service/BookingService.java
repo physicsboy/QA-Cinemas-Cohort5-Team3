@@ -11,7 +11,6 @@ public interface BookingService {
 	public String getBookingsByUserId(Long userId);
 	public String getBookingByBookingId(Long userId);	
 	public String createBooking(String booking);
-	public String updateBooking(Long id, String updatedBooking);
 	public String deleteBooking(Long id);
 	
 	
