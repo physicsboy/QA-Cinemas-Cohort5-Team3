@@ -101,15 +101,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>

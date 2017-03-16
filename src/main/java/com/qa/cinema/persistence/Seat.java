@@ -43,11 +43,16 @@ public class Seat {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long seatID;
+	private Long seatId;
 	private int column;
 	private char row;
 	private SeatType type;
 
+	@ManyToOne
+	@JoinColumn(name = "blockId")//, referencedColumnName = "blockId")
+	private Block block;
+	
+	
 	
 	public Seat() {
 		super();
@@ -64,13 +69,20 @@ public class Seat {
 	
 	
 	public Long getSeatId() {
-		return seatID;
+		return seatId;
 	}
 	public void setSeatId(Long newSeatId) {
-		this.seatID = newSeatId;
+		this.seatId = newSeatId;
 	}
 
 	
+	public Block getBlock() {
+		return block;
+	}
+	public void setBlock(Block block) {
+		this.block = block;
+	}
+
 	public int getColumn() {
 		return column;
 	}
@@ -85,9 +97,6 @@ public class Seat {
 	public void setRow(char row) {
 		this.row = row;
 	}
-	
-
-
 	
 	public SeatType getType() {
 		return type;
