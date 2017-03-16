@@ -26,68 +26,76 @@
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.wildfly.bom/wildfly -->
 			<dependency>
-			    <groupId>org.wildfly.bom</groupId>
-			    <artifactId>wildfly</artifactId>
-			    <version>11.0.0.Alpha1</version>
-			    <type>pom</type>
-                <scope>import</scope>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>wildfly</artifactId>
+				<version>11.0.0.Alpha1</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
-            
-            <!-- https://mvnrepository.com/artifact/org.jboss.arquillian/arquillian-bom -->
+
+			<!-- https://mvnrepository.com/artifact/org.jboss.arquillian/arquillian-bom -->
 			<dependency>
-			    <groupId>org.jboss.arquillian</groupId>
-			    <artifactId>arquillian-bom</artifactId>
-			    <version>1.1.12.Final</version>
-			    <scope>import</scope>
-                <type>pom</type>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.1.12.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
 
-<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
-		    <groupId>javax</groupId>
-		    <artifactId>javaee-api</artifactId>
-		    <version>7.0</version>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
 		</dependency>
-		
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
- 
-        <!-- Arquillian -->
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-arquillian-container-remote -->
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-arquillian-container-remote</artifactId>
-		    <version>8.2.1.Final</version>
-		</dependency>
-        
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple 
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-simple</artifactId>
-		    <version>1.7.24</version>
-		</dependency>-->
 
-        <!-- Arquillian -->
- 
-        <!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-embedded -->
 		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-embedded</artifactId>
-		    <version>10.0.0.Alpha6</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Arquillian -->
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-arquillian-container-remote -->
+		<dependency>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-arquillian-container-remote</artifactId>
+			<version>8.2.1.Final</version>
+			<exclusions>
+				<exclusion>
+					<groupId>sun.jdk</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple <dependency> 
+			<groupId>org.slf4j</groupId> <artifactId>slf4j-simple</artifactId> <version>1.7.24</version> 
+			</dependency> -->
+
+		<!-- Arquillian -->
+
+		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-embedded -->
+		<dependency>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-embedded</artifactId>
+			<version>10.0.0.Alpha6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>sun.jdk</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 
@@ -150,7 +158,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			</dependency>
+		</dependency>
 
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -170,18 +178,18 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-            <testResource>
-                <directory>src/test/resources-wildfly</directory>
-            </testResource>
-        </testResources>
-	
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources-wildfly</directory>
+			</testResource>
+		</testResources>
+
 		<!-- Maven will append the version to the finalName (which is the name 
 			given to the generated WAR, and hence the context root) -->
-		
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
@@ -194,39 +202,39 @@
 			<!-- The WildFly plug-in deploys your WAR to a local WildFly container -->
 			<!-- To use, run: mvn package wildfly:deploy -->
 			<plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>1.0.0.Beta1</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.0.0.Beta1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<systemPropertyVariables>
+						<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
-	
+
 	<repositories>
-        <repository>
-            <id>JBoss Repository</id>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-	
-	
-	
-	
+		<repository>
+			<id>JBoss Repository</id>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+
+
+
 </project>

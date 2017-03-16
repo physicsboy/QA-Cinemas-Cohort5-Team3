@@ -38,7 +38,7 @@ public class DBBookingService implements BookingService {
 
 	@Override
 	public String getBookingByBookingId(Long bookingId) {
-		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.booking_id = "+bookingId);
+		Query query = em.createQuery("SELECT b FROM Booking b WHERE b.bookingId = "+bookingId);
 		@SuppressWarnings("unchecked")
 		Collection<Booking> bookings = (Collection<Booking>) query.getResultList();
 		return util.getJSONForObject(bookings);
@@ -60,24 +60,13 @@ public class DBBookingService implements BookingService {
 	}
 
 	@Override
-	public String updateBooking(Long id, String updatedBooking) {
-		Booking updateBooking = util.getObjectForJSON(updatedBooking, Booking.class);
-		Booking bookingInDB = findBooking(new Long(id));
-		
-		if (bookingInDB != null) {
-			updateBooking.setId(bookingInDB.getBookingId()); 
-			em.merge(updateBooking);
-		}
-		return "{\"message\": \"Booking sucessfully updated\"}";
-	}
-
-	@Override
 	public String deleteBooking(Long id) {
 		Booking bookingInDB = findBooking(new Long(id));
 		if (bookingInDB != null) {
 			em.remove(bookingInDB);
+			return "{\"message\": \"Booking sucessfully deleted\"}";
 		}
-		return "{\"message\": \"Booking sucessfully deleted\"}";
+		return "{\"message\": \"Old Booking not found\"}";
 	}
 	
 	private Booking findBooking(Long id) {
