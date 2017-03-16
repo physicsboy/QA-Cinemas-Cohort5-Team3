@@ -15,7 +15,7 @@ import com.qa.cinema.util.JSONUtil;
 
 @Stateless
 @Default
-public class ShowingServiceDBImpl implements ShowingService {
+public class DBShowingService implements ShowingService {
 	
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
