@@ -32,13 +32,10 @@ public class DBMovieService implements MovieService {
 		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
 		return util.getJSONForObject(movies);
 	}
-
+	
 	@Override
-	public String listMovieByTitle(String title) {
-		Query query = em.createQuery("SELECT m FROM Movie m WHERE LOWER(m.title) LIKE LOWER('%" + title + "%')");
-		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
-		return util.getJSONForObject(movies);
-
+	public String getMovieById(Long id) {
+		return util.getJSONForObject(findMovie(id));
 	}
 
 	@Override
@@ -78,5 +75,7 @@ public class DBMovieService implements MovieService {
 	private Movie findMovie(Long id) {
 		return em.find(Movie.class, id);
 	}
+
+
 
 }
