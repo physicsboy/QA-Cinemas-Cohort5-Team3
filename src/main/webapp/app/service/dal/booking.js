@@ -27,7 +27,7 @@
         };
 
         this.deleteBooking = function (bookingToDelete) {
-            return dal.http.DELETE("/rest/booking/json/", bookingToDelete);
+            return dal.http.DELETE("rest/booking/json/", bookingToDelete);
         };
 
     }
