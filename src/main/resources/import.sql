@@ -20,10 +20,14 @@ INSERT INTO movie VALUES (16, 'Natalie Portman', '18', 'Following the assassinat
 INSERT INTO screen VALUES (1, 'url'),(2, 'url'),(3, 'lol'),(4, 'abc');
 
 INSERT INTO block VALUES( 1, 34, 3, 5, 6, 7, 5, 1, 2);
-INSERT INTO block VALUES( 2, 34, 3, 5, 6, 3, 5, 2, 1);
-INSERT INTO block VALUES( 3, 34, 3, 5, 6, 5, 5, 3, 1);
-INSERT INTO block VALUES( 4, 34, 3, 5, 6, 8, 5, 3, 2);
-INSERT INTO block VALUES( 5, 34, 3, 5, 6, 10, 5, 2, 3);
+INSERT INTO block VALUES( 2, 34, 3, 5, 6, 3, 5, 1, 1);
+INSERT INTO block VALUES( 3, 34, 3, 5, 6, 5, 5, 1, 1);
+INSERT INTO block VALUES( 4, 34, 3, 5, 6, 8, 5, 1, 2);
+INSERT INTO block VALUES( 5, 34, 3, 5, 6, 10, 5, 1, 3);
+INSERT INTO block VALUES( 6, 34, 3, 5, 6, 10, 5, 1, 3);
+INSERT INTO block VALUES( 7, 34, 3, 5, 6, 10, 5, 1, 3);
+INSERT INTO block VALUES( 8, 34, 3, 5, 6, 10, 5, 1, 4);
+INSERT INTO block VALUES( 9, 34, 3, 5, 6, 10, 5, 1, 4);
 
 INSERT INTO user VALUES ('alex@alex.com','Alex','Name','Line 1 Street','Second','Townsville','Citydom','CT1 S50','password');
 INSERT INTO user VALUES ('fred@fred.com','Fred','Surname','987 Lane','Here','Nowheresville','Nowhere','NO9 8RT','password');
@@ -39,11 +43,11 @@ INSERT INTO booking VALUES (2, 995894235000, 'sma@sam.com', 'sam@sam.com');
 INSERT INTO booking VALUES (3, 985824235000, 'fred@fred.com', 'alex@alex.com');
 INSERT INTO booking VALUES (4, 945884235000, 'fred@fred.com', 'alex@alex.com');
 
-INSERT INTO seat values (1, 2, 7, 1);
-INSERT INTO seat values (2, 3, 7, 1);
-INSERT INTO seat values (3, 2, 7, 2);
-INSERT INTO seat values (4, 1, 7, 2);
-INSERT INTO seat values (5, 1, 7, 0);
+INSERT INTO seat values (1, 2, 'a', 2, 1);
+INSERT INTO seat values (2, 3, 'a', 2, 1);
+INSERT INTO seat values (3, 2, 'a', 2, 2);
+INSERT INTO seat values (4, 1, 'a', 2, 2);
+INSERT INTO seat values (5, 1, 'a', 2, 2);
 
 
 INSERT INTO ticket VALUES (1, 6.99, 'Child', 1, 1, 1);
@@ -70,7 +74,7 @@ INSERT INTO media VALUES (9, 0, 'https://images-na.ssl-images-amazon.com/images/
 INSERT INTO media VALUES (10, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3MjAzOTQxNF5BMl5BanBnXkFtZTgwOTc5OTY1OTE@._V1_SY1000_CR0,0,631,1000_AL_.jpg', 10);
 INSERT INTO media VALUES (11, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 11);
 INSERT INTO media VALUES (12, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_SY1000_CR0,0,640,1000_AL_.jpg', 12);
-INSERT INTO media VALUES (13, 0, 'amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SY1000_SX675_AL_.jpg', 13);
+INSERT INTO media VALUES (13, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SY1000_SX675_AL_.jpg', 13);
 INSERT INTO media VALUES (14, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg5Njg1MzIwNl5BMl5BanBnXkFtZTgwNDU1NjczMDI@._V1_SY1000_SX675_AL_.jpg', 14);
 INSERT INTO media VALUES (15, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg', 15);
 INSERT INTO media VALUES (16, 0, 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SY1000_SX675_AL_.jpg', 16);
