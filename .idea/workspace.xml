@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbd07521-0154-442a-8419-f918fcaa2ccd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/MovieEndpoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/rest/MovieEndpoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBMovieService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBMovieService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/MapMovieService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/MapMovieService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/MovieService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/MovieService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/arquillian/BlockArquillianTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/arquillian/SeatArquillianTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/ShowingServiceDBImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/service/DBShowingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Block.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Block.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Screen.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Screen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Seat.java" afterPath="$PROJECT_DIR$/src/main/java/com/qa/cinema/persistence/Seat.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/import.sql" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/app-state-manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/get-movie.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/service/dal/movie.js" afterPath="$PROJECT_DIR$/src/main/webapp/app/service/dal/movie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/arquillian/ScreenArquillianTest.java" afterPath="$PROJECT_DIR$/src/test/java/arquillian/ScreenArquillianTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/wildfly-persistence.xml" afterPath="$PROJECT_DIR$/src/test/resources/wildfly-persistence.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/import.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1292">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,9 +90,11 @@
       <file leaf-file-name="get-specific-movie.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
-              <caret line="99" column="73" lean-forward="false" selection-start-line="99" selection-start-column="73" selection-end-line="99" selection-end-column="73" />
-              <folding />
+            <state relative-caret-position="2040">
+              <caret line="126" column="10" lean-forward="true" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -635,15 +635,15 @@
       <workItem from="1489493009103" duration="167000" />
       <workItem from="1489569647135" duration="790000" />
       <workItem from="1489667786583" duration="44000" />
-      <workItem from="1489667841150" duration="6266000" />
+      <workItem from="1489667841150" duration="6440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29437000" />
+    <option name="totallyTimeSpent" value="29611000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24010417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -942,7 +942,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/import.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1023,9 +1023,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/feature/movie/get/specific-movie/get-specific-movie.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="99" column="73" lean-forward="false" selection-start-line="99" selection-start-column="73" selection-end-line="99" selection-end-column="73" />
-          <folding />
+        <state relative-caret-position="2040">
+          <caret line="126" column="10" lean-forward="true" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

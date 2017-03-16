@@ -6,6 +6,7 @@ package arquillian;
 
 
 import static org.junit.Assert.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -17,12 +18,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.qa.cinema.persistence.Screen;
+
+import com.qa.cinema.persistence.Seat;
  
 
 
 @RunWith(Arquillian.class)
-public class ScreenArquillianTest {
+public class BlockArquillianTest {
 	
 	@Before
 	public void setUp() {
@@ -40,34 +42,42 @@ public class ScreenArquillianTest {
     @Deployment
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
-            .addPackage(Screen.class.getPackage())
+            .addPackage(Seat.class.getPackage())
             .addAsResource("wildfly-persistence.xml", "META-INF/persistence.xml")
             .addAsResource("import.sql")
             .addAsWebInfResource("wildfly-ds.xml")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
-  
-    
     
     @Test
-    public final void testGetURL() throws Exception {
-    	Screen screen;
-    	screen = em.find(Screen.class, 3);
-        assertEquals("lol", screen.getURL());
+    public final void testGetSeatId() throws Exception {
+    	long id = em.find(Seat.class, 3L).getSeatId();
+        assertEquals(3L, id);
     }
     
     @Test
-    public final void testGetId() throws Exception {
-    	Screen screen;
-    	screen = em.find(Screen.class, 3);
-        assertEquals(3, screen.getScreenId());
-    }
-    
-    @Test
-    public final void testGetBlocks() throws Exception {
-    	int size = em.find(Screen.class, 3).getBlocks().size();
-        assertEquals(3, size);
+    public final void testType() throws Exception {
+        assertEquals(Seat.SeatType.LUXURY, em.find(Seat.class, 3L).getType());
     }
 
+    @Test
+    public final void testGetRow() throws Exception {
+    	assertEquals('a', em.find(Seat.class, 3L).getRow());
+    }
+	
+    @Test
+    public final void testGetColumn() throws Exception {
+    	assertEquals(2, em.find(Seat.class, 3L).getColumn());
+    }
+    
+    @Test
+    public final void testGetBlock() throws Exception {
+    	long id = em.find(Seat.class, 3L).getBlock().getBlockId();
+    	assertEquals(2L, id);
+    }
+    
+	
+	
+    
     
 }

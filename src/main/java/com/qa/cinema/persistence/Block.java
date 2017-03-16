@@ -4,6 +4,7 @@ package com.qa.cinema.persistence;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,12 +25,17 @@ public class Block {
 	private int angle;
 	private char startingRow;
 	private int startingCol;
+
+	@ManyToOne
+	@JoinColumn(name = "screenId")//, referencedColumnName = "screenId")
+	private Screen screen;
 	
 	
-	@OneToMany
-	@JoinColumn(name = "seatId")
+	@OneToMany(mappedBy="block", fetch = FetchType.EAGER)
 	private List<Seat> seats;
 
+	
+	
 	public Block() {
 	}
 
@@ -130,4 +136,12 @@ public class Block {
 	public void setSeats(List<Seat> seats) {
 		this.seats = seats;
 	}
+	
+	public Screen getScreen() {
+		return screen;
+	}
+	public void setScreen(Screen screen) {
+		this.screen = screen;
+	}
+	
 }
