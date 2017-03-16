@@ -11,9 +11,13 @@ import javax.persistence.Query;
 
 import com.qa.cinema.persistence.Movie;
 import com.qa.cinema.util.JSONUtil;
+import com.qa.cinema.service.MovieService;
+
+
 
 @Stateless
 @Default
+@SuppressWarnings("unchecked")
 public class DBMovieService implements MovieService {
 
 	@PersistenceContext(unitName = "primary")
@@ -30,6 +34,21 @@ public class DBMovieService implements MovieService {
 	}
 
 	@Override
+	public String listMovieByTitle(String title) {
+		Query query = em.createQuery("SELECT m FROM Movie m WHERE LOWER(m.title) LIKE LOWER('%" + title + "%')");
+		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
+		return util.getJSONForObject(movies);
+
+	}
+
+	@Override
+	public String listMovieByGenre(String genre) {
+		Query query = em.createQuery("SELECT m FROM Movie m WHERE m.genre LIKE " + genre);
+		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
+		return util.getJSONForObject(movies);
+	}
+
+	@Override
 	public String createNewMovie(String movie) {
 		Movie newMovie = util.getObjectForJSON(movie, Movie.class);
 		em.persist(newMovie);
@@ -41,8 +60,8 @@ public class DBMovieService implements MovieService {
 		Movie updateMovie = util.getObjectForJSON(movie, Movie.class);
 		Movie movieInDB = findMovie(new Long(movieId));
 		if (movieInDB != null) {
-			movieInDB = updateMovie;
-			em.merge(movie);
+			updateMovie.setID(movieInDB.getId());
+			em.merge(updateMovie);
 		}
 		return "{\"message\": \"movie sucessfully updated\"}";
 	}

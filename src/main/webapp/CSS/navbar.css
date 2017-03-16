@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+/* Whole background colour */
+#navibar {
+	background-color: #1C1C1C;
+}
+/* Navbar dropdown menu background colour */
+.nav.navbar-nav .dropdown-menu  {
+	background-color: #F6F6F6;
+}
+/*	Change QA Cinema word logo colour ------- needs to be #F6F6F6 */
+.navbar-header .navbar-brand {
+	font-weight: bold;
+	font-size: 200%;
+	border-right: 2px solid #F6F6F6;
+	cursor: default;
+}
+
+/* Modify scrollover action of navbar buttons */
+.nav.navbar-nav li a:hover {
+	background: #1C1C1C;
+}
+/* Modify text of BRAND, SIGN UP/LOG IN and burger menu */
+.nav.navbar-nav .open .dropdown-menu li a:hover, 
+#navibar .navbar-brand, 
+#myNavbar .navbar-right li a {
+	color: #F6F6F6;
+	cursor: pointer;
+}
+
+#log-in-area{
+	border-left: 2px solid #F6F6F6;
+	cursor: pointer;
+}
+
+
+/* Modify navbar font */
+.nav.navbar-nav li a { 
+	font-weight: bold;
+}
+
+.nav.navbar-nav .dropdown a {
+	color: #F6F6F6;
+	cursor: pointer;
+}
+
+/* Modify dropdown menu font */
+.nav.navbar-nav .open .dropdown-menu li a {
+	color: #1C1C1C;
+	font-weight: normal;
+}
+/* Burger menu hover over selection colour */
+.nav.navbar-nav li:hover{
+	background: black;
+}
+
+.nav.navbar-nav .dropdown-menu li {
+	background: #F6F6F6;
+}
+
+.navigation .open .dropdown-menu li a{ /* DOESNT WORK AT THE MOMENT */
+	color:red; 
+}
+
+.nav.navbar-nav .dropdown-menu li:hover {
+	background: #1C1C1C;
+}
+
+
+/* CHANGE NAVBAR BACKGROUND COLOUR TO #1C1C1C */
