@@ -1,0 +1,115 @@
+@CHARSET "UTF-8";
+/* ///////////////////////////// COMMENT FORM SPECIFIC ///////////////////////////// */
+
+textarea{
+	resize: none;
+}
+
+/* [WORKS] PUT THE CHECKBOX ON THE LEFT HAND SIDE OF THE MODAL*/ 
+#check {
+	text-align: left;
+	float: left;
+	padding-top: 5px;
+	padding-left: 15px;
+}
+
+/* [WORKS] PUT THE SUBMIT BUTTON ON THE RIGHT HAND SIDE OF THE MODAL */ 
+#sub {
+	text-align: right;
+	float: right;
+	padding-right: 15px;
+}
+
+.modal-footer .btn {
+	font-weight: bold;
+	}
+
+
+/* ///////////////////////////// MODAL GENERIC ///////////////////////////// */
+
+/* [WORKS] SET THE BACKGROUND FADE COLOUR AND OPACITY */ 
+.modal-backdrop.in {
+	background: black; 
+	opacity: 0.92;
+}
+
+/* [WORKS] GENERAL MODAL SETTINGS */
+.modal-dialog .modal-content {
+	background: #1C1C1C;
+	color: #F6F6F6;
+}
+
+/* [WORKS] X TO CLOSE ICON */
+.modal-dialog .close { /* x button to close */
+	color: #F6F6F6;
+	opacity: 0.5;
+}
+
+/* [DOESN'T WORK] BROWSER SCROLLBAR DISAPPEARS - DONT KNOW WHY OR HOW TO FIX */
+.modal-open {
+	overflow: hidden;
+}
+
+/* [WORKS] MODAL TITLE TEXT */
+.modal-title {
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+/* [DOESN'T WORK] FOOTER PADDING FROM RIGHT */
+.modal-footer {
+	padding-right: 30px;
+}
+
+/* [DOESN'T WORK] DIMENSIONS OF MODAL BOX */
+#LogInModal .modal-content, #ContactUs .modal-content {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	width: 500px;
+	border-color: black;
+	border-radius: 1px;
+}
+
+/* [DOESN'T WORK] INDENT RIGHT-ALIGNED BITS */
+#LogInModal .form-group, .text-right, #ContactUs .form-group, .text-right {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+/* ///////////////////////////// LOG IN FORM SPECIFIC  ///////////////////////////// */
+
+/* FORGOTTEN PASSWORD TEXT */
+.modal-dialog .text-right a {
+	color: #F6F6F6;
+}
+
+/* [WORKS] CLOSE BUTTON IN FOOTER */
+.btn { 
+	color: #F6F6F6;
+}
+
+/* [DOESN'T WORK] CLOSE BUTTON IN FOOTER */
+#closeButton:hover {
+	color: #F6F6F6;
+	text-decoration: underline;
+}
+
+/* [WORKS] LOG-IN BUTTON */
+.modal-footer .btn-primary { 
+	border: 0 none;
+	color: black;
+	background: #F6F6F6;
+	font-weight: bold;
+}
+
+/* [WORKS] LOG-IN BUTTON ROLLOVER */
+.modal-footer .btn-primary:hover {
+	background: black;
+}
+
+/* [DOESN'T WORK] TO CHANGE LOG-IN BUTTON CLICK COLOUR */
+.modal-footer .btn-primary:active { 
+	background: white;
+}

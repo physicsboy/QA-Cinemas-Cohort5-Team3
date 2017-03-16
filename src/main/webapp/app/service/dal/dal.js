@@ -40,6 +40,7 @@
 
                 PUT: function (apiPath, itemToSave) {
                     var deferred = $q.defer();
+                    console.log("Item in Dal: "+itemToSave);
                     $http(
                         {
                             method: "put",
@@ -57,7 +58,6 @@
                     });
                     return deferred.promise;
                 },
-
                 DELETE: function (apiPath, itemToDelete) {
                     var deferred = $q.defer();
                     $http.delete(apiPath + itemToDelete.id).then(function () {
