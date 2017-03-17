@@ -1,7 +1,5 @@
 package com.qa.cinema.persistence;
 
-
-
 /**
  * @author James Lamkin
  */
@@ -14,23 +12,24 @@ public class Showing {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@ManyToOne
-	@JoinColumn(referencedColumnName="id")
+	@JoinColumn(referencedColumnName = "id")
 	private Movie movie;
-	private String dateTime;
 	
+	private Long dateShowing;
+
 	@ManyToOne
-	@JoinColumn(referencedColumnName="screenId")
+	@JoinColumn(referencedColumnName = "screenId")
 	private Screen screen;
-	
+
 	public Showing() {
-		
+
 	}
-	
-	public Showing(Movie movie, String dateTime, Screen screen){
+
+	public Showing(Movie movie, Long dateShowing, Screen screen) {
 		this.movie = movie;
-		this.dateTime = dateTime;
+		this.dateShowing = dateShowing;
 		this.screen = screen;
 	}
 
@@ -46,12 +45,12 @@ public class Showing {
 		this.movie = movie;
 	}
 
-	public String getDateTime() {
-		return dateTime;
+	public Long getDateShowing() {
+		return dateShowing;
 	}
 
-	public void setDateTime(String dateTime) {
-		this.dateTime = dateTime;
+	public void setDateShowing(Long dateShowing) {
+		this.dateShowing = dateShowing;
 	}
 
 	public Screen getScreen() {

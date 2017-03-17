@@ -26,6 +26,13 @@ public class ShowingEndPoint {
 		return service.getAllShowings();
 	}
 	
+	@Path("/json/{id}/{dateShowing}")
+	@GET
+	@Produces({"application/json"})
+	public String getShowingByShowingDate(@PathParam("id")Long showingId, @PathParam("dateShowing")Long dateShowing){
+		return service.getShowingByDate(dateShowing);
+	}
+	
 	@Path("/json/{id}")
 	@GET
 	@Produces({"application/json"})
