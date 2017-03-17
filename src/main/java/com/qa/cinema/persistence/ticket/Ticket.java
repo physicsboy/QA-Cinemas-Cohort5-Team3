@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 import com.qa.cinema.persistence.Seat;
 import com.qa.cinema.persistence.Showing;
@@ -97,7 +98,8 @@ public class Ticket {
 	}
 
 
-	public void setPrice(float price) {
-		this.price = price;
+	@PrePersist
+	public void setPrice() {
+		this.price = type.getPrice();
 	}
 }
