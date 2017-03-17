@@ -1,4 +1,4 @@
-package com.qa.cinema.persistence;
+package com.qa.cinema.persistence.ticket;
 
 /**
  * 

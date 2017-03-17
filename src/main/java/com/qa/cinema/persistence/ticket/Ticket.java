@@ -1,4 +1,4 @@
-package com.qa.cinema.persistence;
+package com.qa.cinema.persistence.ticket;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.qa.cinema.persistence.Seat;
+import com.qa.cinema.persistence.Showing;
 
 /**
  * 

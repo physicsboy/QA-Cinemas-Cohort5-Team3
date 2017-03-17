@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +25,12 @@ public class Movie {
 	private String genre;
 	private String description;
 	private String year;
+	
+	@Enumerated(EnumType.STRING)
 	private String classification;
 	private String cast;
 	private int length;
+	private boolean outNow;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "movieID")
@@ -34,7 +39,7 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(String title, String genre, String description, String year, String classification, String cast, int length) {
+	public Movie(String title, String genre, String description, String year, Classification classification, String cast, int length, boolean outNow) {
 		super();
 		this.title = title;
 		this.genre = genre;
@@ -43,6 +48,7 @@ public class Movie {
 		this.classification = classification;
 		this.cast = cast;
 		this.length = length;
+		this.outNow = outNow;
 	}
 
 	public Long getId() {
@@ -94,10 +100,10 @@ public class Movie {
 	}
 
 	public String getClassification() {
-		return classification;
+		return classification.getUrl();
 	}
 
-	public void setClassification(String classification) {
+	public void setClassification(Classification classification) {
 		this.classification = classification;
 	}
 
@@ -117,5 +123,12 @@ public class Movie {
 		this.length = length;
 	}
 	
-
+	public void setOutNow(boolean outNow){
+		this.outNow = outNow;
+	}
+	
+	public boolean getOutNow(){
+		return outNow;
+	}
+	
 }
