@@ -134,14 +134,10 @@
 
 
                     <ul class="nav navbar-nav navbar-right" id="log-in-area">
-                        <li><a ui-sref="#RegisterModal" data-toggle="modal"
-                         data-target="#RegisterModal" id="sign-in"><span
-                                class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Sign Up</a></li>
-                        <li><a ui-sref="#LogInModal" data-toggle="modal"
-                               data-target="#LogInModal" id="log-in"><span
-                                class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                            Login</a></li>
+                        <li><a data-toggle="modal" data-target="#RegisterModal" id="sign-in">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Sign Up</a></li>
+                        <li><a data-toggle="modal" data-target="#LogInModal" id="log-in">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Login</a></li>
                     </ul>
 
                 </div>
@@ -150,7 +146,7 @@
     </div>
 
     <!-- MODAL FOR LOGGING IN WHEN CLICKING "LOG-IN" BUTTON ON NAVBAR -->
-    <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div ng-controller="getUserByIdController as ctrl" class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -163,7 +159,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label> <input
                             class="form-control" id="Email" placeholder="Enter email"
-                            type="email">
+                            type="email" ng-model="email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label> <input
@@ -175,8 +171,8 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <a ui-sref="#" data-dismiss="modal" class="btn" id="closeButton">Close</a> <a
-                        ui-sref="#" class="btn btn-primary">Log-in</a>
+                    <a data-dismiss="modal" class="btn" id="closeButton">Close</a> <a
+                     class="btn btn-primary"  ui-sref="getuser"  ng-click="ctrl.getUserByID()" >Log-in</a> 
                 </div>
             </div>
         </div>
@@ -204,19 +200,19 @@
                             placeholder="Password" type="password" ng-model="user.password">
                     </div>
                         <div class="form-group">
-                        <label for="exampleInputFirstName">Password</label> <input
+                        <label for="exampleInputFirstName">First Name</label> <input
                             class="form-control" id="exampleInputFirstName"
                             placeholder="Enter first name" type="text" ng-model="user.firstName">
                     </div>
                         <div class="form-group">
-                        <label for="exampleInputLastName">Password</label> <input
+                        <label for="exampleInputLastName">Last Name</label> <input
                             class="form-control" id="exampleInputLastName"
                             placeholder="Enter last name" type="text" ng-model="user.lastName">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a ui-sref="#" data-dismiss="modal" class="btn" id="closeButton">Close</a> <a
-                        ui-sref="#" class="btn btn-primary" ng-click="ctrl.addUser(user)">Register</a>
+                    <a data-dismiss="modal" class="btn" id="closeButton">Close</a> <a
+                        class="btn btn-primary" ng-click="ctrl.addUser(user)">Register</a>
                 </div>
             </div>
         </div>
@@ -403,6 +399,7 @@
     <script src="app/feature/user/add/add-user-controller.js"></script>
     <script src="app/feature/user/delete/delete-user-controller.js"></script>
     <script src="app/feature/user/get/get-user-controller.js"></script>
+    <script src="app/feature/user/get/get-user-by-id-controller.js"></script>
     <script src="app/feature/user/update/update-user-controller.js"></script>
 
 </body>

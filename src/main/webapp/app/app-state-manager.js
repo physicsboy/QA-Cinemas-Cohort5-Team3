@@ -45,7 +45,10 @@
                 }).state("deleteticket",{url : "/deleteticket",
                     templateUrl : "app/feature/ticket/delete/delete.html"
                 }).state("getuser",{url : "/getuser",
-                    templateUrl : "app/feature/user/get/get-user.html"
+                    templateUrl : "app/feature/user/get/get-user.html",
+                }).state("getuserbyid",{url : "/getuserbyid/:userId",
+                    templateUrl : "app/feature/user/get/get-user.html",
+                    controller: function ($stateProvider){$stateProvider.userId}
                 }).state("adduser",{url : "/adduser",
                     templateUrl : "app/feature/user/add/add-user.html"
                 }).state("updateuser",{url : "/updateuser",
