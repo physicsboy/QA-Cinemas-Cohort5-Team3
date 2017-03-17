@@ -1,0 +1,41 @@
+
+<div>
+<div id="paypal-button"></div>
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+    paypal.Button.render({
+
+        env: 'sandbox', // Specify 'sandbox' for the test environment
+
+        client: {
+            sandbox:    'Ab8Oehw8TTLWPqKBhLeEJ1zyqXZ7EAVgP51wUCZSP8z_UUhhdYGQqXcsuC2rhroQkavWYXOmsg3eBMgZ'
+        },
+
+
+        payment: function() {
+
+            var env = this.props.env
+            var client = this.props.client
+
+            return paypal.rest.payment.create(env, client, {
+                transactions: [
+                    {
+                        amount: {total: '1.00', currency: 'GBP'}
+                    }
+                ]
+            });
+        },
+
+        commit: true,
+
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function () {
+
+            })
+        }
+
+    }, '#paypal-button');
+</script>
+
+</div>
