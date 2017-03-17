@@ -3,13 +3,13 @@ package com.qa.cinema.persistence;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -26,12 +26,18 @@ public class Block {
 	private char startingRow;
 	private int startingCol;
 
+<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "screenId")//, referencedColumnName = "screenId")
 	private Screen screen;
 
 
 	@OneToMany(mappedBy="block", fetch = FetchType.EAGER)
+=======
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "blockId")
+>>>>>>> 2f0d3a0566e01d6a86598580677e88e1d3018b5b
 	private List<Seat> seats;
 
 
@@ -111,9 +117,15 @@ public class Block {
 		this.angle = angle;
 	}
 
+<<<<<<< HEAD
 
 
 	public int getStartingRow() {
+=======
+	
+	
+	public char getStartingRow() {
+>>>>>>> 2f0d3a0566e01d6a86598580677e88e1d3018b5b
 		return startingRow;
 	}
 	public void setStartingRow(char startingRow) {
@@ -136,6 +148,7 @@ public class Block {
 	public void setSeats(List<Seat> seats) {
 		this.seats = seats;
 	}
+<<<<<<< HEAD
 
 	public Screen getScreen() {
 		return screen;
@@ -144,4 +157,8 @@ public class Block {
 		this.screen = screen;
 	}
 
+=======
+	
+	
+>>>>>>> 2f0d3a0566e01d6a86598580677e88e1d3018b5b
 }

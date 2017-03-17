@@ -2,7 +2,7 @@
  * @Author Mark Lester
  */
 
-package arquillian;
+package arquillian.persistence;
 
 
 import static org.junit.Assert.*;
@@ -95,10 +95,10 @@ public class SeatArquillianTest {
         assertEquals(3, em.find(Block.class, 2L).getSeats().size());
     }
     
-    @Test
-    public final void testGetScreen() throws Exception {
-        assertEquals(1, em.find(Block.class, 3L).getScreen().getScreenId());
-    }
+//    @Test
+//    public final void testGetScreen() throws Exception {
+//        assertEquals(1, em.find(Block.class, 3L).getScreen().getScreenId());
+//    }
 	
 	
     

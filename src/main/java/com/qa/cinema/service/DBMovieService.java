@@ -13,8 +13,6 @@ import com.qa.cinema.persistence.Movie;
 import com.qa.cinema.util.JSONUtil;
 import com.qa.cinema.service.MovieService;
 
-
-
 @Stateless
 @Default
 @SuppressWarnings("unchecked")
@@ -30,9 +28,10 @@ public class DBMovieService implements MovieService {
 	public String listAllMovies() {
 		Query query = em.createQuery("SELECT m FROM Movie m");
 		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
+
 		return util.getJSONForObject(movies);
 	}
-	
+
 	@Override
 	public String getMovieById(Long id) {
 		return util.getJSONForObject(findMovie(id));
@@ -42,6 +41,7 @@ public class DBMovieService implements MovieService {
 	public String listMovieByGenre(String genre) {
 		Query query = em.createQuery("SELECT m FROM Movie m WHERE m.genre LIKE " + genre);
 		Collection<Movie> movies = (Collection<Movie>) query.getResultList();
+		
 		return util.getJSONForObject(movies);
 	}
 
@@ -73,7 +73,8 @@ public class DBMovieService implements MovieService {
 	}
 
 	private Movie findMovie(Long id) {
-		return em.find(Movie.class, id);
+		Movie movie =  em.find(Movie.class, id);
+		return movie;
 	}
 
 
