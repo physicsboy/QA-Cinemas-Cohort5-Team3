@@ -1,17 +1,17 @@
 (function() {
 
-    var delteScreenController =  function($state, screenDal) {
+    var DeleteScreenController =  function($state, screenDal) {
         var vm = this;
 
-        vm.addScreen = function(mcreenToAdd) {
-            console.log("This is the value of screen to add " + screenToAdd);
-            console.log(screenToAdd);
+        vm.addScreen = function(screenToDelete) {
+            console.log("This is the value of screen to delete " + screenToDelete);
+            console.log(screenToDelete);
             
-            var screenToJson = JSON.stringify(screenToAdd);
+            var screenToJson = JSON.stringify(screenToDelete);
             console.log(screenToJson);
-            screenDal.saveScreen(screenToAdd).then(
+            screenDal.deleteScreen(screenToDelete).then(
             		function (results) {
-		                vm.screenAddMessage  = results;
+		                vm.screenDeleteMessage  = results;
 		                $state.go('deletescreen');
 		            }, function (error) {
 		                vm.error = true;
@@ -21,5 +21,5 @@
         };
     };
 
-    angular.module('screenApp').controller('deleteScreenController', ['$state','screenDal',DeleteScreenController]);
+    angular.module('movieApp').controller('deleteScreenController', ['$state','screenDal',DeleteScreenController]);
 }());

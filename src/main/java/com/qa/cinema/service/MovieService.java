@@ -4,7 +4,7 @@ public interface MovieService {
 
 	String listAllMovies();
 	
-	String listMovieByTitle(String title);
+	String getMovieById(Long id);
 	
 	String listMovieByGenre(String genre);
 

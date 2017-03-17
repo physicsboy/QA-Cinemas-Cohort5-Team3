@@ -4,7 +4,7 @@
         var vm = this;
 
         vm.addUser = function(userToAdd) {
-            console.log("This is the value of user to add " + userToAdd);
+            console.log("This is the value of user to add ");
             console.log(userToAdd);
             var userToJson = JSON.stringify(userToAdd);
             console.log(userToJson);

@@ -10,6 +10,14 @@
             return dal.http.GET("rest/showing/json");
         };
 
+        this.getShowingByMovie = function(id){
+            return dal.http.GET("rest/showing/json/movie/" + id)
+        };
+
+        this.getShowingById = function(id){
+                return dal.http.GET("rest/showing/json" + id)
+        };
+
         this.saveShowing = function (showingToSave) {
             return dal.http.POST("rest/showing/json", showingToSave);
         };

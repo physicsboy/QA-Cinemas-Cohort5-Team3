@@ -10,6 +10,9 @@
             return dal.http.GET("rest/user/json");
         };
 
+        this.getUserById = function(id){
+            return dal.http.GET("rest/user/json/" + id);
+        };
         this.saveUser = function (userToSave) {
             return dal.http.POST("rest/user/json", userToSave);
         };

@@ -7,9 +7,7 @@ package com.qa.cinema.persistence;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.qa.cinema.service.screen.MapScreenService;
@@ -18,22 +16,15 @@ import com.qa.cinema.service.screen.MapScreenService;
 
 public class MapScreenServiceTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		service = new MapScreenService();
-		screen = new Screen('c', (byte)3);
+		screen = new Screen("Some/url1");
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 	}
 	
 	MapScreenService service;
@@ -48,32 +39,31 @@ public class MapScreenServiceTest {
 	@Test
 	public void getScreenObject() {
 		Screen s = service.getScreenObject(1);
-		assertEquals('a',s.getColumn());
+		assertEquals("some/url1",s.getURL());
 	}
 	
 	
 	@Test
 	public void getScreen() {
 		String s = service.getScreen(1);
-		assertEquals("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}", s);
+		assertEquals("{\"screenId\":1,\"url\":\"some/url1\"}", s);
 	}
 
 	@Test
 	public void getScreens() {
-		assertEquals("[{\"ScreenId\":1,\"column\":\"a\",\"row\":1},{\"ScreenId\":2,\"column\":\"b\",\"row\":2}]",service.getScreens());
+		assertEquals("[{\"screenId\":1,\"url\":\"some/url1\"},{\"screenId\":2,\"url\":\"some/url2\"}]",service.getScreens());
 	}
 	
 	
 	@Test
 	public void createScreen() {
-		service.createScreen("{\"ScreenId\":1,\"column\":\"a\",\"row\":1}");
+		service.createScreen("{\"screenId\":1,\"column\":\"a\",\"row\":1}");
 		assertEquals(3,service.getScreenObjects().size());
 	}
 
 	@Test
 	public void deleteScreen() {
 		int numberOfScreens = service.getScreenObjects().size();
-		Screen s = service.getScreenObject(1);
 		service.deleteScreen(1);
 		service.getScreen(1);
 		assertEquals(numberOfScreens - 1, service.getScreenObjects().size());
@@ -81,10 +71,10 @@ public class MapScreenServiceTest {
 
 	@Test
 	public void updateScreen() {
-		Screen screen = new Screen('q', (byte)1);
+		Screen screen = new Screen("Some/url1");
 		screen.setScreenId(1);
-		service.updateScreen(1,"{\"ScreenId\":1,\"column\":\"q\",\"row\":1}");
-		assertEquals('q',service.getScreenObject(1).getColumn());
+		service.updateScreen(1,"{\"screenId\":1,\"url\":\"some/url10\"}");
+		assertEquals("some/url10",service.getScreenObject(1).getURL());
 	}
 
 }

@@ -6,11 +6,10 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.qa.cinema.persistence.Ticket;
+import com.qa.cinema.persistence.ticket.Ticket;
 import com.qa.cinema.util.JSONUtil;
 
 
@@ -49,12 +48,10 @@ public class DBTicketService implements TicketService {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public String getAllTicketsForBooking(Long bookingID) {
-		Query query = manager.createQuery("Select t from Booking.tickets t where Booking.booking_id = " + bookingID);
-	
-		@SuppressWarnings("unchecked")
+		Query query = manager.createQuery("SELECT b.tickets FROM Booking b WHERE b.bookingId =" + bookingID);
 		Collection<Ticket> tickets = (Collection<Ticket>) query.getResultList();
-		
 		return util.getJSONForObject(tickets);
 	}
 

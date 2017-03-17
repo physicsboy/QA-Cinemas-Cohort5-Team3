@@ -1,9 +1,21 @@
 package com.qa.cinema.persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.PostLoad;
+import javax.persistence.Transient;
+
 
 @Entity
 public class Movie {
@@ -12,28 +24,36 @@ public class Movie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title;
-	private String posterURL;
 	private String genre;
 	private String description;
 	private String year;
-	private String classification;
 	private String cast;
 	private int length;
+	private boolean outNow;
+	
+	@Enumerated(EnumType.STRING)
+	private Classification classif;
+	
+	@Transient
+	private String classification;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "movieID")
+	private List<Media> media = new ArrayList<>();
 
 	public Movie() {
 	}
 
-	public Movie(String title, String posterURL, String genre, String description, String year, String classification,
-			String cast, int length) {
+	public Movie(String title, String genre, String description, String year, Classification classification, String cast, int length, boolean outNow) {
 		super();
 		this.title = title;
-		this.posterURL = posterURL;
 		this.genre = genre;
 		this.description = description;
 		this.year = year;
-		this.classification = classification;
+		this.classif = classification;
 		this.cast = cast;
 		this.length = length;
+		this.outNow = outNow;
 	}
 
 	public Long getId() {
@@ -52,14 +72,14 @@ public class Movie {
 		this.title = title;
 	}
 
-	public String getPosterURL() {
-		return posterURL;
+	public void addMedia(Media media){
+		this.media.add(media);
 	}
 
-	public void setPosterURL(String posterURL) {
-		this.posterURL = posterURL;
+	public List<Media> getMedia(){
+		return media;
 	}
-
+	
 	public String getGenre() {
 		return genre;
 	}
@@ -88,8 +108,8 @@ public class Movie {
 		return classification;
 	}
 
-	public void setClassification(String classification) {
-		this.classification = classification;
+	public void setClassification(Classification classification) {
+		this.classification = classification.getUrl();
 	}
 
 	public String getCast() {
@@ -107,5 +127,18 @@ public class Movie {
 	public void setLength(int length) {
 		this.length = length;
 	}
+	
+	public void setOutNow(boolean outNow){
+		this.outNow = outNow;
+	}
+	
+	public boolean getOutNow(){
+		return outNow;
+	}
 
+	@PostLoad
+	public void setClassificationUrl(){
+		this.classification = classif.getUrl();
+	}
+	
 }

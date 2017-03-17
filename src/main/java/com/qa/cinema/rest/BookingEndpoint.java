@@ -29,11 +29,18 @@ public class BookingEndpoint {
 		return service.getAllBookings();
 	}
 	
-	@Path("/json/{id}")
+	@Path("/json/user/{id}")
 	@GET
 	@Produces({ "application/json" })
 	public String getBookingsByUserId(@PathParam("id") Long userId) {
 		return service.getBookingsByUserId(userId);
+	}
+	
+	@Path("/json/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String getBookingsById(@PathParam("id") Long bookingId) {
+		return service.getBookingByBookingId(bookingId);
 	}
 
 	@Path("/json")
@@ -44,17 +51,10 @@ public class BookingEndpoint {
 	}
 
 	@Path("/json/{id}")
-	@PUT
-	@Produces({ "application/json" })
-	public String updateBooking(@PathParam("id") Long bookingId, String updatedBooking) {
-		return service.updateBooking(bookingId, updatedBooking);
-	}
-
-	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteMovie(@PathParam("id") Long bookingId) {
-		return service.deletebooking(bookingId);
+	public String deleteBooking(@PathParam("id") Long bookingId) {
+		return service.deleteBooking(bookingId);
 	}
 }
 

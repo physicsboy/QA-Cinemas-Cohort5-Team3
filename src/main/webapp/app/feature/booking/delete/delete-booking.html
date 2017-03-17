@@ -1,10 +1,32 @@
 <div ng-controller="deleteBookingController as ctrl">
 	<div ng-controller="getBookingController as getctrl">
-		{{getctrl.bookings}}
+		<table class="table table-striped">
+
+			<tr>
+				<th>Booking Id</th>
+				<th>Booked On</th>
+				<th>Account Email</th>
+				<th>Payment Email</th>
+				<th>Ticket ID's</th>
+				<th>Movie</th>
+				<th>Seat</th>
+			</tr>
+			<tr ng-repeat="booking in getctrl.bookings">
+				<td>{{booking.bookingId}}</td>
+				<td id="datebooked">{{booking.dateBooked | date:'dd MMM yyyy HH:mm'}}</td>
+				<td>{{booking.userEmail}}</td>
+				<td>{{booking.paymentEmail}}</td>
+				<td><p ng-repeat="ticket in booking.tickets">{{ticket.id}}</p></td>
+				<td><p ng-repeat="ticket in booking.tickets">{{ticket.showing.movie.title}}</p></td>
+				<td><p ng-repeat="ticket in booking.tickets"><i>Col:</i>{{ticket.seat.column}} <i>Row:</i>{{ticket.seat.row}}</p></td>
+
+
+			</tr>
+		</table>
 		<form role="form">
 			<input id="ID to Delete" placeholder="ID" ng-model="booking.id">
 
-			<button type="submit" ng-click="ctrl.deleteBooking(booking)">addMovie</button>
+			<button type="submit" ng-click="ctrl.deleteBooking(booking)" ui-sref='deletebooking'>Delete Booking</button>
 		</form>
 
 

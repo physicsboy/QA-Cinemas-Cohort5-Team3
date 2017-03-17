@@ -10,6 +10,14 @@
             return dal.http.GET("rest/booking/json");
         };
 
+        this.getBookingByID = function(id){
+            return dal.http.GET("rest/booking/json/" + id);
+        };
+
+        this.getBookingsByUserID = function(id){
+            return dal.http.GET("rest/booking/json/user/" +id);
+        }
+
         this.saveBooking = function (bookingToSave) {
             return dal.http.POST("rest/booking/json", bookingToSave);
         };
@@ -19,7 +27,7 @@
         };
 
         this.deleteBooking = function (bookingToDelete) {
-            return dal.http.DELETE("/rest/booking/json/", bookingToDelete);
+            return dal.http.DELETE("rest/booking/json/", bookingToDelete);
         };
 
     }

@@ -12,13 +12,17 @@ public class MovieTest {
 
 	@Before
 	public void TestSetup() {
-		movie = new Movie("The Lord of the Rings", "1234.image.com", "Fantasy",
-				"Two hobbits seek to destroy the ring", "2001", "PG", "Ian McKellen", 228);
+		movie = new Movie();
+		movie = new Movie("The Lord of the Rings", "Fantasy",
+				"Two hobbits seek to destroy the ring", "2001", Classification.CLASS_12, "Ian McKellen", 228, true);
 	}
 
 	@Test
 	public void TestGetId() {
 	 assertNull(movie.getId());
+	 
+	 movie.setID(new Long(1));
+	 assertEquals(new Long(1), movie.getId());
  	}
 
 	@Test
@@ -31,16 +35,14 @@ public class MovieTest {
 		movie.setTitle("Inception");
 		assertEquals("Inception", movie.getTitle());
 	}
-
+	
 	@Test
-	public void TestGetPosterURL() {
-		assertEquals("1234.image.com", movie.getPosterURL());
-	}
-
-	@Test
-	public void TestSetPosterURL() {
-		movie.setPosterURL("5678.image.com");
-		assertEquals("5678.image.com", movie.getPosterURL());
+	public void testGetMedia(){
+		assertEquals(0, movie.getMedia().size());
+		//TODO
+		/*Media media = new Media("abvavgf", MediaType.TRAILER);
+		movie.addMedia(media);
+		assertEquals(1,  movie.getMedia().size());*/
 	}
 
 	@Test
@@ -78,13 +80,13 @@ public class MovieTest {
 
 	@Test
 	public void TestGetClassification() {
-		assertEquals("PG", movie.getClassification());
+		assertEquals(Classification.CLASS_12.getUrl(), movie.getClassification());
 	}
 
 	@Test
 	public void TestSetClassification() {
-		movie.setClassification("12");
-		assertEquals("12", movie.getClassification());
+		movie.setClassification(Classification.CLASS_15);
+		assertEquals(Classification.CLASS_15.getUrl(), movie.getClassification());
 	}
 
 	@Test

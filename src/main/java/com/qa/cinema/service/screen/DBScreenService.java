@@ -14,6 +14,7 @@ import java.util.Collection;
 
 @Stateless
 @Default
+@SuppressWarnings("unchecked")
 public class DBScreenService implements ScreenService{
 
 	

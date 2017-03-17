@@ -5,63 +5,61 @@
 
 package com.qa.cinema.persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Screen {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int ScreenId;
-	private char column;
-	private byte row;
+	private int screenId;
+	private String url;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "screenId")
+	private List<Block> blocks;
 	
 	
 	public Screen() {
 	}
 	
-	public Screen(char column, byte row) {
+	public Screen(String url) {
 		super();
-		this.column = column;
-		this.row = row;
+		this.url = url;
 	}
 	
 	
 	
 	public int getScreenId() {
-		return ScreenId;
+		return screenId;
 	}
 	public void setScreenId(int screenId) {
-		ScreenId = screenId;
+		this.screenId = screenId;
 	}
 	
 	
-	public char getColumn() {
-		return column;
+	public String getURL() {
+		return url;
 	}
-	public void setColumn(char column) {
-		this.column = column;
+	public void setURL(String url) {
+		this.url = url;
 	}
-	
-	
-	public byte getRow() {
-		return row;
+
+
+	public List<Block> getBlocks() {
+		return blocks;
 	}
-	public void setRow(byte row) {
-		this.row = row;
+	public void setBlocks(List<Block> blocks) {
+		this.blocks = blocks;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
