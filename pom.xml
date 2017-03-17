@@ -32,7 +32,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
+			<dependency>
+	            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+	            <artifactId>shrinkwrap-resolver-bom</artifactId>
+	            <version>2.0.0-alpha-1</version>
+	            <scope>test</scope>
+	            <type>pom</type>
+	        </dependency>
 			<!-- https://mvnrepository.com/artifact/org.jboss.arquillian/arquillian-bom -->
 			<dependency>
 				<groupId>org.jboss.arquillian</groupId>
@@ -41,11 +47,19 @@
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
 
+		<dependency>
+		    <groupId>org.jboss.shrinkwrap.resolver</groupId>
+		    <artifactId>shrinkwrap-resolver-api-maven-archive</artifactId>
+		    <version>3.0.0-alpha-4</version>
+		    <scope>test</scope>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -65,6 +79,13 @@
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		
+		
+		
+		
+		
 
 		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-arquillian-container-remote -->
 		<dependency>
@@ -97,6 +118,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>  
+	        <groupId>org.jboss.shrinkwrap.resolver</groupId>  
+	        <artifactId>shrinkwrap-resolver-impl-maven</artifactId>  
+	        <scope>test</scope>  
+	    </dependency>
+	    
 
 
 

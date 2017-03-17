@@ -10,9 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 
 @Entity
 public class Seat {
@@ -48,9 +45,9 @@ public class Seat {
 	private char row;
 	private SeatType type;
 
-	@ManyToOne
-	@JoinColumn(name = "blockId")//, referencedColumnName = "blockId")
-	private Block block;
+	//@ManyToOne
+	//@JoinColumn(name = "blockId")//, referencedColumnName = "blockId")
+	//private Block block;
 	
 	
 	
@@ -75,13 +72,6 @@ public class Seat {
 		this.seatId = newSeatId;
 	}
 
-	
-	public Block getBlock() {
-		return block;
-	}
-	public void setBlock(Block block) {
-		this.block = block;
-	}
 
 	public int getColumn() {
 		return column;

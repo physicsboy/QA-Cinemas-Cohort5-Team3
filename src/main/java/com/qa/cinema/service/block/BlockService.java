@@ -3,10 +3,12 @@
  */
 package com.qa.cinema.service.block;
 
+import com.qa.cinema.persistence.Block;
+
 public interface BlockService {
 	
-	
-	public String getBlock(int blockId);
+	public Block getBlockobj(long blockId);
+	public String getBlock(long blockId);
 	public String getAllBlocks(int screenId);
 	
 	public String increaseColCount(int increase, String block);
