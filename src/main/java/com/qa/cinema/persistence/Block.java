@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Block {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long blockId;
@@ -29,13 +29,13 @@ public class Block {
 	@ManyToOne
 	@JoinColumn(name = "screenId")//, referencedColumnName = "screenId")
 	private Screen screen;
-	
-	
+
+
 	@OneToMany(mappedBy="block", fetch = FetchType.EAGER)
 	private List<Seat> seats;
 
-	
-	
+
+
 	public Block() {
 	}
 
@@ -57,8 +57,8 @@ public class Block {
 		this.startingCol = startingCol;
 	}
 
-	
-	
+
+
 	public Long getBlockId() {
 		return blockId;
 	}
@@ -66,8 +66,8 @@ public class Block {
 		this.blockId = blockId;
 	}
 
-	
-	
+
+
 	public int getColCount() {
 		return colCount;
 	}
@@ -75,8 +75,8 @@ public class Block {
 		this.colCount = colCount;
 	}
 
-	
-	
+
+
 	public int getRowCount() {
 		return rowCount;
 	}
@@ -84,8 +84,8 @@ public class Block {
 		this.rowCount = rowCount;
 	}
 
-	
-	
+
+
 	public int getxPosition() {
 		return xPosition;
 	}
@@ -93,8 +93,8 @@ public class Block {
 		this.xPosition = xPosition;
 	}
 
-	
-	
+
+
 	public int getyPosition() {
 		return yPosition;
 	}
@@ -102,8 +102,8 @@ public class Block {
 		this.yPosition = yPosition;
 	}
 
-	
-	
+
+
 	public int getAngle() {
 		return angle;
 	}
@@ -111,8 +111,8 @@ public class Block {
 		this.angle = angle;
 	}
 
-	
-	
+
+
 	public int getStartingRow() {
 		return startingRow;
 	}
@@ -120,8 +120,8 @@ public class Block {
 		this.startingRow = startingRow;
 	}
 
-	
-	
+
+
 	public int getStartingCol() {
 		return startingCol;
 	}
@@ -129,19 +129,19 @@ public class Block {
 		this.startingCol = startingCol;
 	}
 
-	
+
 	public List<Seat> getSeats() {
 		return seats;
 	}
 	public void setSeats(List<Seat> seats) {
 		this.seats = seats;
 	}
-	
+
 	public Screen getScreen() {
 		return screen;
 	}
 	public void setScreen(Screen screen) {
 		this.screen = screen;
 	}
-	
+
 }
