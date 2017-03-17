@@ -32,8 +32,8 @@ public class DBShowingService implements ShowingService {
 	}
 	
 	@Override
-	public String getShowingByDate(Long dateShowing) {
-		Query query = manager.createQuery("SELECT s FROM Showing s WHERE dateShowing =" + dateShowing);
+	public String getShowingByDate(Long id, Long dateShowing) {
+		Query query = manager.createQuery("SELECT s FROM Showing s WHERE dateShowing >=" + dateShowing + " AND s.movie.id = " + id);
 		@SuppressWarnings("unchecked")
 		Collection<Showing> showing = (Collection<Showing>) query.getResultList();
 		return util.getJSONForObject(showing);
