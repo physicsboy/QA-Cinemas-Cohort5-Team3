@@ -7,9 +7,11 @@ package com.qa.cinema.service.block;
 
 import java.util.Collection;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,19 +22,27 @@ import com.qa.cinema.util.JSONUtil;
 
 @Stateless
 @Default
+@Named("dbBlockService")
 public class DBBlockService implements BlockService {
 
 	
 	@PersistenceContext
-	EntityManager em;
+	private EntityManager em;
 	
 	@Inject
 	private JSONUtil util;
 	
 	
 	
+	
 	@Override
-	public String getBlock(int blockId) {
+	public Block getBlockobj(long blockId) {
+		return em.find(Block.class, blockId);
+	}
+	
+	
+	@Override
+	public String getBlock(long blockId) {
 		Block b = em.find(Block.class, blockId);
 		return util.getJSONForObject(b);
 	}
@@ -44,6 +54,42 @@ public class DBBlockService implements BlockService {
 		return util.getJSONForObject(blocks);
 	}
 
+	
+	
+	@Override
+	public String addBlock(String block) {
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return addBlock(blockObj);
+	}
+	public String addBlock(Block block) {
+		int colCount = block.getColCount();
+		int rowCount = block.getRowCount();
+		int startingCol = block.getStartingCol();
+		int startingRow = block.getStartingRow();
+		
+		int lastColToAdd = startingCol + colCount;
+		int lastRowToAdd = startingRow + rowCount;
+		
+		for(int newCol = startingCol; newCol <= lastColToAdd; newCol++){
+			for(int newRow = startingRow; newRow <= lastRowToAdd; newRow++){
+				
+				Seat seat = new Seat(newRow, (char)newCol, Seat.SeatType.STANDARD);
+				em.persist(seat);
+			}
+		}
+		return "{\"message\": \"Block sucessfully added\"}";
+	}
+	
+	
+	
+	
+
+	@Override
+	public String deleteBlock(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 	
 	@Override
@@ -59,18 +105,22 @@ public class DBBlockService implements BlockService {
 		int startingRow = block.getStartingRow();
 		
 		int firstNewRow = (startingRow + rowCount + 1);
-		int lastRowToAdd = (firstNewRow + increase + 1);
-		char firstNewCol = (char)(startingCol + colCount + 1);
+		int lastRowToAdd = firstNewRow + increase;
+		int firstNewCol = (startingCol + colCount + 1);
 		int lastColToAdd = firstNewCol + increase;
 		
-		for(char newCol = firstNewCol; newCol <= lastColToAdd; newCol++){
+		for(int newCol = firstNewCol; newCol <= lastColToAdd; newCol++){
 			for(int newRow = firstNewRow; newRow <= lastRowToAdd; newRow++){
-				Seat seat = new Seat(newRow, newCol, Seat.SeatType.STANDARD);
-				em.persist(seat);
+				//Seat seat = new Seat(newRow, newCol, Seat.SeatType.STANDARD);
+				//em.persist(seat);
 			}
 		}
 	}
 
+	
+	
+	
+	
 	
 	
 	@Override
@@ -134,17 +184,9 @@ public class DBBlockService implements BlockService {
 		return null;
 	}
 
-	@Override
-	public String addBlock(String block) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public String deleteBlock(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	
 	

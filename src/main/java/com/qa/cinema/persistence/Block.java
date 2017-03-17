@@ -3,13 +3,13 @@ package com.qa.cinema.persistence;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -26,12 +26,9 @@ public class Block {
 	private char startingRow;
 	private int startingCol;
 
-	@ManyToOne
-	@JoinColumn(name = "screenId")//, referencedColumnName = "screenId")
-	private Screen screen;
 	
-	
-	@OneToMany(mappedBy="block", fetch = FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "blockId")
 	private List<Seat> seats;
 
 	
@@ -113,7 +110,7 @@ public class Block {
 
 	
 	
-	public int getStartingRow() {
+	public char getStartingRow() {
 		return startingRow;
 	}
 	public void setStartingRow(char startingRow) {
@@ -137,11 +134,5 @@ public class Block {
 		this.seats = seats;
 	}
 	
-	public Screen getScreen() {
-		return screen;
-	}
-	public void setScreen(Screen screen) {
-		this.screen = screen;
-	}
 	
 }
