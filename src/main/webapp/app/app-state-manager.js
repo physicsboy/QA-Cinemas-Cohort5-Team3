@@ -64,6 +64,8 @@
                     templateUrl : "app/feature/movie/get/specific-movie/get-specific-movie.html",
                     controller: function ($stateParams){$stateParams.movieId}
 
+                }).state("payment",{url : "/payment",
+                        templateUrl : "app/feature/payment/payment.html"
                 })
             });
 }());
