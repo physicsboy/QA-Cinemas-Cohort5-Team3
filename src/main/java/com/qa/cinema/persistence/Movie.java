@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PostLoad;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -25,12 +27,15 @@ public class Movie {
 	private String genre;
 	private String description;
 	private String year;
-	
-	@Enumerated(EnumType.STRING)
-	private String classification;
 	private String cast;
 	private int length;
 	private boolean outNow;
+	
+	@Enumerated(EnumType.STRING)
+	private Classification classif;
+	
+	@Transient
+	private String classification;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "movieID")
@@ -45,7 +50,7 @@ public class Movie {
 		this.genre = genre;
 		this.description = description;
 		this.year = year;
-		this.classification = classification;
+		this.classif = classification;
 		this.cast = cast;
 		this.length = length;
 		this.outNow = outNow;
@@ -100,11 +105,11 @@ public class Movie {
 	}
 
 	public String getClassification() {
-		return classification.getUrl();
+		return classification;
 	}
 
 	public void setClassification(Classification classification) {
-		this.classification = classification;
+		this.classification = classification.getUrl();
 	}
 
 	public String getCast() {
@@ -129,6 +134,11 @@ public class Movie {
 	
 	public boolean getOutNow(){
 		return outNow;
+	}
+
+	@PostLoad
+	public void setClassificationUrl(){
+		this.classification = classif.getUrl();
 	}
 	
 }
