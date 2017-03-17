@@ -1,6 +1,9 @@
 
-<div>
-<div id="paypal-button"></div>
+<div ng-controller="paymentController as payCtrl">
+TEST
+{{payCtrl.bookingAddMessage}}
+TEST
+<!--<div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
@@ -15,8 +18,8 @@
 
         payment: function() {
 
-            var env = this.props.env
-            var client = this.props.client
+            var env = this.props.env;
+            var client = this.props.client;
 
             return paypal.rest.payment.create(env, client, {
                 transactions: [
@@ -36,6 +39,6 @@
         }
 
     }, '#paypal-button');
-</script>
+</script>-->
 
 </div>
