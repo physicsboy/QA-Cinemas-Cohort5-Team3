@@ -10,8 +10,16 @@
             return dal.http.GET("rest/movie/json");
         };
 
+        this.getMovieById = function (id) {
+            return dal.http.GET("rest/movie/json/" + id);
+        };
+
+        this.getMovieByTitle = function (title) {
+            return dal.http.GET("rest/movie/title/json/" + title)
+        };
+
         this.saveMovie = function (movieToSave) {
-            return dal.http.POST("rest/movie/json", movieToSave);
+            return dal.http.POST("rest/movie/json/", movieToSave);
         };
 
         this.updateMovie = function (movieToUpdateId, movieToUpdate) {
@@ -19,8 +27,7 @@
         };
 
         this.deleteMovie = function (movieToDeleteId) {
-            return dal.http.DELETE("/rest/movie/json/" + movieToDeleteId);
+            return dal.http.DELETE("/rest/movie/json/", movieToDeleteId);
         };
-
     }
 }());

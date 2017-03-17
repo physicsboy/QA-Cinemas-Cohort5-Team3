@@ -3,3 +3,9 @@ target
 .classpath
 .factorypath
 .project
+.idea/workspace.xml
+.idea
+.sonar
+.idea/*
+.src/main/webapp/index.html
+

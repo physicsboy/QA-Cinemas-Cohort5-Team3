@@ -1,0 +1,50 @@
+<div ng-controller="getShowingController as showingCtrl" class="container-fluid">
+    <div>
+        <select ng-model="chosenScreen"
+                ng-options="showing.screen.screenId for showing in showingCtrl.showings ">
+        </select>
+    </div>
+
+    <!--    <input type="button" value="Capacity Chart" id="MyButton" >-->
+
+    <div>
+        <select ng-model="chosenBlock"  ng-options="block.blockId for block in chosenShowing.screen.blocks">
+        </select>
+    </div>
+    {{chosenBlock}}
+    <div>
+        <select ng-model="chosenSeat" ng-options="seat.name as (seat.row + seat.column) for seat in chosenBlock.seats">
+            {{seat.name}}
+        </select>
+    </div>
+
+
+    
+    <H1>This</H1>
+    <table>
+        <tbody ng-repeat="block in chosenShowing.screen.blocks" ng-switch on="seat.ID = 10">
+        <tr ng-repeat="seat in block.seats">
+            <td>{{seat.row + seat.column}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    <table>
+
+        <tbody>
+
+        <tr ng-repeat="Seats in showingCtrl.SeatsA">
+            <td ng-repeat="Seat in Seats">
+                {{ Seat }}
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>

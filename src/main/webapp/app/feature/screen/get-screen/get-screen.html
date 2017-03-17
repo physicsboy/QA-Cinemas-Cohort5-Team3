@@ -1,0 +1,11 @@
+<div ng-controller="getScreenController as ctrl">
+    <h1>Find a Screen</h1>
+
+    <form role="form">
+
+        <input id="screenId" placeholder="screenId" ng-model="screen.screenId">
+
+        <button type="submit" ng-click="ctrl.getscreen(screenId)">Select A Screen</button>
+
+    </form>
+</div>
