@@ -60,9 +60,12 @@
                     templateUrl : "app/feature/showing/update-showing/update-showing.html"
                 }).state("deleteshowing",{url : "/deleteshowing",
                     templateUrl : "app/feature/showing/delete-showing/delete-showing.html"
-                }).state("getspecificmovie",{url : "/getspecificmovie",
-                    templateUrl : "app/feature/movie/get/specific-movie/get-specific-movie.html"
+                }).state("getspecificmovie",{url : "/getspecificmovie/:movieId",
+                    templateUrl : "app/feature/movie/get/specific-movie/get-specific-movie.html",
+                    controller: function ($stateParams){$stateParams.movieId}
 
+                }).state("payment",{url : "/payment",
+                        templateUrl : "app/feature/payment/payment.html"
                 })
             });
 }());

@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.qa.cinema.persistence.ticket.Ticket;
+
 /**
  * 
  * @author Sam.Jarvis

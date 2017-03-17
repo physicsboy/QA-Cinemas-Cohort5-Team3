@@ -1,6 +1,8 @@
 package com.qa.cinema.persistence;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +19,8 @@ public class Media {
 	private Long id;
 	
 	private String url;
+	
+	@Enumerated(EnumType.STRING)
 	private MediaType type;
 	
 	public Media(){

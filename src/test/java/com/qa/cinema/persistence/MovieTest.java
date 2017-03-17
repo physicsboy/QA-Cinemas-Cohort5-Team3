@@ -14,7 +14,7 @@ public class MovieTest {
 	public void TestSetup() {
 		movie = new Movie();
 		movie = new Movie("The Lord of the Rings", "Fantasy",
-				"Two hobbits seek to destroy the ring", "2001", "PG", "Ian McKellen", 228);
+				"Two hobbits seek to destroy the ring", "2001", Classification.CLASS_12, "Ian McKellen", 228, true);
 	}
 
 	@Test
@@ -80,13 +80,13 @@ public class MovieTest {
 
 	@Test
 	public void TestGetClassification() {
-		assertEquals("PG", movie.getClassification());
+		assertEquals(Classification.CLASS_12.getUrl(), movie.getClassification());
 	}
 
 	@Test
 	public void TestSetClassification() {
-		movie.setClassification("12");
-		assertEquals("12", movie.getClassification());
+		movie.setClassification(Classification.CLASS_15);
+		assertEquals(Classification.CLASS_15.getUrl(), movie.getClassification());
 	}
 
 	@Test

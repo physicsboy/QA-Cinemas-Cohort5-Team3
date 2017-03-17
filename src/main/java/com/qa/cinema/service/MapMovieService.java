@@ -13,9 +13,9 @@ public class MapMovieService implements MovieService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	public String listMovieByTitle(String title) {
+	public String getMovieById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
