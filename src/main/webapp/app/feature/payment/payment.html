@@ -12,7 +12,7 @@ TEST
         env: 'sandbox', // Specify 'sandbox' for the test environment
 
         client: {
-            sandbox:    'Ab8Oehw8TTLWPqKBhLeEJ1zyqXZ7EAVgP51wUCZSP8z_UUhhdYGQqXcsuC2rhroQkavWYXOmsg3eBMgZ'
+            sandbox:    'AVjUbRR4FzoCPScS-Nn76jDt-jsh2J6qCPronyoYWvGvjKogW7bzUk1EhertWzWwYR2pjY7amWqBup08'
         },
 
 
@@ -24,7 +24,7 @@ TEST
             return paypal.rest.payment.create(env, client, {
                 transactions: [
                     {
-                        amount: {total: '1.00', currency: 'GBP'}
+                        amount: {total: '1.00', currency: 'GBP'} //the total will be changed to logic once the rest of the payment process is implemented
                     }
                 ]
             });

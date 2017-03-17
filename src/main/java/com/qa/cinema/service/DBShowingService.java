@@ -31,12 +31,22 @@ public class DBShowingService implements ShowingService {
 		return util.getJSONForObject(showing);
 	}
 	
+	@Override
+	public String getShowingByDate(Long dateShowing) {
+		Query query = manager.createQuery("SELECT s FROM Showing s WHERE dateShowing =" + dateShowing);
+		@SuppressWarnings("unchecked")
+		Collection<Showing> showing = (Collection<Showing>) query.getResultList();
+		return util.getJSONForObject(showing);
+	}
+	
+	@Override
 	public String getShowingById(Long showingId){
 		Query query = manager.createQuery("SELECT s FROM Showing s WHERE id =" + showingId);
 		Showing showing = (Showing) query.getSingleResult();
 		return util.getJSONForObject(showing);
 	}
 	
+	@Override
 	public String getShowingByMovie(Long movieID){
 		Query query = manager.createQuery("SELECT s FROM Showing s WHERE movie_Id =" + movieID);
 		@SuppressWarnings("unchecked")
@@ -44,12 +54,14 @@ public class DBShowingService implements ShowingService {
 		return util.getJSONForObject(showing);
 	}
 	
+	@Override
 	public String addShowing(String showing){
 		Showing newShowing = util.getObjectForJSON(showing, Showing.class);
 		manager.persist(newShowing);
 		return  "{\"message\": \"showing sucessfully added\"}";
 	}
 	
+	@Override
 	public String deleteShowing(Long id){
 		Showing showingToBeDeleted = findShowing(id);
 		if (showingToBeDeleted != null){
@@ -59,6 +71,7 @@ public class DBShowingService implements ShowingService {
 		return "{\"message\": \"showing sucessfully deleted\"}";
 	}
 	
+	@Override
 	public String updateShowing(Long showingId, String showing){
 		Showing updatedShowing = util.getObjectForJSON(showing, Showing.class);
 		Showing showingInDB = findShowing(showingId);
@@ -72,5 +85,7 @@ public class DBShowingService implements ShowingService {
 	private Showing findShowing(Long id) {
 		return manager.find(Showing.class, id);
 	}
+
+
 	
 }
