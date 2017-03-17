@@ -4,6 +4,8 @@ public interface ShowingService {
 	
 	String getAllShowings();
 	
+	String getShowingByDate(Long dateShowing);
+	
 	String addShowing(String showing);
 	
 	String deleteShowing(Long id);
