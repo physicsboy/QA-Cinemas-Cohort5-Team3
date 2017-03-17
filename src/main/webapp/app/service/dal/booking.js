@@ -16,10 +16,13 @@
 
         this.getBookingsByUserID = function(id){
             return dal.http.GET("rest/booking/json/user/" +id);
-        }
+        };
 
         this.saveBooking = function (bookingToSave) {
-            return dal.http.POST("rest/booking/json", bookingToSave);
+            console.log(bookingToSave);
+            var x = dal.http.POST("rest/booking/json", bookingToSave);
+            console.log(x);
+            return x;
         };
 
         this.updateBooking = function (bookingToUpdateId, bookingToUpdate) {

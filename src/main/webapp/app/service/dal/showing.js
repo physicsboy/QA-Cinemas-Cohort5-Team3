@@ -15,7 +15,7 @@
         };
 
         this.getShowingById = function(id){
-                return dal.http.GET("rest/showing/json" + id)
+                return dal.http.GET("rest/showing/json/" + id)
         };
 
         this.saveShowing = function (showingToSave) {
