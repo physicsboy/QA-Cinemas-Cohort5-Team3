@@ -1,11 +1,16 @@
-package com.qa.cinema.persistence;
+package com.qa.cinema.persistence.ticket;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.qa.cinema.persistence.Seat;
+import com.qa.cinema.persistence.Showing;
 
 /**
  * 
@@ -28,10 +33,8 @@ public class Ticket {
 	@JoinColumn(referencedColumnName="seatId")
 	private Seat seat;
 	
-	//private Long bookingID;
-	
-	
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private TicketType type;
 	private float price;
 	
 	
@@ -40,13 +43,12 @@ public class Ticket {
 	}
 
 
-	public Ticket(Showing showing, Seat seat, String type, float price) {
+	public Ticket(Showing showing, Seat seat, TicketType type) {
 		super();
-		//this.bookingID = bookingID;
 		this.showing = showing;
 		this.seat = seat;
 		this.type = type;
-		this.price = price;
+		this.price = type.getPrice();
 	}
 
 
@@ -81,11 +83,11 @@ public class Ticket {
 
 
 	public String getType() {
-		return type;
+		return type.name();
 	}
 
 
-	public void setType(String type) {
+	public void setType(TicketType type) {
 		this.type = type;
 	}
 
@@ -98,16 +100,4 @@ public class Ticket {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
-
-	/*public Long getBookingID() {
-		return bookingID;
-	}
-
-
-	public void setBookingID(Long bookingID) {
-		this.bookingID = bookingID;
-	}*/
-	
-	
 }

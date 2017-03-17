@@ -5,12 +5,16 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PostLoad;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -23,9 +27,15 @@ public class Movie {
 	private String genre;
 	private String description;
 	private String year;
-	private String classification;
 	private String cast;
 	private int length;
+	private boolean outNow;
+	
+	@Enumerated(EnumType.STRING)
+	private Classification classif;
+	
+	@Transient
+	private String classification;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "movieID")
@@ -34,15 +44,16 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(String title, String genre, String description, String year, String classification, String cast, int length) {
+	public Movie(String title, String genre, String description, String year, Classification classification, String cast, int length, boolean outNow) {
 		super();
 		this.title = title;
 		this.genre = genre;
 		this.description = description;
 		this.year = year;
-		this.classification = classification;
+		this.classif = classification;
 		this.cast = cast;
 		this.length = length;
+		this.outNow = outNow;
 	}
 
 	public Long getId() {
@@ -97,8 +108,8 @@ public class Movie {
 		return classification;
 	}
 
-	public void setClassification(String classification) {
-		this.classification = classification;
+	public void setClassification(Classification classification) {
+		this.classification = classification.getUrl();
 	}
 
 	public String getCast() {
@@ -117,5 +128,17 @@ public class Movie {
 		this.length = length;
 	}
 	
+	public void setOutNow(boolean outNow){
+		this.outNow = outNow;
+	}
+	
+	public boolean getOutNow(){
+		return outNow;
+	}
 
+	@PostLoad
+	public void setClassificationUrl(){
+		this.classification = classif.getUrl();
+	}
+	
 }
