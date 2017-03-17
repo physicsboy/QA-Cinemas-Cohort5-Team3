@@ -26,11 +26,11 @@
         vm.createTicket = function (ticketType) {
             console.log(vm.Params);
             var ticket = {
-                showing_id : 1,
+                //id : 1,
                 //seat: {"column": 1, "row": 'a', "type": "STANDARD"},
+                seat_seatid: 1,
                 type: ticketType,
-                //price: 7,
-                booking_bookingId: vm.bookingId
+                Booking_bookingID: vm.bookingId
             };
             console.log(ticket);
             ticketDal.saveTicket(ticket);
