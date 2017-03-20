@@ -102,4 +102,5 @@ public class Ticket {
 	public void setPrice() {
 		this.price = type.getPrice();
 	}
+
 }
