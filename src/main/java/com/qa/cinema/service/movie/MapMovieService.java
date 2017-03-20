@@ -1,4 +1,4 @@
-package com.qa.cinema.service;
+package com.qa.cinema.service.movie;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;

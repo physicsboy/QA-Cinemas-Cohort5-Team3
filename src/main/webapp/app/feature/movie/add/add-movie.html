@@ -4,12 +4,19 @@
     <form role="form">
 
         <input id="title" placeholder="title" ng-model="movie.title">
-
         <input id="genre" placeholder="genre" ng-model="movie.genre">
-
         <input id="year" placeholder="year" ng-model="movie.year">
+        <input id="description" placeholder="description" ng-model="movie.description">
+		<br><br>
+        <input id="cast" placeholder="cast" ng-model="movie.cast">		
+        <input id="length" placeholder="length" ng-model="movie.length">		
+        <input id="classification" placeholder="classification" ng-model="movie.classification">		
+        <input id="outNow" placeholder="outNow" ng-model="movie.outNow">		
+		<br><br>
+        <input id="url" placeholder="url" ng-model="media.url">		
+        <input id="type" placeholder="type" ng-model="media.type">		
 
-        <button type="submit" ng-click="ctrl.addMovie(movie)">addMovie</button>
+        <button type="submit" ng-click="ctrl.addMovie(movie, media)">addMovie</button>
 
     </form>
 </div>
