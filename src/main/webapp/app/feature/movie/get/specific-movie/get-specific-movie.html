@@ -1,4 +1,3 @@
-
 <div ng-controller="getSpecificMovieController as movieCtrl">
     <div ng-controller="getShowingController as ctrl">
 
@@ -13,10 +12,14 @@
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3">
                 <div class="Logo"><h2> {{movieCtrl.movies.title}}</h2></div>
-                <div class="Sypnosis">{{movieCtrl.movies.description}}</div>
+                <div class="Synopsis">{{movieCtrl.movies.description}}</div>
                 <div class="Cast">Cast: {{movieCtrl.movies.cast}}</div>
                 <div class="MovieLength">Length: {{movieCtrl.movies.length}}</div>
                 <div class="Year">Release Date: {{movieCtrl.movies.year}}</div>
+                <div><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer">
+                    Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
+                                  height="25px"/> </a>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3"></div>
         </div>
@@ -87,12 +90,61 @@
         <!--</div>-->
 
 
+
+
+            <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
+                 ng-controller="getMediaController as mediaCtrl">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true" ng-click="callPlayer('yt-player', 'stopVideo');">×
+                            </button>
+                            <h4 class="modal-title">{{movieCtrl.movies.title}} Trailer</h4>
+                        </div>
+                        <div class="modal-body" id="yt-player" ng-repeat="trailer in movieCtrl.movies.media | filter:{type:'TRAILER'}">
+                            <iframe id='video' width="100%" height="700px" src="{{trailer.url}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
     </div>
 
 </div>
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        /* Get iframe src attribute value i.e. YouTube video url
+         and store it in a variable */
+        var url = $("#video").attr('src');
+
+        /* Assign empty url value to the iframe src attribute when
+         modal hide, which stop the video playing */
+        $("#trailerModal").on('hide.bs.modal', function () {
+            $("#video").attr('src', '');
+        });
+
+        /* Assign the initially stored url back to the iframe src
+         attribute when modal is displayed again */
+        $("#trailerModal").on('show.bs.modal', function () {
+            $("#video").attr('src', url);
+        });
+    });
+</script>
+
+
 <style>
+
+    #trailerModal .modal-dialog {
+        width: 70%;
+
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 50px;
+    }
 
     body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -141,3 +193,4 @@
         display: none;
     }
 </style>
+
