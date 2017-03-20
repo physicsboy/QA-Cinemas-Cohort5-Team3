@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+#wrap{
+	min-height: 100%;
+	/* min-width: 800px; */
+}
+html, body {
+	height: 100%;
+	
+	
+}
+#view {
+	overflow:auto;
+	padding-bottom: 356px;
+}  /* must be same height as the footer */
+
+
+/* 	
+	DECIDING ON A BACKGROUND COLOUR SCHEME WITH A SUBTLE TEXTURE OVERLAY
+
+	THE SYNTAX = LOCATION OF PATTER AND THEN THE COLOUR SCHEME (RAIDAL GRADIENT)
+ */
+body {
+	/* DARK BLUE 				/		background-image: url("../Background_images/4634818-dark-blue-wallpaper.jpg") !important; */
+	/* TEAL BACKGROUND			/		background-image: url("../Background_images/background.jpg") !important; */
+	/* LIGHT BLUE  				/		background-image: url("../Background_images/background2.jpg") !important; */
+	/* MUTED AND NICE TEXTURE	/		background-image: url("../Background_images/hpehPUv.jpg") !important;   */
+	/* BLACK DIAGONALS 	/	background-image: url("../Background_images/Patterns/black-twill.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* BIG HOLES		/	background-image: url("../Background_images/Patterns/bo-play.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
+	/* SMALL HOLES		/	background-image: url("../Background_images/Patterns/carbon-fibre.png"), radial-gradient(circle at top center, #003da0 , #001333 130% ) !important; */
+	/* SUBTLE FABRIC	/	background-image: url("../Background_images/Patterns/classy-fabric.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
+	/* SUBTLE SCALES	*/
+	background-image:
+		url("../Background_images/Patterns/dark-fish-skin.png"),
+		radial-gradient(circle at top center, #003da0, #001333 100%)
+		!important;
+	*/
+}
+
+/* PANEL CONTAINER SETTINGS */
+#pageInfo .panel.panel-transparent {
+
+	background: none;
+	border: none;
+}
+
+/* PANEL SETTINGS */
+.panel-transparent .panel-body {
+	background: #1C1C1C !important;
+	opacity: 0.9;
+	border-radius: 10px;
+	border-width: 1px;
+	width: 70%;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+}
