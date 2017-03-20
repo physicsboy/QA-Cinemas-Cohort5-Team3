@@ -1,5 +1,5 @@
-<div ng-controller="getSpecificMovieController as movieCtrl" class="container-fluid" style="">
-    <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
+<div ng-controller="getSpecificMovieController as movieCtrl">
+    <div ng-controller="getShowingController as ctrl">
 
 
         <div class=row>
@@ -12,64 +12,46 @@
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3">
                 <div class="Logo"><h2> {{movieCtrl.movies.title}}</h2></div>
-                <div class="Sypnosis">{{movieCtrl.movies.description}}</div>
+                <div class="Synopsis">{{movieCtrl.movies.description}}</div>
                 <div class="Cast">Cast: {{movieCtrl.movies.cast}}</div>
                 <div class="MovieLength">Length: {{movieCtrl.movies.length}}</div>
                 <div class="Year">Release Date: {{movieCtrl.movies.year}}</div>
+                <div><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer">
+                    Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
+                                  height="25px"/> </a>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3"></div>
         </div>
 
+        <div class="Showings">
+
+            <h1>Showings</h1>
+
+            <input id="movieId" placeholder="movieId" ng-model="showing.movieId">
+
+            <table class="table table-striped">
+
+                <tr ng-repeat="showing in ctrl.showings">
+                    <td id="dayShowing">{{showing.dateShowing}}</td>
+                </tr>
+
+            </table>
 
 
-        <div>
-        <!--<div>-->
-        <!--<select-->
+        </div>
 
-        <!--ng-model="chosenMovie"-->
-        <!--ng-init="chosenMovie=movieCtrl[0]"-->
-        <!--ng-options="movie.title for movie in movieCtrl.movies track by movie.id"-->
-        <!--ng-dropdown required ng-change="showingCtrl.getShowingByMovie(chosenMovie.id)">-->
-        <!--</select-->
-        <!--&gt;-->
-        <!--</div>-->
 
         <!--<div class="container-fluid">-->
-        <!--<div ng-repeat="poster in chosenMovie.media | filter:{type:'POSTER'}">-->
-        <!--<div class="col-xs-12 col-sm-6 col-md-3">-->
 
-        <!--<img align="middle" ng-src='{{poster.url}}' class="img-responsive"-->
-        <!--style="width: 250px; height: 368px;"/>-->
-        <!--<div class="movieTitle">-->
-        <!--<h4>{{movie.title}}</h4>-->
-        <!--</div>-->
-        <!--</div>-->
+        <!--<div class="ShowingsOld">-->
 
-        <!--<div class="col-md-6">-->
-
-
-        <!--<div>-->
-        <!--<p class="custom-header">Description</p>-->
-        <!--{{chosenMovie.description}} <br/><br/>-->
-        <!--<p class="custom-header">Classification</p>-->
-        <!--<a ui-sref="classifications"> {{chosenMovie.classification}}</a> <br/><br/>-->
-        <!--<p class="custom-header">Cast</p>-->
-        <!--{{chosenMovie.cast}} <br/><br/>-->
-        <!--<p class="custom-header">Genre</p>-->
-        <!--{{chosenMovie.genre}} <br/> <br/>-->
-        <!--<p class="custom-header">Length</p>-->
-        <!--{{chosenMovie.length}} <br/><br/>-->
-
-        <!--<select ng-model="ticket.showing.idShowing" ng-disabled="!chosenMovie.id">-->
+        <!--<select ng-model="showing.idShowing" ng-disabled="!chosenMovie.id">-->
         <!--<option value="" disabled selected>Select Showing</option>-->
         <!--<option ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}">-->
         <!--{{showing.dateTime}}-->
         <!--</option>-->
         <!--</select>-->
-
-
-        <!--Show Trailer <img src="http://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" width=20px-->
-        <!--height="20px"/>-->
 
         <!--<table class="table table-striped">-->
         <!--<option value="" disabled selected>Showings for this Movie</option>-->
@@ -88,13 +70,10 @@
 
         <!--</tr>-->
 
-
         <!--</div>-->
 
         <!--</div>-->
 
-        <!--</div>-->
-        <!--</div>-->
 
         <!--<ul>-->
         <!--<li ng-repeat="e in showings | filter: {showings: {movie: chosenMovie.title}}">-->
@@ -108,16 +87,64 @@
         <!--</tr>-->
         <!--</table>-->
 
-        </div>
+        <!--</div>-->
 
 
+
+
+            <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
+                 ng-controller="getMediaController as mediaCtrl">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true" ng-click="callPlayer('yt-player', 'stopVideo');">×
+                            </button>
+                            <h4 class="modal-title">{{movieCtrl.movies.title}} Trailer</h4>
+                        </div>
+                        <div class="modal-body" id="yt-player" ng-repeat="trailer in movieCtrl.movies.media | filter:{type:'TRAILER'}">
+                            <iframe id='video' width="100%" height="700px" src="{{trailer.url}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
     </div>
 
 </div>
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        /* Get iframe src attribute value i.e. YouTube video url
+         and store it in a variable */
+        var url = $("#video").attr('src');
+
+        /* Assign empty url value to the iframe src attribute when
+         modal hide, which stop the video playing */
+        $("#trailerModal").on('hide.bs.modal', function () {
+            $("#video").attr('src', '');
+        });
+
+        /* Assign the initially stored url back to the iframe src
+         attribute when modal is displayed again */
+        $("#trailerModal").on('show.bs.modal', function () {
+            $("#video").attr('src', url);
+        });
+    });
+</script>
+
+
 <style>
+
+    #trailerModal .modal-dialog {
+        width: 70%;
+
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 50px;
+    }
 
     body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -126,19 +153,19 @@
     }
 
     /*.custom-header {*/
-        /*text-decoration: underline;*/
-        /*text-align: left;*/
-        /*color: #1b6d85;*/
-        /*font-size: x-large;*/
-        /*font-weight: bold;*/
+    /*text-decoration: underline;*/
+    /*text-align: left;*/
+    /*color: #1b6d85;*/
+    /*font-size: x-large;*/
+    /*font-weight: bold;*/
     /*}*/
 
     /*.movie-poster {*/
-        /*margin-bottom: 40px;*/
-        /*width: 55%;*/
-        /*align-content: center;*/
-        /*margin-left: auto;*/
-        /*margin-right: auto;*/
+    /*margin-bottom: 40px;*/
+    /*width: 55%;*/
+    /*align-content: center;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
     /*}*/
 
     /* Style the buttons that are used to open and close the accordion panel */
@@ -166,3 +193,4 @@
         display: none;
     }
 </style>
+

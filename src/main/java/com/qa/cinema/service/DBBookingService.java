@@ -54,9 +54,11 @@ public class DBBookingService implements BookingService {
 
 	@Override
 	public String createBooking(String booking) {
+	    System.out.println(booking);
 		Booking newBooking = util.getObjectForJSON(booking, Booking.class);
 		em.persist(newBooking);
-		return "{\"message\": \"Booking sucessfully added\"}";
+		System.out.println(newBooking.getBookingId());
+		return "{\"bookingId\": \""+newBooking.getBookingId()+"\"}";
 	}
 
 	@Override

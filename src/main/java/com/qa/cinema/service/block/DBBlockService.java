@@ -5,9 +5,10 @@
 
 package com.qa.cinema.service.block;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.qa.cinema.persistence.Block;
+import com.qa.cinema.persistence.Screen;
 import com.qa.cinema.persistence.Seat;
 import com.qa.cinema.util.JSONUtil;
 
@@ -29,10 +31,8 @@ public class DBBlockService implements BlockService {
 	@PersistenceContext
 	private EntityManager em;
 	
-	@Inject
+	@Inject()
 	private JSONUtil util;
-	
-	
 	
 	
 	@Override
@@ -48,13 +48,11 @@ public class DBBlockService implements BlockService {
 	}
 
 	@Override
-	public String getAllBlocks(int ScreenId) {
-		Query query = em.createQuery("Select b From Block b");
-		Collection<Block> blocks = (Collection<Block>)query.getResultList();
+	public String getAllBlocks(int screenId) {
+		Collection<Block> blocks =
+				em.find(Screen.class, screenId).getBlocks();
 		return util.getJSONForObject(blocks);
 	}
-
-	
 	
 	@Override
 	public String addBlock(String block) {
@@ -67,21 +65,21 @@ public class DBBlockService implements BlockService {
 		int startingCol = block.getStartingCol();
 		int startingRow = block.getStartingRow();
 		
-		int lastColToAdd = startingCol + colCount;
-		int lastRowToAdd = startingRow + rowCount;
+		int lastColToAdd = (startingCol + colCount);
+		int lastRowToAdd = (startingRow + rowCount);
+		List<Seat> seats = new ArrayList<>();
 		
-		for(int newCol = startingCol; newCol <= lastColToAdd; newCol++){
-			for(int newRow = startingRow; newRow <= lastRowToAdd; newRow++){
-				
-				Seat seat = new Seat(newRow, (char)newCol, Seat.SeatType.STANDARD);
-				em.persist(seat);
+		for(int newCol = startingCol; newCol < lastColToAdd; newCol++){
+			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
+				seats.add(
+					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
+				);
 			}
 		}
+		block.setSeats(seats);
+		em.persist(block);
 		return "{\"message\": \"Block sucessfully added\"}";
 	}
-	
-	
-	
 	
 
 	@Override

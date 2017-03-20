@@ -13,9 +13,8 @@ import com.qa.cinema.persistence.MediaType;
 
 public class MediaTest {
 	
-	//TODO
 	
-	/*Media media;
+	Media media;
 	String url = "Some/url";
 	MediaType type = MediaType.POSTER;
 
@@ -44,6 +43,6 @@ public class MediaTest {
 		assertEquals("POSTER", media.getType());
 		media.setType(MediaType.TRAILER);
 		assertEquals("TRAILER", media.getType());
-	}*/
+	}
 
 }

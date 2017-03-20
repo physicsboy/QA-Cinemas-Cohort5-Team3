@@ -47,7 +47,10 @@ public class BookingEndpoint {
 	@POST
 	@Produces({ "application/json" })
 	public String createBooking(String booking) {
-		return service.createBooking(booking);
+	    System.out.println(booking);
+	    String returnVal = service.createBooking(booking);
+		System.out.println(returnVal);
+		return returnVal;
 	}
 
 	@Path("/json/{id}")

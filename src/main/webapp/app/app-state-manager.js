@@ -14,6 +14,8 @@
                     templateUrl : "index.html"
                 }).state("getbooking",{url : "/getbooking",
                     templateUrl : "app/feature/booking/get/get-booking.html"
+                }).state("getseats",{url : "/getseats",
+                    templateUrl : "app/feature/bookingSeats/Seating.html"
                 }).state("addbooking",{url : "/addbooking",
                     templateUrl : "app/feature/booking/add/add-booking.html"
                 }).state("deletebooking",{url : "/deletebooking",
@@ -37,7 +39,7 @@
                 }).state("deletescreen",{url : "/deletescreen",
                     templateUrl : "app/feature/screen/delete-screen/delete-showing.html"
                 }).state("getticket",{url : "/getticket",
-                    templateUrl : "app/feature/ticket/get/get.html"
+                    templateUrl : "app/feature/ticket/get/get-ticket.html"
                 }).state("addticket",{url : "/addticket",
                     templateUrl : "app/feature/ticket/add/add-ticket.html"
                 }).state("updateticket",{url : "/updateticket",
@@ -65,7 +67,8 @@
                     controller: function ($stateParams){$stateParams.movieId}
 
                 }).state("payment",{url : "/payment",
-                        templateUrl : "app/feature/payment/payment.html"
+                        templateUrl : "app/feature/payment/payment.html",
+                    controller: function($stateParams){$stateParams.showingId}
                 })
             });
 }());
