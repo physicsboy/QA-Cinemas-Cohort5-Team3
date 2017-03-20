@@ -18,6 +18,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.qa.cinema.persistence.Screen;
+import com.qa.cinema.persistence.ticket.Ticket;
  
 
 
@@ -41,6 +42,7 @@ public class ScreenArquillianTest {
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
             .addPackage(Screen.class.getPackage())
+            .addPackage(Ticket.class.getPackage())
             .addAsResource("wildfly-persistence.xml", "META-INF/persistence.xml")
             .addAsResource("import.sql")
             .addAsWebInfResource("wildfly-ds.xml")

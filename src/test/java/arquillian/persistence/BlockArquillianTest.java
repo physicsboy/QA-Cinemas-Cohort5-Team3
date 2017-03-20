@@ -20,6 +20,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.qa.cinema.persistence.Seat;
+import com.qa.cinema.persistence.ticket.Ticket;
  
 
 
@@ -42,6 +43,7 @@ public class BlockArquillianTest {
     @Deployment
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
+        	.addPackage(Ticket.class.getPackage())
             .addPackage(Seat.class.getPackage())
             .addAsResource("wildfly-persistence.xml", "META-INF/persistence.xml")
             .addAsResource("import.sql")

@@ -44,10 +44,6 @@ public class Seat {
 	private int column;
 	private char row;
 	private SeatType type;
-
-	//@ManyToOne
-	//@JoinColumn(name = "blockId")//, referencedColumnName = "blockId")
-	//private Block block;
 	
 	
 	
