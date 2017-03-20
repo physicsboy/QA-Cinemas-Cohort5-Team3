@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.transaction.Transactional;
 
 @Entity
 public class Block {
@@ -27,7 +28,7 @@ public class Block {
 	private int startingCol;
 
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "blockId")
 	private List<Seat> seats;
 
@@ -126,7 +127,7 @@ public class Block {
 		this.startingCol = startingCol;
 	}
 
-	
+
 	public List<Seat> getSeats() {
 		return seats;
 	}

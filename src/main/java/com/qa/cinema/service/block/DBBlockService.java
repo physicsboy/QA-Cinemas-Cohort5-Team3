@@ -16,6 +16,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import com.qa.cinema.persistence.Block;
 import com.qa.cinema.persistence.Screen;
@@ -25,6 +26,7 @@ import com.qa.cinema.util.JSONUtil;
 @Stateless
 @Default
 @Named("dbBlockService")
+@Transactional
 public class DBBlockService implements BlockService {
 
 	
