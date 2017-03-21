@@ -11,17 +11,17 @@ public interface BlockService {
 	public String getBlock(long blockId);
 	public String getAllBlocks(int screenId);
 	
-	public String increaseColCount(int increase, String block);
-	public String increaseRowCount(int increase, String block);
-	public String decreaseColCount(int decrease, String block);
-	public String decreaseRowCount(int decrease, String block);
+	public String increaseColCount(long blockId, int increase);
+	public String increaseRowCount(long blockId, int increase);
+	public String decreaseColCount(long blockId, int decrease);
+	public String decreaseRowCount(long blockId, int decrease);
 	
-	public String increaseStatingCol(int increase, String block);
-	public String increaseStartingRow(int increase, String block);
-	public String decreaseStartingRow(int decrease, String block);
-	public String decreaseStatingCol(int decrease, String block);
+	public String increaseStatingCol(long blockId, int increase);
+	public String increaseStartingRow(long blockId, int increase);
+	public String decreaseStartingRow(long blockId, int decrease);
+	public String decreaseStatingCol(long blockId, int decrease);
 	
-	public String updateBlock(String block);
+	public String updateBlock(long blockId, int x, int y, int angle);
 	
 	
 	public String addBlock(String block);
