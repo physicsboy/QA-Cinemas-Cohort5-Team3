@@ -27,6 +27,8 @@ import com.qa.cinema.util.JSONUtil;
 @Named("dbBlockService")
 @Transactional
 public class DBBlockService implements BlockService {
+	
+	private static final String UPDATE_SUCCESS = "{\"message\": \"Block sucessfully updated\"}";
 
 	
 	@PersistenceContext
@@ -118,6 +120,7 @@ public class DBBlockService implements BlockService {
 				);
 			}
 		}
+		block.setRowCount(colCount + increase);
 		block.setSeats(seats);
 		em.persist(block);
 	}
@@ -148,6 +151,7 @@ public class DBBlockService implements BlockService {
 				);
 			}
 		}
+		block.setRowCount(rowCount + increase);
 		block.setSeats(seats);
 		em.persist(block);
 	}
@@ -173,6 +177,7 @@ public class DBBlockService implements BlockService {
 				seats.remove(s);
 			}
 		}
+		block.setRowCount(colCount - decrease);
 		block.setSeats(seats);
 		em.persist(block);
 	}
@@ -183,9 +188,9 @@ public class DBBlockService implements BlockService {
 	public String decreaseRowCount(int decrease, String block) {
 		Block blockObj = util.getObjectForJSON(block, Block.class);
 		decreaseRowCount(decrease, blockObj);
-		return null;
+		return decreaseRowCount(decrease, blockObj);
 	}
-	private void decreaseRowCount(int decrease, Block block){
+	private String decreaseRowCount(int decrease, Block block){
 		int rowCount = block.getRowCount();
 		int startingRow = block.getStartingRow();
 	
@@ -193,63 +198,174 @@ public class DBBlockService implements BlockService {
 		
 		List<Seat> seats = block.getSeats();
 		for(Seat s: seats){
-			if(s.getColumn() <= lastRowToRemove ){
+			if(s.getRow() <= lastRowToRemove ){
 				seats.remove(s);
 			}
 		}
+		block.setRowCount(rowCount - decrease);
 		block.setSeats(seats);
 		em.persist(block);
+		return UPDATE_SUCCESS;
 	}
 
+	
+	
+	
 	@Override
 	public String increaseStatingCol(int increase, String block) {
-		// TODO Auto-generated method stub
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		increaseStartingCol(increase, blockObj);
 		return null;
 	}
+	private String increaseStartingCol(int increase, Block block){
+		if(increase <= 0 ){
+			return "{\"message\": \"Increase must be greater than 0\"}";
+		}
+		
+		int startingCol = block.getStartingCol();
+		int colCount = block.getColCount();
+		int newStartingRow = startingCol -increase;
+	
+		List<Seat> seats = block.getSeats();
+		for(int col = startingCol; col < (startingCol - increase); col--){
+			for(Seat s: seats){
+				if(s.getRow() == col){
+					s.setRow((char)(col + colCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
+	
 
 	@Override
 	public String increaseStartingRow(int increase, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return increaseStartingRow(increase, blockObj);
 	}
+	private String increaseStartingRow(int increase, Block block){
+		if(increase <= 0 ){
+			return "{\"message\": \"Increase must be greater than 0\"}";
+		}
+		
+		int startingRow = block.getStartingRow();
+		int rowCount = block.getRowCount();
+		int newEndingRow = startingRow + rowCount + increase;
+		
+		if(newEndingRow > 90 ){
+			return "{\"message\": Final row cannot exceed Z\"\"}";
+		}
+		
+		List<Seat> seats = block.getSeats();
+		
+		for(int row = startingRow; row > (startingRow + increase); row++){
+			for(Seat s: seats){
+				if(s.getRow() == row){
+					s.setRow((char)(row + rowCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
 
+	
+	
+	
 	@Override
 	public String decreaseStartingRow(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return decreaseStartingRow(decrease, blockObj);
 	}
+	private String decreaseStartingRow(int decrease, Block block){
+		if(decrease <= 0 ){
+			return "{\"message\": \"Decrease must be greater than 0\"}";
+		}
+		int startingRow = block.getStartingRow();
+		int rowCount = block.getRowCount();
+		int newStartingRow = startingRow -decrease;
+		
+		
+		if(newStartingRow < 65 ){
+			return "{\"message\": \"Row can not be less than A\"}";
+		}
+		List<Seat> seats = block.getSeats();
+		
+		for(int row = startingRow; row < (startingRow - decrease); row--){
+			for(Seat s: seats){
+				if(s.getRow() == row){
+					s.setRow((char)(row + rowCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
 
+	
+	
 	@Override
 	public String decreaseStatingCol(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return decreaseStartingCol(decrease, blockObj);
 	}
-
+	private String decreaseStartingCol(int decrease, Block block){
+		if(decrease <= 0 ){
+			return "{\"message\": \"Decrease must be greater than 0\"}";
+		}
+		int startingCol = block.getStartingCol();
+		int colCount = block.getColCount();
+		int newStartingCol = startingCol -decrease;
+		
+		if(newStartingCol < 1 ){
+			return "{\"message\": \"Column cannot be less than 1\"}";
+		}
+		List<Seat> seats = block.getSeats();
+		
+		for(int col = startingCol; col < (startingCol - decrease); col--){
+			for(Seat s: seats){
+				if(s.getColumn() == col){
+					s.setColumn((col + colCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
+	
 	
 	
 	
 	
 	@Override
 	public String updateXPosition(String block) {
-		Block b = util.getObjectForJSON(block, Block.class);
-		em.persist(b);
-		return "{\"message\": \"X postion sucessfully updated\"}";
+		return updateBlock(block);
 	}
 
 	@Override
 	public String updateYPosition(String block) {
-		Block b = util.getObjectForJSON(block, Block.class);
-		em.persist(b);
-		return "{\"message\": \"Y postion sucessfully updated\"}";
+		return updateBlock(block);
 	}
-
+	
 	@Override
 	public String updateAngle(String block) {
+		return updateBlock(block);
+	}
+	
+	private String updateBlock(String block) {
 		Block b = util.getObjectForJSON(block, Block.class);
 		em.persist(b);
-		return "{\"message\": \"Angle sucessfully updated\"}";
+		return UPDATE_SUCCESS;
 	}
-
 	
 
 	
