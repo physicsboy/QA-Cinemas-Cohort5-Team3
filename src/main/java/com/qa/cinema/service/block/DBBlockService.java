@@ -15,7 +15,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import com.qa.cinema.persistence.Block;
@@ -86,8 +85,12 @@ public class DBBlockService implements BlockService {
 
 	@Override
 	public String deleteBlock(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Block block = em.find(Block.class,id);
+    List<Seat> seats = newArray List;
+    block.setSeats(seats);
+    em.persist(block);
+		em.remove(block);
+		return "{\"message\": \"Block sucessfully deleted\"}";
 	}
 	
 	
@@ -98,48 +101,107 @@ public class DBBlockService implements BlockService {
 		increaseColCount(increase, blockObj);
 		return null;
 	}
-	private void increaseColCount(int increase, Block block){
+	private void increaseColCount(int increase, Block block){		
 		int colCount = block.getColCount();
 		int startingCol = block.getStartingCol();
 		int rowCount = block.getRowCount();
 		int startingRow = block.getStartingRow();
+	
 		
 		int firstNewRow = (startingRow + rowCount + 1);
 		int lastRowToAdd = firstNewRow + increase;
 		int firstNewCol = (startingCol + colCount + 1);
 		int lastColToAdd = firstNewCol + increase;
 		
-		for(int newCol = firstNewCol; newCol <= lastColToAdd; newCol++){
-			for(int newRow = firstNewRow; newRow <= lastRowToAdd; newRow++){
-				//Seat seat = new Seat(newRow, newCol, Seat.SeatType.STANDARD);
-				//em.persist(seat);
+		List<Seat> seats = block.getSeats();
+		for(int newCol = firstNewCol; newCol < lastColToAdd; newCol++){
+			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
+				seats.add(
+					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
+				);
 			}
 		}
+		block.setSeats(seats);
+		em.persist(block);
 	}
 
-	
-	
-	
-	
-	
-	
 	@Override
 	public String increaseRowCount(int increase, String block) {
 		Block blockObj = util.getObjectForJSON(block, Block.class);
+		increaseRowCount(increase, blockObj);
 		return null;
 	}
+	private void increaseRowCount(int increase, Block block){
+		int colCount = block.getColCount();
+		int startingCol = block.getStartingCol();
+		int rowCount = block.getRowCount();
+		int startingRow = block.getStartingRow();
+	
+		
+		int firstNewRow = (startingRow + rowCount + 1);
+		int lastRowToAdd = firstNewRow + increase;
+		int firstNewCol = (startingCol + colCount + 1);
+		int lastColToAdd = firstNewCol + increase;
+		
+		List<Seat> seats = block.getSeats();
+		for(int newCol = firstNewRow; newCol < lastColToAdd; newCol++){
+			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
+				seats.add(
+					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
+				);
+			}
+		}
+		block.setSeats(seats);
+		em.persist(block);
+	}
+
+	
+	
+	
+	@Override
+	public String decreaseColCount(int decrease, String block) {
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		decreaseColCount(decrease, blockObj);
+		return null;
+	}
+	private void decreaseColCount(int decrease, Block block){		
+		int colCount = block.getColCount();
+		int startingCol = block.getStartingCol();
+		
+		int lastColToRemove = startingCol + colCount - decrease;
+		
+		List<Seat> seats = block.getSeats();
+		for(Seat s: seats){
+			if(s.getColumn() <= lastColToRemove){
+				seats.remove(s);
+			}
+		}
+		block.setSeats(seats);
+		em.persist(block);
+	}
+	
 	
 
 	@Override
-	public String decreaseColCount(int decrease, String block) {
-		// TODO Auto-generated method stub
+	public String decreaseRowCount(int decrease, String block) {
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		decreaseRowCount(decrease, blockObj);
 		return null;
 	}
-
-	@Override
-	public String decreaseRowCount(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
+	private void decreaseRowCount(int decrease, Block block){
+		int rowCount = block.getRowCount();
+		int startingRow = block.getStartingRow();
+	
+		int lastRowToRemove = startingRow + rowCount - decrease;
+		
+		List<Seat> seats = block.getSeats();
+		for(Seat s: seats){
+			if(s.getColumn() <= lastRowToRemove ){
+				seats.remove(s);
+			}
+		}
+		block.setSeats(seats);
+		em.persist(block);
 	}
 
 	@Override
@@ -166,22 +228,29 @@ public class DBBlockService implements BlockService {
 		return null;
 	}
 
+	
+	
+	
+	
 	@Override
 	public String updateXPosition(String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block b = util.getObjectForJSON(block, Block.class);
+		em.persist(b);
+		return "{\"message\": \"X postion sucessfully updated\"}";
 	}
 
 	@Override
 	public String updateYPosition(String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block b = util.getObjectForJSON(block, Block.class);
+		em.persist(b);
+		return "{\"message\": \"Y postion sucessfully updated\"}";
 	}
 
 	@Override
 	public String updateAngle(String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block b = util.getObjectForJSON(block, Block.class);
+		em.persist(b);
+		return "{\"message\": \"Angle sucessfully updated\"}";
 	}
 
 	

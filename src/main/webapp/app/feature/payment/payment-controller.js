@@ -1,98 +1,142 @@
 /**
  * Created by Sam Jarvis on 17/03/2017.
  */
-(function () {
+(function() {
 
-    var PaymentController = function ($stateParams, $state, movieDal, bookingDal, ticketDal, showingDal) {
+	var PaymentController = function($stateParams, $state, movieDal,
+			bookingDal, ticketDal, showingDal, $scope) {
         var vm = this;
-        vm.bookingId = -1;
-        vm.Params = $stateParams;
+		vm.options = [
+            {value:0,name:0},
+            {value:1,name:1},
+            {value:2,name:2},
+            {value:3,name:3},
+            {value:4,name:4},
+            {value:5,name:5},
+            {value:6,name:6},
+            {value:7,name:7},
+            {value:8,name:8},
+            {value:9,name:9}
+        ];
 
-        /*        vm.addMovie = function(movieToAdd) {
-         console.log("This is the value of movie to add " + movieToAdd);
-         console.log(movieToAdd);
-         var movieToJson = JSON.stringify(movieToAdd);
-         console.log(movieToJson);
-         movieDal.saveMovie(movieToAdd).then(function (results) {
-         vm.movieAddMessage  = results;
-         $state.go('getmovie');
-         }, function (error) {
-         vm.error = true;
-         vm.errorMessage = error;
-         });
-         };*/
+        vm.numAdults=0;
+        vm.numChild=0;
+        vm.numCons=0;
+        vm.numPremium=0;
 
 
-        vm.createTicket = function (ticketType) {
-            console.log(vm.Params);
-            var ticket = {
-                //id : 1,
-                //seat: {"column": 1, "row": 'a', "type": "STANDARD"},
-                seat_seatid: 1,
-                type: ticketType,
-                Booking_bookingID: vm.bookingId
-            };
-            console.log(ticket);
-            ticketDal.saveTicket(ticket);
-        };
 
-        vm.createTicketsForEachType = function (ticketType, number) {
+		vm.bookingId = -1;
+		vm.seatId = 173;
+		vm.showingId = 32;
 
-            for (i = 0; i < number; i++) {
-                vm.createTicket(ticketType);
+		/*
+		 * vm.addMovie = function(movieToAdd) { console.log("This is the value
+		 * of movie to add " + movieToAdd); console.log(movieToAdd); var
+		 * movieToJson = JSON.stringify(movieToAdd); console.log(movieToJson);
+		 * movieDal.saveMovie(movieToAdd).then(function (results) {
+		 * vm.movieAddMessage = results; $state.go('getmovie'); }, function
+		 * (error) { vm.error = true; vm.errorMessage = error; }); };
+		 */
+
+		vm.createTicket = function(ticketType) {
+			var ticket = {
+				type : ticketType
+			};
+			console.log("Ticket to be added:" + ticket + " to booking id:"
+					+ vm.bookingId);
+			bookingDal.addTicketToBooking(ticket, vm.bookingId, vm.seatId,
+					vm.showingId);
+		};
+
+		vm.createTicketsForEachType = function(ticketType, number) {
+
+			for (i = 0; i < number; i++) {
+				vm.createTicket(ticketType);
+			}
+		};
+
+		vm.createBooking = function(thisBooking) {
+
+			vm.thisBooking = thisBooking;
+
+			/*
+			 * Required state params from previous page: which showing
+			 */
+			var time = new Date().getTime();
+
+			var booking = {
+				dateBooked : time,
+				userEmail : thisBooking.userEmail,
+				paymentEmail : thisBooking.paymentEmail
+			};
+			console.log(booking);
+			bookingDal.saveBooking(booking).then(function(results) {
+				vm.bookingId = parseInt(results.bookingId);
+			}, function(error) {
+				vm.error = true;
+				vm.errorMessage = error;
+			});
+
+			waitForBookingId();
+
+		};
+
+		vm.addTicketsToBooking = function() {
+			if ((vm.thisBooking.adult !== null) && (vm.thisBooking.adult !== 0)) {
+				vm.createTicketsForEachType("ADULT", vm.thisBooking.adult);
+			}
+			if ((vm.thisBooking.child !== null) && (vm.thisBooking.child !== 0)) {
+				vm.createTicketsForEachType("CHILD", vm.thisBooking.child);
+			}
+			if ((vm.thisBooking.concession !== null) && (vm.thisBooking.concession !== 0)) {
+				vm.createTicketsForEachType("CONCESSION",
+						vm.thisBooking.concession);
+			}
+			if ((vm.thisBooking.premium !== null) && (vm.thisBooking.premium !== 0)) {
+				vm.createTicketsForEachType("PREMIUM", vm.thisBooking.premium);
+			}
+
+		};
+
+		function waitForBookingId() {
+			if (vm.bookingId !== -1) {
+				vm.addTicketsToBooking(vm.thisBooking);
+			} else {
+				console.log("waiting");
+				setTimeout(waitForBookingId, 250);
+
+			}
+		}
+
+		vm.update = function(){
+			console.log("In update");
+			console.log(thisBooking);
+            if(thisBooking !== undefined) {
+                if ((vm.thisBooking.adult !== undefined)) {
+                    vm.numAdults = vm.thisBooking.adult.value;
+                }
+                if ((vm.thisBooking.child !== undefined)) {
+                    vm.numChild = vm.thisBooking.child.value;
+                }
+                if ((vm.thisBooking.concession !== undefined)) {
+                    vm.numCons = vm.thisBooking.concession.value;
+                }
+                if ((vm.thisBooking.premium !== undefined)) {
+                    vm.numPremium = vm.thisBooking.premium.value;
+                }
+                vm.calcTotal()
             }
-        };
+		};
+		
+		vm.calcTotal = function(){
+			vm.total = vm.numAdults*9.99 + vm.numChild*5.99 + vm.numCons*7.49 + vm.numPremium*12.99;
+		};
 
-        vm.createBooking = function ($stateParams, howManyTickets, newUserEmail, newPaymentEmail) {
+	};
 
-            /*Required state params from previous page:
-             * which movie
-             * which showing
-             */
-            var time = new Date().getTime();
-
-            var booking = {
-                dateBooked: time,
-                userEmail: newUserEmail,
-                paymentEmail: newPaymentEmail
-            };
-            console.log(booking);
-            bookingDal.saveBooking(booking).then(function (results) {
-                console.log(results);
-                vm.bookingId = parseInt(results.bookingId);
-                console.log(vm.bookingId);
-            }, function (error) {
-                vm.error = true;
-                vm.errorMessage = error;
-            });
-
-
-        };
-        vm.createBooking($stateParams, 1, "blah1", "blah@blah.com");
-
-        vm.addTicketsToBooking = function (howManyTickets) {
-            vm.createTicketsForEachType("ADULT", howManyTickets.adultTickets)
-
-        };
-
-        waitForBookingId();
-
-
-        function waitForBookingId(){
-            if(vm.bookingId !== -1){
-                vm.addTicketsToBooking({adultTickets:1});
-            }
-            else{
-                console.log("waiting");
-                console.log(vm.bookingId);
-                setTimeout(waitForBookingId, 250);
-
-
-            }
-        }
-
-
-    };
-
-    angular.module('movieApp').controller('paymentController', ['$stateParams', '$state', 'movieDal', 'bookingDal', 'ticketDal', 'showingDal', PaymentController]);
+	angular.module('movieApp').controller(
+			'paymentController',
+			[ '$stateParams', '$state', 'movieDal', 'bookingDal', 'ticketDal',
+					'showingDal', PaymentController ]);
 }());

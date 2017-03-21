@@ -4,7 +4,7 @@ public interface ShowingService {
 	
 	String getAllShowings();
 	
-	String getShowingByDate(Long dateShowing);
+	String getShowingByDate(Long id, Long dateShowing);
 	
 	String addShowing(String showing);
 	

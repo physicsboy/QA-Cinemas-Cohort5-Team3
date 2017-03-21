@@ -1,9 +1,58 @@
-
 <div ng-controller="paymentController as payCtrl">
-TEST
-{{payCtrl.bookingAddMessage}}
-TEST
-<!--<div id="paypal-button"></div>
+
+    <div>
+		<span>Enter Paypal Email<input
+                ng-model="vm.thisBooking.paymentEmail" ng-change="payCtrl.update()"></span> <span>Enter User
+			Email<input ng-model="vm.thisBooking.userEmail" ng-change="payCtrl.update()">
+		</span>
+    </div>
+
+    <div>
+        <div>
+            <select ng-model="vm.thisBooking.adult" ng-options="option.value for option in payCtrl.options"
+                    ng-change="payCtrl.update()">
+            </select>
+        </div>
+
+        <div>
+            <select ng-model=" vm.thisBooking.child" ng-options="option.value for option in payCtrl.options"
+                    ng-change="payCtrl.update()">
+            </select>
+        </div>
+
+        <div>
+            <select ng-model="vm.thisBooking.concession" ng-options="option.value for option in payCtrl.options"
+                    ng-change="payCtrl.update()">
+            </select>
+        </div>
+
+        <div>
+            <select ng-model=" vm.thisBooking.premium" ng-options="option.value for option in payCtrl.options"
+                    ng-change="payCtrl.update()">
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <p>Number of Adults:{{payCtrl.numAdults}}</p>
+
+        <p>Number of Children:{{payCtrl.numChild}}</p>
+        <p>Number of Concession:{{payCtrl.numCons}}</p>
+        <p>Number of Premium:{{payCtrl.numPremium}}</p>
+    </div>
+
+    <div>
+        <h3>Subtotal</h3>
+        <p> Adult Tickets (x{{payCtrl.numAdults}}): &pound;{{payCtrl.numAdults*9.99}}</p>
+        <p> Child Tickets (x{{payCtrl.numChild}}): &pound;{{payCtrl.numChild*5.99}}</p>
+        <p> Concession Tickets
+            (x{{payCtrl.numCons}}): &pound;{{payCtrl.numCons*7.49}}</p>
+        <p> Premium Tickets (x{{payCtrl.numPremium}}): &pound;{{payCtrl.numPremium*12.99}}</p>
+        <h2>Total Price: &pound;{{payCtrl.total}}</h2>
+
+        <button ng-click="payCtrl.createBooking(payCtrl.thisBooking)">Confirm and Pay</button>
+    </div>
+    <!--<div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>

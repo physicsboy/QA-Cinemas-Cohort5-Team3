@@ -22,6 +22,7 @@
 			});
 		};
 
+
 	};
 
 	angular.module('movieApp').controller('getMediaController',

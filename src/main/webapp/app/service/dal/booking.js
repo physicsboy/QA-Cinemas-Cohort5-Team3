@@ -32,6 +32,13 @@
         this.deleteBooking = function (bookingToDelete) {
             return dal.http.DELETE("rest/booking/json/", bookingToDelete);
         };
+        
+        this.addTicketToBooking = function(ticket,bookingId,seatId,showingId){
+            console.log("ticket:"+ticket);
+            var x = dal.http.POST("rest/booking/json/"+bookingId+"/"+showingId+"/"+seatId, ticket);
+            console.log(x);
+            return x;
+        }
 
     }
 }());

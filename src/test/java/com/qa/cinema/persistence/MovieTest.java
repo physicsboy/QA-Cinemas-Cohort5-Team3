@@ -80,7 +80,6 @@ public class MovieTest {
 	@Test
 	public void TestGetClassification() {
 		movie.setClassification(Classification.CLASS_12);
-
 		assertEquals(Classification.CLASS_12.getUrl(), movie.getClassification());
 	}
 

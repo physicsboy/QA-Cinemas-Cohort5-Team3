@@ -12,6 +12,7 @@ public interface BookingService {
 	public String getBookingByBookingId(Long userId);	
 	public String createBooking(String booking);
 	public String deleteBooking(Long id);
+	public String addTicketToBooking(Long bookingId, Long showingId, Long seatId, String ticket);
 	
 	
 	
