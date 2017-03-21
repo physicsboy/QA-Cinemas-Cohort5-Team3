@@ -56,6 +56,8 @@ public class DBBlockServiceArquillianTest {
 	@EJB
 	@Named("dbBlockService")
 	BlockService service;
+	@Inject
+	private JSONUtil util;
 
 	@Deployment
 	public static WebArchive createDeployment() {
@@ -86,19 +88,19 @@ public class DBBlockServiceArquillianTest {
 	@Test
 	public final void addBlockCheckMaxRowMaxCol() throws Exception {
 		utx.begin();
-			service.addBlock("{\"colCount\":5," + "\"rowCount\":5," + "\"xPosition\":1," + "\"yPosition\":1," + "\"angle\":34," + "\"startingRow\":\"a\"," + "\"startingCol\":1}");
-			List<Seat> seats = em.find(Block.class, 11L).getSeats();
-			boolean isCorrect = false;
-			char row = 'a';
-			int col = 1;
-			for (Seat s : seats) {
-				if (col < s.getColumn()) {
-					col = s.getColumn();
-				}
-				if (row < s.getRow()) {
-					row = s.getRow();
-				}
+		service.addBlock("{\"colCount\":5," + "\"rowCount\":5," + "\"xPosition\":1," + "\"yPosition\":1," + "\"angle\":34," + "\"startingRow\":\"a\"," + "\"startingCol\":1}");
+		List<Seat> seats = em.find(Block.class, 11L).getSeats();
+		boolean isCorrect = false;
+		char row = 'a';
+		int col = 1;
+		for (Seat s : seats) {
+			if (col < s.getColumn()) {
+				col = s.getColumn();
 			}
+			if (row < s.getRow()) {
+				row = s.getRow();
+			}
+		}
 		utx.commit();
 		if (col == 5 && row == 'e') {
 			isCorrect = true;
@@ -108,99 +110,124 @@ public class DBBlockServiceArquillianTest {
 
 	@Test
 	public final void deleteBlock() throws Exception {
-	
-		
-		
-utx.begin();
-			/*(A)true for find initial
-			delete block
-			(B)false for find after delete
-			assertEqual if a=true and b=false*/ 
-			
-			boolean before = false;
-			boolean after=  false;
-			Long blockId = 3L;
-			int RowCountOfblock  =  em.find(Block.class, blockId).getRowCount();
-			int ColCountOfblock  =  em.find(Block.class, blockId).getColCount();
-			List<Seat> seats = em.find(Block.class, blockId).getSeats();
-			int seatCountBefore = 0;
-			int seatCountAfter = 0;
-			
-			before = blockId == em.find(Block.class, blockId).getBlockId();
-			for (Seat seat : seats){
-				if (seat.getColumn() == ColCountOfblock && seat.getRow() == RowCountOfblock ){
-					seatCountBefore++;
-					}
-				}
-			
-			String delete = service.deleteBlock(blockId);
-			
-			after = blockId == em.find(Block.class, blockId).getBlockId();
-			for (Seat seat : seats){
-				if (seat.getColumn() == ColCountOfblock && seat.getRow() == RowCountOfblock ){
-					seatCountAfter++;
-					}
-				}
-			utx.commit();
-			boolean outcome = false;
-			if(before != after && seatCountAfter != seatCountBefore ){
-				outcome = true;
-			}else{
-				outcome = false;
-			}
-			
-						
-			assertEquals(true,outcome);
-		
+		utx.begin();
+		boolean before = false;
+		boolean after = false;
+		Long blockId = 3L;
+		char RowCountOfblock = 'A';
+		for (int i = 0; i < em.find(Block.class, blockId).getRowCount(); i++) {
+			RowCountOfblock++;
+		}
+		int ColCountOfblock = em.find(Block.class, blockId).getColCount() + 1; // Starting Col is 1 more than end of previous
+		List<Seat> seats = em.find(Block.class, blockId).getSeats();
+		before = blockId == em.find(Block.class, blockId).getBlockId();
+		String delete = service.deleteBlock(blockId);
+		try {
+			Long afterId = em.find(Block.class, blockId).getBlockId();
+			after = true;
+		} catch (NullPointerException e) {
+			after = false;
+		}
+		utx.commit();
+		boolean outcome = false;
+		if (before == true && after == false) {
+			outcome = true;
+		} else {
+			outcome = false;
+		}
+		assertEquals(true, outcome);
 	}
 
 	@Test
-	public final void increaseRowCount() {
+	public final void increaseRowCount() throws Exception {
 		assertEquals(true, true);
 	}
 
 	@Test
-	public final void decreaseColCount() {
+	public final void decreaseColCount() throws Exception {
 		assertEquals(true, true);
 	}
 
 	@Test
-	public final void decreaseRowCount() {
+	public final void decreaseRowCount() throws Exception {
 		assertEquals(true, true);
 	}
 
 	@Test
-	public final void increaseStatingCol() {
+	public final void increaseStatingCol() throws Exception {
+		utx.begin();
+		Long blockId = 3L;
+		String blockString = util.getJSONForObject(em.find(Block.class, blockId));
+		int beforeStartingCol = em.find(Block.class, blockId).getStartingCol();
+		List<Seat> seats = em.find(Block.class, blockId).getSeats();
+		int beforeSeatCount = seats.size();
+		service.increaseStatingCol(5, blockString);
+		int afterStartingCol = em.find(Block.class, blockId).getStartingCol();
+		seats = em.find(Block.class, blockId).getSeats();
+		int afterSeatCount = seats.size();
+		utx.commit();
+		assertEquals(true, beforeStartingCol != afterStartingCol && afterStartingCol == beforeStartingCol + 5 && beforeSeatCount < afterSeatCount);
+	}
+
+	@Test
+	public final void increaseStartingRow() throws Exception {
+		utx.begin();
+		Long blockId = 3L;
+		String blockString = util.getJSONForObject(em.find(Block.class, blockId));
+		int beforeStartingRow = em.find(Block.class, blockId).getStartingCol();
+		service.increaseRowCount(5, blockString);
+		int afterStartingRow = em.find(Block.class, blockId).getStartingCol();
+		utx.commit();
+		assertEquals(true, beforeStartingRow != afterStartingRow && afterStartingRow == beforeStartingRow + 5);
+	}
+
+	@Test
+	public final void decreaseStartingRow() throws Exception {
+		utx.begin();
+		Long blockId = 3L;
+		String blockString = util.getJSONForObject(em.find(Block.class, blockId));
+		int beforeStartingRow = em.find(Block.class, blockId).getStartingCol();
+		service.decreaseStartingRow(1, blockString);
+		int afterStartingRow = em.find(Block.class, blockId).getStartingCol();
+		utx.commit();
+		assertEquals(true, beforeStartingRow != afterStartingRow && afterStartingRow == beforeStartingRow - 1);
+	}
+
+	@Test
+	public final void decreaseStatingCol() throws Exception {
+		utx.begin();
+		Long blockId = 3L;
+		String blockString = util.getJSONForObject(em.find(Block.class, blockId));
+		int beforeStartingCol = em.find(Block.class, blockId).getStartingCol();
+		List<Seat> seats = em.find(Block.class, blockId).getSeats();
+		int beforeSeatCount = seats.size();
+		service.increaseStatingCol(5, blockString);
+		int afterStartingCol = em.find(Block.class, blockId).getStartingCol();
+		seats = em.find(Block.class, blockId).getSeats();
+		int afterSeatCount = seats.size();
+		utx.commit();
+		assertEquals(true, beforeStartingCol != afterStartingCol && afterStartingCol == beforeStartingCol - 5 && beforeSeatCount > afterSeatCount);
+	}
+
+	@Test
+	public final void updateXPosition() throws Exception {
+/*		utx.commit();
+		Long blockId = 3L;
+		String blockString = util.getJSONForObject(em.find(Block.class, blockId));
+		int beforeXpos = em.find(Block.class, blockId).getxPosition();
+		service.updateXPosition(blockString);
+		int afterXpos = em.find(Block.class, blockId).getxPosition();
+		utx.commit();*/
 		assertEquals(true, true);
 	}
 
 	@Test
-	public final void increaseStartingRow() {
+	public final void updateYPosition() throws Exception {
 		assertEquals(true, true);
 	}
 
 	@Test
-	public final void decreaseStartingRow() {
-		assertEquals(true, true);
-	}
-
-	@Test
-	public final void decreaseStatingCol() {
-		assertEquals(true, true);
-	}
-
-	@Test
-	public final void updateXPosition() {
-		assertEquals(true, true);
-	}
-
-	@Test
-	public final void updateYPosition() {
-		assertEquals(true, true);
-	}
-
-	@Test
-	public final void updateAngle() {
+	public final void updateAngle() throws Exception {
 		assertEquals(true, true);
 	}
 }
