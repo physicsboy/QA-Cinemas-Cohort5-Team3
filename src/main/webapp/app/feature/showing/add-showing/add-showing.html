@@ -1,0 +1,13 @@
+<div ng-controller="addShowingController as showingCtrl" >
+    <div ng-controller="getMovieController as movieCtrl" >
+
+        {{movieCtrl.getMovies()}}
+    <select ng-model="ChosenMovie"
+            ng-options="movie.title for movie in movieCtrl.movies">
+
+    </select>
+
+
+
+    </div>
+</div>

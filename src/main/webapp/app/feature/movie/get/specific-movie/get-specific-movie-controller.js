@@ -1,12 +1,12 @@
 (function () {
 
-    var GetSpecificMovieController = function (movieDal, $stateParams) {
+    var GetSpecificMovieController = function (movieDal, mediaDal, $stateParams) {
         var vm = this;
         var param = $stateParams;
         console.log(param);
 
         vm.getMovieById = function getMovieById() {
-            movieDal.getMovieById($stateParams.movieId).then(function (results) {
+            movieDal.getMovieById(param.movieId).then(function (results) {
                 vm.movies = results;
             }, function (error) {
                 vm.error = true;
@@ -14,8 +14,12 @@
             });
         };
         vm.getMovieById();
+
+        vm.trustSrc = function trustSrc(src) {
+            return $sce.trustAsResourceUrl(src);
+        }
     };
 
-    angular.module('movieApp').controller('getSpecificMovieController', ['movieDal', '$stateParams', GetSpecificMovieController]);
+    angular.module('movieApp').controller('getSpecificMovieController', ['movieDal', 'mediaDal', '$stateParams', GetSpecificMovieController]);
 }());
 

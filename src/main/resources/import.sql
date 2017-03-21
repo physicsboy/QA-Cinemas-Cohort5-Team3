@@ -4,11 +4,11 @@
 
 
 INSERT INTO movie VALUES (1, 'Ewan McGregor, Logan Gillies', 'CLASS_18', 'After 20 years abroad, Mark Renton returns to Scotland and reunites with his old friends Sick Boy, Spud, and Begbie.', 'Drama', 118, TRUE,'T2 Trainspotting', '2017-01-31');
-INSERT INTO movie VALUES (2, 'Tom Hiddleston, Samuel L. Jackson, Brie Larson', 'CLASS_12A', 'A team of scientists explore an uncharted island in the Pacific, venturing into the domain of the mighty Kong, and must fight to escape a primal Eden.', 'Action', 120, TRUE, 'Donkey Kong: Skull Island', '2017-03-01' );
+INSERT INTO movie VALUES (2, 'Tom Hiddleston, Samuel L. Jackson, Brie Larson', 'CLASS_12A', 'A team of scientists explore an uncharted island in the Pacific, venturing into the domain of the mighty Kong, and must fight to escape a primal Eden.', 'Action', 120, TRUE, 'King Kong: Skull Island', '2017-03-01' );
 INSERT INTO movie VALUES (3, 'Hugh Jackman, Patrick Stewart', 'CLASS_15', 'In the near future, a weary Logan cares for an ailing Professor X somewhere on the Mexican border. However, Logan''s attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces.', 'Adventure', 137, TRUE, 'Logan', '2017-03-03');
 INSERT INTO movie VALUES (4, 'Matthew McConaughey, Reese Witherspoon', 'CLASS_PG', 'In a city of humanoid animals, a hustling theater impresario''s attempt to save his theater with a singing competition becomes grander than he anticipates even as its finalists'' find that their lives will never be the same.', 'Animation', 108, TRUE, 'Sing', '2016-11-21');
 INSERT INTO movie VALUES (5, 'Andrew Garfield, Richard Pyros', 'CLASS_18', 'WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people, and becomes the first man in American history to receive the Medal of Honor without firing a shot.', 'Biography, Drama, History', 139, TRUE, 'Hacksaw Ridge',  '2016-11-04');
-INSERT INTO movie VALUES (6, 'Dakota Johnson, Jamie Dornan', 'CLASS_18', 'While Christian wrestles with his inner demons, Anastasia must confront the anger and envy of the women who came before her.', 'Drama, Romance', 118,  TRUE, '50 Shades Shitter',  '2017-02-10');
+INSERT INTO movie VALUES (6, 'Dakota Johnson, Jamie Dornan', 'CLASS_18', 'While Christian wrestles with his inner demons, Anastasia must confront the anger and envy of the women who came before her.', 'Drama, Romance', 118,  TRUE, '50 Shades Darker',  '2017-02-10');
 INSERT INTO movie VALUES (7, 'Casey Affleck, Kyle Chandler', 'CLASS_18', 'A depressed uncle is asked to take care of his teenage nephew after the boy''s father dies.', 'Drama', 137, TRUE, 'Manchester by the Sea', '2016-12-16' );
 INSERT INTO movie VALUES (8, 'Will Arnett, Rosario Dawson', 'CLASS_PG ', 'Bruce Wayne must not only deal with the criminals of Gotham City, but also the responsibility of raising a boy he adopted.', 'Animation, Action, Adventure', 104, TRUE, 'The Lego Batman Movie', '2016-12-16');
 INSERT INTO movie VALUES (9, 'Keanu Reeves, Riccardo Scamarcio', 'CLASS_18', 'After returning to the criminal underworld to repay a debt, John Wick discovers that a large bounty has been put on his life.', 'Action, Crime, Thriller', 122, FALSE, 'John Wick: Chapter 2', '2017-02-10');
@@ -237,9 +237,6 @@ INSERT INTO seat values (200, 17, 'P', 2, 4);
 
 
 
-
-
-
 INSERT INTO media VALUES (1, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU2NTA0NDM0MF5BMl5BanBnXkFtZTgwMDMzMTQzMTI@._V1_SY1000_CR0,0,666,1000_AL_.jpg', 1);
 INSERT INTO media VALUES (2, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 2);
 INSERT INTO media VALUES (3, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_SY1000_CR0,0,676,1000_AL_.jpg', 3);
@@ -257,15 +254,20 @@ INSERT INTO media VALUES (14, 'POSTER', 'https://images-na.ssl-images-amazon.com
 INSERT INTO media VALUES (15, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg', 15);
 INSERT INTO media VALUES (16, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SY1000_SX675_AL_.jpg', 16);
 
-INSERT INTO showing VALUES (1,1490000400000,1,1);
-INSERT INTO showing VALUES (2,1490011200000,1,1);
-INSERT INTO showing VALUES (3,1490022000000,1,1);
-INSERT INTO showing VALUES (4,1490032800000,1,1);
-INSERT INTO showing VALUES (5,1490043600000,1,1);
-INSERT INTO showing VALUES (6,1490054400000,1,1);
-INSERT INTO showing VALUES (7,1490086800000,1,1);
-INSERT INTO showing VALUES (8,1490097600000,1,1);
-INSERT INTO showing VALUES (9,1490108400000,1,1);
+INSERT INTO media VALUES (17, 'TRAILER', 'https://www.youtube.com/embed/EsozpEE543w', 1);
+INSERT INTO media VALUES (18, 'TRAILER', 'https://www.youtube.com/embed/44LdLqgOpjo', 2);
+INSERT INTO media VALUES (19, 'TRAILER', 'https://www.youtube.com/embed/Div0iP65aZo', 3);
+INSERT INTO media VALUES (20, 'TRAILER', 'https://www.youtube.com/embed/RYHBD9RF2dk', 4);
+
+INSERT INTO showing VALUES (01,1490000400000,1,1);
+INSERT INTO showing VALUES (02,1490011200000,1,1);
+INSERT INTO showing VALUES (03,1490022000000,1,1);
+INSERT INTO showing VALUES (04,1490032800000,1,1);
+INSERT INTO showing VALUES (05,1490043600000,1,1);
+INSERT INTO showing VALUES (06,1490054400000,1,1);
+INSERT INTO showing VALUES (07,1490086800000,1,1);
+INSERT INTO showing VALUES (08,1490097600000,1,1);
+INSERT INTO showing VALUES (09,1490108400000,1,1);
 INSERT INTO showing VALUES (10,1490119200000,1,1);
 INSERT INTO showing VALUES (11,1490130000000,1,1);
 INSERT INTO showing VALUES (12,1490140800000,2,2);
@@ -361,6 +363,7 @@ INSERT INTO booking VALUES (67,1489237916929,'Bob@Blue.com','Bob@Blue.com');
 INSERT INTO booking VALUES (68,1489336351446,'Sue@Blue.com','Sue@Blue.com');
 INSERT INTO booking VALUES (69,1489281256072,'Alex@Surname.com','Alex@Surname.com');
 INSERT INTO booking VALUES (70,1488625450684,'Jan@Newton.com','Jan@Newton.com');
+
 
 INSERT INTO ticket VALUES (1,12.99,'PREMIUM',117,1,1);
 INSERT INTO ticket VALUES (2,7.49,'CONCESSION',45,2,2);
