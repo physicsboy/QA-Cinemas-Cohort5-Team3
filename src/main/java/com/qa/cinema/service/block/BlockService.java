@@ -26,7 +26,7 @@ public interface BlockService {
 	public String updateAngle(String block);
 	
 	public String addBlock(String block);
-	public String deleteBlock(int id);
+	public String deleteBlock(Long id);
 	
 	
 	

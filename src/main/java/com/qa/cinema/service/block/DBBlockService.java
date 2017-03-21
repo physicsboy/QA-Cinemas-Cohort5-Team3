@@ -85,7 +85,7 @@ public class DBBlockService implements BlockService {
 	
 
 	@Override
-	public String deleteBlock(int id) {
+	public String deleteBlock(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

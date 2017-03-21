@@ -14,7 +14,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
 import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
@@ -104,8 +107,51 @@ public class DBBlockServiceArquillianTest {
 	}
 
 	@Test
-	public final void deleteBlock() {
-		assertEquals(true, true);
+	public final void deleteBlock() throws Exception {
+	
+		
+		
+utx.begin();
+			/*(A)true for find initial
+			delete block
+			(B)false for find after delete
+			assertEqual if a=true and b=false*/ 
+			
+			boolean before = false;
+			boolean after=  false;
+			Long blockId = 3L;
+			int RowCountOfblock  =  em.find(Block.class, blockId).getRowCount();
+			int ColCountOfblock  =  em.find(Block.class, blockId).getColCount();
+			List<Seat> seats = em.find(Block.class, blockId).getSeats();
+			int seatCountBefore = 0;
+			int seatCountAfter = 0;
+			
+			before = blockId == em.find(Block.class, blockId).getBlockId();
+			for (Seat seat : seats){
+				if (seat.getColumn() == ColCountOfblock && seat.getRow() == RowCountOfblock ){
+					seatCountBefore++;
+					}
+				}
+			
+			String delete = service.deleteBlock(blockId);
+			
+			after = blockId == em.find(Block.class, blockId).getBlockId();
+			for (Seat seat : seats){
+				if (seat.getColumn() == ColCountOfblock && seat.getRow() == RowCountOfblock ){
+					seatCountAfter++;
+					}
+				}
+			utx.commit();
+			boolean outcome = false;
+			if(before != after && seatCountAfter != seatCountBefore ){
+				outcome = true;
+			}else{
+				outcome = false;
+			}
+			
+						
+			assertEquals(true,outcome);
+		
 	}
 
 	@Test
