@@ -1,13 +1,24 @@
 <div ng-controller="deleteShowingController as ctrl">
     <div ng-controller="getShowingController as getctrl">
-        {{getctrl.showings}}
-        <form role="form">
-            <input id="ID to Delete" placeholder="ID" ng-model="showing.id">
 
-            <button type="submit" ng-click="ctrl.deleteShowing(showing)">deleteShowing</button>
-        </form>
+        <table class="table table-striped">
 
+            <tr ng-repeat = "showing in getctrl.showings">
+                <td>{{showing.showingId}}</td>
+                <td id="dayShowing">{{showing.dateShowing}}</td>
+                <td>{{showing.movie.title}}</td>
+                <td>{{showing.movie.length}}</td>
+                <td>{{showing.movie.classification}}</td>
+                <td><input type="button" value="Delete Showing" class ="btn btn-primary" ng-click="ctrl.deleteShowing(showing)" ui-sref='deleteshowing'/></td>
+            </tr>
+
+        </table>
+
+        <!--<form role="form">-->
+            <!--<input id="ID to Delete" placeholder="ID" ng-model="showing.id">-->
+
+            <!--<button type="submit" ng-click="{{ctrl.deleteShowing(showing)}}" ui-sref='deleteshowing'>Delete Showing</button>-->
+        <!--</form>-->
 
     </div>
-
 </div>
