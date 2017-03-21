@@ -1,17 +1,17 @@
 <div ng-controller="updateMovieController as ctrl">
-	<div ng-controller="getMovieController as moviectrl">
+	<div ng-controller="getMovieController as movieCtrl">
 		<h1>Update a movie</h1>
 
 		<form role="form" class="col-lg-2">
 			<div class="form-group">
 				<label>Select movie:</label> 
-				<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in moviectrl.movies"></select>
+				<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
 			</div>
 			
 		</form>
 		<form  ng-show="ChosenMovie" role="form" id="addMovieForm">
 		<div class="col-lg-4">
-			<label><h2>Movie</h2></label> <br>
+			<label><h2>Movie</h2></label><br>
 				<div class="form-group">
 					<label>Title</label><br>
 					<input class="form-control" ng-value="ChosenMovie.title" ng-model="movie.title">
@@ -29,7 +29,7 @@
 					<textarea class="form-control" rows="5" form="addMovieForm" ng-value="ChosenMovie.description" ng-model="movie.description"></textarea>		
 				</div>
 				<div class="form-group">
-					<label>Cast</label> <br>
+					<label>Cast</label><br>
 					<input class="form-control" ng-value="ChosenMovie.cast" ng-model="movie.cast">
 				</div>
 				<div class="form-group">
@@ -38,7 +38,7 @@
 				</div>
 				<div class="form-group">
 					<label>Classification</label><br> 
-					<select class="form-control" ng-value="ChosenMovie.classif" ng-model="movie.classif">
+					<select id="classification" class="form-control" ng-value="ChosenMovie.classif" ng-model="movie.classif">
 						<option value="CLASS_U">U</option>
 						<option value="CLASS_PG">PG</option>
 						<option value="CLASS_12A">12A</option>
@@ -57,17 +57,17 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
-				<div class="form-group">
-					<label><h2>Media</h2></label> <br>
-					<div ng-repeat="media in ChosenMovie.media">
-						<label>Id: {{media.id}}</label> <br>
-						<input class="form-control" ng-value="media.url" ng-model="movie.media.url"> <br>
-						<select class="form-control" ng-value="media.type" ng-model="movie.media.type">
-							<option value="POSTER">POSTER</option>
-							<option value="TRAILER">TRAILER</option>
-							<option value="IMAGE">IMAGE</option>
-							<option value="OFFER">OFFER</option>
-						</select> <br>
+				<label><h2>Media</h2></label> <br>
+				<div ng-repeat="media in ChosenMovie.media">
+					<div class="form-group">
+						<label>Id: {{media.id}}</label> <br> 
+						<input id="media.id" class="form-control" ng-value="media.type"
+							ng-model="movie.media.type" placeholder="POSTER | TRAILER | IMAGE | OFFER">
+					</div>
+					<div class="form-group">
+						<label>Link</label> <br> 
+						<input id="media.id" class="form-control" ng-value="media.url"
+							ng-model="movie.media.url">
 					</div>
 				</div>
 				<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie)">Update movie</a>

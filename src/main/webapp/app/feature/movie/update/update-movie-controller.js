@@ -6,7 +6,7 @@
 	var UpdateMovieController = function($state, movieDal) {
 		var vm = this;
 
-		vm.updateUser = function(movieToUpdate) {
+		vm.updateMovie = function(movieToUpdate) {
 			console.log("This is the value of movie to Update..." + movieToUpdate);
 			console.log(movieToUpdate);
 			var movieToJson = JSON.stringify(movieToUpdate);
