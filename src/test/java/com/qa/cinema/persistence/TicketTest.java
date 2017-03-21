@@ -24,8 +24,6 @@ public class TicketTest {
 	}
 	
 	
-	
-	
 	@Test
 	public void testNoArgsConstructor(){
 		ticket = new Ticket();

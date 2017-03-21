@@ -34,16 +34,62 @@
             <tr ng-repeat="showing in movieCtrl.showings">
                 <td>{{showing.dateShowing}}</td>
                 <td>{{showing.movie.title}}</td>
-                <td>{{}}</td>
             </tr>
         </table>
+
+            <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
+                 ng-controller="getMediaController as mediaCtrl">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true" ng-click="callPlayer('yt-player', 'stopVideo');">×
+                            </button>
+                            <h4 class="modal-title">{{movieCtrl.movies.title}} Trailer</h4>
+                        </div>
+                        <div class="modal-body" id="yt-player" ng-repeat="trailer in movieCtrl.movies.media | filter:{type:'TRAILER'}">
+                            <iframe id='video' width="100%" height="700px" src="{{trailer.url}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
     </div>
 
 </div>
 </div>
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        /* Get iframe src attribute value i.e. YouTube video url
+         and store it in a variable */
+        var url = $("#video").attr('src');
+
+        /* Assign empty url value to the iframe src attribute when
+         modal hide, which stop the video playing */
+        $("#trailerModal").on('hide.bs.modal', function () {
+            $("#video").attr('src', '');
+        });
+
+        /* Assign the initially stored url back to the iframe src
+         attribute when modal is displayed again */
+        $("#trailerModal").on('show.bs.modal', function () {
+            $("#video").attr('src', url);
+        });
+    });
+</script>
+
+
 <style>
+
+    #trailerModal .modal-dialog {
+        width: 70%;
+
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 50px;
+    }
 
     body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -51,23 +97,6 @@
         margin-right: auto;
     }
 
-    /*.custom-header {*/
-    /*text-decoration: underline;*/
-    /*text-align: left;*/
-    /*color: #1b6d85;*/
-    /*font-size: x-large;*/
-    /*font-weight: bold;*/
-    /*}*/
-
-    /*.movie-poster {*/
-    /*margin-bottom: 40px;*/
-    /*width: 55%;*/
-    /*align-content: center;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    /*}*/
-
-    /* Style the buttons that are used to open and close the accordion panel */
 
     button.accordion {
         background-color: #eee;
@@ -93,3 +122,4 @@
         display: none;
     }
 </style>
+
