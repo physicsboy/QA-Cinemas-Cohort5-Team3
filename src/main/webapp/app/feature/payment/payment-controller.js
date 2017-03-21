@@ -71,6 +71,10 @@
             paymentEmail: ""
         };
 
+        vm.uEVerified = false;
+        vm.pEVerified = false;
+        vm.nonZeroTickets = false;
+        document.getElementById("paypal-button").style.visibility = "hidden";
 
         vm.bookingId = -1;
         vm.seatId = 173;
@@ -152,18 +156,60 @@
                 vm.numPremium = newVal.value;
             }
             if (type === "user") {
-                vm.userEmail = newVal.value;
+                console.log(newVal);
+                vm.userEmail = newVal;
             }
             if (type === "paypal") {
-                vm.paymentEmail = newVal.value;
+                console.log(newVal);
+                vm.paymentEmail = newVal;
             }
-            vm.calcTotal()
+            vm.calcTotal();
+            vm.checkForm();
         };
 
         vm.calcTotal = function () {
             vm.total = (Math.round((vm.numAdults * 9.99 + vm.numChild * 5.99 + vm.numCons * 7.49 + vm.numPremium * 12.99)*100))/100
 
         };
+
+        vm.checkForm = function(){
+            vm.uEVerified = validateEmail(vm.userEmail);
+            vm.pEVerified = validateEmail(vm.paymentEmail);
+            vm.totalTickets = vm.numCons+vm.numPremium+vm.numAdults+vm.numChild;
+            if (vm.totalTickets != 0){
+                vm.nonZeroTickets = true;
+            } else{
+                vm.nonZeroTickets = false;
+            }
+            if (vm.uEVerified){
+                document.getElementById("uEVerified").src="_images/tick.png";
+            } else{
+                document.getElementById("uEVerified").src="_images/cross.png";
+            };
+            if (vm.pEVerified){
+                document.getElementById("pEVerified").src="_images/tick.png";
+            } else{
+                document.getElementById("pEVerified").src="_images/cross.png";
+            };
+            if (vm.nonZeroTickets){
+                document.getElementById("nonZeroTickets").src="_images/tick.png";
+            } else{
+                document.getElementById("nonZeroTickets").src="_images/cross.png";
+            };
+
+            if (vm.uEVerified&&vm.pEVerified&&vm.nonZeroTickets){
+                document.getElementById("paypal-button").style.visibility = "visible";
+            }else{
+                document.getElementById("paypal-button").style.visibility = "hidden";
+            }
+
+        };
+
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            console.log(re.test(email));
+            return re.test(email);
+        }
 
         vm.compileBooking = function () {
             vm.theBooking = {
@@ -173,7 +219,6 @@
                 prem: vm.numPremium,
                 paymentEmail: vm.paymentEmail,
                 userEmail: vm.userEmail
-
             };
             return vm.theBooking;
         }
