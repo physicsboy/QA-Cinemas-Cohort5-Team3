@@ -114,22 +114,10 @@ public class BlockEndpoint {
 	@PUT
 	@Produces({ "application/json" })
 	public String updateXPosition(String block) {
-		return service.updateXPosition(block);
+		return service.updateBlock(block);
 	}
 	
-	@Path("/json")
-	@PUT
-	@Produces({ "application/json" })
-	public String updateYPosition(String block) {
-		return service.updateYPosition(block);
-	}
 	
-	@Path("/json")
-	@PUT
-	@Produces({ "application/json" })
-	public String updateAngle(String block) {
-		return service.updateAngle(block);
-	}
 	
 	
 	

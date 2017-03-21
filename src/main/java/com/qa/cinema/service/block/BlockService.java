@@ -21,9 +21,8 @@ public interface BlockService {
 	public String decreaseStartingRow(int decrease, String block);
 	public String decreaseStatingCol(int decrease, String block);
 	
-	public String updateXPosition(String block);
-	public String updateYPosition(String block);
-	public String updateAngle(String block);
+	public String updateBlock(String block);
+	
 	
 	public String addBlock(String block);
 
