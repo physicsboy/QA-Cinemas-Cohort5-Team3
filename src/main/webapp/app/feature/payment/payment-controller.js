@@ -6,6 +6,42 @@
     var PaymentController = function ($stateParams, $state, movieDal,
                                       bookingDal, ticketDal, showingDal, $scope) {
         var vm = this;
+
+        paypal.Button.render({
+
+            env: 'sandbox', // Specify 'sandbox' for the test environment
+
+            client: {
+                sandbox: 'AVjUbRR4FzoCPScS-Nn76jDt-jsh2J6qCPronyoYWvGvjKogW7bzUk1EhertWzWwYR2pjY7amWqBup08'
+            },
+
+
+            payment: function () {
+
+                vm.createBooking(vm.compileBooking());
+
+                var env = this.props.env;
+                var client = this.props.client;
+
+                return paypal.rest.payment.create(env, client, {
+                    transactions: [
+                        {
+                            amount: {total: vm.total, currency: 'GBP'} //the total will be changed to logic once the rest of the payment process is implemented
+                        }
+                    ]
+                });
+            },
+
+            commit: true,
+
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
+
+                })
+            }
+
+        }, '#paypal-button');
+
         vm.options = [
             {value: 0, name: 0},
             {value: 1, name: 1},
