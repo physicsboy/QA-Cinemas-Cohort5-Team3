@@ -1,6 +1,5 @@
 package com.qa.cinema.service.media;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
