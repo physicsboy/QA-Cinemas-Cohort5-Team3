@@ -2,6 +2,10 @@
 
     <br/> <br/>
 
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
     <div class=container>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             Indicators
@@ -139,6 +143,23 @@
         min-width: 100%;
         min-height: 100%;
     }
+
+    video#bgvid {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background-size: cover;
+    }
+
 </style>
 
 
