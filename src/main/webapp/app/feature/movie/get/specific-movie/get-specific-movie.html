@@ -14,7 +14,10 @@
             <div class="Cast">Cast: {{movieCtrl.movies.cast}}</div>
             <div class="MovieLength">Length: {{movieCtrl.movies.length}}</div>
             <div class="Year">Release Date: {{movieCtrl.movies.year}}</div>
-            <div class="Showing">Showing:</div>
+            <div><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer">
+                Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
+                              height="25px"/> </a>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-3"></div>
     </div>
@@ -26,14 +29,23 @@
     <div class="table-responsive">
         <table class="table-striped">
 
+
+
+
             <tr>
-                <th>Date</th>
-                <th>Start Time</th>
+                <th><h5>Date</h5></th>
+                <th><h5>Start Time</h5></th>
 
             </tr>
             <tr ng-repeat="showing in movieCtrl.showings">
-                <td>{{showing.dateShowing}}</td>
-                <td>{{showing.movie.title}}</td>
+
+                <!--<script>-->
+                    <!--var epochToCurrent = {{showing.dateShowing}}-->
+                    <!--moment.unix(epochToCurrent).format("DD/MM/YYYY")-->
+                <!--</script>-->
+
+                <td><h5></h5></td>
+                <td><h5>{{showing.movie.title}}</h5></td>
             </tr>
         </table>
 

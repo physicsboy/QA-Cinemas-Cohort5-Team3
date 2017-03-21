@@ -21,7 +21,16 @@
                 vm.error = true;
                 vm.errorMessage = error;
             });
-        }; vm.getShowingByMovie()
+        };
+        vm.getShowingByMovie()
+
+        var data=(new Function("return " + json ));
+        $(function(){
+            var json = '{"point_in_time": new Date({{showings.dateShowing}})}';
+            var data = $.parseJSON(json);
+            console.log(data);
+        });
+
     };
     angular.module('movieApp').controller('getSpecificMovieController', ['movieDal', 'showingDal', '$stateParams', GetSpecificMovieController]);
 }());
