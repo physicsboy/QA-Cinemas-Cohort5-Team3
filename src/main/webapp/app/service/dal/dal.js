@@ -19,7 +19,6 @@
                 },
 
                 POST: function (apiPath, itemToSave) {
-                    console.log(itemToSave);
                     var deferred = $q.defer();
                     $http(
                         {
@@ -36,13 +35,11 @@
                     }, function (e) {
                         deferred.reject(e);
                     });
-                    console.log(deferred.promise);
                     return deferred.promise;
                 },
 
                 PUT: function (apiPath, itemToSave) {
                     var deferred = $q.defer();
-                    console.log("Item in Dal: "+itemToSave);
                     $http(
                         {
                             method: "put",

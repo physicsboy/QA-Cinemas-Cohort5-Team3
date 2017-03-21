@@ -6,7 +6,6 @@
     var PaymentController = function ($stateParams, $state, movieDal,
                                       bookingDal, ticketDal, showingDal, $scope) {
         var vm = this;
-        console.log($stateParams);
         vm.options = [
             {value: 0, name: 0},
             {value: 1, name: 1},
@@ -54,8 +53,6 @@
             var ticket = {
                 type: ticketType
             };
-            console.log("Ticket to be added:" + ticket + " to booking id:"
-                + vm.bookingId);
             bookingDal.addTicketToBooking(ticket, vm.bookingId, vm.seatId,
                 vm.showingId);
         };
@@ -75,7 +72,6 @@
                 userEmail: theBooking.userEmail,
                 paymentEmail: theBooking.paymentEmail
             };
-            console.log(booking);
             bookingDal.saveBooking(booking).then(function (results) {
                 vm.bookingId = parseInt(results.bookingId);
             }, function (error) {
@@ -101,14 +97,12 @@
             if (vm.bookingId !== -1) {
                 vm.addTicketsToBooking();
             } else {
-                console.log("waiting");
                 setTimeout(waitForBookingId, 250);
 
             }
         }
 
         vm.update = function (type, newVal) {
-            console.log(newVal);
             if (type === "adult") {
                 vm.numAdults = newVal.value;
             }
@@ -131,7 +125,8 @@
         };
 
         vm.calcTotal = function () {
-            vm.total = vm.numAdults * 9.99 + vm.numChild * 5.99 + vm.numCons * 7.49 + vm.numPremium * 12.99;
+            vm.total = (Math.round((vm.numAdults * 9.99 + vm.numChild * 5.99 + vm.numCons * 7.49 + vm.numPremium * 12.99)*100))/100
+
         };
 
         vm.compileBooking = function () {

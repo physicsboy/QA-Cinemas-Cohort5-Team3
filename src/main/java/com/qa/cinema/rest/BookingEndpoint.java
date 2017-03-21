@@ -49,9 +49,7 @@ public class BookingEndpoint {
 	@POST
 	@Produces({ "application/json" })
 	public String createBooking(String booking) {
-	    System.out.println(booking);
 	    String returnVal = service.createBooking(booking);
-		System.out.println(returnVal);
 		return returnVal;
 	}
 
@@ -66,9 +64,7 @@ public class BookingEndpoint {
 	@POST
 	@Produces({ "application/json" })
 	public String addTicketToBooking(@PathParam("bookingId") Long bookingId,@PathParam("showingId") Long showingId,@PathParam("seatId") Long seatId,String ticket) {
-	    System.out.println(ticket);
 	    String returnVal = service.addTicketToBooking(bookingId,showingId,seatId,ticket);
-		System.out.println(returnVal);
 		return returnVal;
 	}
 	
