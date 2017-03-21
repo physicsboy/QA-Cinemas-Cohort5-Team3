@@ -2,44 +2,34 @@
 
     <form name="paymentForm">
         <div>
-		<span>Enter Paypal Email<input
-                ng-model="set.paypal" required></span> <span>Enter User
-			Email<input ng-model="set.user" required>
-		</span>
+            <span>Enter Paypal Email<input ng-model="set.paypal" ng-change="payCtrl.update('paypal',set.paypal)"></span>
+            <span>Enter User Email<input ng-model="set.user" ng-change="payCtrl.update('user',set.user)"></span>
         </div>
 
         <div>
             <div>
-                <select ng-model="set.adult" ng-options="option.value for option in payCtrl.options"
+                Adult: <select ng-model="set.adult" ng-options="option.value for option in payCtrl.options"
                         ng-change="payCtrl.update('adult',set.adult)">
                 </select>
             </div>
 
             <div>
-                <select ng-model=" set.child" ng-options="option.value for option in payCtrl.options"
+                Child: <select ng-model=" set.child" ng-options="option.value for option in payCtrl.options"
                         ng-change="payCtrl.update('child',set.child)">
                 </select>
             </div>
 
             <div>
-                <select ng-model="set.cons" ng-options="option.value for option in payCtrl.options"
+                Concession: <select ng-model="set.cons" ng-options="option.value for option in payCtrl.options"
                         ng-change="payCtrl.update('cons',set.cons)">
                 </select>
             </div>
 
             <div>
-                <select ng-model=" set.prem" ng-options="option.value for option in payCtrl.options"
+                Premium: <select ng-model=" set.prem" ng-options="option.value for option in payCtrl.options"
                         ng-change="payCtrl.update('prem',set.prem)">
                 </select>
             </div>
-        </div>
-
-        <div>
-            <p>Number of Adults:{{payCtrl.numAdults}}</p>
-
-            <p>Number of Children:{{payCtrl.numChild}}</p>
-            <p>Number of Concession:{{payCtrl.numCons}}</p>
-            <p>Number of Premium:{{payCtrl.numPremium}}</p>
         </div>
 
         <div>
@@ -51,7 +41,20 @@
             <p> Premium Tickets (x{{payCtrl.numPremium}}): &pound;{{payCtrl.numPremium*12.99}}</p>
             <h2>Total Price: &pound;{{payCtrl.total}}</h2>
 
-            <div id="paypal-button" >
+            <table class="table">
+                <tr>
+                    <th>User Email Valid?</th>
+                    <th>PayPal Email Valid?</th>
+                    <th>At least One Ticket?</th>
+                </tr>
+                <tr>
+                    <td><img id="uEVerified" src="_images/cross.png" width="80"></td>
+                    <td><img id="pEVerified" src="_images/cross.png" width="80"></td>
+                    <td><img id="nonZeroTickets" src="_images/cross.png" width="80"></td>
+                </tr>
+            </table>
+
+            <div id="paypal-button">
             </div>
         </div>
     </form>
@@ -66,5 +69,9 @@
 
     input:required {
         background: yellowgreen;
+    }
+
+    .table {
+        width:50%;
     }
 </style>

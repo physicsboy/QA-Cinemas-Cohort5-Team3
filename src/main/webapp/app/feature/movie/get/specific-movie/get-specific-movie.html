@@ -18,36 +18,27 @@
                 Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
                               height="25px"/> </a>
             </div>
+
+            <div>
+                <h2> Showings </h2>
+            </div>
+            <br/>
+            <div class="table-responsive">
+                <table class="table-striped">
+                    <tr>
+                        <th><h5>Day</h5></th>
+                        <th><h5>Time</h5></th>
+                    </tr>
+
+                    <tr ng-repeat="showing in movieCtrl.showings">
+                        <td ui-sref="payment({showingId:{{showing.id}}})"><h5>{{showing.dateShowing | date:'dd:MM'}}</h5></td>
+                        <td><h5>{{showing.dateShowing | date:'HH:mm'}}</h5></td>
+                    </tr>
+                </table>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-3"></div>
     </div>
 
-    <div>
-        <h2> Showings </h2>
-    </div>
-    <br/>
-    <div class="table-responsive">
-        <table class="table-striped">
-
-
-
-
-            <tr>
-                <th><h5>Date</h5></th>
-                <th><h5>Start Time</h5></th>
-
-            </tr>
-            <tr ng-repeat="showing in movieCtrl.showings">
-
-                <!--<script>-->
-                    <!--var epochToCurrent = {{showing.dateShowing}}-->
-                    <!--moment.unix(epochToCurrent).format("DD/MM/YYYY")-->
-                <!--</script>-->
-
-                <td><h5></h5></td>
-                <td><h5>{{showing.movie.title}}</h5></td>
-            </tr>
-        </table>
 
             <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
                  ng-controller="getMediaController as mediaCtrl">

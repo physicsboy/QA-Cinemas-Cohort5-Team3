@@ -31,8 +31,7 @@
         };
 
         this.deleteShowing = function (showingToDelete) {
-            return dal.http.DELETE("/rest/showing/json/", showingToDelete);
-        };
-
+            return dal.http.DELETE("rest/showing/json/", showingToDelete);
+        }
     }
 }());
