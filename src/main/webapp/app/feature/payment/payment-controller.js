@@ -75,6 +75,10 @@
         vm.pEVerified = false;
         vm.nonZeroTickets = false;
         document.getElementById("paypal-button").style.visibility = "hidden";
+        document.getElementById("adultDropDown").style.background = "#ff7979";
+        document.getElementById("childDropDown").style.background = "#ff7979";
+        document.getElementById("consDropDown").style.background = "#ff7979";
+        document.getElementById("premDropDown").style.background = "#ff7979";
 
         vm.bookingId = -1;
         vm.seatId = 173;
@@ -144,16 +148,16 @@
 
         vm.update = function (type, newVal) {
             if (type === "adult") {
-                vm.numAdults = newVal.value;
+                vm.numAdults = (Math.round(newVal.value)*100)/100;
             }
             if (type === "child") {
-                vm.numChild = newVal.value;
+                vm.numChild = (Math.round((newVal.value)*100))/100;
             }
             if (type === "cons") {
-                vm.numCons = newVal.value;
+                vm.numCons = (Math.round((newVal.value)*100))/100;
             }
             if (type === "prem") {
-                vm.numPremium = newVal.value;
+                vm.numPremium = (Math.round((newVal.value)*100))/100;
             }
             if (type === "user") {
                 console.log(newVal);
@@ -183,22 +187,35 @@
             }
             if (vm.uEVerified){
                 document.getElementById("uEVerified").src="_images/tick.png";
+                document.getElementById("user").style.background = "#9DFFAA";
             } else{
                 document.getElementById("uEVerified").src="_images/cross.png";
+                document.getElementById("user").style.background = "#ff7979";
             };
             if (vm.pEVerified){
                 document.getElementById("pEVerified").src="_images/tick.png";
+                document.getElementById("paypal").style.background = "#9DFFAA";
             } else{
                 document.getElementById("pEVerified").src="_images/cross.png";
+                document.getElementById("paypal").style.background = "#ff7979";
             };
             if (vm.nonZeroTickets){
                 document.getElementById("nonZeroTickets").src="_images/tick.png";
+                document.getElementById("adultDropDown").style.background = "#9DFFAA";
+                document.getElementById("childDropDown").style.background = "#9DFFAA";
+                document.getElementById("consDropDown").style.background = "#9DFFAA";
+                document.getElementById("premDropDown").style.background = "#9DFFAA";
             } else{
                 document.getElementById("nonZeroTickets").src="_images/cross.png";
+                document.getElementById("adultDropDown").style.background = "#ff7979";
+                document.getElementById("childDropDown").style.background = "#ff7979";
+                document.getElementById("consDropDown").style.background = "#ff7979";
+                document.getElementById("premDropDown").style.background = "#ff7979";
             };
 
             if (vm.uEVerified&&vm.pEVerified&&vm.nonZeroTickets){
                 document.getElementById("paypal-button").style.visibility = "visible";
+
             }else{
                 document.getElementById("paypal-button").style.visibility = "hidden";
             }
