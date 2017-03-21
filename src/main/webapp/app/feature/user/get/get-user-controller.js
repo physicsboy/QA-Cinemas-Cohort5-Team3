@@ -14,6 +14,11 @@
             });
         }
         init();
+
+
+        vm.validateUser = function validateUser(userName, password){
+            
+        };
     };
     angular.module('movieApp').controller('getUserController', ['userDal', GetUserController]);
 }());

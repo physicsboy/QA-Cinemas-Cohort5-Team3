@@ -100,6 +100,7 @@ public class Ticket {
 
 	@PrePersist
 	public void setPrice() {
-		this.price = type.getPrice();
+		this.price = Math.round(type.getPrice() * 100f) / 100f;
 	}
+
 }

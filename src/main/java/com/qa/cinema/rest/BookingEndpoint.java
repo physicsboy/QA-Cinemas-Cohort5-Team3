@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.qa.cinema.service.BookingService;
+import com.qa.cinema.service.ticket.TicketService;
 
 /**
  * 
@@ -21,6 +22,7 @@ public class BookingEndpoint {
 
 	@Inject
 	private BookingService service;
+	private TicketService tickserv;
 
 	@Path("/json")
 	@GET
@@ -47,9 +49,7 @@ public class BookingEndpoint {
 	@POST
 	@Produces({ "application/json" })
 	public String createBooking(String booking) {
-	    System.out.println(booking);
 	    String returnVal = service.createBooking(booking);
-		System.out.println(returnVal);
 		return returnVal;
 	}
 
@@ -59,5 +59,15 @@ public class BookingEndpoint {
 	public String deleteBooking(@PathParam("id") Long bookingId) {
 		return service.deleteBooking(bookingId);
 	}
+	
+	@Path("/json/{bookingId}/{showingId}/{seatId}")
+	@POST
+	@Produces({ "application/json" })
+	public String addTicketToBooking(@PathParam("bookingId") Long bookingId,@PathParam("showingId") Long showingId,@PathParam("seatId") Long seatId,String ticket) {
+	    String returnVal = service.addTicketToBooking(bookingId,showingId,seatId,ticket);
+		return returnVal;
+	}
+	
+	
 }
 

@@ -19,10 +19,7 @@
         };
 
         this.saveBooking = function (bookingToSave) {
-            console.log(bookingToSave);
-            var x = dal.http.POST("rest/booking/json", bookingToSave);
-            console.log(x);
-            return x;
+            return dal.http.POST("rest/booking/json", bookingToSave);
         };
 
         this.updateBooking = function (bookingToUpdateId, bookingToUpdate) {
@@ -32,6 +29,10 @@
         this.deleteBooking = function (bookingToDelete) {
             return dal.http.DELETE("rest/booking/json/", bookingToDelete);
         };
+        
+        this.addTicketToBooking = function(ticket,bookingId,seatId,showingId){
+            return dal.http.POST("rest/booking/json/"+bookingId+"/"+showingId+"/"+seatId, ticket);
+        }
 
     }
 }());

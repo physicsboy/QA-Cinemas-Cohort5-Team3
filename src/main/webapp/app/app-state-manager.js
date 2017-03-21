@@ -55,7 +55,8 @@
                 }).state("deleteuser",{url : "/deleteuser",
                     templateUrl : "app/feature/user/delete/delete-user.html"
                 }).state("getshowing",{url : "/getshowing",
-                    templateUrl : "app/feature/showing/get-showing/get-showing.html"
+                    templateUrl : "app/feature/showing/get-showing/get-showing.html",
+                    controller: function ($stateParams){$stateParams.movieId}
                 }).state("addshowing",{url : "/addshowing",
                     templateUrl : "app/feature/showing/add-showing/add-showing.html"
                 }).state("updateshowing",{url : "/updateshowing",
@@ -65,10 +66,23 @@
                 }).state("getspecificmovie",{url : "/getspecificmovie/:movieId",
                     templateUrl : "app/feature/movie/get/specific-movie/get-specific-movie.html",
                     controller: function ($stateParams){$stateParams.movieId}
-
-                }).state("payment",{url : "/payment",
+                }).state("payment",{url : "/payment/:showingId",
                         templateUrl : "app/feature/payment/payment.html",
                     controller: function($stateParams){$stateParams.showingId}
+                }).state("classification",{url : "/classification",
+                    templateUrl : "classification.html"
+                }).state("classification#U",{url : "/classification#U",
+                    templateUrl : "classification.html#U"
+                }).state("classification#PG",{url : "/classification#PG",
+                    templateUrl : "classification.html#PG"
+                }).state("classification#12A",{url : "/classification#12A",
+                    templateUrl : "classification.html#12A"
+                }).state("classification#15",{url : "/classification#15",
+                    templateUrl : "classification.html#15"
+                }).state("classification#18",{url : "/classification#18",
+                    templateUrl : "classification.html#18"
+                }).state("classification#R18",{url : "/classification#R18",
+                    templateUrl : "classification.html#R18"
                 })
             });
 }());

@@ -74,6 +74,11 @@ public class Booking {
 	public void setId(Long bookingId) {
 		this.bookingId = bookingId;	
 	}
+
+
+	public void addTicket(Ticket ticketToAdd) {
+		this.tickets.add(ticketToAdd);
+	}
 	
 		
 }

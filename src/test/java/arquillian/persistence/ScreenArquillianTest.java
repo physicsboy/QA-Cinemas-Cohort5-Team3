@@ -6,6 +6,9 @@ package arquillian.persistence;
 
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -17,6 +20,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import com.qa.cinema.persistence.Block;
 import com.qa.cinema.persistence.Screen;
 import com.qa.cinema.persistence.ticket.Ticket;
  
@@ -68,7 +73,14 @@ public class ScreenArquillianTest {
     @Test
     public final void testGetBlocks() throws Exception {
     	int size = em.find(Screen.class, 3).getBlocks().size();
-        assertEquals(3, size);
+    	List<Block> blocks = em.find(Screen.class, 3).getBlocks();
+    	int x = 0;
+    	for (Block b : blocks){
+    		System.out.println( x++ + "BLOCK ID ========= " + b.getBlockId());
+    		
+    	}
+    	
+        assertEquals(2, size);
     }
 
     
