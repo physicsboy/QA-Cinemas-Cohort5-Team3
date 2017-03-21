@@ -88,9 +88,9 @@ public class DBBlockService implements BlockService {
 	@Override
 	public String deleteBlock(Long id) {
 		Block block = em.find(Block.class,id);
-    List<Seat> seats = new ArrayList();
-    block.setSeats(seats);
-    em.persist(block);
+	    List<Seat> seats = new ArrayList();
+	    block.setSeats(seats);
+	    em.persist(block);
 		em.remove(block);
 		return "{\"message\": \"Block sucessfully deleted\"}";
 	}
@@ -346,25 +346,8 @@ public class DBBlockService implements BlockService {
 	
 	
 	
-	
-	
-	
 	@Override
-	public String updateXPosition(String block) {
-		return updateBlock(block);
-	}
-
-	@Override
-	public String updateYPosition(String block) {
-		return updateBlock(block);
-	}
-	
-	@Override
-	public String updateAngle(String block) {
-		return updateBlock(block);
-	}
-	
-	private String updateBlock(String block) {
+	public String updateBlock(String block) {
 		Block b = util.getObjectForJSON(block, Block.class);
 		em.persist(b);
 		return UPDATE_SUCCESS;
