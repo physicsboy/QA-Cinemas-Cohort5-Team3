@@ -55,7 +55,8 @@
                 }).state("deleteuser",{url : "/deleteuser",
                     templateUrl : "app/feature/user/delete/delete-user.html"
                 }).state("getshowing",{url : "/getshowing",
-                    templateUrl : "app/feature/showing/get-showing/get-showing.html"
+                    templateUrl : "app/feature/showing/get-showing/get-showing.html",
+                    controller: function ($stateParams){$stateParams.movieId}
                 }).state("addshowing",{url : "/addshowing",
                     templateUrl : "app/feature/showing/add-showing/add-showing.html"
                 }).state("updateshowing",{url : "/updateshowing",
