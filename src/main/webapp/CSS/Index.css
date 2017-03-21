@@ -2,17 +2,18 @@
 
 #wrap{
 	min-height: 100%;
-	/* min-width: 800px; */
 }
 html, body {
-	height: 100%;
-	
-	
+	height: auto;	
 }
-#view {
+
+
+#main {overflow: hidden;
+	padding-bottom: 357px;}  /* must be same height as the footer */
+/* #view {
 	overflow:auto;
-	padding-bottom: 356px;
-}  /* must be same height as the footer */
+	padding-bottom: 357px;
+}  must be same height as the footer */
 
 
 /* 	
@@ -25,33 +26,49 @@ body {
 	/* TEAL BACKGROUND			/		background-image: url("../Background_images/background.jpg") !important; */
 	/* LIGHT BLUE  				/		background-image: url("../Background_images/background2.jpg") !important; */
 	/* MUTED AND NICE TEXTURE	/		background-image: url("../Background_images/hpehPUv.jpg") !important;   */
-	/* BLACK DIAGONALS 	/	background-image: url("../Background_images/Patterns/black-twill.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
-	/* BIG HOLES		/	background-image: url("../Background_images/Patterns/bo-play.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
-	/* SMALL HOLES		/	background-image: url("../Background_images/Patterns/carbon-fibre.png"), radial-gradient(circle at top center, #003da0 , #001333 130% ) !important; */
+	/* BLACK DIAGONALS 			/	background-image: url("../Background_images/Patterns/black-twill.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* MY BLACK DIAGONALS 5		/	background-image: url("../Background_images/Patterns/diagonal-black-5.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* MY BLACK DIAGONALS 10	*/	background-image: url("../Background_images/Patterns/diagonal-black-10.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
 	/* SUBTLE FABRIC	/	background-image: url("../Background_images/Patterns/classy-fabric.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
-	/* SUBTLE SCALES	*/
-	background-image:
-		url("../Background_images/Patterns/dark-fish-skin.png"),
-		radial-gradient(circle at top center, #003da0, #001333 100%)
-		!important;
-	*/
 }
 
 /* PANEL CONTAINER SETTINGS */
-#pageInfo .panel.panel-transparent {
-
+#pageInfo {
 	background: none;
-	border: none;
+	opacity: 1.0;
+}
+
+#view{
+    opacity:1;
+   
+    
 }
 
 /* PANEL SETTINGS */
-.panel-transparent .panel-body {
-	background: #1C1C1C !important;
-	opacity: 0.9;
-	border-radius: 10px;
+#panelBody {
+	background: rgba(25,25,25, 0.85);
+	border-radius: 1px;
 	border-width: 1px;
 	width: 70%;
 	color: white;
 	margin-left: auto;
 	margin-right: auto;
+
+	
+}
+
+/* CSS FOR USING A MOVIE AS A FULL SCREEN BACKGROUND */
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ 	background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  	background-size: cover;
+  	transition: 1s opacity;
 }
