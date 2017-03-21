@@ -1,44 +1,97 @@
-
 <div ng-controller="paymentController as payCtrl">
-TEST
-{{payCtrl.bookingAddMessage}}
-TEST
-<!--<div id="paypal-button"></div>
 
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script>
-    paypal.Button.render({
+    <form name="paymentForm" id="form">
+        <div class="container-fluid">
+            <span class="col-md-6">Enter User Email<input id="user" ng-model="set.user"
+                                         ng-change="payCtrl.update('user',set.user)"></span>
+            <span class="col-md-6">Enter Paypal Email<input id="paypal" ng-model="set.paypal"
+                                           ng-change="payCtrl.update('paypal',set.paypal)"></span>
 
-        env: 'sandbox', // Specify 'sandbox' for the test environment
+            <div class="col-md-3">
+                Adult: <select id="adultDropDown" ng-model="set.adult"
+                               ng-options="option.value for option in payCtrl.options"
+                               ng-change="payCtrl.update('adult',set.adult)">
+            </select>
+            </div>
 
-        client: {
-            sandbox:    'AVjUbRR4FzoCPScS-Nn76jDt-jsh2J6qCPronyoYWvGvjKogW7bzUk1EhertWzWwYR2pjY7amWqBup08'
-        },
+            <div class="col-md-3">
+                Child: <select id="childDropDown" ng-model=" set.child"
+                               ng-options="option.value for option in payCtrl.options"
+                               ng-change="payCtrl.update('child',set.child)">
+            </select>
+            </div>
+
+            <div class="col-md-3">
+                Concession: <select id="consDropDown" ng-model="set.cons"
+                                    ng-options="option.value for option in payCtrl.options"
+                                    ng-change="payCtrl.update('cons',set.cons)">
+            </select>
+            </div>
+
+            <div class="col-md-3">
+                Premium: <select id="premDropDown" ng-model=" set.prem"
+                                 ng-options="option.value for option in payCtrl.options"
+                                 ng-change="payCtrl.update('prem',set.prem)">
+            </select>
+            </div>
+        </div>
+
+        <div>
+            <h3>Subtotal</h3>
+            <p> Adult Tickets (x{{payCtrl.numAdults}}): &pound;{{payCtrl.numAdults*9.99}}</p>
+            <p> Child Tickets (x{{payCtrl.numChild}}): &pound;{{payCtrl.numChild*5.99}}</p>
+            <p> Concession Tickets
+                (x{{payCtrl.numCons}}): &pound;{{payCtrl.numCons*7.49}}</p>
+            <p> Premium Tickets (x{{payCtrl.numPremium}}): &pound;{{payCtrl.numPremium*12.99}}</p>
+            <h2>Total Price: &pound;{{payCtrl.total}}</h2>
+            <div id="paypal-button">
+            </div>
+
+            <table class="table">
+                <tr>
+                    <th>User Email Valid?</th>
+                    <th>PayPal Email Valid?</th>
+                    <th>At least One Ticket?</th>
+                </tr>
+                <tr>
+                    <td><img id="uEVerified" src="_images/cross.png" width="80"></td>
+                    <td><img id="pEVerified" src="_images/cross.png" width="80"></td>
+                    <td><img id="nonZeroTickets" src="_images/cross.png" width="80"></td>
+                </tr>
+            </table>
 
 
-        payment: function() {
+        </div>
+    </form>
 
-            var env = this.props.env;
-            var client = this.props.client;
-
-            return paypal.rest.payment.create(env, client, {
-                transactions: [
-                    {
-                        amount: {total: '1.00', currency: 'GBP'} //the total will be changed to logic once the rest of the payment process is implemented
-                    }
-                ]
-            });
-        },
-
-        commit: true,
-
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function () {
-
-            })
-        }
-
-    }, '#paypal-button');
-</script>-->
 
 </div>
+<style>
+    button:disabled {
+        background: #f5f5f5;
+        color: red;
+    }
+
+    #paypal-button {
+        height: 200px;
+        width: 200px;
+    }
+
+    #paypal {
+        background: #ff7979;
+    }
+
+    #user {
+        background: #ff7979;
+    }
+
+    input:required {
+        background: yellowgreen;
+    }
+
+    .container-fluid{
+        width:80%;
+        margin-left: auto;
+        margin-right:auto;
+    }
+</style>

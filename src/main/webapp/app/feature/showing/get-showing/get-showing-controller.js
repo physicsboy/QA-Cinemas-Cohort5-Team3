@@ -1,7 +1,7 @@
 /** @author James Lamkin */
 (function() {
 
-    var GetShowingController =  function($state, showingDal) {
+    var GetShowingController =  function($state, $stateParams, showingDal) {
         var vm = this;
 
         function init(){
@@ -46,5 +46,5 @@
 
     };
 
-    angular.module('movieApp').controller('getShowingController', ['$state', 'showingDal', GetShowingController]);
+    angular.module('movieApp').controller('getShowingController', ['$state', '$stateParams', 'showingDal', GetShowingController]);
 }());

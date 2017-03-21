@@ -1,13 +1,27 @@
-<div ng-controller="addShowingController as showingCtrl" >
-    <div ng-controller="getMovieController as movieCtrl" >
+<div ng-controller="addShowingController as showingCtrl">
+    <div ng-controller="getMovieController as movieCtrl">
 
-        {{movieCtrl.getMovies()}}
-    <select ng-model="ChosenMovie"
-            ng-options="movie.title for movie in movieCtrl.movies">
+        <div>
+            Film:
+            <select ng-model="ChosenMovie"
+                    ng-options="movie.title for movie in movieCtrl.movies">
+            </select>
+        </div>
 
-    </select>
+        <div>
+            Date:
+            <select ng-model="chosenTime"
+                    ng-options="date.value for value in showingCtrl.showTimes">
+            </select>
+        </div>
 
 
+        <div>
+            Time:
+            <select ng-model="chosenDate"
+                    ng-options="time.value for time in showingCtrl.showTimes">
+            </select>
+        </div>
 
     </div>
 </div>

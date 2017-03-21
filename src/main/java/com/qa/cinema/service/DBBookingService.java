@@ -10,6 +10,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.qa.cinema.persistence.Booking;
+import com.qa.cinema.persistence.Seat;
+import com.qa.cinema.persistence.Showing;
+import com.qa.cinema.persistence.ticket.Ticket;
 import com.qa.cinema.util.JSONUtil;
 
 /**
@@ -54,10 +57,8 @@ public class DBBookingService implements BookingService {
 
 	@Override
 	public String createBooking(String booking) {
-	    System.out.println(booking);
 		Booking newBooking = util.getObjectForJSON(booking, Booking.class);
 		em.persist(newBooking);
-		System.out.println(newBooking.getBookingId());
 		return "{\"bookingId\": \""+newBooking.getBookingId()+"\"}";
 	}
 
@@ -73,6 +74,28 @@ public class DBBookingService implements BookingService {
 	
 	private Booking findBooking(Long id) {
 		return em.find(Booking.class, id);
+	}
+	
+	private Seat findSeat(Long id) {
+		return em.find(Seat.class, id);
+	}
+	
+	private Showing findShowing(Long id) {
+		return em.find(Showing.class, id);
+	}
+	
+	
+
+
+	@Override
+	public String addTicketToBooking(Long bookingId, Long showingId, Long seatId, String ticket) {
+		Booking book = findBooking(bookingId);
+		Ticket ticketToAdd = util.getObjectForJSON(ticket, Ticket.class);
+		ticketToAdd.setSeat(findSeat(seatId));
+		ticketToAdd.setShowing(findShowing(showingId));
+		book.addTicket(ticketToAdd);
+		em.persist(book);
+		return util.getJSONForObject(book);
 	}
 
 
