@@ -98,18 +98,13 @@ public class DBBlockService implements BlockService {
 	
 	
 	@Override
-	public String increaseColCount(int increase, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		increaseColCount(increase, blockObj);
-		return null;
-	}
-	private void increaseColCount(int increase, Block block){		
+	public String increaseColCount(long blockId, int increase) {
+		Block block = em.find(Block.class, blockId);	
 		int colCount = block.getColCount();
 		int startingCol = block.getStartingCol();
 		int rowCount = block.getRowCount();
 		int startingRow = block.getStartingRow();
 	
-		
 		int firstNewRow = (startingRow + rowCount + 1);
 		int lastRowToAdd = firstNewRow + increase;
 		int firstNewCol = (startingCol + colCount + 1);
@@ -126,15 +121,12 @@ public class DBBlockService implements BlockService {
 		block.setRowCount(colCount + increase);
 		block.setSeats(seats);
 		em.persist(block);
+		return "{\"message\": \"Column increase accepted\"}";
 	}
 
 	@Override
-	public String increaseRowCount(int increase, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		increaseRowCount(increase, blockObj);
-		return null;
-	}
-	private void increaseRowCount(int increase, Block block){
+	public String increaseRowCount(long blockId, int increase) {
+		Block block = em.find(Block.class, blockId);
 		int colCount = block.getColCount();
 		int startingCol = block.getStartingCol();
 		int rowCount = block.getRowCount();
@@ -157,18 +149,15 @@ public class DBBlockService implements BlockService {
 		block.setRowCount(rowCount + increase);
 		block.setSeats(seats);
 		em.persist(block);
+		return "{\"message\": \"Row increase accepted\"}";
 	}
 
 	
 	
 	
 	@Override
-	public String decreaseColCount(int decrease, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		decreaseColCount(decrease, blockObj);
-		return null;
-	}
-	private void decreaseColCount(int decrease, Block block){		
+	public String decreaseColCount(long blockId, int decrease) {
+		Block block = em.find(Block.class, blockId);	
 		int colCount = block.getColCount();
 		int startingCol = block.getStartingCol();
 		
@@ -183,17 +172,14 @@ public class DBBlockService implements BlockService {
 		block.setRowCount(colCount - decrease);
 		block.setSeats(seats);
 		em.persist(block);
+		return "{\"message\": \"Column decrease accepted\"}";
 	}
 	
 	
 
 	@Override
-	public String decreaseRowCount(int decrease, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		decreaseRowCount(decrease, blockObj);
-		return decreaseRowCount(decrease, blockObj);
-	}
-	private String decreaseRowCount(int decrease, Block block){
+	public String decreaseRowCount(long blockId, int decrease) {
+		Block block = em.find(Block.class, blockId);
 		int rowCount = block.getRowCount();
 		int startingRow = block.getStartingRow();
 	
@@ -208,19 +194,15 @@ public class DBBlockService implements BlockService {
 		block.setRowCount(rowCount - decrease);
 		block.setSeats(seats);
 		em.persist(block);
-		return UPDATE_SUCCESS;
+		return "{\"message\": \"Row decrease accepted\"}";
 	}
 
 	
 	
 	
 	@Override
-	public String increaseStatingCol(int increase, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		increaseStartingCol(increase, blockObj);
-		return null;
-	}
-	private String increaseStartingCol(int increase, Block block){
+	public String increaseStatingCol(long blockId, int increase) {
+		Block block = em.find(Block.class, blockId);
 		if(increase <= 0 ){
 			return "{\"message\": \"Increase must be greater than 0\"}";
 		}
@@ -245,11 +227,8 @@ public class DBBlockService implements BlockService {
 	
 
 	@Override
-	public String increaseStartingRow(int increase, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		return increaseStartingRow(increase, blockObj);
-	}
-	private String increaseStartingRow(int increase, Block block){
+	public String increaseStartingRow(long blockId, int increase) {
+		Block block = em.find(Block.class, blockId);
 		if(increase <= 0 ){
 			return "{\"message\": \"Increase must be greater than 0\"}";
 		}
@@ -281,11 +260,8 @@ public class DBBlockService implements BlockService {
 	
 	
 	@Override
-	public String decreaseStartingRow(int decrease, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		return decreaseStartingRow(decrease, blockObj);
-	}
-	private String decreaseStartingRow(int decrease, Block block){
+	public String decreaseStartingRow(long blockId, int decrease) {
+		Block block = em.find(Block.class, blockId);
 		if(decrease <= 0 ){
 			return "{\"message\": \"Decrease must be greater than 0\"}";
 		}
@@ -315,11 +291,8 @@ public class DBBlockService implements BlockService {
 	
 	
 	@Override
-	public String decreaseStatingCol(int decrease, String block) {
-		Block blockObj = util.getObjectForJSON(block, Block.class);
-		return decreaseStartingCol(decrease, blockObj);
-	}
-	private String decreaseStartingCol(int decrease, Block block){
+	public String decreaseStatingCol(long blockId, int decrease) {
+		Block block = em.find(Block.class, blockId);
 		if(decrease <= 0 ){
 			return "{\"message\": \"Decrease must be greater than 0\"}";
 		}
@@ -347,9 +320,12 @@ public class DBBlockService implements BlockService {
 	
 	
 	@Override
-	public String updateBlock(String block) {
-		Block b = util.getObjectForJSON(block, Block.class);
-		em.persist(b);
+	public String updateBlock(long blockId, int x, int y, int angle) {
+		Block block = em.find(Block.class, blockId);
+		block.setxPosition(x);
+		block.setyPosition(y);
+		block.setAngle(angle);
+		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
 	
