@@ -3,6 +3,7 @@
     var GetSpecificMovieController = function (movieDal, mediaDal, $stateParams) {
         var vm = this;
         var param = $stateParams;
+        console.log(param);
 
         vm.getMovieById = function getMovieById() {
             movieDal.getMovieById(param.movieId).then(function (results) {

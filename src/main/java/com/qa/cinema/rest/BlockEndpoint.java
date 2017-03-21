@@ -140,7 +140,7 @@ public class BlockEndpoint {
 	@Path("/json/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteBlock(@PathParam("id") int id) {
+	public String deleteBlock(@PathParam("id") Long id) {
 		return service.deleteBlock(id);
 	}
 	

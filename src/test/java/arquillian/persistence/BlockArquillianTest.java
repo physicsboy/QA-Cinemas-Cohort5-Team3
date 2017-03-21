@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import com.qa.cinema.persistence.Block;
 import com.qa.cinema.persistence.Seat;
 import com.qa.cinema.persistence.ticket.Ticket;
+import com.qa.cinema.service.block.DBBlockService;
 
 @RunWith(Arquillian.class)
 public class BlockArquillianTest {
@@ -101,5 +102,8 @@ public class BlockArquillianTest {
 		
 		assertEquals(64, size);
 	}
+	
+
+	
 
 }

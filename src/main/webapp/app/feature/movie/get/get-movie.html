@@ -34,11 +34,35 @@
 
     <div class=container>
         <div class="ourMovies">
-            <h2>Our Movies</h2>
+            <h1>Our Movies</h1>
+        </div>
+
+        <div class="ourMovies">
+            <h2>Out Now</h2>
         </div>
 
         <!-- {{ctrlMed.getSingleMedia(1,"poster")}} -->
-        <div ng-repeat="movie in ctrlMov.movies">
+        <div ng-repeat="movie in ctrlMov.movies | filter:{outNow:true}">
+            <div ng-repeat="poster in movie.media | filter:{type:'POSTER'}">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <img ui-sref="getspecificmovie({movieId:{{movie.id}}})" align="middle" ng-src='{{poster.url}}'
+                         class="img-responsive"
+                         style="width: 250px; height: 368px;"/>
+                    <div class="movieTitle">
+                        <h4>{{movie.title}}</h4>
+                        {{movie.classification.url}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ourMovies">
+            <h2>Coming Soon</h2>
+        </div>
+
+        <!-- {{ctrlMed.getSingleMedia(1,"poster")}} -->
+        <div ng-repeat="movie in ctrlMov.movies | filter:{outNow:false}">
             <div ng-repeat="poster in movie.media | filter:{type:'POSTER'}">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <img ui-sref="getspecificmovie({movieId:{{movie.id}}})" align="middle" ng-src='{{poster.url}}'

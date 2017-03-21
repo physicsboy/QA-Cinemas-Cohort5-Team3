@@ -86,8 +86,11 @@ public class DBBlockService implements BlockService {
 	
 
 	@Override
-	public String deleteBlock(long id) {
+	public String deleteBlock(Long id) {
 		Block block = em.find(Block.class,id);
+    List<Seat> seats = newArray List;
+    block.setSeats(seats);
+    em.persist(block);
 		em.remove(block);
 		return "{\"message\": \"Block sucessfully deleted\"}";
 	}
