@@ -30,7 +30,7 @@ public class ShowingEndPoint {
 	@GET
 	@Produces({"application/json"})
 	public String getShowingByShowingDate(@PathParam("id")Long showingId, @PathParam("dateShowing")Long dateShowing){
-		return service.getShowingByDate(dateShowing);
+		return service.getShowingByDate(showingId, dateShowing);
 	}
 	
 	@Path("/json/{id}")

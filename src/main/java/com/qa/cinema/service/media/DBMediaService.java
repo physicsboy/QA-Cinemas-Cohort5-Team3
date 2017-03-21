@@ -97,22 +97,10 @@ public class DBMediaService implements MediaService {
 	
 	@SuppressWarnings("unchecked")
 	private Collection<Media> getAllMediaForFilm(Long filmID, String mediaType){
-		Query query = manager.createQuery("Select m.media from Movie m WHERE m.id=" + filmID);
-		Collection<Media> mediaList = (Collection<Media>) query.getResultList();
-		
-		ArrayList<Media> workingList = new ArrayList<>();
-		for(Media media : mediaList){
-			if(media.getType().equalsIgnoreCase("poster")){
-				workingList.add(media);
-			}
-		}
-		
-		return workingList;
-		
-		/*Query query = manager.createQuery("SELECT med FROM Movie m JOIN m.media med WHERE m.id =" + filmID +
+		Query query = manager.createQuery("SELECT med FROM Movie m JOIN m.media med WHERE m.id =" + filmID +
 				" AND med.type = " + "com.qa.cinema.persistence.MediaType." + mediaType.toUpperCase());
 		System.out.println(query.getResultList());
-		return (Collection<Media>) query.getResultList(); */
+		return (Collection<Media>) query.getResultList(); 
 	}
 	
 	private Media findByID(Long id){

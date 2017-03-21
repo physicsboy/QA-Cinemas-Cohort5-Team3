@@ -79,12 +79,7 @@
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		
-		
-		
-		
-		
+
 		
 
 		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-arquillian-container-remote -->
