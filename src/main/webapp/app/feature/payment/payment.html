@@ -1,9 +1,60 @@
-
 <div ng-controller="paymentController as payCtrl">
-TEST
-{{payCtrl.bookingAddMessage}}
-TEST
-<!--<div id="paypal-button"></div>
+
+    <form name="paymentForm">
+        <div>
+		<span>Enter Paypal Email<input
+                ng-model="set.paypal" required></span> <span>Enter User
+			Email<input ng-model="set.user" required>
+		</span>
+        </div>
+
+        <div>
+            <div>
+                <select ng-model="set.adult" ng-options="option.value for option in payCtrl.options"
+                        ng-change="payCtrl.update('adult',set.adult)">
+                </select>
+            </div>
+
+            <div>
+                <select ng-model=" set.child" ng-options="option.value for option in payCtrl.options"
+                        ng-change="payCtrl.update('child',set.child)">
+                </select>
+            </div>
+
+            <div>
+                <select ng-model="set.cons" ng-options="option.value for option in payCtrl.options"
+                        ng-change="payCtrl.update('cons',set.cons)">
+                </select>
+            </div>
+
+            <div>
+                <select ng-model=" set.prem" ng-options="option.value for option in payCtrl.options"
+                        ng-change="payCtrl.update('prem',set.prem)">
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <p>Number of Adults:{{payCtrl.numAdults}}</p>
+
+            <p>Number of Children:{{payCtrl.numChild}}</p>
+            <p>Number of Concession:{{payCtrl.numCons}}</p>
+            <p>Number of Premium:{{payCtrl.numPremium}}</p>
+        </div>
+
+        <div>
+            <h3>Subtotal</h3>
+            <p> Adult Tickets (x{{payCtrl.numAdults}}): &pound;{{payCtrl.numAdults*9.99}}</p>
+            <p> Child Tickets (x{{payCtrl.numChild}}): &pound;{{payCtrl.numChild*5.99}}</p>
+            <p> Concession Tickets
+                (x{{payCtrl.numCons}}): &pound;{{payCtrl.numCons*7.49}}</p>
+            <p> Premium Tickets (x{{payCtrl.numPremium}}): &pound;{{payCtrl.numPremium*12.99}}</p>
+            <h2>Total Price: &pound;{{payCtrl.total}}</h2>
+
+            <button ng-disabled="paymentForm.$invalid" ng-click="payCtrl.createBooking(payCtrl.compileBooking())">Confirm and Pay</button>
+        </div>
+    </form>
+    <!--<div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
@@ -42,3 +93,12 @@ TEST
 </script>-->
 
 </div>
+<style>
+    button:disabled{
+        background: #f5f5f5;
+        color: red;
+    }
+    input:required{
+        background: yellowgreen;
+    }
+</style>

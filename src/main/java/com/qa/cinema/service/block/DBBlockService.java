@@ -15,7 +15,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import com.qa.cinema.persistence.Block;
@@ -28,6 +27,8 @@ import com.qa.cinema.util.JSONUtil;
 @Named("dbBlockService")
 @Transactional
 public class DBBlockService implements BlockService {
+	
+	private static final String UPDATE_SUCCESS = "{\"message\": \"Block sucessfully updated\"}";
 
 	
 	@PersistenceContext
@@ -85,9 +86,13 @@ public class DBBlockService implements BlockService {
 	
 
 	@Override
-	public String deleteBlock(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String deleteBlock(Long id) {
+		Block block = em.find(Block.class,id);
+	    List<Seat> seats = new ArrayList();
+	    block.setSeats(seats);
+	    em.persist(block);
+		em.remove(block);
+		return "{\"message\": \"Block sucessfully deleted\"}";
 	}
 	
 	
@@ -98,92 +103,255 @@ public class DBBlockService implements BlockService {
 		increaseColCount(increase, blockObj);
 		return null;
 	}
-	private void increaseColCount(int increase, Block block){
+	private void increaseColCount(int increase, Block block){		
 		int colCount = block.getColCount();
 		int startingCol = block.getStartingCol();
 		int rowCount = block.getRowCount();
 		int startingRow = block.getStartingRow();
+	
 		
 		int firstNewRow = (startingRow + rowCount + 1);
 		int lastRowToAdd = firstNewRow + increase;
 		int firstNewCol = (startingCol + colCount + 1);
 		int lastColToAdd = firstNewCol + increase;
 		
-		for(int newCol = firstNewCol; newCol <= lastColToAdd; newCol++){
-			for(int newRow = firstNewRow; newRow <= lastRowToAdd; newRow++){
-				//Seat seat = new Seat(newRow, newCol, Seat.SeatType.STANDARD);
-				//em.persist(seat);
+		List<Seat> seats = block.getSeats();
+		for(int newCol = firstNewCol; newCol < lastColToAdd; newCol++){
+			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
+				seats.add(
+					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
+				);
 			}
 		}
+		block.setRowCount(colCount + increase);
+		block.setSeats(seats);
+		em.persist(block);
 	}
 
-	
-	
-	
-	
-	
-	
 	@Override
 	public String increaseRowCount(int increase, String block) {
 		Block blockObj = util.getObjectForJSON(block, Block.class);
+		increaseRowCount(increase, blockObj);
 		return null;
 	}
+	private void increaseRowCount(int increase, Block block){
+		int colCount = block.getColCount();
+		int startingCol = block.getStartingCol();
+		int rowCount = block.getRowCount();
+		int startingRow = block.getStartingRow();
+	
+		
+		int firstNewRow = (startingRow + rowCount + 1);
+		int lastRowToAdd = firstNewRow + increase;
+		int firstNewCol = (startingCol + colCount + 1);
+		int lastColToAdd = firstNewCol + increase;
+		
+		List<Seat> seats = block.getSeats();
+		for(int newCol = firstNewRow; newCol < lastColToAdd; newCol++){
+			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
+				seats.add(
+					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
+				);
+			}
+		}
+		block.setRowCount(rowCount + increase);
+		block.setSeats(seats);
+		em.persist(block);
+	}
+
+	
+	
+	
+	@Override
+	public String decreaseColCount(int decrease, String block) {
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		decreaseColCount(decrease, blockObj);
+		return null;
+	}
+	private void decreaseColCount(int decrease, Block block){		
+		int colCount = block.getColCount();
+		int startingCol = block.getStartingCol();
+		
+		int lastColToRemove = startingCol + colCount - decrease;
+		
+		List<Seat> seats = block.getSeats();
+		for(Seat s: seats){
+			if(s.getColumn() <= lastColToRemove){
+				seats.remove(s);
+			}
+		}
+		block.setRowCount(colCount - decrease);
+		block.setSeats(seats);
+		em.persist(block);
+	}
+	
 	
 
 	@Override
-	public String decreaseColCount(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String decreaseRowCount(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		decreaseRowCount(decrease, blockObj);
+		return decreaseRowCount(decrease, blockObj);
+	}
+	private String decreaseRowCount(int decrease, Block block){
+		int rowCount = block.getRowCount();
+		int startingRow = block.getStartingRow();
+	
+		int lastRowToRemove = startingRow + rowCount - decrease;
+		
+		List<Seat> seats = block.getSeats();
+		for(Seat s: seats){
+			if(s.getRow() <= lastRowToRemove ){
+				seats.remove(s);
+			}
+		}
+		block.setRowCount(rowCount - decrease);
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
 	}
 
+	
+	
+	
 	@Override
 	public String increaseStatingCol(int increase, String block) {
-		// TODO Auto-generated method stub
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		increaseStartingCol(increase, blockObj);
 		return null;
 	}
+	private String increaseStartingCol(int increase, Block block){
+		if(increase <= 0 ){
+			return "{\"message\": \"Increase must be greater than 0\"}";
+		}
+		
+		int startingCol = block.getStartingCol();
+		int colCount = block.getColCount();
+		int newStartingRow = startingCol -increase;
+	
+		List<Seat> seats = block.getSeats();
+		for(int col = startingCol; col < (startingCol - increase); col--){
+			for(Seat s: seats){
+				if(s.getRow() == col){
+					s.setRow((char)(col + colCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
+	
 
 	@Override
 	public String increaseStartingRow(int increase, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return increaseStartingRow(increase, blockObj);
 	}
+	private String increaseStartingRow(int increase, Block block){
+		if(increase <= 0 ){
+			return "{\"message\": \"Increase must be greater than 0\"}";
+		}
+		
+		int startingRow = block.getStartingRow();
+		int rowCount = block.getRowCount();
+		int newEndingRow = startingRow + rowCount + increase;
+		
+		if(newEndingRow > 90 ){
+			return "{\"message\": Final row cannot exceed Z\"\"}";
+		}
+		
+		List<Seat> seats = block.getSeats();
+		
+		for(int row = startingRow; row > (startingRow + increase); row++){
+			for(Seat s: seats){
+				if(s.getRow() == row){
+					s.setRow((char)(row + rowCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
 
+	
+	
+	
 	@Override
 	public String decreaseStartingRow(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return decreaseStartingRow(decrease, blockObj);
 	}
+	private String decreaseStartingRow(int decrease, Block block){
+		if(decrease <= 0 ){
+			return "{\"message\": \"Decrease must be greater than 0\"}";
+		}
+		int startingRow = block.getStartingRow();
+		int rowCount = block.getRowCount();
+		int newStartingRow = startingRow -decrease;
+		
+		
+		if(newStartingRow < 65 ){
+			return "{\"message\": \"Row can not be less than A\"}";
+		}
+		List<Seat> seats = block.getSeats();
+		
+		for(int row = startingRow; row < (startingRow - decrease); row--){
+			for(Seat s: seats){
+				if(s.getRow() == row){
+					s.setRow((char)(row + rowCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
 
+	
+	
 	@Override
 	public String decreaseStatingCol(int decrease, String block) {
-		// TODO Auto-generated method stub
-		return null;
+		Block blockObj = util.getObjectForJSON(block, Block.class);
+		return decreaseStartingCol(decrease, blockObj);
 	}
-
+	private String decreaseStartingCol(int decrease, Block block){
+		if(decrease <= 0 ){
+			return "{\"message\": \"Decrease must be greater than 0\"}";
+		}
+		int startingCol = block.getStartingCol();
+		int colCount = block.getColCount();
+		int newStartingCol = startingCol -decrease;
+		
+		if(newStartingCol < 1 ){
+			return "{\"message\": \"Column cannot be less than 1\"}";
+		}
+		List<Seat> seats = block.getSeats();
+		
+		for(int col = startingCol; col < (startingCol - decrease); col--){
+			for(Seat s: seats){
+				if(s.getColumn() == col){
+					s.setColumn((col + colCount +1));
+				}
+			}
+		} 
+		block.setSeats(seats);
+		em.persist(block);
+		return UPDATE_SUCCESS;
+	}
+	
+	
+	
 	@Override
-	public String updateXPosition(String block) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateBlock(String block) {
+		Block b = util.getObjectForJSON(block, Block.class);
+		em.persist(b);
+		return UPDATE_SUCCESS;
 	}
-
-	@Override
-	public String updateYPosition(String block) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String updateAngle(String block) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 
 	
