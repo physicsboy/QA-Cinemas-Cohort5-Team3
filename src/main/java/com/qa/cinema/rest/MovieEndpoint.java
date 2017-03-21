@@ -13,7 +13,7 @@ import javax.ws.rs.PathParam;
 //import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.cinema.service.MovieService;
+import com.qa.cinema.service.movie.MovieService;
 
 @Path("/movie")
 public class MovieEndpoint {

@@ -1,4 +1,4 @@
-package com.qa.cinema.service;
+package com.qa.cinema.service.movie;
 
 public interface MovieService {
 

@@ -1,4 +1,4 @@
-package com.qa.cinema.service;
+package com.qa.cinema.service.movie;
 
 import java.util.Collection;
 
@@ -10,8 +10,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.qa.cinema.persistence.Movie;
+import com.qa.cinema.service.movie.MovieService;
 import com.qa.cinema.util.JSONUtil;
-import com.qa.cinema.service.MovieService;
 
 @Stateless
 @Default
