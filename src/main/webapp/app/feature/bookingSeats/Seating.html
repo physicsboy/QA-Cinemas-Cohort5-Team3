@@ -1,50 +1,77 @@
+<h1>
+    showing 7876876
+</h1>
 <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
     <div>
         <select ng-model="chosenScreen"
-                ng-options="showing.screen.screenId for showing in showingCtrl.showings ">
+                ng-options="showing.id for showing in showingCtrl.showings "
+               >
         </select>
     </div>
 
     <!--    <input type="button" value="Capacity Chart" id="MyButton" >-->
+<!--    {{chosenScreen}}
+    {{chosenScreen.id}}
+    {{chosenScreen.screen.screenId}}-->
+
+
 
     <div>
-        <select ng-model="chosenBlock"  ng-options="block.blockId for block in chosenShowing.screen.blocks">
+        <select ng-model="chosenBlock"
+                ng-options="block.blockId for block in chosenScreen.screen.blocks">
         </select>
     </div>
-    {{chosenBlock}}
+
+
+ <!--   {{chosenBlock}}-->
     <div>
-        <select ng-model="chosenSeat" ng-options="seat.name as (seat.row + seat.column) for seat in chosenBlock.seats">
+        <select ng-model="chosenSeat"
+                ng-options="seat.name as (seat.row + seat.column) for seat in chosenBlock.seats ">
             {{seat.name}}
         </select>
     </div>
+<!--
+-----------------------------------
+-->
 
 
 
-    <H1>This</H1>
-    <table>
-        <tbody ng-repeat="block in chosenShowing.screen.blocks" ng-switch on="seat.ID = 10">
-        <tr ng-repeat="seat in block.seats">
-            <td>{{seat.row + seat.column}}</td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-    <table>
-
-        <tbody>
-
-        <tr ng-repeat="Seats in showingCtrl.SeatsA">
-            <td ng-repeat="Seat in Seats">
-                {{ Seat }}
-
+    <table class="table table-striped">
+        <tr ng-repeat="block in chosenScreen.screen.blocks">
+            <td ng-repeat="seat in block.seats">
+                 {{seat.row}}{{seat.column}}
             </td>
+           
+
         </tr>
-        </tbody>
     </table>
 
 
+
+
+    <!--<table class="table table-bordered">
+        <tbody>
+        <tr ng-repeat-start="item in [chosenScreen.screen.blocks]">
+            {{seat.row}}{{seat.column}}
+        </tr >
+        <tr ng-repeat-end="" ng-if="item % 8 === 0">
+            <td colspan="2"></td>
+        </tr>
+        </tbody>
+    </table>-->
+
+    <!--<table class="table table-striped">-->
+    <!--<option value="" disabled selected>Showings for this Movie</option>-->
+    <!--<tr ng-repeat="showing in showingCtrl.showings" value="{{showing.id}}">-->
+    <!--{{showing.dateTime}}-->
+    <!--<td id="dayShowing">{{showing.dateTime}}</td>-->
+    <!--<td>{{showing.screen.screenId}}</td>-->
+    <!--<td>{{showing.movie.title}}</td>-->
+    <!--<td>{{showing.movie.length}}</td>-->
+    <!--<td>{{showing.movie.classification}}</td>-->
+    <!--</tr>-->
+
+    <!--</table>-->
 
 
 </div>
