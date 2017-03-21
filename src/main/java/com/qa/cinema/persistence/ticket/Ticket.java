@@ -102,4 +102,5 @@ public class Ticket {
 	public void setPrice() {
 		this.price = Math.round(type.getPrice() * 100f) / 100f;
 	}
+
 }
