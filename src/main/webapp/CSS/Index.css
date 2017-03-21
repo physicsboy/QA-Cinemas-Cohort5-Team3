@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+#wrap{
+	min-height: 100%;
+}
+html, body {
+	height: auto;	
+}
+
+
+#main {overflow: hidden;
+	padding-bottom: 357px;}  /* must be same height as the footer */
+/* #view {
+	overflow:auto;
+	padding-bottom: 357px;
+}  must be same height as the footer */
+
+
+/* 	
+	DECIDING ON A BACKGROUND COLOUR SCHEME WITH A SUBTLE TEXTURE OVERLAY
+
+	THE SYNTAX = LOCATION OF PATTER AND THEN THE COLOUR SCHEME (RAIDAL GRADIENT)
+ */
+body {
+	/* DARK BLUE 				/		background-image: url("../Background_images/4634818-dark-blue-wallpaper.jpg") !important; */
+	/* TEAL BACKGROUND			/		background-image: url("../Background_images/background.jpg") !important; */
+	/* LIGHT BLUE  				/		background-image: url("../Background_images/background2.jpg") !important; */
+	/* MUTED AND NICE TEXTURE	/		background-image: url("../Background_images/hpehPUv.jpg") !important;   */
+	/* BLACK DIAGONALS 			/	background-image: url("../Background_images/Patterns/black-twill.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* MY BLACK DIAGONALS 5		/	background-image: url("../Background_images/Patterns/diagonal-black-5.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* MY BLACK DIAGONALS 10	*/	background-image: url("../Background_images/Patterns/diagonal-black-10.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* SUBTLE FABRIC	/	background-image: url("../Background_images/Patterns/classy-fabric.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
+}
+
+/* PANEL CONTAINER SETTINGS */
+#pageInfo {
+	background: none;
+	opacity: 1.0;
+}
+
+#view{
+    opacity:1;
+   
+    
+}
+
+/* PANEL SETTINGS */
+#panelBody {
+	background: rgba(25,25,25, 0.85);
+	border-radius: 1px;
+	border-width: 1px;
+	width: 70%;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+
+	
+}
+
+/* CSS FOR USING A MOVIE AS A FULL SCREEN BACKGROUND */
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ 	background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  	background-size: cover;
+  	transition: 1s opacity;
+}
