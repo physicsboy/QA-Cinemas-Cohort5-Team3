@@ -26,6 +26,14 @@ public class DBMediaService implements MediaService {
 	JSONUtil util;
 
 	@Override
+	public String listAllMedia() {
+		Query query = manager.createQuery("SELECT m FROM Media m");
+		Collection<Media> media = (Collection<Media>) query.getResultList();
+
+		return util.getJSONForObject(media);
+	}
+	
+	@Override
 	public String getAllMediaForFilmByType(Long filmID, String type) {
 		Collection<Media> media = getAllMediaForFilm(filmID, type);
 

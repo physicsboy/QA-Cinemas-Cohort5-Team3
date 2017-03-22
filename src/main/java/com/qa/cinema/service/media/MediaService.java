@@ -13,4 +13,6 @@ public interface MediaService {
 	String updateMedia(Long id, String newMedia);
 	
 	String deleteMedia(Long id);
+
+	String listAllMedia();
 }

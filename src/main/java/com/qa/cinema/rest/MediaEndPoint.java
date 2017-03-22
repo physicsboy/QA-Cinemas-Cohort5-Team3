@@ -17,6 +17,13 @@ public class MediaEndPoint {
 	
 	@Inject private MediaService service;
 	
+	@Path("/json")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllMedia() {
+		return service.listAllMedia();
+	}
+	
 	@Path("/json/all/{filmId}/{mediaType}")
 	@GET
 	@Produces({ "application/json" })
