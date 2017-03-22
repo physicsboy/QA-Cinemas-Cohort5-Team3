@@ -61,8 +61,6 @@
                     controller: function ($stateParams){$stateParams.movieId}
                 }).state("addshowing",{url : "/addshowing",
                     templateUrl : "app/feature/showing/add-showing/add-showing.html"
-                }).state("updateshowing",{url : "/updateshowing",
-                    templateUrl : "app/feature/showing/update-showing/update-showing.html"
                 }).state("deleteshowing",{url : "/deleteshowing",
                     templateUrl : "app/feature/showing/delete-showing/delete-showing.html"
                 }).state("getspecificmovie",{url : "/getspecificmovie/:movieId",
