@@ -1,34 +1,38 @@
 <div ng-controller="paymentController as payCtrl">
 
-    <form name="paymentForm">
-        <div>
-            <span>Enter Paypal Email<input ng-model="set.paypal" ng-change="payCtrl.update('paypal',set.paypal)"></span>
-            <span>Enter User Email<input ng-model="set.user" ng-change="payCtrl.update('user',set.user)"></span>
-        </div>
+    <form name="paymentForm" id="form">
+        <div class="container-fluid">
+            <span class="col-md-6">Enter User Email<input id="user" ng-model="set.user"
+                                         ng-change="payCtrl.update('user',set.user)"></span>
+            <span class="col-md-6">Enter Paypal Email<input id="paypal" ng-model="set.paypal"
+                                           ng-change="payCtrl.update('paypal',set.paypal)"></span>
 
-        <div>
-            <div>
-                Adult: <select ng-model="set.adult" ng-options="option.value for option in payCtrl.options"
-                        ng-change="payCtrl.update('adult',set.adult)">
-                </select>
+            <div class="col-md-3">
+                Adult: <select id="adultDropDown" ng-model="set.adult"
+                               ng-options="option.value for option in payCtrl.options"
+                               ng-change="payCtrl.update('adult',set.adult)">
+            </select>
             </div>
 
-            <div>
-                Child: <select ng-model=" set.child" ng-options="option.value for option in payCtrl.options"
-                        ng-change="payCtrl.update('child',set.child)">
-                </select>
+            <div class="col-md-3">
+                Child: <select id="childDropDown" ng-model=" set.child"
+                               ng-options="option.value for option in payCtrl.options"
+                               ng-change="payCtrl.update('child',set.child)">
+            </select>
             </div>
 
-            <div>
-                Concession: <select ng-model="set.cons" ng-options="option.value for option in payCtrl.options"
-                        ng-change="payCtrl.update('cons',set.cons)">
-                </select>
+            <div class="col-md-3">
+                Concession: <select id="consDropDown" ng-model="set.cons"
+                                    ng-options="option.value for option in payCtrl.options"
+                                    ng-change="payCtrl.update('cons',set.cons)">
+            </select>
             </div>
 
-            <div>
-                Premium: <select ng-model=" set.prem" ng-options="option.value for option in payCtrl.options"
-                        ng-change="payCtrl.update('prem',set.prem)">
-                </select>
+            <div class="col-md-3">
+                Premium: <select id="premDropDown" ng-model=" set.prem"
+                                 ng-options="option.value for option in payCtrl.options"
+                                 ng-change="payCtrl.update('prem',set.prem)">
+            </select>
             </div>
         </div>
 
@@ -40,6 +44,8 @@
                 (x{{payCtrl.numCons}}): &pound;{{payCtrl.numCons*7.49}}</p>
             <p> Premium Tickets (x{{payCtrl.numPremium}}): &pound;{{payCtrl.numPremium*12.99}}</p>
             <h2>Total Price: &pound;{{payCtrl.total}}</h2>
+            <div id="paypal-button">
+            </div>
 
             <table class="table">
                 <tr>
@@ -54,8 +60,7 @@
                 </tr>
             </table>
 
-            <div id="paypal-button">
-            </div>
+
         </div>
     </form>
 
@@ -67,11 +72,26 @@
         color: red;
     }
 
+    #paypal-button {
+        height: 200px;
+        width: 200px;
+    }
+
+    #paypal {
+        background: #ff7979;
+    }
+
+    #user {
+        background: #ff7979;
+    }
+
     input:required {
         background: yellowgreen;
     }
 
-    .table {
-        width:50%;
+    .container-fluid{
+        width:80%;
+        margin-left: auto;
+        margin-right:auto;
     }
 </style>
