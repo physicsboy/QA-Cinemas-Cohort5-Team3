@@ -12,6 +12,8 @@
 
                 $stateProvider.state("home",{url : "/app/feature/movie/get/get-movie.html",
                     templateUrl : "index.html"
+                }).state("adminArea",{url : "/adminArea.html",
+                    templateUrl : "adminArea.html"
                 }).state("getbooking",{url : "/getbooking",
                     templateUrl : "app/feature/booking/get/get-booking.html"
                 }).state("getseats",{url : "/getseats",
@@ -83,6 +85,8 @@
                     templateUrl : "classification.html#18"
                 }).state("classification#R18",{url : "/classification#R18",
                     templateUrl : "classification.html#R18"
+                }).state("addblock",{url : "/addblock",
+                    templateUrl : "app/feature/block/add/add-block.html"
                 })
             });
 }());

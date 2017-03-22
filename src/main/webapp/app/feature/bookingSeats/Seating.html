@@ -1,50 +1,43 @@
+<!--<link rel="stylesheet" url="Seating.css" media="screen">-->
+<h1>
+    Please select your seat
+</h1>
+
+
+
+<script>
+    function trclick() {
+        console.log('tr clicked')
+    }
+    ;
+
+    function tdclick(event, seat) {
+        console.log('td clicked', seat);
+        event.stopPropagation()
+    }
+    ;
+</script>
+
 <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
     <div>
         <select ng-model="chosenScreen"
-                ng-options="showing.screen.screenId for showing in showingCtrl.showings ">
+                ng-options="showing.id for showing in showingCtrl.showings "     >
         </select>
     </div>
+    <div class="table-container" id="seats" style="width:800px">
+                <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:showing.screen.block.colCount">
+                    </br>
+            <table style="width:400px; table-layout: fixed; margin-bottom:0px" class="table  table-bordered table-hover " ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] | limitTo:block.colCount:block.rowCount ">
+                <tr ng-repeat="block in chosenScreen.screen.blocks | limitTo:1:v">
+                    <td style="cursor: pointer; text-align: center;" onclick='tdclick(event,this.innerText)'
+                        ng-repeat="seat in block.seats | limitTo:block.colCount:block.colCount*i">
+                        {{seat.row}}{{seat.column}}
+                    </td>
+                </tr>
+            </table>
 
-    <!--    <input type="button" value="Capacity Chart" id="MyButton" >-->
-
-    <div>
-        <select ng-model="chosenBlock"  ng-options="block.blockId for block in chosenShowing.screen.blocks">
-        </select>
+        </div>
+    </br>
     </div>
-    {{chosenBlock}}
-    <div>
-        <select ng-model="chosenSeat" ng-options="seat.name as (seat.row + seat.column) for seat in chosenBlock.seats">
-            {{seat.name}}
-        </select>
-    </div>
-
-
-
-    <H1>This</H1>
-    <table>
-        <tbody ng-repeat="block in chosenShowing.screen.blocks" ng-switch on="seat.ID = 10">
-        <tr ng-repeat="seat in block.seats">
-            <td>{{seat.row + seat.column}}</td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-    <table>
-
-        <tbody>
-
-        <tr ng-repeat="Seats in showingCtrl.SeatsA">
-            <td ng-repeat="Seat in Seats">
-                {{ Seat }}
-
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-
 </div>
+

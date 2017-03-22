@@ -1,37 +1,48 @@
 @CHARSET "UTF-8";
-/* ///////////////////////////// COMMENT FORM SPECIFIC ///////////////////////////// */
+/* ///////////////////////////// CONTACT FORM SPECIFIC ///////////////////////////// */
 
-textarea{
+ textarea{
 	resize: none;
 }
 
-/* [WORKS] PUT THE CHECKBOX ON THE LEFT HAND SIDE OF THE MODAL*/ 
-#check {
-	text-align: left;
-	float: left;
-	padding-top: 5px;
-	padding-left: 15px;
-}
-
-/* [WORKS] PUT THE SUBMIT BUTTON ON THE RIGHT HAND SIDE OF THE MODAL */ 
-#sub {
-	text-align: right;
-	float: right;
+#ContactUs .modal-footer{
 	padding-right: 15px;
 }
 
-.modal-footer .btn {
+#subButton {
+	background: #F6F6F6;
+	color: #1C1C1C;
+	border: #F6F6F6;
 	font-weight: bold;
-	}
+}
+
+#subButton:active, #subButton:hover, #subButton:focus{
+	background: #1C1C1C;
+	color: #F6F6F6;
+	border: #1C1C1C;
+	font-weight: bold;
+
+}
 
 
 /* ///////////////////////////// MODAL GENERIC ///////////////////////////// */
 
+/* REMOVE ROUNDED CORNERS OF INPUT BOXES */
+.modal-dialog .form-control {
+	border-radius: 0px;
+}
+
+/* REMOVE HIGHLIGHT FROM INPUT BOX WHEN IN ACTION */
+.modal-dialog .form-control:active, .modal-dialog .form-control:focus {
+	border-color: #F6F6F6;
+}
+
 /* [WORKS] SET THE BACKGROUND FADE COLOUR AND OPACITY */ 
 .modal-backdrop.in {
-	background: black; 
-	opacity: 0.92;
+	 
+	opacity: 0.8 !important;
 }
+
 
 /* [WORKS] GENERAL MODAL SETTINGS */
 .modal-dialog .modal-content {
@@ -71,7 +82,7 @@ textarea{
 	border-radius: 1px;
 }
 
-/* [DOESN'T WORK] INDENT RIGHT-ALIGNED BITS */
+/* INDENT RIGHT-ALIGNED BITS --------only indents the text boxes for input */
 #LogInModal .form-group, .text-right, #ContactUs .form-group, .text-right {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -104,6 +115,11 @@ textarea{
 	font-weight: bold;
 }
 
+/* [WORKS] MOVE LOGIN AND CLOSE BUTTONS IN LINE */
+.modal-content .modal-footer {
+	padding-right: 30px;
+}
+
 /* [WORKS] LOG-IN BUTTON ROLLOVER */
 .modal-footer .btn-primary:hover {
 	background: black;
@@ -112,4 +128,14 @@ textarea{
 /* [DOESN'T WORK] TO CHANGE LOG-IN BUTTON CLICK COLOUR */
 .modal-footer .btn-primary:active { 
 	background: white;
+}
+
+#social-login{
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 15px;
+}
+#social-login a{
+	font-weight: bold;
+	margin-bottom: 15px;
 }

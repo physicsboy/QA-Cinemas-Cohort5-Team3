@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.transaction.Transactional;
 
 @Entity
@@ -30,6 +31,7 @@ public class Block {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "blockId")
+	@OrderBy("row ASC , column ASC")
 	private List<Seat> seats;
 
 	
