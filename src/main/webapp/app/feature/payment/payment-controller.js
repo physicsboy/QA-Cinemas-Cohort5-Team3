@@ -252,7 +252,6 @@
                 var tmp = vm.showing.movie.title;
                 console.log(tmp);
                 vm.showingTitle = vm.showing.movie.title;
-                vm.showingTime =
             }, function (error) {
                 vm.error = true;
                 vm.errorMessage = error;
