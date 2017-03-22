@@ -65,10 +65,6 @@ public class DBBlockServiceArquillianTest {
 		return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Ticket.class.getPackage()).addPackage(JSONUtil.class.getPackage()).addPackage(DBBlockService.class.getPackage()).addPackage(Block.class.getPackage()).addAsResource("wildfly-persistence.xml", "META-INF/persistence.xml").addAsResource("import.sql").addAsWebInfResource("wildfly-ds.xml").addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml")).addAsLibraries(files);
 	}
 
-	@Test
-	public final void getBlockobj() throws Exception {
-		assertEquals(8, service.getBlockobj(1).getColCount());
-	}
 
 	@Test
 	public final void getBlock() throws Exception {
@@ -77,7 +73,7 @@ public class DBBlockServiceArquillianTest {
 
 	@Test
 	public final void getAllBlocks() {
-		String s = service.getAllBlocks(1);
+		String s = service.getBlocksForScreen(1);
 		boolean stringHasContent = false;
 		if (s != null) {
 			stringHasContent = true;
@@ -152,14 +148,14 @@ public class DBBlockServiceArquillianTest {
 		Long blockId = 5L;
 		
 		StringBuilder message = new StringBuilder();
-		service.decreaseStatingCol(blockId, 1) ;
+		service.decreaseStartingCol(blockId, 1) ;
 		List<Seat> seats = em.find(Block.class, blockId).getSeats();
 		for (Seat s: seats){
 			message.append(s.getColumn());
 		}
 		utx.commit();
 		
-		assertEquals("34123412", message.toString());
+		assertEquals("12341234", message.toString());
 	}
 
 	@Test

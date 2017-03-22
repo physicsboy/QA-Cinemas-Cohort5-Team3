@@ -85,6 +85,8 @@
                     templateUrl : "classification.html#18"
                 }).state("classification#R18",{url : "/classification#R18",
                     templateUrl : "classification.html#R18"
+                }).state("addblock",{url : "/addblock",
+                    templateUrl : "app/feature/block/add/add-block.html"
                 })
             });
 }());
