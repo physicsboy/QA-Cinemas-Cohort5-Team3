@@ -2,12 +2,14 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="movieApp">
 <body>
+
+
+
 	<div id="wrap">
 		<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <title>QA Cinema Blue</title>
-
 
 <link href="CSS/navbar.css" rel="stylesheet" media="screen">
 <link href="CSS/footer.css" rel="stylesheet" media="screen">
@@ -161,10 +163,16 @@
 						</div>
 						<div class="modal-body">
 						
-							<div class="social-buttons">
-									<a href="#" class="btn btn-fb"><i class="fa fa-facebook" id="fb"></i> Log-in with Facebook</a>
-							</div>
-
+							<div class="social-login" id="social-login">
+								<a class="btn btn-block btn-social btn-facebook" id="fb">
+	   								 <span class="fa fa-facebook"></span> Sign in with Facebook
+	 							 </a>
+	 							 
+	 							 <a class="btn btn-block btn-social btn-google" id="fb">
+	   								 <span class="fa fa-google"></span> Sign in with Google
+	 							 </a>
+	 							 
+ 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label> <input
 									class="form-control" id="EmailLogIn" placeholder="Enter email"
@@ -321,6 +329,7 @@
 
 	<!-- BOOTSTRAP CSS TO ENABLE NAVBAR TO RENDER PROPERLY -->
 	<link rel="stylesheet" href="scripts/bootstrap.min.css">
+	<link rel="stylesheet" href="scripts/bootstrap-social.css">
 
 	<!-- Angular modules-->
 	<script src="scripts/jquery-3.1.1.min.js"></script>
