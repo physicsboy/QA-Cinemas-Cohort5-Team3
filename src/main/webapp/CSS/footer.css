@@ -1,21 +1,9 @@
 @CHARSET "UTF-8";
 
-
-#wrap{
-	min-height: 100%;
-	/* min-width: 800px; */
-}
-html, body {
-	height: 100%;
-	
-}
-#view {
-	overflow:auto;
-	padding-bottom: 356px;
-}  /* must be same height as the footer */
-
 footer{
-	background: #1C1C1C;
+	padding-top: 15px;
+	background-image: linear-gradient(#1C1C1C, black 150%);
+	/* background: #1C1C1C; */
 	color: #F6F6F6; /* copyright text color*/	
  	/* overflow: hidden; */
 	
@@ -23,13 +11,14 @@ footer{
 	margin-top: -356px; /* negative value of footer height */
 	height: 356px;
 	clear:both;
+
+}
+
+
+#foot-top{
 	
+   border-top: 1px solid black;
 }
-
-#foot-hr{
-	display: none;
-}
-
 
 #foot-buttons{
 	border-bottom: 1px;
@@ -54,7 +43,7 @@ footer{
 }
 
 .social-media a:hover, .social-media a:focus{
-	background-color: #1C1C1C;
+	background-color: #0c0c0c;
 	color: #F6F6F6;
 }
 
