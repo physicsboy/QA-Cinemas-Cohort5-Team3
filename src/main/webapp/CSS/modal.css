@@ -92,8 +92,15 @@
 /* ///////////////////////////// LOG IN FORM SPECIFIC  ///////////////////////////// */
 
 /* FORGOTTEN PASSWORD TEXT */
-.modal-dialog .text-right a {
+#forgot {
+		font-weight: normal;
+	float: right;
+	padding-right: 0px;
+}
+/* FORGOTTEN PASSWORD TEXT COLOUR */
+.form-group .text-right a{
 	color: #F6F6F6;
+	cursor: pointer;
 }
 
 /* [WORKS] CLOSE BUTTON IN FOOTER */
@@ -128,6 +135,11 @@
 /* [DOESN'T WORK] TO CHANGE LOG-IN BUTTON CLICK COLOUR */
 .modal-footer .btn-primary:active { 
 	background: white;
+}
+
+#social-hr{
+	margin: 15px;
+	margin-top: 20px;
 }
 
 #social-login{
