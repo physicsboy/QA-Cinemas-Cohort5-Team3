@@ -1,4 +1,4 @@
-<!--<link rel="stylesheet" url="Seating.css" media="screen">-->
+<link rel="stylesheet" url="Seating.css" media="screen">
 <h1>
     Please select your seat
 </h1>
@@ -24,6 +24,10 @@
                 ng-options="showing.id for showing in showingCtrl.showings "     >
         </select>
     </div>
+
+
+
+
     <div class="table-container" id="seats" style="width:800px">
                 <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:showing.screen.block.colCount">
                     </br>
