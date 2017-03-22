@@ -18,6 +18,8 @@
                     templateUrl : "app/feature/booking/get/get-booking.html"
                 }).state("getseats",{url : "/getseats",
                     templateUrl : "app/feature/bookingSeats/Seating.html"
+                }).state("editseats",{url : "/editseats",
+                    templateUrl : "app/feature/bookingSeats/SeatingEditor.html"
                 }).state("addbooking",{url : "/addbooking",
                     templateUrl : "app/feature/booking/add/add-booking.html"
                 }).state("deletebooking",{url : "/deletebooking",
