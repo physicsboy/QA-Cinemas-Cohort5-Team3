@@ -48,40 +48,13 @@ public class BlockEndpoint {
 	
 	
 	
-	@Path("/json/increase/column/{id}/{size}")
-	@PUT
-	@Produces({ "application/json" })
-	public String increaseColCount(@PathParam("size")int increase, @PathParam("id")Long block) {
-		
-		return service.increaseColCount(block, increase);
-	}
 	
-	@Path("/json/decrease/column/{id}/{size}")
-	@PUT
-	@Produces({ "application/json" })
-	public String decreaseColCount(@PathParam("size")int decrease,  @PathParam("id")Long block) {
-		return service.decreaseColCount(block,decrease);
-	}
-	
-	@Path("/json/increase/row/{id}/{size}")
-	@PUT
-	@Produces({ "application/json" })
-	public String increaseRowCount(@PathParam("size")int increase,@PathParam("id")Long block) {
-		return service.increaseRowCount(block,increase);
-	}
-	
-	@Path("/json/decrease/row/{id}/{size}")
-	@PUT
-	@Produces({ "application/json" })
-	public String decreaseRowCount(@PathParam("size")int decrease, @PathParam("id")Long block) {
-		return service.decreaseRowCount(block, decrease);
-	}
 	
 	@Path("/json/increase/startColumn/{id}/{size}")
 	@PUT
 	@Produces({ "application/json" })
 	public String increaseStatingCol(@PathParam("size")int increase, @PathParam("id")Long block) {
-		return service.increaseStatingCol(block, increase);
+		return service.increaseStartingCol(block, increase);
 	}
 	
 	@Path("/json/decrease/startColumn/{id}/{size}")
