@@ -3,65 +3,49 @@
     <div class="container-fluid">
         <div class=row>
 
-            <div class="col-xs-12 col-sm-3 col-md-3"></div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-6 movie-poster">
                 <div class="movie-poster" ng-repeat="poster in movieCtrl.movies.media | filter:{type:'POSTER'}">
                     <img src='{{poster.url}}' class="img-responsive">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
+            <!--Movie information-->
+            <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="Logo"><h2> {{movieCtrl.movies.title}}</h2></div>
-                <div class="Sypnosis">{{movieCtrl.movies.description}}</div>
-                <div class="Cast">Cast: {{movieCtrl.movies.cast}}</div>
-                <div class="MovieLength">Length: {{movieCtrl.movies.length}}</div>
-                <div class="Year">Release Date: {{movieCtrl.movies.year}}</div>
+                <div class="Sypnosis"><br>{{movieCtrl.movies.description}}</div>
+                <div class="Cast"><h2>Cast:</h2> {{movieCtrl.movies.cast}}</div>
+                <div class="MovieLength"><h2>Length:</h2> {{movieCtrl.movies.length}}</div>
+                <div class="Year"><h2>Release Date:</h2> {{movieCtrl.movies.year}}</div>
                 <div><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer">
                     Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
                                   height="25px"/> </a>
                 </div>
-
-                <div>
-                    <h2> Showings </h2>
-                </div>
-                <br/>
-
-                <div ui-sref="payment({showingId:{{showing.id}}})" class="showingBox"
-                     ng-repeat="showing in movieCtrl.showings">
-                    <div class="floating-box">
-                        <h5>{{showing.dateShowing | date:' EEE '}}</h5>
-                        <h5>{{showing.dateShowing | date:'HH:mm '}}</h5>
-
-                    </div>
-                </div>
-                <div class="after-box"></div>
             </div>
-
-            <div>
-                <!--<div class="table-responsive">-->
-                <!--<table class="table-striped">-->
-                <!--<tr ng-repeat="day in movieCtrl.days()">-->
-                <!--<tr>-->
-                <!--<th><h5>Day: </h5></th>-->
-                <!--<th><h5>Time: </h5></th>-->
-                <!--</tr>-->
-
-
-                <!--<tr ng-repeat="showing in movieCtrl.showings">-->
-                <!--<td ui-sref="payment({showingId:{{showing.id}}})"><h5>{{showing.dateShowing |-->
-                <!--date:'dd/MM' }}</h5></td>-->
-                <!--<td>-->
-                <!--<h5><p>{{showing.dateShowing | date:' EEE '}}</p></h5>-->
-                <!--</td>-->
-                <!--<td><h5>{{showing.dateShowing | date:'HH:mm '}}</h5></td>-->
-                <!--</tr>-->
-                <!--</table>-->
-                <!--</div>-->
-            </div>
-
-            <div class="col-xs-12 col-sm-3 col-md-3"></div>
         </div>
+        <div class=row>
+                <!--Showings-->
+                <div class ="col-sm-12 col-md-12">
+                    <div>
+                        <h2> Showings </h2>
+                    </div>
+                    <br/>
+
+                    <div ui-sref="payment({showingId:{{showing.id}}})" class="showingBox"
+                         ng-repeat="showing in movieCtrl.showings">
+                        <div class="floating-box">
+                            <h5>{{showing.dateShowing | date:' EEE '}}</h5>
+                            <h5>{{showing.dateShowing | date: 'd MMM'}}</h5>
+                            <h5>{{showing.dateShowing | date:'HH:mm '}}</h5>
+
+                        </div>
+                    </div>
+                    <div class="after-box"></div>
+                </div>
+
+        </div>
+                <!--<div class="col-xs-12 col-sm-3 col-md-3"></div>-->
 
 
+        <!--Trailer-->
         <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
              ng-controller="getMediaController as mediaCtrl">
             <div class="modal-dialog">
@@ -105,8 +89,14 @@
     });
 </script>
 
-
+<!--CSS, this should not be here though-->
 <style>
+
+    .movie-poster{
+        max-width:400px;
+        display: table-cell;
+        vertical-align: middle;
+    }
 
     #trailerModal .modal-dialog {
         width: 70%;
@@ -149,8 +139,8 @@
     .floating-box {
         text-align: center;
         float: left;
-        width: 100px;
-        height: 75px;
+        width: 125px;
+        height: 100px;
         margin: 3px;
         border: 1px solid #9198a3;
         overflow: hidden;
