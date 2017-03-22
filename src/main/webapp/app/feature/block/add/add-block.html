@@ -1,0 +1,17 @@
+<div ng-controller="addBlockController as ctrl">
+					
+    <form role="form">
+		<script type= "text/javascript"></script>
+		
+        <input id="colCount" placeholder="colCount" ng-model="block.colCount"></input>
+        <input id="rowCount" placeholder="rowCount" ng-model="block.rowCount"></input>
+        <input id="xPosition" placeholder="xPosition" ng-model="block.xPosition"></input>
+        <input id="yPosition" placeholder="yPosition" ng-model="block.yPosition"></input>
+        <input id="angle" placeholder="angle" ng-model="block.angle"></input>
+        <input id="startingRow" placeholder="startingRow" ng-model="block.startingRow"></input>
+        <input id="startingCol" placeholder="startingCol" ng-model="block.startingCol"></input>
+        <button type="submit" ng-click="ctrl.createScreen(screen)">Create Screen</button>
+          
+
+    </form>
+</div>
