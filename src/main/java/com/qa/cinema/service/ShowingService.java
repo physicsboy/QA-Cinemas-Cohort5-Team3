@@ -15,4 +15,6 @@ public interface ShowingService {
 	String getShowingByMovie(Long movieID);
 	
 	String updateShowing(Long showingId, String showing);
+	
+	String getShowingsBetweenTimes(Long time1, Long time2);
 }
