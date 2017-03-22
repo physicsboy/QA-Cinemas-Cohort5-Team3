@@ -40,8 +40,6 @@ body {
 
 #view{
     opacity:1;
-   
-    
 }
 
 /* PANEL SETTINGS */
@@ -52,9 +50,7 @@ body {
 	width: 70%;
 	color: white;
 	margin-left: auto;
-	margin-right: auto;
-
-	
+	margin-right: auto;	
 }
 
 /* CSS FOR USING A MOVIE AS A FULL SCREEN BACKGROUND */
@@ -71,4 +67,16 @@ video {
  	background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
   	background-size: cover;
   	transition: 1s opacity;
+}
+
+.table{
+	background-color: grey;
+}
+.table-hover>tbody>tr>td:hover, .table-hover>tbody>tr>td:hover{
+	background-color: blue!important;
+
+}
+
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
+	background-color: grey;
 }

@@ -1,26 +1,38 @@
 <div ng-controller="addShowingController as showingCtrl">
     <div ng-controller="getMovieController as movieCtrl">
 
-        <div>
-            Film:
-            <select ng-model="ChosenMovie"
-                    ng-options="movie.title for movie in movieCtrl.movies">
-            </select>
+        <div class="col-md-6">
+            <div>
+                Film:
+                <select ng-model="chosenMovie"
+                        ng-options="movie.title for movie in movieCtrl.movies">
+                </select>
+            </div>
+
+            <div>
+                Date:
+                <select ng-model="chosenDate"
+                        ng-options="date.value for date in showingCtrl.dates">
+                </select>
+            </div>
+
+
+            <div>
+                Time:
+                <select ng-model="chosenTime"
+                        ng-options="time.value for time in showingCtrl.showTimes">
+                </select>
+            </div>
+
+
+            <div>
+                <Button ng-click="showingCtrl.createShowing(chosenMovie, chosenDate, chosenTime)"> Submit</Button>
+            </div>
         </div>
 
-        <div>
-            Date:
-            <select ng-model="chosenTime"
-                    ng-options="date.value for value in showingCtrl.showTimes">
-            </select>
-        </div>
 
-
-        <div>
-            Time:
-            <select ng-model="chosenDate"
-                    ng-options="time.value for time in showingCtrl.showTimes">
-            </select>
+        <div class="col-md-6" >
+            {{showingCtrl.message}};
         </div>
 
     </div>
