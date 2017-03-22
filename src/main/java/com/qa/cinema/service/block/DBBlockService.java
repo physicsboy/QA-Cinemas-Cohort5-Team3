@@ -14,7 +14,10 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.transaction.Transaction;
 import javax.transaction.Transactional;
 
 import com.qa.cinema.persistence.Block;
@@ -98,224 +101,66 @@ public class DBBlockService implements BlockService {
 	
 	
 	@Override
-	public String increaseColCount(long blockId, int increase) {
-		Block block = em.find(Block.class, blockId);	
-		int colCount = block.getColCount();
-		int startingCol = block.getStartingCol();
-		int rowCount = block.getRowCount();
-		int startingRow = block.getStartingRow();
-	
-		int firstNewRow = (startingRow + rowCount + 1);
-		int lastRowToAdd = firstNewRow + increase;
-		int firstNewCol = (startingCol + colCount + 1);
-		int lastColToAdd = firstNewCol + increase;
-		
-		List<Seat> seats = block.getSeats();
-		for(int newCol = firstNewCol; newCol < lastColToAdd; newCol++){
-			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
-				seats.add(
-					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
-				);
-			}
-		}
-		block.setRowCount(colCount + increase);
-		block.setSeats(seats);
-		em.persist(block);
-		return "{\"message\": \"Column increase accepted\"}";
-	}
-
-	@Override
-	public String increaseRowCount(long blockId, int increase) {
+	public String increaseStartingCol(long blockId, int newMax) {
 		Block block = em.find(Block.class, blockId);
-		int colCount = block.getColCount();
-		int startingCol = block.getStartingCol();
-		int rowCount = block.getRowCount();
-		int startingRow = block.getStartingRow();
-	
-		
-		int firstNewRow = (startingRow + rowCount + 1);
-		int lastRowToAdd = firstNewRow + increase;
-		int firstNewCol = (startingCol + colCount + 1);
-		int lastColToAdd = firstNewCol + increase;
+		int increase = newMax - block.getStartingCol();
 		
 		List<Seat> seats = block.getSeats();
-		for(int newCol = firstNewRow; newCol < lastColToAdd; newCol++){
-			for(int newRow = startingRow; newRow < lastRowToAdd; newRow++){
-				seats.add(
-					new Seat(newCol, (char)newRow, Seat.SeatType.STANDARD)
-				);
-			}
-		}
-		block.setRowCount(rowCount + increase);
-		block.setSeats(seats);
-		em.persist(block);
-		return "{\"message\": \"Row increase accepted\"}";
-	}
-
-	
-	
-	
-	@Override
-	public String decreaseColCount(long blockId, int decrease) {
-		Block block = em.find(Block.class, blockId);	
-		int colCount = block.getColCount();
-		int startingCol = block.getStartingCol();
-		
-		int lastColToRemove = startingCol + colCount - decrease;
-		
-		List<Seat> seats = block.getSeats();
-		for(Seat s: seats){
-			if(s.getColumn() <= lastColToRemove){
-				seats.remove(s);
-			}
-		}
-		block.setRowCount(colCount - decrease);
-		block.setSeats(seats);
-		em.persist(block);
-		return "{\"message\": \"Column decrease accepted\"}";
-	}
-	
-	
-
-	@Override
-	public String decreaseRowCount(long blockId, int decrease) {
-		Block block = em.find(Block.class, blockId);
-		int rowCount = block.getRowCount();
-		int startingRow = block.getStartingRow();
-	
-		int lastRowToRemove = startingRow + rowCount - decrease;
-		
-		List<Seat> seats = block.getSeats();
-		for(Seat s: seats){
-			if(s.getRow() <= lastRowToRemove ){
-				seats.remove(s);
-			}
-		}
-		block.setRowCount(rowCount - decrease);
-		block.setSeats(seats);
-		em.persist(block);
-		return "{\"message\": \"Row decrease accepted\"}";
-	}
-
-	
-	
-	
-	@Override
-	public String increaseStatingCol(long blockId, int increase) {
-		Block block = em.find(Block.class, blockId);
-		if(increase <= 0 ){
-			return "{\"message\": \"Increase must be greater than 0\"}";
-		}
-		
-		int startingCol = block.getStartingCol();
-		int colCount = block.getColCount();
-		int newStartingRow = startingCol -increase;
-	
-		List<Seat> seats = block.getSeats();
-		for(int col = startingCol; col < (startingCol - increase); col--){
 			for(Seat s: seats){
-				if(s.getRow() == col){
-					s.setRow((char)(col + colCount +1));
-				}
+				int newColPosition = s.getColumn() + increase;
+				s.setColumn(newColPosition);
 			}
-		} 
 		block.setSeats(seats);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
 	
-	
-
 	@Override
-	public String increaseStartingRow(long blockId, int increase) {
+	public String decreaseStatingCol(long blockId, int newMin) {
 		Block block = em.find(Block.class, blockId);
-		if(increase <= 0 ){
-			return "{\"message\": \"Increase must be greater than 0\"}";
-		}
-		
-		int startingRow = block.getStartingRow();
-		int rowCount = block.getRowCount();
-		int newEndingRow = startingRow + rowCount + increase;
-		
-		if(newEndingRow > 90 ){
-			return "{\"message\": Final row cannot exceed Z\"\"}";
-		}
+		int decrease = block.getStartingCol() - newMin;
 		
 		List<Seat> seats = block.getSeats();
-		
-		for(int row = startingRow; row > (startingRow + increase); row++){
 			for(Seat s: seats){
-				if(s.getRow() == row){
-					s.setRow((char)(row + rowCount +1));
-				}
+				int newColPosition = s.getColumn() - decrease;
+				s.setColumn(newColPosition);
 			}
-		} 
 		block.setSeats(seats);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
 	
 
-	
-	
-	
 	@Override
-	public String decreaseStartingRow(long blockId, int decrease) {
+	public String increaseStartingRow(long blockId, int newMax) {
 		Block block = em.find(Block.class, blockId);
-		if(decrease <= 0 ){
-			return "{\"message\": \"Decrease must be greater than 0\"}";
-		}
-		int startingRow = block.getStartingRow();
-		int rowCount = block.getRowCount();
-		int newStartingRow = startingRow -decrease;
-		
-		
-		if(newStartingRow < 65 ){
-			return "{\"message\": \"Row can not be less than A\"}";
-		}
+		int increase = newMax - block.getStartingRow();
 		List<Seat> seats = block.getSeats();
-		
-		for(int row = startingRow; row < (startingRow - decrease); row--){
 			for(Seat s: seats){
-				if(s.getRow() == row){
-					s.setRow((char)(row + rowCount +1));
-				}
+				int newRowPosition = s.getRow() + increase;
+				s.setRow((char)(newRowPosition));
 			}
-		} 
 		block.setSeats(seats);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
 	
-
-	
 	
 	@Override
-	public String decreaseStatingCol(long blockId, int decrease) {
+	public String decreaseStartingRow(long blockId, int newMin) {
 		Block block = em.find(Block.class, blockId);
-		if(decrease <= 0 ){
-			return "{\"message\": \"Decrease must be greater than 0\"}";
-		}
-		int startingCol = block.getStartingCol();
-		int colCount = block.getColCount();
-		int newStartingCol = startingCol -decrease;
-		
-		if(newStartingCol < 1 ){
-			return "{\"message\": \"Column cannot be less than 1\"}";
-		}
+		int decrease = block.getStartingRow() - newMin;
 		List<Seat> seats = block.getSeats();
-		
-		for(int col = startingCol; col < (startingCol - decrease); col--){
 			for(Seat s: seats){
-				if(s.getColumn() == col){
-					s.setColumn((col + colCount +1));
-				}
+				int newRowPosition = s.getRow() - decrease;
+				s.setRow((char)(newRowPosition));
 			}
-		} 
 		block.setSeats(seats);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
+	
+	
 	
 	
 	
