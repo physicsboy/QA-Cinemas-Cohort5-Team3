@@ -56,21 +56,40 @@
 					<br>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<label><h2>Media</h2></label> <br>
-				<div ng-repeat="media in ChosenMovie.media">
-					<div class="form-group">
-						<label>Id: {{media.id}}</label> <br> 
-						<input id="media.id" class="form-control" ng-value="media.type"
-							ng-model="movie.media.type" placeholder="POSTER | TRAILER | IMAGE | OFFER">
+
+			<div ng-controller="getMediaController as mediaCtrl">
+				<div class="col-lg-4">
+					<label><h2>Media</h2></label> <br>
+
+					<div ng-repeat="media in ChosenMovie.media">
+						<div class="form-group">
+							<label>Type: </label><br>
+								<label>{{media.type}}</label>
+							<div class="col-xs-12 col-sm-2 col-md-3">
+								<div class="movie-poster">
+									<img src='{{media.url}}' class="img-responsive">
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>Link</label> <br> 
-						<input id="media.id" class="form-control" ng-value="media.url"
-							ng-model="movie.media.url">
-					</div>
+					<!-- 					<div class="form-group"> -->
+					<!-- 						<label>Select media:</label>  -->
+					<!-- 						<select class="form-control" ng-model="ChosenMedia" ng-options="media.id for media in mediaCtrl.mediaList"></select> -->
+					<!-- 					</div> -->
+					<!-- 					<div ng-repeat="medias in ChosenMedia"> -->
+					<!-- 						<div ng-show="ChosenMedia"> -->
+					<!-- 							<div class="form-group"> -->
+					<!-- 								<label>Type: </label> <br> <label>{{medias.type}}</label> -->
+					<!-- 							</div> -->
+					<!-- 														<div ng-controller="getSpecificMovieController as specificMovieCtrl"> -->
+					<!-- 														<div class="movie-poster" ng-repeat="poster in specificMovieCtrl.movie.media | filter:{type:'POSTER'}"> -->
+					<!-- 															<img src='{{poster.url}}' class="img-responsive"> -->
+					<!-- 														</div> -->
+					<!-- 														</div> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+					<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a>
 				</div>
-				<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a>
 			</div>
 		</form>
 	</div>

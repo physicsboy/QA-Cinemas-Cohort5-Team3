@@ -6,27 +6,28 @@
 	var UpdateMovieController = function($state, movieDal) {
 		var vm = this;
 
-		vm.updateMovie = function(updatedValues, selectedMovie) {
-			console.log("This is the value of movie to Update...");
-			console.log(updatedValues);
+		vm.updateMovie = function(updatedMovieValues, selectedMovie) {
+			console.log("These are the user updates request for MOVIES:");
+			console.log(updatedMovieValues);
+			console.log("This is the value of the selected movie:");
 			console.log(selectedMovie);
-
-			console.log("break");
+			console.log(JSON.stringify(selectedMovie));
 
 			angular.forEach(selectedMovie, function(sValue, sKey) {
-				angular.forEach(updatedValues, function(mValue, mKey) {
-					 if (sKey.match(mKey)) {						
-						 selectedMovie[mKey]= mValue;
-					 }
+				angular.forEach(updatedMovieValues, function(mValue, mKey) {
+					if (sKey.match(mKey)) {
+						selectedMovie[mKey] = mValue;
+					}
+
 				})
 			})
-			
+
+			console.log("This is the value of updated movie to update:");
 			console.log(selectedMovie);
 
-			var movieToJson = JSON.stringify(selectedMovie);
-			console.log(movieToJson);
+			console.log(JSON.stringify(selectedMovie));
 
-			movieDal.updateMovie(selectedMovie).then(function(results) {
+			movieDal.updateMovie(selectedMovie.id, selectedMovie).then(function(results) {
 				vm.movieUpdateMessage = results;
 				$state.go('getmovie');
 			}, function(error) {

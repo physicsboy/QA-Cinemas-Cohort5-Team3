@@ -22,7 +22,17 @@
 			});
 		};
 
-
+		vm.getMediaList = function getMediaList() {
+			mediaDal.getMediaList().then(function(results) {
+				vm.mediaList = results;
+			}, function(error) {
+				vm.error = true;
+				vm.errorMessage = error;
+			});
+		};
+		
+		vm.getMediaList();
+		
 	};
 
 	angular.module('movieApp').controller('getMediaController',
