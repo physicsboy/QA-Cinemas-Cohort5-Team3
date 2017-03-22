@@ -1,7 +1,9 @@
-<link rel="stylesheet" url="Seating.css" media="screen">
+<!--<link rel="stylesheet" url="Seating.css" media="screen">-->
 <h1>
     Please select your seat
 </h1>
+
+
 
 <script>
     function trclick() {
@@ -23,9 +25,9 @@
         </select>
     </div>
     <div class="table-container" id="seats" style="width:800px">
-        <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:showing.screen.block.rowCount">
-
-            <table style="width:400px; table-layout: fixed;" class="table  table-bordered" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] | limitTo:block.colCount:block.colCount ">
+                <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:showing.screen.block.colCount">
+                    </br>
+            <table style="width:400px; table-layout: fixed; margin-bottom:0px" class="table  table-bordered table-hover " ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] | limitTo:block.colCount:block.rowCount ">
                 <tr ng-repeat="block in chosenScreen.screen.blocks | limitTo:1:v">
                     <td style="cursor: pointer; text-align: center;" onclick='tdclick(event,this.innerText)'
                         ng-repeat="seat in block.seats | limitTo:block.colCount:block.colCount*i">
@@ -35,6 +37,7 @@
             </table>
 
         </div>
+    </br>
     </div>
 </div>
 
