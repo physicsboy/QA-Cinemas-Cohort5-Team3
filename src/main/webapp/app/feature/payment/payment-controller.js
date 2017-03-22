@@ -7,40 +7,40 @@
                                       bookingDal, ticketDal, showingDal, $scope) {
         var vm = this;
 
-        /*paypal.Button.render({
+        paypal.Button.render({
 
-         env: 'sandbox', // Specify 'sandbox' for the test environment
+            env: 'sandbox', // Specify 'sandbox' for the test environment
 
-         client: {
-         sandbox: 'AVjUbRR4FzoCPScS-Nn76jDt-jsh2J6qCPronyoYWvGvjKogW7bzUk1EhertWzWwYR2pjY7amWqBup08'
-         },
+            client: {
+                sandbox: 'AVjUbRR4FzoCPScS-Nn76jDt-jsh2J6qCPronyoYWvGvjKogW7bzUk1EhertWzWwYR2pjY7amWqBup08'
+            },
 
 
-         payment: function () {
+            payment: function () {
 
-         vm.createBooking(vm.compileBooking());
+                vm.createBooking(vm.compileBooking());
 
-         var env = this.props.env;
-         var client = this.props.client;
+                var env = this.props.env;
+                var client = this.props.client;
 
-         return paypal.rest.payment.create(env, client, {
-         transactions: [
-         {
-         amount: {total: vm.total, currency: 'GBP'} //the total will be changed to logic once the rest of the payment process is implemented
-         }
-         ]
-         });
-         },
+                return paypal.rest.payment.create(env, client, {
+                    transactions: [
+                        {
+                            amount: {total: vm.total, currency: 'GBP'} //the total will be changed to logic once the rest of the payment process is implemented
+                        }
+                    ]
+                });
+            },
 
-         commit: true,
+            commit: true,
 
-         onAuthorize: function (data, actions) {
-         return actions.payment.execute().then(function () {
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
 
-         })
-         }
+                })
+            }
 
-         }, '#paypal-button');*/
+        }, '#paypal-button');
 
         vm.options = [
             {value: 0, name: 0},
@@ -58,7 +58,7 @@
         vm.bookingId = -1;
         vm.showingId = $stateParams.showingId;
         vm.showing = "";
-        vm.showingTitle= "init";
+        vm.showingTitle = "init";
         vm.showingDate = "init";
         vm.showingTime = "init";
 
@@ -82,7 +82,6 @@
         vm.uEVerified = false;
         vm.pEVerified = false;
         vm.nonZeroTickets = false;
-        document.getElementById("paypal-button").style.visibility = "hidden";
         document.getElementById("adultDropDown").style.background = "#9f2a27";
         document.getElementById("childDropDown").style.background = "#9f2a27";
         document.getElementById("consDropDown").style.background = "#9f2a27";
@@ -90,7 +89,6 @@
 
 
         vm.seatId = 173;
-
 
 
         vm.createTicket = function (ticketType) {
@@ -217,13 +215,14 @@
             ;
 
             if (vm.uEVerified && vm.pEVerified && vm.nonZeroTickets) {
-                pay.style.display = "none";
-                pay.classList.add('available');
                 totalTable.classList.add('available');
+                setTimeout(pay.style.visibility = "visible",250);
+                pay.classList.add('available');
+
             } else {
-                pay.style.display = "table";
                 pay.classList.remove('available');
-                totalTable.classList.remove('available');
+                pay.style.visibility = "hidden";
+                setTimeout(totalTable.classList.remove('available'),250);
             }
 
         };

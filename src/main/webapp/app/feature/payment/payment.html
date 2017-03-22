@@ -4,10 +4,8 @@
         <h1>Booking Tickets for</h1>
         <table class="table">
             <tr><th>Film</th><th>Date</th><th>Time</th></tr>
-            <tr><td>{{payCtrl.showingTitle}}</td><td>{{showing.dateShowing | date:' EEE dd/MMMM '}}</td><td>{{showing.dateShowing | date:'HH:mm '}}</td></tr>
+            <tr><td>{{payCtrl.showingTitle}}</td><td>{{payCtrl.showing.dateShowing | date:' EEEE dd/MM '}}</td><td>{{payCtrl.showing.dateShowing | date:'HH:mm '}}</td></tr>
         </table>
-        <h5>{{showing.dateShowing | date:' EEE '}}</h5>
-        <h5>{{showing.dateShowing | date:'HH:mm '}}</h5>
     </div>
 
     <form name="paymentForm" class="softwhite">
