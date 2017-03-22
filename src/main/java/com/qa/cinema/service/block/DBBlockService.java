@@ -42,19 +42,13 @@ public class DBBlockService implements BlockService {
 	
 	
 	@Override
-	public Block getBlockobj(long blockId) {
-		return em.find(Block.class, blockId);
-	}
-	
-	
-	@Override
 	public String getBlock(long blockId) {
 		Block b = em.find(Block.class, blockId);
 		return util.getJSONForObject(b);
 	}
 
 	@Override
-	public String getAllBlocks(int screenId) {
+	public String getBlocksForScreen(int screenId) {
 		Collection<Block> blocks =
 				em.find(Screen.class, screenId).getBlocks();
 		return util.getJSONForObject(blocks);
@@ -111,12 +105,13 @@ public class DBBlockService implements BlockService {
 				s.setColumn(newColPosition);
 			}
 		block.setSeats(seats);
+		block.setColCount(newMax);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
 	
 	@Override
-	public String decreaseStatingCol(long blockId, int newMin) {
+	public String decreaseStartingCol(long blockId, int newMin) {
 		Block block = em.find(Block.class, blockId);
 		int decrease = block.getStartingCol() - newMin;
 		
@@ -126,6 +121,7 @@ public class DBBlockService implements BlockService {
 				s.setColumn(newColPosition);
 			}
 		block.setSeats(seats);
+		block.setColCount(newMin);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
@@ -141,6 +137,7 @@ public class DBBlockService implements BlockService {
 				s.setRow((char)(newRowPosition));
 			}
 		block.setSeats(seats);
+		block.setStartingRow((char)newMax);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}
@@ -156,6 +153,7 @@ public class DBBlockService implements BlockService {
 				s.setRow((char)(newRowPosition));
 			}
 		block.setSeats(seats);
+		block.setStartingRow((char)newMin);
 		em.persist(block);
 		return UPDATE_SUCCESS;
 	}

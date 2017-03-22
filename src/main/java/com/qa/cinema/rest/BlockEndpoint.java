@@ -18,25 +18,28 @@ import com.qa.cinema.service.block.BlockService;
 
 
 
-@Path("/Block")
+@Path("/block")
 public class BlockEndpoint {
 	
 	@Inject
 	private BlockService service;
 
-	@Path("/json")
-	@GET
-	@Produces({"application/json"})
-	public String getAllBlocks(int screenId) {
-		return service.getAllBlocks(screenId);
-	}
+	
 	
 	@Path("/json/{id}")
 	@GET
 	@Produces({"application/json"})
-	public String getBlock(@PathParam("id") int id) {
-		return service.getBlock(id);
+	public String getBlock(@PathParam("id") int blockId) {
+		return service.getBlock(blockId);
 	}
+	
+	@Path("/json/screen/{id}")
+	@GET
+	@Produces({"application/json"})
+	public String getBlocksForScreen(@PathParam("id")int screenId) {
+		return service.getBlocksForScreen(screenId);
+	}
+	
 	
 	
 	@Path("/json")
@@ -60,8 +63,8 @@ public class BlockEndpoint {
 	@Path("/json/decrease/startColumn/{id}/{size}")
 	@PUT
 	@Produces({ "application/json" })
-	public String decreaseStatingCol(@PathParam("size")int decrease,@PathParam("id")Long block) {
-		return service.decreaseStatingCol(block,decrease);
+	public String decreaseStartingCol(@PathParam("size")int decrease,@PathParam("id")Long block) {
+		return service.decreaseStartingCol(block,decrease);
 	}
 	
 	@Path("/json/increase/startRow/{id}/{size}")
@@ -86,7 +89,7 @@ public class BlockEndpoint {
 	@Path("/json/update/{id}/{x}/{y}/{a} ")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAngle(@PathParam("id")Long block, @PathParam("x")int x,@PathParam("y")int y,@PathParam("a")int a) {
+	public String updateBlock(@PathParam("id")Long block, @PathParam("x")int x,@PathParam("y")int y,@PathParam("a")int a) {
 		return service.updateBlock(block, x,y,a);
 	}
 	
