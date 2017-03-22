@@ -12,6 +12,8 @@
 
                 $stateProvider.state("home",{url : "/app/feature/movie/get/get-movie.html",
                     templateUrl : "index.html"
+                }).state("adminArea",{url : "/adminArea.html",
+                    templateUrl : "adminArea.html"
                 }).state("getbooking",{url : "/getbooking",
                     templateUrl : "app/feature/booking/get/get-booking.html"
                 }).state("getseats",{url : "/getseats",
