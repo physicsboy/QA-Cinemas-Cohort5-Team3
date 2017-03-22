@@ -129,3 +129,13 @@
 .modal-footer .btn-primary:active { 
 	background: white;
 }
+
+#social-login{
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 15px;
+}
+#social-login a{
+	font-weight: bold;
+	margin-bottom: 15px;
+}

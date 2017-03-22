@@ -85,6 +85,6 @@ public class SeatArquillianTest {
 		
 		
 		
-		assertEquals(Seat.SeatType.LUXURY, em.find(Seat.class, 1055L).getType());
+		assertEquals(Seat.SeatType.LUXURY, em.find(Seat.class, 100L).getType());
 	}
 }
