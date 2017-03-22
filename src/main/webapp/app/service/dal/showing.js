@@ -22,6 +22,10 @@
                 return dal.http.GET("rest/showing/json/" + id);
         };
 
+        this.getShowingsBetweenTimes = function(time1, time2){
+            return dal.http.GET("rest/showing/json/times/" + time1 + "/" + time2);
+        };
+
         this.saveShowing = function (showingToSave) {
             return dal.http.POST("rest/showing/json/", showingToSave);
         };

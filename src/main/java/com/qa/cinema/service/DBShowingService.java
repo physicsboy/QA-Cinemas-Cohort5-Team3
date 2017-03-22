@@ -1,5 +1,6 @@
 package com.qa.cinema.service;
 
+import java.util.Calendar;
 import java.util.Collection;
 
 import javax.ejb.Stateless;
@@ -48,7 +49,8 @@ public class DBShowingService implements ShowingService {
 	
 	@Override
 	public String getShowingByMovie(Long movieID){
-		Query query = manager.createQuery("SELECT s FROM Showing s WHERE movie_Id =" + movieID);
+		Calendar now = Calendar.getInstance();
+		Query query = manager.createQuery("SELECT s FROM Showing s WHERE s.movie.id =" + movieID + " AND s.dateShowing >= " + now.getTimeInMillis());
 		@SuppressWarnings("unchecked")
 		Collection<Showing> showing = (Collection<Showing>) query.getResultList();
 		return util.getJSONForObject(showing);
@@ -60,6 +62,17 @@ public class DBShowingService implements ShowingService {
 		manager.persist(newShowing);
 		return  "{\"message\": \"showing sucessfully added\"}";
 	}
+	
+	@Override
+	public String getShowingsBetweenTimes(Long time1, Long time2) {
+		Query query = manager.createQuery("SELECT s FROM Showing s WHERE s.dateShowing >=" + time1 +
+				" AND s.dateShowing <= " + time2 );
+		@SuppressWarnings("unchecked")
+		Collection<Showing> showing = (Collection<Showing>) query.getResultList();
+		return util.getJSONForObject(showing);
+	}
+	
+	
 	
 	@Override
 	public String deleteShowing(Long id){
@@ -85,7 +98,5 @@ public class DBShowingService implements ShowingService {
 	private Showing findShowing(Long id) {
 		return manager.find(Showing.class, id);
 	}
-
-
 	
 }

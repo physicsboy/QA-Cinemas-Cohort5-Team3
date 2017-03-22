@@ -47,6 +47,13 @@ public class ShowingEndPoint {
 		return service.getShowingByMovie(movieId);
 	}
 	
+	@Path("/json/times/{time1}/{time2}")
+	@GET
+	@Produces({"application/json"})
+	public String getShowingForMovieBetweenTimes(@PathParam("time1") Long time1, @PathParam("time2") Long time2){
+		return service.getShowingsBetweenTimes( time1, time2);
+	}
+	
 	@Path("/json")
 	@POST
 	@Produces({"application/json"})
