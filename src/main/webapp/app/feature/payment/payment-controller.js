@@ -6,6 +6,42 @@
     var PaymentController = function ($stateParams, $state, movieDal,
                                       bookingDal, ticketDal, showingDal, $scope) {
         var vm = this;
+
+        paypal.Button.render({
+
+            env: 'sandbox', // Specify 'sandbox' for the test environment
+
+            client: {
+                sandbox: 'AVjUbRR4FzoCPScS-Nn76jDt-jsh2J6qCPronyoYWvGvjKogW7bzUk1EhertWzWwYR2pjY7amWqBup08'
+            },
+
+
+            payment: function () {
+
+                vm.createBooking(vm.compileBooking());
+
+                var env = this.props.env;
+                var client = this.props.client;
+
+                return paypal.rest.payment.create(env, client, {
+                    transactions: [
+                        {
+                            amount: {total: vm.total, currency: 'GBP'} //the total will be changed to logic once the rest of the payment process is implemented
+                        }
+                    ]
+                });
+            },
+
+            commit: true,
+
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
+
+                })
+            }
+
+        }, '#paypal-button');
+
         vm.options = [
             {value: 0, name: 0},
             {value: 1, name: 1},
@@ -35,6 +71,14 @@
             paymentEmail: ""
         };
 
+        vm.uEVerified = false;
+        vm.pEVerified = false;
+        vm.nonZeroTickets = false;
+        document.getElementById("paypal-button").style.visibility = "hidden";
+        document.getElementById("adultDropDown").style.background = "#ff7979";
+        document.getElementById("childDropDown").style.background = "#ff7979";
+        document.getElementById("consDropDown").style.background = "#ff7979";
+        document.getElementById("premDropDown").style.background = "#ff7979";
 
         vm.bookingId = -1;
         vm.seatId = 173;
@@ -104,30 +148,85 @@
 
         vm.update = function (type, newVal) {
             if (type === "adult") {
-                vm.numAdults = newVal.value;
+                vm.numAdults = (Math.round(newVal.value)*100)/100;
             }
             if (type === "child") {
-                vm.numChild = newVal.value;
+                vm.numChild = (Math.round((newVal.value)*100))/100;
             }
             if (type === "cons") {
-                vm.numCons = newVal.value;
+                vm.numCons = (Math.round((newVal.value)*100))/100;
             }
             if (type === "prem") {
-                vm.numPremium = newVal.value;
+                vm.numPremium = (Math.round((newVal.value)*100))/100;
             }
             if (type === "user") {
-                vm.userEmail = newVal.value;
+                console.log(newVal);
+                vm.userEmail = newVal;
             }
             if (type === "paypal") {
-                vm.paymentEmail = newVal.value;
+                console.log(newVal);
+                vm.paymentEmail = newVal;
             }
-            vm.calcTotal()
+            vm.calcTotal();
+            vm.checkForm();
         };
 
         vm.calcTotal = function () {
             vm.total = (Math.round((vm.numAdults * 9.99 + vm.numChild * 5.99 + vm.numCons * 7.49 + vm.numPremium * 12.99)*100))/100
 
         };
+
+        vm.checkForm = function(){
+            vm.uEVerified = validateEmail(vm.userEmail);
+            vm.pEVerified = validateEmail(vm.paymentEmail);
+            vm.totalTickets = vm.numCons+vm.numPremium+vm.numAdults+vm.numChild;
+            if (vm.totalTickets != 0){
+                vm.nonZeroTickets = true;
+            } else{
+                vm.nonZeroTickets = false;
+            }
+            if (vm.uEVerified){
+                document.getElementById("uEVerified").src="_images/tick.png";
+                document.getElementById("user").style.background = "#9DFFAA";
+            } else{
+                document.getElementById("uEVerified").src="_images/cross.png";
+                document.getElementById("user").style.background = "#ff7979";
+            };
+            if (vm.pEVerified){
+                document.getElementById("pEVerified").src="_images/tick.png";
+                document.getElementById("paypal").style.background = "#9DFFAA";
+            } else{
+                document.getElementById("pEVerified").src="_images/cross.png";
+                document.getElementById("paypal").style.background = "#ff7979";
+            };
+            if (vm.nonZeroTickets){
+                document.getElementById("nonZeroTickets").src="_images/tick.png";
+                document.getElementById("adultDropDown").style.background = "#9DFFAA";
+                document.getElementById("childDropDown").style.background = "#9DFFAA";
+                document.getElementById("consDropDown").style.background = "#9DFFAA";
+                document.getElementById("premDropDown").style.background = "#9DFFAA";
+            } else{
+                document.getElementById("nonZeroTickets").src="_images/cross.png";
+                document.getElementById("adultDropDown").style.background = "#ff7979";
+                document.getElementById("childDropDown").style.background = "#ff7979";
+                document.getElementById("consDropDown").style.background = "#ff7979";
+                document.getElementById("premDropDown").style.background = "#ff7979";
+            };
+
+            if (vm.uEVerified&&vm.pEVerified&&vm.nonZeroTickets){
+                document.getElementById("paypal-button").style.visibility = "visible";
+
+            }else{
+                document.getElementById("paypal-button").style.visibility = "hidden";
+            }
+
+        };
+
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            console.log(re.test(email));
+            return re.test(email);
+        }
 
         vm.compileBooking = function () {
             vm.theBooking = {
@@ -137,7 +236,6 @@
                 prem: vm.numPremium,
                 paymentEmail: vm.paymentEmail,
                 userEmail: vm.userEmail
-
             };
             return vm.theBooking;
         }

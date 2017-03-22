@@ -54,6 +54,7 @@ INSERT INTO seat values (17, 3, 'A', 1, 1);
 INSERT INTO seat values (18, 3, 'B', 1, 1);
 INSERT INTO seat values (19, 3, 'C', 1, 1);
 INSERT INTO seat values (20, 3, 'D', 1, 1);
+
 INSERT INTO seat values (21, 3, 'E', 1, 1);
 INSERT INTO seat values (22, 3, 'F', 1, 1);
 INSERT INTO seat values (23, 3, 'G', 1, 1);
@@ -258,8 +259,6 @@ INSERT INTO seat values (311, 5, 'D', 2, 7);
 INSERT INTO seat values (312, 6, 'D', 2, 7);
 INSERT INTO seat values (313, 3, 'D', 2, 7);
 INSERT INTO seat values (314, 4, 'D', 2, 7);
-
-
 
 INSERT INTO media VALUES (1, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU2NTA0NDM0MF5BMl5BanBnXkFtZTgwMDMzMTQzMTI@._V1_SY1000_CR0,0,666,1000_AL_.jpg', 1);
 INSERT INTO media VALUES (2, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 2);
