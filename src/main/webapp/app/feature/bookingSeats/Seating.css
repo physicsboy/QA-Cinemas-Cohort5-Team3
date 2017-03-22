@@ -1,23 +1,15 @@
-table {
-    border: 1px solid black;
-    padding: 0.5em;
-}
+@CHARSET "UTF-8";
 
 td {
-    padding: 1em;
-    border: 2px solid gray;
+    background-color: #fff;
+ cursor: pointer;
 }
 
 td:hover {
-    cursor: default;
-    background-color: gray;
+    background-color: #eee;
 }
+/*
+#seats{
+    width: 50%;
+}*/
 
-.active {
-    border: 2px solid lightgreen;
-    border-radius: 5px;
-}
-
-.booked {
-    background-color: lightgray;
-}
