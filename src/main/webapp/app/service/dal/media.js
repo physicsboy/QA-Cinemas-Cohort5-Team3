@@ -12,6 +12,10 @@
             return dal.http.GET("rest/media/json/" + filmId + "/" + type)
         };
 
+        this.getMediaList = function () {
+        	return dal.http.GET("rest/media/json/")
+        };
+
         this.saveMedia = function (mediaToSave) {
             return dal.http.POST("rest/media/json/" + mediaToSave.movieID)
         };
