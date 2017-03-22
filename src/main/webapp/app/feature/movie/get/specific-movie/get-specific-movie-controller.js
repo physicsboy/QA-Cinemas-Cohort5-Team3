@@ -22,26 +22,20 @@
                 vm.errorMessage = error;
             });
         };
+        vm.getShowingByMovie();
 
-        vm.getShowingByMovie()
+        vm.days = function () {
+            vm.getDays = [
+                'Sun',
+                'Mon',
+                'Tue',
+                'Wed',
+                'Thu',
+                'Fri',
+                'Sat'
+            ];
+        };
 
-
-        // vm.getDay = function () {
-        //     showingDal.getShowingByMovie($stateParams.movieId).then(function (results) {
-        //
-        //         var timestamp = results.dateShowing
-        //         var a = new Date(timestamp*1000);
-        //         var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        //         var dayOfWeek = days[a.getDay()]
-        //
-        //         vm.showings = dayOfWeek;
-        //         // console.log(dayOfWeek)
-        //     }, function (error) {
-        //         vm.error = true;
-        //         vm.errorMessage = error;
-        //     });
-        // };
-        // vm.getDay()
     };
     angular.module('movieApp').controller('getSpecificMovieController', ['movieDal', 'showingDal', '$stateParams', GetSpecificMovieController]);
 }());

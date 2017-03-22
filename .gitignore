@@ -8,4 +8,5 @@ target
 .sonar
 .idea/*
 .src/main/webapp/index.html
+.deploy.bat
 
