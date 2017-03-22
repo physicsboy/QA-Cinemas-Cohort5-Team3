@@ -56,6 +56,9 @@
 					<br>
 				</div>
 				<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a>
+				<div ng-controller="deleteMovieController as deleteCtrl">		
+					<a class="btn btn-primary" ng-click="deleteCtrl.deleteMovie(ChosenMovie)">Delete movie</a>
+				</div>
 				<br><br>
 			</div>
 
