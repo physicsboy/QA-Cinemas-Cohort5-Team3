@@ -3,8 +3,16 @@
     <div class="softwhite">
         <h1>Booking Tickets for</h1>
         <table class="table">
-            <tr><th>Film</th><th>Date</th><th>Time</th></tr>
-            <tr><td>{{payCtrl.showingTitle}}</td><td>{{payCtrl.showing.dateShowing | date:' EEEE dd/MM '}}</td><td>{{payCtrl.showing.dateShowing | date:'HH:mm '}}</td></tr>
+            <tr>
+                <th>Film</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>{{payCtrl.showingTitle}}</td>
+                <td>{{payCtrl.showing.dateShowing | date:' EEEE dd/MM '}}</td>
+                <td>{{payCtrl.showing.dateShowing | date:'HH:mm '}}</td>
+            </tr>
         </table>
     </div>
 
@@ -57,9 +65,10 @@
                 <td><img id="nonZeroTickets" src="_images/cross.png" width="80"></td>
             </tr>
         </table>
-        <div class = "gobutton softwhite" id="paypal-button" style="float:right">
+        <div class="gobutton softwhite" id="paypal-button" style="float:right">
             <div style="font-weight: bold">
-                Final Price : {{payCtrl.total}}
+                Final Price : &pound;{{payCtrl.total}}
+
             </div>
         </div>
 
@@ -98,12 +107,10 @@
     </div>
 
 
-
-
 </div>
 <style>
 
-    .gobutton{
+    .gobutton {
         width: 1px;
         height: 1px;
         visibility: hidden;
@@ -114,32 +121,32 @@
         opacity: 0;
     }
 
-    .gobutton.available{
+    .gobutton.available {
 
         -webkit-transition: 1s;
         -moz-transition: 1s;
         -o-transition: 1s;
         transition: 1s;
-        height:130px !important;
-        width:20% !important;
+        height: 154px !important;
+        width: 20% !important;
         opacity: 1 !important;
     }
 
-    #totalTable{
+    #totalTable {
         -webkit-transition: 1s;
         -moz-transition: 1s;
         -o-transition: 1s;
         transition: 1s;
-        width:100%
+        width: 100%
 
     }
 
-    #totalTable.available{
+    #totalTable.available {
         -webkit-transition: 1s;
         -moz-transition: 1s;
         -o-transition: 1s;
         transition: 1s;
-        width:79% !important;
+        width: 79% !important;
     }
 
     #paypal {
@@ -160,17 +167,18 @@
         background: rgba(255, 255, 255, 0.4);
         border-radius: 10px;
         padding: 10px 10px;
-        margin: 5px 0;
+        margin: 5px 0 !important;
     }
 
-    .money{
+    .money {
         text-align: right;
         font-size: 1.2em;
         font-weight: bold;
         border-left: 1px solid #ffffff;
         width: 20%
     }
-    #total{
+
+    #total {
         font-weight: bolder;
         font-size: 1.6em;
     }
@@ -180,8 +188,9 @@
         clear: both;
         display: table;
     }
-    .table{
-        margin :0;
+
+    .table {
+        border-collapse: separate;
 
     }
 </style>

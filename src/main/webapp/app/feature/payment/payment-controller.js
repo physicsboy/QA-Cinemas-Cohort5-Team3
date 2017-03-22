@@ -36,7 +36,7 @@
 
             onAuthorize: function (data, actions) {
                 return actions.payment.execute().then(function () {
-
+                    $state.go("home");
                 })
             }
 
