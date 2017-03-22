@@ -68,3 +68,15 @@ video {
   	background-size: cover;
   	transition: 1s opacity;
 }
+
+.table{
+	background-color: grey;
+}
+.table-hover>tbody>tr>td:hover, .table-hover>tbody>tr>td:hover{
+	background-color: blue!important;
+
+}
+
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
+	background-color: grey;
+}
