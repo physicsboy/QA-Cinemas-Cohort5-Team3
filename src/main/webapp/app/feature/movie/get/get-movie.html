@@ -1,48 +1,9 @@
 <div ng-controller="getMovieController as ctrlMov">
 
-    <br/> <br/>
-
-    <video playsinline autoplay muted loop id="bgvid">
-        <source src="video.mp4" type="video/mp4">
-    </video>
-
-    <div class=container>
-    
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            Indicators
-            <ol class="carousel-indicators" ng-repeat="media in ctrlMed.media">
-                <li data-target="#myCarousel" data-slide-to="$index"
-                    ng-class="{'active': $index == 0}"></li>
-            </ol>
-
-            Wrapper for slides
-            <div class="carousel-inner" role="listbox">
-                <div class="item" ng-class="{active:!$index}"
-                     ng-repeat="media in ctrlMed.media">
-                    <img ng-src='{{movie.posterURL}}'
-                         style="width: 200px; height: 295px;"/>
-                </div>
-            </div>
-
-            Left and right controls
-            <a class="left carousel-control" href="#myCarousel" role="button"
-               data-slide="prev"> <span
-                    class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a> <a class="right carousel-control" href="#myCarousel" role="button"
-                    data-slide="next"> <span
-                class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        </div>
-    </div>
-
     <div class=container>
         <div class="ourMovies">
             <h1>Our Movies</h1>
-        </div>
-
-        <div class="ourMovies">
+        <hr>
             <h2>Out Now</h2>
         </div>
 
