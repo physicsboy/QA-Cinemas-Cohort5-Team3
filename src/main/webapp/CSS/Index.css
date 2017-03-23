@@ -1,5 +1,12 @@
 @CHARSET "UTF-8";
 
+#inner{
+
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+
 #wrap{
 	min-height: 100%;
 }
