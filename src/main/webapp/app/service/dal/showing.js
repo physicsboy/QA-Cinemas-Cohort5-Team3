@@ -35,6 +35,7 @@
         };
 
         this.deleteShowing = function (showingToDelete) {
+            console.log(showingToDelete.id);
             return dal.http.DELETE("rest/showing/json/", showingToDelete);
         }
     }
