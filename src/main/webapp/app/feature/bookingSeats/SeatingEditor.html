@@ -1,26 +1,40 @@
 <link rel="stylesheet" url="Seating.css" media="screen">
 <h1>
-    Please select your seat
+    Seating Editor
 </h1>
 
 <script>
     function trclick() {
         console.log('tr clicked')
-    }
-    ;
+    };
 
     function tdclick(event, seat) {
         console.log('td clicked', seat);
         event.stopPropagation()
-    }
-    ;
+    };
 </script>
 
 <div ng-controller="getShowingController as showingCtrl" class="container-fluid">
     <div>
+    	<ul class="nav navbar-nav">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown">About Us <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li ng-controller="deleteBlockController"><a>Delete block</a></li>
+						<li ng-controller="updateBlockController"><a>Update block</a></li>
+						<li ng-controller="decreaseRowController"><a>Set min row</a></li>
+						<li ng-controller="decreaseColController"><a>Set min column</a></li>
+						<li ng-controller="increaseRowController"><a>Set max row</a></li>
+						<li ng-controller="increaseColController"><a>Set max column</a></li>
+					</ul>
+				</li>
+			</ul>
+    	
         <select ng-model="chosenScreen"
-                ng-options="showing.id for showing in showingCtrl.showings "     >
+                ng-options="showing.id for showing in showingCtrl.showings ">
         </select>
+           
+        
     </div>
     <div class="table-container" id="seats" style="width:800px">
         <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:showing.screen.block.rowCount">
