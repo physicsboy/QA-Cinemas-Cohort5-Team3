@@ -4,11 +4,11 @@
 
 
 INSERT INTO movie VALUES (1, 'Ewan McGregor, Logan Gillies', 'CLASS_18', 'After 20 years abroad, Mark Renton returns to Scotland and reunites with his old friends Sick Boy, Spud, and Begbie.', 'Drama', 118, TRUE,'T2 Trainspotting', '2017-01-31');
-INSERT INTO movie VALUES (2, 'Tom Hiddleston, Samuel L. Jackson, Brie Larson', 'CLASS_12A', 'A team of scientists explore an uncharted island in the Pacific, venturing into the domain of the mighty Kong, and must fight to escape a primal Eden.', 'Action', 120, TRUE, 'King Kong: Skull Island', '2017-03-01' );
+INSERT INTO movie VALUES (2, 'Tom Hiddleston, Samuel L. Jackson, Brie Larson', 'CLASS_12A', 'A team of scientists explore an uncharted island in the Pacific, venturing into the domain of the mighty Kong, and must fight to escape a primal Eden.', 'Action', 120, TRUE, 'Donkey Kong: Skull Island', '2017-03-01' );
 INSERT INTO movie VALUES (3, 'Hugh Jackman, Patrick Stewart', 'CLASS_15', 'In the near future, a weary Logan cares for an ailing Professor X somewhere on the Mexican border. However, Logan''s attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces.', 'Adventure', 137, TRUE, 'Logan', '2017-03-03');
 INSERT INTO movie VALUES (4, 'Matthew McConaughey, Reese Witherspoon', 'CLASS_PG', 'In a city of humanoid animals, a hustling theater impresario''s attempt to save his theater with a singing competition becomes grander than he anticipates even as its finalists'' find that their lives will never be the same.', 'Animation', 108, TRUE, 'Sing', '2016-11-21');
 INSERT INTO movie VALUES (5, 'Andrew Garfield, Richard Pyros', 'CLASS_18', 'WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people, and becomes the first man in American history to receive the Medal of Honor without firing a shot.', 'Biography, Drama, History', 139, TRUE, 'Hacksaw Ridge',  '2016-11-04');
-INSERT INTO movie VALUES (6, 'Dakota Johnson, Jamie Dornan', 'CLASS_18', 'While Christian wrestles with his inner demons, Anastasia must confront the anger and envy of the women who came before her.', 'Drama, Romance', 118,  TRUE, '50 Shades Darker',  '2017-02-10');
+INSERT INTO movie VALUES (6, 'Dakota Johnson, Jamie Dornan', 'CLASS_18', 'While Christian wrestles with his inner demons, Anastasia must confront the anger and envy of the women who came before her.', 'Drama, Romance', 118,  TRUE, '50 Shades Shitter',  '2017-02-10');
 INSERT INTO movie VALUES (7, 'Casey Affleck, Kyle Chandler', 'CLASS_18', 'A depressed uncle is asked to take care of his teenage nephew after the boy''s father dies.', 'Drama', 137, TRUE, 'Manchester by the Sea', '2016-12-16' );
 INSERT INTO movie VALUES (8, 'Will Arnett, Rosario Dawson', 'CLASS_PG ', 'Bruce Wayne must not only deal with the criminals of Gotham City, but also the responsibility of raising a boy he adopted.', 'Animation, Action, Adventure', 104, TRUE, 'The Lego Batman Movie', '2016-12-16');
 INSERT INTO movie VALUES (9, 'Keanu Reeves, Riccardo Scamarcio', 'CLASS_18', 'After returning to the criminal underworld to repay a debt, John Wick discovers that a large bounty has been put on his life.', 'Action, Crime, Thriller', 122, FALSE, 'John Wick: Chapter 2', '2017-02-10');
@@ -21,7 +21,6 @@ INSERT INTO movie VALUES (15, 'Ryan Gosling, Emma Stone', 'CLASS_12A', 'A jazz p
 INSERT INTO movie VALUES (16, 'Natalie Portman', 'CLASS_18', 'Following the assassination of President John F. Kennedy, First Lady Jacqueline Kennedy fights through grief and trauma to regain her faith, console her children, and define her husband''s historic legacy.', 'Biography, Drama, History', 100, FALSE, 'Jackie', '2016-12-02');
 
 INSERT INTO screen VALUES (1, 'url'),(2, 'url'),(3, 'lol'),(4, 'abc');
-
 
 INSERT INTO block VALUES( 1,180, 8, 8, 1, 'A', 0, 0, 1);
 INSERT INTO block VALUES( 2,180, 8, 8, 9, 'A', 1, 0, 1);
@@ -1092,6 +1091,9 @@ INSERT INTO seat values (1054, 20, 'R', 2, 10);
 INSERT INTO seat values (1055, 20, 'S', 2, 10);
 
 
+
+
+
 INSERT INTO media VALUES (1, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU2NTA0NDM0MF5BMl5BanBnXkFtZTgwMDMzMTQzMTI@._V1_SY1000_CR0,0,666,1000_AL_.jpg', 1);
 INSERT INTO media VALUES (2, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg', 2);
 INSERT INTO media VALUES (3, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_SY1000_CR0,0,676,1000_AL_.jpg', 3);
@@ -1109,38 +1111,39 @@ INSERT INTO media VALUES (14, 'POSTER', 'https://images-na.ssl-images-amazon.com
 INSERT INTO media VALUES (15, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg', 15);
 INSERT INTO media VALUES (16, 'POSTER', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SY1000_SX675_AL_.jpg', 16);
 
-INSERT INTO media VALUES (17, 'TRAILER', 'https://www.youtube.com/embed/EsozpEE543w', 1);
-INSERT INTO media VALUES (18, 'TRAILER', 'https://www.youtube.com/embed/44LdLqgOpjo', 2);
-INSERT INTO media VALUES (19, 'TRAILER', 'https://www.youtube.com/embed/Div0iP65aZo', 3);
-INSERT INTO media VALUES (20, 'TRAILER', 'https://www.youtube.com/embed/RYHBD9RF2dk', 4);
-
-INSERT INTO showing VALUES (01,1490450400000,1,1);
-INSERT INTO showing VALUES (04,1490455800000,1,1);
-INSERT INTO showing VALUES (02,1490463000000,1,1);
-INSERT INTO showing VALUES (03,1490475600000,1,1);
-INSERT INTO showing VALUES (05,1490518800000,1,1);
-INSERT INTO showing VALUES (06,1490529600000,1,1);
-INSERT INTO showing VALUES (07,1490542200000,1,1);
-INSERT INTO showing VALUES (07,1490614200000,1,1);
-INSERT INTO showing VALUES (08,1490630400000,1,1);
-INSERT INTO showing VALUES (09,1490371200000,2,2);
-INSERT INTO showing VALUES (10,1490387400000,2,2);
-INSERT INTO showing VALUES (11,1490434200000,2,2);
-INSERT INTO showing VALUES (12,1490445000000,2,2);
-INSERT INTO showing VALUES (13,1490461200000,2,2);
-INSERT INTO showing VALUES (14,1490527800000,2,2);
-INSERT INTO showing VALUES (15,1490551200000,2,2);
-INSERT INTO showing VALUES (16,1490614200000,2,2);
-INSERT INTO showing VALUES (17,1490358600000,3,3);
-INSERT INTO showing VALUES (18,1490365800000,3,3);
-INSERT INTO showing VALUES (19,1490382000000,3,3);
-INSERT INTO showing VALUES (20,1490468400000,3,3);
-INSERT INTO showing VALUES (21,1490472000000,3,3);
-INSERT INTO showing VALUES (22,1490526000000,3,3);
-INSERT INTO showing VALUES (23,1490547600000,3,3);
-INSERT INTO showing VALUES (24,1490614200000,3,3);
-INSERT INTO showing VALUES (25,1490727600000,3,3);
-
+INSERT INTO showing VALUES (1,1490000400000,1,1);
+INSERT INTO showing VALUES (2,1490011200000,1,1);
+INSERT INTO showing VALUES (3,1490022000000,1,1);
+INSERT INTO showing VALUES (4,1490032800000,1,1);
+INSERT INTO showing VALUES (5,1490043600000,1,1);
+INSERT INTO showing VALUES (6,1490054400000,1,1);
+INSERT INTO showing VALUES (7,1490086800000,1,1);
+INSERT INTO showing VALUES (8,1490097600000,1,1);
+INSERT INTO showing VALUES (9,1490108400000,1,1);
+INSERT INTO showing VALUES (10,1490119200000,1,1);
+INSERT INTO showing VALUES (11,1490130000000,1,1);
+INSERT INTO showing VALUES (12,1490140800000,2,2);
+INSERT INTO showing VALUES (13,1490000400000,2,2);
+INSERT INTO showing VALUES (14,1490011200000,2,2);
+INSERT INTO showing VALUES (15,1490022000000,2,2);
+INSERT INTO showing VALUES (16,1490032800000,2,2);
+INSERT INTO showing VALUES (17,1490043600000,2,2);
+INSERT INTO showing VALUES (18,1490054400000,2,2);
+INSERT INTO showing VALUES (19,1490086800000,2,2);
+INSERT INTO showing VALUES (20,1490097600000,2,2);
+INSERT INTO showing VALUES (21,1490108400000,2,2);
+INSERT INTO showing VALUES (22,1490119200000,2,2);
+INSERT INTO showing VALUES (23,1490130000000,3,3);
+INSERT INTO showing VALUES (24,1490140800000,3,3);
+INSERT INTO showing VALUES (25,1490000400000,3,3);
+INSERT INTO showing VALUES (26,1490011200000,3,3);
+INSERT INTO showing VALUES (27,1490022000000,3,3);
+INSERT INTO showing VALUES (28,1490032800000,3,3);
+INSERT INTO showing VALUES (29,1490043600000,3,3);
+INSERT INTO showing VALUES (30,1490054400000,3,3);
+INSERT INTO showing VALUES (31,1490086800000,3,3);
+INSERT INTO showing VALUES (32,1490097600000,3,3);
+INSERT INTO showing VALUES (33,1490108400000,3,3);
 
 INSERT INTO booking VALUES (1,1488887075419,'Jan@Newton.com','Jan@Newton.com');
 INSERT INTO booking VALUES (2,1489498268947,'Jim@Surname.com','Jim@Surname.com');
@@ -1213,7 +1216,6 @@ INSERT INTO booking VALUES (68,1489336351446,'Sue@Blue.com','Sue@Blue.com');
 INSERT INTO booking VALUES (69,1489281256072,'Alex@Surname.com','Alex@Surname.com');
 INSERT INTO booking VALUES (70,1488625450684,'Jan@Newton.com','Jan@Newton.com');
 
-
 INSERT INTO ticket VALUES (1,12.99,'PREMIUM',117,1,1);
 INSERT INTO ticket VALUES (2,7.49,'CONCESSION',45,2,2);
 INSERT INTO ticket VALUES (3,7.49,'CONCESSION',200,2,3);
@@ -1225,18 +1227,92 @@ INSERT INTO ticket VALUES (8,9.99,'ADULT',251,4,6);
 INSERT INTO ticket VALUES (9,5.99,'CHILD',127,4,7);
 INSERT INTO ticket VALUES (10,5.99,'CHILD',135,4,7);
 INSERT INTO ticket VALUES (11,12.99,'PREMIUM',69,5,8);
+INSERT INTO ticket VALUES (12,12.99,'PREMIUM',207,5,9);
+INSERT INTO ticket VALUES (13,12.99,'PREMIUM',215,5,9);
+INSERT INTO ticket VALUES (14,9.99,'ADULT',218,6,10);
+INSERT INTO ticket VALUES (15,7.49,'CONCESSION',231,6,11);
+INSERT INTO ticket VALUES (16,7.49,'CONCESSION',239,6,11);
 INSERT INTO ticket VALUES (17,7.49,'CONCESSION',115,7,12);
 INSERT INTO ticket VALUES (18,12.99,'PREMIUM',152,7,13);
 INSERT INTO ticket VALUES (19,12.99,'PREMIUM',160,7,13);
+INSERT INTO ticket VALUES (20,5.99,'CHILD',208,8,14);
 INSERT INTO ticket VALUES (21,7.49,'CONCESSION',199,8,15);
+INSERT INTO ticket VALUES (22,7.49,'CONCESSION',207,8,15);
 INSERT INTO ticket VALUES (23,7.49,'CONCESSION',125,9,16);
 INSERT INTO ticket VALUES (24,5.99,'CHILD',30,9,17);
 INSERT INTO ticket VALUES (25,5.99,'CHILD',38,9,17);
 INSERT INTO ticket VALUES (26,12.99,'PREMIUM',151,10,18);
 INSERT INTO ticket VALUES (27,7.49,'CONCESSION',172,10,19);
 INSERT INTO ticket VALUES (28,7.49,'CONCESSION',180,10,19);
+INSERT INTO ticket VALUES (29,5.99,'CHILD',237,11,20);
 INSERT INTO ticket VALUES (30,5.99,'CHILD',59,11,21);
 INSERT INTO ticket VALUES (31,5.99,'CHILD',67,11,21);
+INSERT INTO ticket VALUES (32,9.99,'ADULT',413,12,22);
+INSERT INTO ticket VALUES (33,12.99,'PREMIUM',436,12,23);
+INSERT INTO ticket VALUES (34,12.99,'PREMIUM',446,12,23);
+INSERT INTO ticket VALUES (35,9.99,'ADULT',433,13,24);
+INSERT INTO ticket VALUES (36,7.49,'CONCESSION',256,13,25);
+INSERT INTO ticket VALUES (37,7.49,'CONCESSION',266,13,25);
+INSERT INTO ticket VALUES (38,5.99,'CHILD',527,14,26);
+INSERT INTO ticket VALUES (39,5.99,'CHILD',529,14,27);
+INSERT INTO ticket VALUES (40,5.99,'CHILD',539,14,27);
+INSERT INTO ticket VALUES (41,12.99,'PREMIUM',437,15,28);
+INSERT INTO ticket VALUES (42,5.99,'CHILD',385,15,29);
+INSERT INTO ticket VALUES (43,5.99,'CHILD',395,15,29);
+INSERT INTO ticket VALUES (44,9.99,'ADULT',442,16,30);
+INSERT INTO ticket VALUES (45,12.99,'PREMIUM',389,16,31);
+INSERT INTO ticket VALUES (46,12.99,'PREMIUM',399,16,31);
+INSERT INTO ticket VALUES (47,7.49,'CONCESSION',297,17,32);
+INSERT INTO ticket VALUES (48,12.99,'PREMIUM',510,17,33);
+INSERT INTO ticket VALUES (49,12.99,'PREMIUM',520,17,33);
+INSERT INTO ticket VALUES (50,7.49,'CONCESSION',463,18,34);
+INSERT INTO ticket VALUES (51,9.99,'ADULT',310,18,35);
+INSERT INTO ticket VALUES (52,9.99,'ADULT',320,18,35);
+INSERT INTO ticket VALUES (53,5.99,'CHILD',386,19,36);
+INSERT INTO ticket VALUES (54,12.99,'PREMIUM',500,19,37);
+INSERT INTO ticket VALUES (55,12.99,'PREMIUM',510,19,37);
+INSERT INTO ticket VALUES (56,9.99,'ADULT',272,20,38);
+INSERT INTO ticket VALUES (57,7.49,'CONCESSION',490,20,39);
+INSERT INTO ticket VALUES (58,7.49,'CONCESSION',500,20,39);
+INSERT INTO ticket VALUES (59,12.99,'PREMIUM',423,21,40);
+INSERT INTO ticket VALUES (60,9.99,'ADULT',410,21,41);
+INSERT INTO ticket VALUES (61,9.99,'ADULT',420,21,41);
+INSERT INTO ticket VALUES (62,5.99,'CHILD',501,22,42);
+INSERT INTO ticket VALUES (63,5.99,'CHILD',508,22,43);
+INSERT INTO ticket VALUES (64,5.99,'CHILD',518,22,43);
+INSERT INTO ticket VALUES (65,5.99,'CHILD',730,23,44);
+INSERT INTO ticket VALUES (66,5.99,'CHILD',730,23,45);
+INSERT INTO ticket VALUES (67,5.99,'CHILD',740,23,45);
+INSERT INTO ticket VALUES (68,9.99,'ADULT',845,24,46);
+INSERT INTO ticket VALUES (69,9.99,'ADULT',759,24,47);
+INSERT INTO ticket VALUES (70,9.99,'ADULT',769,24,47);
+INSERT INTO ticket VALUES (71,12.99,'PREMIUM',830,25,48);
+INSERT INTO ticket VALUES (72,7.49,'CONCESSION',759,25,49);
+INSERT INTO ticket VALUES (73,7.49,'CONCESSION',769,25,49);
+INSERT INTO ticket VALUES (74,9.99,'ADULT',779,26,50);
+INSERT INTO ticket VALUES (75,5.99,'CHILD',790,26,51);
+INSERT INTO ticket VALUES (76,5.99,'CHILD',800,26,51);
+INSERT INTO ticket VALUES (77,9.99,'ADULT',811,27,52);
+INSERT INTO ticket VALUES (78,9.99,'ADULT',676,27,53);
+INSERT INTO ticket VALUES (79,9.99,'ADULT',686,27,53);
+INSERT INTO ticket VALUES (80,5.99,'CHILD',833,28,54);
+INSERT INTO ticket VALUES (81,12.99,'PREMIUM',812,28,55);
+INSERT INTO ticket VALUES (82,12.99,'PREMIUM',822,28,55);
+INSERT INTO ticket VALUES (83,7.49,'CONCESSION',684,29,56);
+INSERT INTO ticket VALUES (84,9.99,'ADULT',798,29,57);
+INSERT INTO ticket VALUES (85,9.99,'ADULT',808,29,57);
+INSERT INTO ticket VALUES (86,9.99,'ADULT',698,30,58);
+INSERT INTO ticket VALUES (87,9.99,'ADULT',694,30,59);
+INSERT INTO ticket VALUES (88,9.99,'ADULT',704,30,59);
+INSERT INTO ticket VALUES (89,9.99,'ADULT',765,31,60);
+INSERT INTO ticket VALUES (90,7.49,'CONCESSION',771,31,61);
+INSERT INTO ticket VALUES (91,7.49,'CONCESSION',781,31,61);
+INSERT INTO ticket VALUES (92,7.49,'CONCESSION',832,32,62);
+INSERT INTO ticket VALUES (93,5.99,'CHILD',723,32,63);
+INSERT INTO ticket VALUES (94,5.99,'CHILD',733,32,63);
+INSERT INTO ticket VALUES (95,5.99,'CHILD',692,33,64);
+INSERT INTO ticket VALUES (96,12.99,'PREMIUM',688,33,65);
+INSERT INTO ticket VALUES (97,12.99,'PREMIUM',698,33,65);
 
 
 INSERT INTO user VALUES('Alex@Newton.com','Alex','Newton','1 Street','Second','Townsville','Citydom','CT8 6SE','password');

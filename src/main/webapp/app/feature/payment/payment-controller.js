@@ -65,6 +65,10 @@
             vm.seatsTaken = "init";
             vm.selectedArray = [];
 
+            vm.storedTable;
+            vm.storedButton;
+            vm.visToggle = 'false';
+
             vm.numAdults = 0;
             vm.numChild = 0;
             vm.numCons = 0;
@@ -177,8 +181,10 @@
             };
 
             vm.checkForm = function () {
+
                 var pay = document.getElementById("paypal-button");
                 var totalTable = document.getElementById("totalTable");
+                var seatSelector = document.getElementById("seatSel");
                 vm.uEVerified = validateEmail(vm.userEmail);
                 vm.pEVerified = validateEmail(vm.paymentEmail);
                 vm.totalTickets = vm.numCons + vm.numPremium + vm.numAdults + vm.numChild;
@@ -220,13 +226,26 @@
 
                 if (vm.uEVerified && vm.pEVerified && vm.nonZeroTickets) {
                     totalTable.classList.add('available');
+                    seatSelector.classList.add('available');
                     setTimeout(pay.style.visibility = "visible", 250);
+                    setTimeout(seatSelector.style.visibility = "visible", 250);
                     pay.classList.add('available');
+                    vm.storedButton.appendTo( "buttonHolder" );
+                    vm.storedButton = null;
+                    vm.storedTable.appendTo( "tableHolder" );
+                    vm.storedTable = null;
+
+
+
+
 
                 } else {
                     pay.classList.remove('available');
                     pay.style.visibility = "hidden";
+                    seatSelector.classList.remove('available');
                     setTimeout(totalTable.classList.remove('available'), 250);
+                    vm.storedTable = $( "seatSel" ).detach();
+                    vm.storedButton = $( "paypal-button" ).detach();
                 }
 
             };
@@ -271,11 +290,13 @@
             vm.selectSeat = function (seat) {
                 if (!vm.checkSeatTaken(seat)) {
 
-                    if (!vm.checkSeatSelected(seat)) {
+                    if (!vm.checkSeatSelected(seat) && vm.totalTickets > vm.selectedTickets) {
                         vm.selectedArray.push(seat);
-                    } else {
+                        vm.selectedTickets += 1;
+                    } else if (vm.checkSeatSelected(seat)){
                         var index = vm.getIndex(seat);
                         vm.selectedArray.splice(index, 1);
+                        vm.selectedTickets -= 1;
                     }
                 }
             };
