@@ -1,3 +1,6 @@
+<!--<link href="get-specific-movie.css" rel="stylesheet" media="screen">-->
+
+
 <div ng-controller="getSpecificMovieController as movieCtrl">
 
     <div class="container-fluid">
@@ -18,16 +21,9 @@
                     <div class="Year"><h3>Release Date:</h3> {{movieCtrl.movies.year}}</div>
                 </div>
 				
-				
-				
-				
-                <div id="trailer-view"><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer" class="btn btn-block btn-social btn-google"> 
+                <div id="trailer-view"><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer" class="btn btn-block btn-social btn-pinterest">
 				<span class="fa fa-youtube-play" id="logo"></span> Watch "{{movieCtrl.movies.title}}" Trailer</a>
                 </div>
-           
-
-
-
 
 		   </div>
             <!--Showings-->
@@ -38,7 +34,7 @@
                 <br/>
 
                 <div ui-sref="payment({showingId:{{showing.id}}})" class="showingBox"
-                     ng-repeat="showing in movieCtrl.showings">
+                     ng-repeat="showing in movieCtrl.showings | orderBy">
                     <div class="floating-box">
                         <h5>{{showing.dateShowing | date:' EEE '}}</h5>
                         <h5>{{showing.dateShowing | date: 'd MMM'}}</h5>
@@ -93,13 +89,13 @@
     });
 </script>
 
-<!--CSS, this should not be here though-->
+
 <style>
 
-	#trailer{
-		font-weight: bold;
-		text-align: center;
-	}
+    #trailer{
+        font-weight: bold;
+        text-align: center;
+    }
 
     #movie-line {
         margin-right: 20px;
@@ -110,7 +106,7 @@
         padding-left: 75px;
     }
     #text-box {
-        padding-top: 10px;
+        /*padding-top: 10px;*/
         padding-bottom: 20px;
         padding-left: 20px;
         background: rgba(0, 0, 0, 0.3);
@@ -188,13 +184,9 @@
         clear: left;
     }
 
-    /*.showingBox {*/
-    /*padding: .5em;*/
-    /*border: 1px solid #9198a3;*/
-    /*border-radius: 1px;*/
-    /*position: relative;*/
-    /*overflow: hidden;*/
-    /*}*/
+    .Logo {
+        padding-top: 10px;
+    }
 
 </style>
-
+-->
