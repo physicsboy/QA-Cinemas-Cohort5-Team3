@@ -25,32 +25,38 @@
 
             <div>
                 <Button class="alertButton btn btn-primary"
-                        ng-click="showingCtrl.addShowing(chosenMovie, chosenDate, chosenTime)"> Submit
+                        ng-click="showingCtrl.addShowing(chosenMovie, chosenDate, chosenTime); showme=true"> Submit
                 </Button>
-            </div>
 
-
-        </div>
-
-
-        <div class="col-md-6 ">
-            <div class="alert alert-info" role="alert">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{showingCtrl.message}}</strong>
-                <div>
-                    <p>Movie: {{showingCtrl.showing.movie.title}} </p>
-                    <p>Date: {{showingCtrl.date}}</p>
-                    <p>Time: {{showingCtrl.time}}</p>
-                    <p>Screen: {{showingCtrl.showing.screen.screenId}}</p>
+                <div class="col-md-6 " >
+                <div class="alert alert-info" role="alert" ng-show="showme">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{{showingCtrl.message}}</p>
+                    <div>
+                        <Strong>Movie: {{showingCtrl.showing.movie.title}} </Strong>
+                        <br>
+                        <Strong>Date: {{showingCtrl.date}}</Strong>
+                        <br>
+                        <Strong>Time: {{showingCtrl.time}}</Strong>
+                        <br>
+                        <Strong>Screen: {{showingCtrl.showing.screen.screenId}}</Strong>
+                    </div>
                 </div>
+
+            </div>
             </div>
 
+
         </div>
+
+
+
 
         <script>
             $(".alertButton").on("click", function () {
-                $(".alert").fadeIn(500);
-            });
+
+                $(".alert").removeClass("in").fadeIn(500);
+   });
 
         </script>
 
