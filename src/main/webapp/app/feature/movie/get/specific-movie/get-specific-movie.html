@@ -2,7 +2,6 @@
 
     <div class="container-fluid">
         <div class=row>
-
             <div class="col-xs-12 col-sm-4 col-md-4 movie-poster">
                 <div class="movie-poster" ng-repeat="poster in movieCtrl.movies.media | filter:{type:'POSTER'}">
                     <img src='{{poster.url}}' class="img-responsive">
@@ -11,18 +10,26 @@
             <!--Movie information-->
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div id="text-box">
-                    <div class="Logo"><h3> {{movieCtrl.movies.title}}</h3></div>
+                    <div class="Logo"><h3> {{movieCtrl.movies.title}}<img ng-src="{{movieCtrl.movies.classification}}" id="rating"></h3></div>
+                    <hr id="movie-line">
                     <div class="Sypnosis"><br>{{movieCtrl.movies.description}}</div>
                     <div class="Cast"><h3>Cast:</h3> {{movieCtrl.movies.cast}}</div>
                     <div class="MovieLength"><h3>Length:</h3> {{movieCtrl.movies.length}}</div>
                     <div class="Year"><h3>Release Date:</h3> {{movieCtrl.movies.year}}</div>
-                    <div class="Classification>"></div>
                 </div>
-                <div id="trailer-view"><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer">
-                    Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
-                                  height="25px"/> </a>
+				
+				
+				
+				
+                <div id="trailer-view"><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer" class="btn btn-block btn-social btn-google"> 
+				<span class="fa fa-youtube-play" id="logo"></span> Watch "{{movieCtrl.movies.title}}" Trailer</a>
                 </div>
-            </div>
+           
+
+
+
+
+		   </div>
             <!--Showings-->
             <div class="col-sm-4 col-md-4">
                 <div>
@@ -42,8 +49,6 @@
                 <!--<div class="after-box"></div>-->
             </div>
         </div>
-
-
         <!--Trailer-->
         <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
              ng-controller="getMediaController as mediaCtrl">
@@ -65,8 +70,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -91,8 +96,21 @@
 <!--CSS, this should not be here though-->
 <style>
 
+	#trailer{
+		font-weight: bold;
+		text-align: center;
+	}
+
+    #movie-line {
+        margin-right: 20px;
+        padding-top: 10px;
+    }
+
+    #rating{
+        padding-left: 75px;
+    }
     #text-box {
-        padding-top: 20px;
+        padding-top: 10px;
         padding-bottom: 20px;
         padding-left: 20px;
         background: rgba(0, 0, 0, 0.3);
