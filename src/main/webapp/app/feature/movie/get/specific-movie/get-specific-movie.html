@@ -34,7 +34,7 @@
                 <br/>
 
                 <div ui-sref="payment({showingId:{{showing.id}}})" class="showingBox"
-                     ng-repeat="showing in movieCtrl.showings | orderBy">
+                     ng-repeat="showing in movieCtrl.showings | orderBy : 'dateShowing' ">
                     <div class="floating-box">
                         <h5>{{showing.dateShowing | date:' EEE '}}</h5>
                         <h5>{{showing.dateShowing | date: 'd MMM'}}</h5>
@@ -103,7 +103,7 @@
     }
 
     #rating{
-        padding-left: 75px;
+        padding-left: 20px;
     }
     #text-box {
         /*padding-top: 10px;*/
@@ -189,4 +189,3 @@
     }
 
 </style>
--->
