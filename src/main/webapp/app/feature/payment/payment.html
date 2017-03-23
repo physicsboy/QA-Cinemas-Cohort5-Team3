@@ -1,5 +1,21 @@
 <div ng-controller="paymentController as payCtrl">
 
+    <script>
+        function trclick() {
+            console.log('tr clicked')
+        }
+        ;
+        function tdclick(event, seat) {
+            console.log('td clicked', seat);
+            selectSeat(seat);
+
+
+            event.stopPropagation()
+        }
+        ;
+    </script>
+
+
     <div class="softwhite">
         <h1>Booking Tickets for</h1>
         <table class="table">
@@ -75,6 +91,27 @@
 
     </div>
 
+    {{vm.seatsTaken}}
+    <div class="table-container" id="seats" style="width:800px">
+        <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:payCtrl.screen.block.colCount">
+            </br>
+            <table style="width:400px; table-layout: fixed; margin-bottom:0px"
+                   class="table  table-bordered table-hover "
+                   ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] | limitTo:payCtrl.screen.block.colCount:block.rowCount ">
+                <tr ng-repeat="block in payCtrl.screen.blocks | limitTo:1:v">
+                    <td ng-model="thisSeat" class="outertd"
+                        ng-repeat="seat in block.seats | limitTo:block.colCount:block.colCount*i"
+                        ng-class="{taken: payCtrl.checkSeatTaken(seat),selected: payCtrl.checkSeatSelected(seat)}">
+                        <div class="innertd" ng-click=payCtrl.click(seat)>
+                            {{seat.row}}{{seat.column}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        </br>
+    </div>
 
     <div class="softwhite">
         <h3>Subtotal</h3>
@@ -180,8 +217,8 @@
         -o-transition: 1s;
         transition: 1s;
         opacity: 0;
-        padding-top:30px;
-        padding-bottom:30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     .gobutton.available {
@@ -193,5 +230,67 @@
         height: 154px !important;
         width: 20% !important;
         opacity: 1 !important;
+    }
+
+    .table{
+        background-color: grey;
+    }
+    .table-hover>tbody>tr>td:hover, .table-hover>tbody>tr>td:hover{
+        background-color: blue;
+        -webkit-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+
+    }
+
+    .taken {
+        background: #ff0000 !important;
+        cursor: not-allowed;
+        -webkit-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+    }
+
+    .taken:hover {
+        background: #ff0000 !important;
+        -webkit-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+    }
+
+    .selected {
+        background: #00ff00;
+        -webkit-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+
+    }
+
+    .selected:hover {
+        background: #a5d99b !important;
+        -webkit-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+
+    }
+
+    td {
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .outertd{
+        padding:0 !important;
+        height:20px !important;
+        width:20px !important;
+        border-radius:3px;
+    }
+    .innertd{
+        margin:0 !important;
     }
 </style>
