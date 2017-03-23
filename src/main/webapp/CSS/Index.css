@@ -35,7 +35,10 @@ html, body {
 	/* MUTED AND NICE TEXTURE	/		background-image: url("../Background_images/hpehPUv.jpg") !important;   */
 	/* BLACK DIAGONALS 			/	background-image: url("../Background_images/Patterns/black-twill.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
 	/* MY BLACK DIAGONALS 5		/	background-image: url("../Background_images/Patterns/diagonal-black-5.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+
 	/* MY BLACK DIAGONALS 10	*/	background-image: url("../Background_images/Patterns/diagonal-black-10.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+
+
 	/* SUBTLE FABRIC	/	background-image: url("../Background_images/Patterns/classy-fabric.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
 
 /* 	 background-image: radial-gradient(circle at top center, rgb(26,124,163), rgb(23,46,99) 100% ) !important;  */
@@ -81,16 +84,4 @@ video {
  	background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
   	background-size: cover;
   	transition: 1s opacity;
-}
-
-.table{
-	background-color: grey;
-}
-.table-hover>tbody>tr>td:hover, .table-hover>tbody>tr>td:hover{
-	background-color: blue!important;
-
-}
-
-.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
-	background-color: grey;
 }

@@ -6,26 +6,40 @@
 
 
 <script>
-    function trclick() {
-        console.log('tr clicked')
-    }
-    ;
 
-    function tdclick(event, seat) {
+    vm.click = function(event, seat) {
         console.log('td clicked', seat);
-        event.stopPropagation()
-    }
-    ;
+        event.stopPropagation();
+    };
+
 </script>
 
-<div ng-controller="getShowingController as showingCtrl" class="container-fluid">
-    <div>
-        <select ng-model="chosenScreen"
-                ng-options="showing.id for showing in showingCtrl.showings "     >
-        </select>
-    </div>
+<!--<div ng-controller="getShowingController as showingCtrl" class="container-fluid">-->
+<div ng-controller="getTicketController as ticketCtrl" class="container-fluid">
+    ticketCtrl.
+
+</div>
 
 
+    <div ng-controller="getBookingController as bookingCtrl" class="container-fluid">
+        <div>
+            <select ng-model="chosenBooking"
+                    ng-options="booking.bookingId for booking in bookingCtrl.bookings"     >
+            </select>
+        </div>
+        {{chosenBooking}}
+        <div>
+            <select ng-model="chosenTicket"
+                    ng-options="ticket.showing.id for ticket in chosenBooking.tickets"     >
+            </select>
+        </div>
+        {{chosenTicket}}
+     <div>
+            <select ng-model="chosenScreen"
+                    ng-options="showing.screenId for showing in chosenTicket.showing"     >
+            </select>
+        </div>
+        {{chosenScreen}}
 
 
     <div class="table-container" id="seats" style="width:800px">
@@ -44,4 +58,4 @@
     </br>
     </div>
 </div>
-
+</div>
