@@ -11,7 +11,13 @@
         this.getAllTicketsForBooking = function(id){
             return dal.http.GET("rest/ticket/json/booking/" + id)
         };
-        
+
+
+        this.getAllTicketSeatsForShowing = function(showingId){
+            return dal.http.GET("rest/ticket/json/showing/"+showingId+"/seats");
+        };
+
+
         this.getTicketByID = function(id){
         	return dal.http.GET("rest/ticket/json/" + id)
         };
