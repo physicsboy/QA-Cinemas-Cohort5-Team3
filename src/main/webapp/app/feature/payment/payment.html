@@ -1,11 +1,27 @@
 <div ng-controller="paymentController as payCtrl">
 
-    <form name="paymentForm" id="form">
+    <div class="softwhite">
+        <h1>Booking Tickets for</h1>
+        <table class="table">
+            <tr>
+                <th>Film</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>{{payCtrl.showingTitle}}</td>
+                <td>{{payCtrl.showing.dateShowing | date:' EEEE dd/MM '}}</td>
+                <td>{{payCtrl.showing.dateShowing | date:'HH:mm '}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <form name="paymentForm" class="softwhite">
         <div class="container-fluid">
             <span class="col-md-6">Enter User Email<input id="user" ng-model="set.user"
-                                         ng-change="payCtrl.update('user',set.user)"></span>
+                                                          ng-change="payCtrl.update('user',set.user)"></span>
             <span class="col-md-6">Enter Paypal Email<input id="paypal" ng-model="set.paypal"
-                                           ng-change="payCtrl.update('paypal',set.paypal)"></span>
+                                                            ng-change="payCtrl.update('paypal',set.paypal)"></span>
 
             <div class="col-md-3">
                 Adult: <select id="adultDropDown" ng-model="set.adult"
@@ -35,63 +51,146 @@
             </select>
             </div>
         </div>
-
-        <div>
-            <h3>Subtotal</h3>
-            <p> Adult Tickets (x{{payCtrl.numAdults}}): &pound;{{payCtrl.numAdults*9.99}}</p>
-            <p> Child Tickets (x{{payCtrl.numChild}}): &pound;{{payCtrl.numChild*5.99}}</p>
-            <p> Concession Tickets
-                (x{{payCtrl.numCons}}): &pound;{{payCtrl.numCons*7.49}}</p>
-            <p> Premium Tickets (x{{payCtrl.numPremium}}): &pound;{{payCtrl.numPremium*12.99}}</p>
-            <h2>Total Price: &pound;{{payCtrl.total}}</h2>
-            <div id="paypal-button">
-            </div>
-
-            <table class="table">
-                <tr>
-                    <th>User Email Valid?</th>
-                    <th>PayPal Email Valid?</th>
-                    <th>At least One Ticket?</th>
-                </tr>
-                <tr>
-                    <td><img id="uEVerified" src="_images/cross.png" width="80"></td>
-                    <td><img id="pEVerified" src="_images/cross.png" width="80"></td>
-                    <td><img id="nonZeroTickets" src="_images/cross.png" width="80"></td>
-                </tr>
-            </table>
-
-
-        </div>
     </form>
+    <div class="clearfix">
+        <table id="totalTable" class="table softwhite" style="float:left;border: none">
+            <tr>
+                <th>User Email Valid?</th>
+                <th>PayPal Email Valid?</th>
+                <th>At least One Ticket?</th>
+            </tr>
+            <tr>
+                <td><img id="uEVerified" src="_images/cross.png" width="80"></td>
+                <td><img id="pEVerified" src="_images/cross.png" width="80"></td>
+                <td><img id="nonZeroTickets" src="_images/cross.png" width="80"></td>
+            </tr>
+        </table>
+        <div class="gobutton softwhite" id="paypal-button" style="float:right">
+            <div style="font-weight: bold">
+                Final Price : &pound;{{payCtrl.total}}
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="softwhite">
+        <h3>Subtotal</h3>
+        <table class="table">
+            <tr>
+                <td colspan="4"> Adult Tickets (x{{payCtrl.numAdults}})</td>
+                <td class="money"> &pound;{{payCtrl.numAdults*9.99}}</td>
+            </tr>
+            <tr>
+                <td colspan="4"> Child Tickets (x{{payCtrl.numChild}})</td>
+                <td class="money"> &pound;{{payCtrl.numChild*5.99}}</td>
+            </tr>
+            <tr>
+                <td colspan="4"> Concession Tickets
+                    (x{{payCtrl.numCons}})
+                </td>
+                <td class="money"> &pound;{{payCtrl.numCons*7.49}}</td>
+            </tr>
+            <tr>
+                <td colspan="4"> Premium Tickets (x{{payCtrl.numPremium}})</td>
+                <td class="money"> &pound;{{payCtrl.numPremium*12.99}}</td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td id="total" class="money">Total Price &pound;{{payCtrl.total}}</td>
+            </tr>
+
+        </table>
+
+    </div>
 
 
 </div>
 <style>
-    button:disabled {
-        background: #f5f5f5;
-        color: red;
+
+    .gobutton {
+        width: 1px;
+        height: 1px;
+        visibility: hidden;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        opacity: 0;
     }
 
-    #paypal-button {
-        height: 200px;
-        width: 200px;
+    .gobutton.available {
+
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        height: 154px !important;
+        width: 20% !important;
+        opacity: 1 !important;
+    }
+
+    #totalTable {
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        width: 100%
+
+    }
+
+    #totalTable.available {
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        width: 79% !important;
     }
 
     #paypal {
-        background: #ff7979;
+        background: #9f2a27;
     }
 
     #user {
-        background: #ff7979;
+        background: #9f2a27;
     }
 
-    input:required {
-        background: yellowgreen;
-    }
-
-    .container-fluid{
-        width:80%;
+    .container-fluid {
+        width: 80%;
         margin-left: auto;
-        margin-right:auto;
+        margin-right: auto;
+    }
+
+    .softwhite {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+        padding: 10px 10px;
+        margin: 5px 0 !important;
+    }
+
+    .money {
+        text-align: right;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-left: 1px solid #ffffff;
+        width: 20%
+    }
+
+    #total {
+        font-weight: bolder;
+        font-size: 1.6em;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .table {
+        border-collapse: separate;
+
     }
 </style>
