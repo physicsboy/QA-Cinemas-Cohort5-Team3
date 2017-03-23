@@ -20,8 +20,6 @@
 
     <div id="main">
 
-
-
         <!-- NAVBAR -->
         <div class="navigation">
             <nav class="navbar navbar-inverse navbar-static-top"
@@ -34,6 +32,7 @@
                             <span class="icon-bar"></span> <span class="icon-bar"></span> <span
                                 class="icon-bar"></span>
                         </button>
+
 
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
@@ -83,47 +82,48 @@
             </nav>
         </div>
 
-        <!-- MODAL FOR LOGGING IN WHEN CLICKING "LOG-IN" BUTTON ON NAVBAR -->
-        <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog"
-             aria-labelledby="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-hidden="true">×
-                        </button>
-                        <h4 class="modal-title">Log-in to your QA Cinema Blue
-                            account</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="social-login" id="social-login">
-                            <a class="btn btn-block btn-social btn-facebook" id="fb"> <span
-                                    class="fa fa-facebook"></span> Sign in with Facebook
-                            </a> <a class="btn btn-block btn-social btn-google" id="fb"> <span
-                                class="fa fa-google"></span> Sign in with Google
-                        </a>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label> <input
-                                class="form-control" id="EmailLogIn" placeholder="Enter email"
-                                type="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label> <input
-                                class="form-control" id="exampleInputPassword1"
-                                placeholder="Password" type="password">
-                        </div>
-                        <p class="text-right">
-                            <a ui-sref="#">Forgot password?</a>
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <a ui-sref="#" data-dismiss="modal" class="btn" id="closeButton">Close</a>
-                        <a ui-sref="#" class="btn btn-primary">Log-in</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <!-- MODAL FOR LOGGING IN WHEN CLICKING "LOG-IN" BUTTON ON NAVBAR -->
+			<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">×</button>
+							<h4 class="modal-title">Log-in to your QA Cinema Blue
+								account</h4>
+						</div>
+						<div class="modal-body">
+							<div class="social-login" id="social-login">
+								<a class="btn btn-block btn-social btn-facebook" id="fb"> <span	class="fa fa-facebook" id="logo"></span> Sign in with Facebook</a> 
+								<a class="btn btn-block btn-social btn-google" id="fb"> <span class="fa fa-google" id="logo"></span> Sign in with Google</a>
+								
+							</div>
+							
+							<hr id="social-hr">
+							
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email address</label> <input
+									class="form-control" id="EmailLogIn" placeholder="Enter email"
+									type="email">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Password</label> 
+								<label for="forgotten" class="text-right" id="forgot">
+									<a ui-sref="#">Forgot password?</a>
+								</label>
+								<input class="form-control" id="exampleInputPassword1"
+									placeholder="Password" type="password">
+							</div>
+							
+						</div>
+						<div class="modal-footer">
+							<a ui-sref="#" data-dismiss="modal" class="btn" id="closeButton">Close</a>
+							<a ui-sref="#" class="btn btn-primary">Log-in</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
         <!-- MODAL FOR "CONTACT US" BUTTON ON FOOTER -->
         <div class="modal fade" id="ContactUs" tabindex="-1" role="dialog"

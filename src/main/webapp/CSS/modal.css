@@ -91,6 +91,12 @@
 
 /* ///////////////////////////// LOG IN FORM SPECIFIC  ///////////////////////////// */
 
+#logo{
+	border-left-width: 10px; */
+	border-left-color: red;
+}
+
+
 /* FORGOTTEN PASSWORD TEXT */
 #forgot {
 		font-weight: normal;

@@ -4,10 +4,10 @@
 
 		<form role="form"  ng-hide="ChosenMovie" class="col-md-3">
 			<div class="form-group">
-				<label>Select movie:</label> 
+				<label>Select movie:</label>
 				<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
 			</div>
-			
+
 		</form>
 		<form ng-show="ChosenMovie" role="form" id="addMovieForm">
 			<div class="col-lg-7">
