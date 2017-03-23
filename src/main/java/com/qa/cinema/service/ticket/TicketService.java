@@ -17,4 +17,6 @@ public interface TicketService {
 	
 	String deleteTicket(Long idToDelete);
 
+	String getAllTicketSeatsForShowing(Long showingId);
+
 }

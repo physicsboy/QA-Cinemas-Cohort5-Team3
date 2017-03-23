@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.qa.cinema.persistence.Seat;
 import com.qa.cinema.persistence.ticket.Ticket;
 import com.qa.cinema.util.JSONUtil;
 
@@ -45,6 +46,15 @@ public class DBTicketService implements TicketService {
 		}
 		
 		return util.getJSONForObject(ticket);
+	}
+	
+	@Override
+	public String getAllTicketSeatsForShowing(Long showingId) {
+		Query query = manager.createQuery("Select t.seat from Ticket t where t.showing.id = "+showingId);
+		
+		@SuppressWarnings("unchecked")
+		Collection<Seat> seats = (Collection<Seat>) query.getResultList();
+		return util.getJSONForObject(seats);
 	}
 
 	@Override
@@ -94,5 +104,7 @@ public class DBTicketService implements TicketService {
 	private Ticket findByID(Long id){
 		return manager.find(Ticket.class, id);
 	}
+
+
 	
 }
