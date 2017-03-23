@@ -1,48 +1,66 @@
 <div ng-controller="addMovieController as ctrl">
 	<h1>Add a new movie</h1>
 
-	<form role="form" id="addMovieForm" class="col-lg-5">
-		<div class="form-group">
-			<label>Title</label><br>
-			<input class="form-control" placeholder="title" ng-model="movie.title">
+	<form role="form" id="addMovieForm" >
+		<div class="col-lg-7">
+			<label><h2>Movie</h2></label> <br>
+			<div class="form-group">
+				<label>Title</label><br>
+				<input class="form-control" placeholder="title" ng-model="movie.title">
+			</div>
+			<div class="form-group">
+				<label>Genre</label><br> 
+				<input class="form-control" placeholder="genre" ng-model="movie.genre">
+			</div>
+			<div class="form-group">
+				<label>Year</label><br>
+				<input class="form-control" type="month" ng-model="movie.year">
+			</div>
+			<div class="form-group">
+				<label>Description</label><br> 
+				<textarea class="form-control" rows="5" form="addMovieForm" ng-model="movie.description"></textarea>		
+			</div>
+			<div class="form-group">
+				<label>Cast</label> <br>
+				<input class="form-control"  placeholder="cast" ng-model="movie.cast">
+			</div>
+			<div class="form-group">
+				<label>Movie length</label><br> 
+				<input class="form-control" type="number" placeholder="length" ng-model="movie.length">
+			</div>
+			<div class="form-group">
+				<label>Classification</label><br> 
+				<select class="form-control" ng-model="movie.classif">
+					<option value="CLASS_U">U</option>
+					<option value="CLASS_PG">PG</option>
+					<option value="CLASS_12A">12A</option>
+					<option value="CLASS_15">15</option>
+					<option value="CLASS_18">18</option>
+					<option value="CLASS_R18">R18</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Out Now</label> <br>
+					<input type="radio" value="true" name="outnow" ng-model="movie.outNow"> Yes
+					<input type="radio" value="false" name="outnow" ng-model="movie.outNow"> No
+				<br> <br>
+			</div>
 		</div>
-		<div class="form-group">
-			<label>Genre</label><br> 
-			<input class="form-control" placeholder="genre" ng-model="movie.genre">
+		<div ng-controller="getMediaController as mediaCtrl">
+			<div class="col-lg-4">
+				<label><h2>Media</h2></label> <br>
+
+				<div class="form-group">
+					<label>Select media:</label> 
+					<select class="form-control" ng-model="ChosenMedia" ng-options="media.id for media in mediaCtrl.mediaList"></select>
+				</div>
+				<div class="form-group">
+					<div class="movie-poster" ng-show="ChosenMedia">
+						<img src='{{ChosenMedia.url}}' class="img-responsive" style="width: 415px; height: 584px;">
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="form-group">
-			<label>Year</label><br>
-			<input class="form-control" type="month" ng-model="movie.year">
-		</div>
-		<div class="form-group">
-			<label>Description</label><br> 
-			<textarea class="form-control" rows="5" form="addMovieForm" ng-model="movie.description"></textarea>		
-		</div>
-		<div class="form-group">
-			<label>Cast</label> <br>
-			<input class="form-control"  placeholder="cast" ng-model="movie.cast">
-		</div>
-		<div class="form-group">
-			<label>Movie length</label><br> 
-			<input class="form-control" type="number" placeholder="length" ng-model="movie.length">
-		</div>
-		<div class="form-group">
-			<label>Classification</label><br> 
-			<select class="form-control" ng-model="movie.classif">
-				<option value="CLASS_U">U</option>
-				<option value="CLASS_PG" selected>PG</option>
-				<option value="CLASS_12A">12A</option>
-				<option value="CLASS_15">15</option>
-				<option value="CLASS_18">18</option>
-				<option value="CLASS_R18">R18</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label>Out Now</label> <br>
-				<input type="radio" value="true" name="outnow" ng-model="movie.outNow"> Yes
-				<input type="radio" value="false" name="outnow" ng-model="movie.outNow"> No
-			<br> <br>
-			<a class="btn btn-primary" ng-click="ctrl.addMovie(movie)">Create new movie</a>
-		</div>
+		<a class="btn btn-primary" ng-click="ctrl.addMovie(movie, mediaCtrl.getAllMedia(ChosenMedia.id, ChosenMedia.type))">Create new movie</a>
 	</form>
 </div>
