@@ -1,18 +1,24 @@
 <div ng-controller="deleteShowingController as ctrl">
     <div ng-controller="getShowingController as getctrl">
+    <div class = "container-fluid">
 
-        <table class="table table-striped">
+        <button ui-sref="addshowing" >Add Showing</button>
+
+        <table class="table">
 
             <tr ng-repeat = "showing in getctrl.showings">
                 <td>{{showing.showingId}}</td>
-                <td id="dayShowing">{{showing.dateShowing}}</td>
+                <td id="dayShowing">{{showing.dateShowing | date: "EEE dd MMM y H:mm"}}</td>
                 <td>{{showing.movie.title}}</td>
                 <td>{{showing.movie.length}}</td>
-                <td>{{showing.movie.classification}}</td>
+                <td><img ng-src="{{showing.movie.classification}}"/></td>
                 <td><input type="button" value="Delete Showing" class ="btn btn-primary" ng-click="ctrl.deleteShowing(showing)" ui-sref='deleteshowing'/></td>
             </tr>
 
         </table>
+
+    </div>
+    </div>
 
         <!--<form role="form">-->
             <!--<input id="ID to Delete" placeholder="ID" ng-model="showing.id">-->
@@ -20,5 +26,5 @@
             <!--<button type="submit" ng-click="{{ctrl.deleteShowing(showing)}}" ui-sref='deleteshowing'>Delete Showing</button>-->
         <!--</form>-->
 
-    </div>
+
 </div>

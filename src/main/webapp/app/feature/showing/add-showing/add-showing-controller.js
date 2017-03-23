@@ -32,46 +32,50 @@
         vm.getUpcomingDates();
 
 
-        vm.createShowing = function (movie, date, time) {
-            var showingDateTime = moment( time.value + " " + date.value, "HH:mm Do MMM YY");
-            var showingEpoch = showingDateTime.valueOf();
+        var originalShowingTime;
+        vm.addShowing = function (movie, date, time) {
 
-            var showing = {
+            console.log("INSIDE METHOD");
+            var showingDateTime = moment(time.value + " " + date.value, "HH:mm dddd Do MMM YY");
+            var showingEpoch = showingDateTime.valueOf();
+            originalShowingTime = showingEpoch;
+            vm.createShowing(movie, showingEpoch);
+
+        };
+
+        vm.createShowing = function(movie, showingEpoch){
+
+            console.log("INSIDE METHOD 2");
+
+            vm.showing = {
                 "dateShowing": showingEpoch,
                 "movie": movie,
                 "screen": {"screenId": 0}
             };
 
-            vm.checkForValidity(showing);
+            vm.checkForValidity();
         };
 
 
-        vm.getNearestPossibleShowing = function (showing) {
+        vm.checkForValidity = function checkForValidity(){
+            var endOfShowing = moment(vm.showing.dateShowing).add(vm.showing.movie.length , 'minute');
+            var startOfShowingDay = moment(vm.showing.dateShowing).set('hour', 9).set('minute', 0).set('second', 0).set('millisecond', 0);
 
-        };
+            console.log("start of day: " + startOfShowingDay.format("HH:mm dddd Do MMM YY"));
+            console.log("end of film: " + endOfShowing.format("HH:mm dddd Do MMM YY"));
 
-        vm.checkForValidity = function checkForValidity(showing){
-            var endOfShowing = moment(showing.dateShowing).add(showing.movie.length , 'minute');
-            var startOfShowingDay = moment(showing.dateShowing).set().set('hour', 9).set('minute', 0).set('second', 0).set('millisecond', 0);
-
-            console.log(startOfShowingDay.format("Do MMM YYYY HH:mm"));
-            console.log(endOfShowing.format("Do MMM YYYY HH:mm"));
-            getShowingsBetweenTimes(showing, startOfShowingDay, endOfShowing);
+            getShowingsBetweenTimes(startOfShowingDay, endOfShowing);
         };
 
 
-        var getShowingsBetweenTimes = function(showing, time1, time2){
+        var getShowingsBetweenTimes = function(time1, time2){
             showingDal.getShowingsBetweenTimes(time1, time2).then(function (results) {
-                if (!isShowingValid(showing, results)) {
+                if (!isShowingValid(results)) {
                     vm.message = "Unable to create showing at that time...";
-                    vm.getNearestPossibleShowing(showing);
                 } else {
-                    showingDal.saveShowing(showing).then(function (results) {
-                        vm.message = "Showing saved successfully at screen number " + showing.screen.screenId
-                    }, function (error) {
-                        vm.error = true;
-                        vm.message = error;
-                    });
+                    if(checkIfSameShowing()) {
+                        saveShowing();
+                    }
                 }
                 return results;
             }, function (error) {
@@ -81,11 +85,9 @@
         };
 
 
-        var isShowingValid = function (showing, conflictingShowings) {
-            var showingStartTime = moment(showing.dateShowing);
-            var showingEndTime = moment(showing.dateShowing).add(showing.movie.length, 'minute');
-
-
+        var isShowingValid = function (conflictingShowings) {
+            var showingStartTime = moment(vm.showing.dateShowing);
+            var showingEndTime = moment(vm.showing.dateShowing).add(vm.showing.movie.length, 'minute');
 
             //filter out all which aren't conflicting
             for(var i=conflictingShowings.length -1; i>=0; i--){
@@ -126,14 +128,45 @@
                 });
             }
 
-
+            //return a valid showing
             if(screenIDs.length > 0){
-                showing.screen.screenId = screenIDs[0].id;
-                return showing;
+                vm.showing.screen.screenId = screenIDs[0].id;
+                return vm.showing;
             }
-            return false;
+
+            //not a valid showing
+            var newShowingTime = moment(vm.showing.dateShowing).add(30, 'minute');
+            if(newShowingTime.get('hour') == 21 && newShowingTime.get('minute') == 30){
+                newShowingTime.add(1, 'day').set('hour', 9).set('minute', 0);
+            }
+
+            vm.showing.dateShowing = newShowingTime.valueOf();
+            return vm.createShowing(vm.showing.movie, vm.showing.dateShowing);
         };
 
+
+        var checkIfSameShowing = function(){
+            var dateTime = moment(vm.showing.dateShowing);
+            vm.date = dateTime.format("dddd MMM YY");
+            vm.time = dateTime.format("HH:mm");
+
+            if(originalShowingTime === vm.showing.dateShowing){
+                vm.message = "Showing saved successfully";
+                return true;
+            }
+            else{
+                vm.message = "Unable to save that showing. The next available showing is at:";
+                return false;
+            }
+        };
+
+        var saveShowing = function(){
+            console.log("SAVED");
+            showingDal.saveShowing(vm.showing).then(function (results) {}, function (error) {
+                vm.error = true;
+                vm.message = error;
+            });
+        };
 
     };
 

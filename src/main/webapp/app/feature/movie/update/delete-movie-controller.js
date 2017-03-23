@@ -4,7 +4,7 @@
         var vm = this;
 
         vm.deleteMovie = function(movieToDelete) {
-            console.log("This is the value of movie to delete " + movieToDelete);
+            console.log("This is the value of movie to delete:");
             console.log(movieToDelete);
             
             movieDal.deleteMovie(movieToDelete).then(
