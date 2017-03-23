@@ -1,13 +1,17 @@
 <div ng-controller="updateMovieController as ctrl">
 	<div ng-controller="getMovieController as movieCtrl">
 		<h1>Update a movie</h1>
-		<form role="form"  ng-hide="ChosenMovie" class="col-lg-3">
-			<div class="form-group">
-				<label>Select movie:</label>
-				<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
-			</div>
-
-		</form>
+		<div class="col-lg-3" ng-hide="ChosenMovie">
+			<form role="form" >
+				<div class="form-group">
+					<label>Select movie:</label>
+					<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
+				</div>
+			</form>
+		</div>
+		<div class="col-lg-3"  ng-show="ChosenMovie">
+			<a class="btn btn-primary" ui-sref="updatemovie">Select a different movie</a>
+		</div>
 		<form ng-show="ChosenMovie" role="form" id="addMovieForm">
 			<div class="col-lg-7">
 				<label><h2>Movie</h2></label><br>
@@ -54,7 +58,16 @@
 							</select>
 						<br>
 					</div>
-				
+				<div class="col-md-3 col-lg-2">
+					<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a> <br>
+					<br>
+				</div>
+				<div class="col-md-3 col-lg-2">
+					<div ng-controller="deleteMovieController as deleteCtrl">
+						<a class="btn btn-primary" ng-click="deleteCtrl.deleteMovie(ChosenMovie)">Delete movie</a> <br>
+						<br>
+					</div>
+				</div>
 			</div>
 	
 			<div ng-controller="getMediaController as mediaCtrl">
@@ -80,16 +93,7 @@
 				</div>
 			</div>
 			
-				<div class="col-xs-12 col-sm-12 col-md-2">
-					<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a>
-					<br><br>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-2">
-					<div ng-controller="deleteMovieController as deleteCtrl">
-						<a class="btn btn-primary" ng-click="deleteCtrl.deleteMovie(ChosenMovie)">Delete movie</a>
-						<br><br>
-					</div>
-				</div>
+			
 		</form>
 	</div>
 </div>
