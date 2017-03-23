@@ -2,31 +2,31 @@
 	<h1>Add a new movie</h1>
 
 	<form role="form" id="addMovieForm" >
-		<div class="col-lg-7">
+		<div class="col-md-7 col-sm-7">
 			<label><h2>Movie</h2></label> <br>
 			<div class="form-group">
 				<label>Title</label><br>
-				<input class="form-control" placeholder="title" ng-model="movie.title">
+				<input class="form-control" placeholder="title" ng-model="movie.title" required>
 			</div>
 			<div class="form-group">
 				<label>Genre</label><br> 
-				<input class="form-control" placeholder="genre" ng-model="movie.genre">
+				<input class="form-control" placeholder="genre" ng-model="movie.genre" required="required">
 			</div>
 			<div class="form-group">
 				<label>Year</label><br>
-				<input class="form-control" type="month" ng-model="movie.year">
+				<input class="form-control" type="month" ng-model="movie.year" >
 			</div>
 			<div class="form-group">
 				<label>Description</label><br> 
-				<textarea class="form-control" rows="5" form="addMovieForm" ng-model="movie.description"></textarea>		
+				<textarea class="form-control" rows="5" form="addMovieForm" ng-model="movie.description" ng-required="movie"></textarea>		
 			</div>
 			<div class="form-group">
 				<label>Cast</label> <br>
-				<input class="form-control"  placeholder="cast" ng-model="movie.cast">
+				<input class="form-control"  placeholder="cast" ng-model="movie.cast" ng-required>
 			</div>
 			<div class="form-group">
 				<label>Movie length</label><br> 
-				<input class="form-control" type="number" placeholder="length" ng-model="movie.length">
+				<input class="form-control" type="number" min="0" placeholder="length" ng-model="movie.length">
 			</div>
 			<div class="form-group">
 				<label>Classification</label><br> 
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<div ng-controller="getMediaController as mediaCtrl">
-			<div class="col-lg-4">
+			<div class="col-md-4 col-sm-4">
 				<label><h2>Media</h2></label> <br>
 
 				<div class="form-group">
@@ -61,6 +61,9 @@
 				</div>
 			</div>
 		</div>
-		<a class="btn btn-primary" ng-click="ctrl.addMovie(movie, mediaCtrl.getAllMedia(ChosenMedia.id, ChosenMedia.type))">Create new movie</a>
+		<div class="col-lg-12">
+			<a class="btn btn-primary" type="submit" ng-click="ctrl.addMovie(movie, ChosenMedia)">Create new movie</a>
+			<br><br>
+		</div>
 	</form>
 </div>
