@@ -81,7 +81,7 @@
                 <td><img id="nonZeroTickets" src="_images/cross.png" width="80"></td>
             </tr>
         </table>
-        <div class="gobutton softwhite" id="paypal-button" style="float:right">
+        <div id="buttonHolder"><div class="gobutton softwhite" id="paypal-button" style="float:right"></div>
             <div style="font-weight: bold">
                 Final Price : &pound;{{payCtrl.total}}
 
@@ -91,27 +91,28 @@
 
     </div>
 
-    {{vm.seatsTaken}}
-    <div class="table-container" id="seats" style="width:800px">
-        <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:payCtrl.screen.block.colCount">
-            </br>
-            <table style="width:400px; table-layout: fixed; margin-bottom:0px"
-                   class="table  table-bordered table-hover "
-                   ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] | limitTo:payCtrl.screen.block.colCount:block.rowCount ">
-                <tr ng-repeat="block in payCtrl.screen.blocks | limitTo:1:v">
-                    <td ng-model="thisSeat" class="outertd"
-                        ng-repeat="seat in block.seats | limitTo:block.colCount:block.colCount*i"
-                        ng-class="{taken: payCtrl.checkSeatTaken(seat),selected: payCtrl.checkSeatSelected(seat)}">
-                        <div class="innertd" ng-click=payCtrl.click(seat)>
-                            {{seat.row}}{{seat.column}}
-                        </div>
-                    </td>
-                </tr>
-            </table>
+    <div id="tableHolder">
+        <div class="table-container" id="seatSel" style="width:800px">
+            <div class="col-md-6" ng-repeat="v in [0,1,2,3] | limitTo:payCtrl.screen.block.colCount">
+                </br>
+                <table style="width:400px; table-layout: fixed; margin-bottom:0"
+                       class="table  table-bordered table-hover "
+                       ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] | limitTo:payCtrl.screen.block.colCount:block.rowCount ">
+                    <tr ng-repeat="block in payCtrl.screen.blocks | limitTo:1:v">
+                        <td ng-model="thisSeat" class="outertd"
+                            ng-repeat="seat in block.seats | limitTo:block.colCount:block.colCount*i"
+                            ng-class="{taken: payCtrl.checkSeatTaken(seat),selected: payCtrl.checkSeatSelected(seat)}">
+                            <div class="innertd" ng-click=payCtrl.click(seat)>
+                                {{seat.row}}{{seat.column}}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
+            </div>
         </div>
-        </br>
     </div>
+
 
     <div class="softwhite">
         <h3>Subtotal</h3>
@@ -232,10 +233,33 @@
         opacity: 1 !important;
     }
 
-    .table{
+    #seatSel {
+        width: 1px;
+        height: 1px;
+        visibility: hidden;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        opacity: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    #seatSel.available {
+
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        opacity: 1 !important;
+    }
+
+    .table {
         background-color: grey;
     }
-    .table-hover>tbody>tr>td:hover, .table-hover>tbody>tr>td:hover{
+
+    .table-hover > tbody > tr > td:hover, .table-hover > tbody > tr > td:hover {
         background-color: blue;
         -webkit-transition: 0.25s;
         -moz-transition: 0.25s;
@@ -284,13 +308,14 @@
         text-align: center;
     }
 
-    .outertd{
-        padding:0 !important;
-        height:20px !important;
-        width:20px !important;
-        border-radius:3px;
+    .outertd {
+        padding: 0 !important;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 3px;
     }
-    .innertd{
-        margin:0 !important;
+
+    .innertd {
+        margin: 0 !important;
     }
 </style>

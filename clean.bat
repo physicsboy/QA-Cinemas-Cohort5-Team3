@@ -1,0 +1,2 @@
+@del "C:\Users\Administrator\My Apps\tools\wildfly-10.0.0.Final\standalone\deployments\*.undeployed"
+@del "C:\Users\Administrator\My Apps\tools\wildfly local\wildfly-10.0.0.Final\standalone\deployments\*.undeployed"
