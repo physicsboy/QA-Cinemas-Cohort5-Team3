@@ -2,21 +2,32 @@
     <div ng-controller="getShowingController as getctrl">
         <div class="container-fluid">
 
-            <button class="btn btn-primary" ui-sref="addshowing">Add Showing</button>
+            <div class="inline">
+
+                <button class="btn btn-primary" ui-sref="addshowing">Add Showing</button>
+
+            </div>
+
+            <br>
 
             <table class="table">
 
-                <tr ng-repeat="showing in getctrl.showings">
-                    <td>{{showing.showingId}}</td>
+                <th><h4>Date and Time</h4></th>
+                <th><h4>Movie</h4></th>
+                <th><h4>Length</h4></th>
+                <th><h4>Classification</h4></th>
+
+                <tr ng-repeat="showing in getctrl.showings | orderBy:'movie.title' ">
                     <td id="dayShowing">{{showing.dateShowing | date: "EEE dd MMM y H:mm"}}</td>
                     <td>{{showing.movie.title}}</td>
                     <td>{{showing.movie.length}}</td>
                     <td><img ng-src="{{showing.movie.classification}}"/></td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Delete
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{showing.id}}">Delete
                             Showing
-                        </button><!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal{{showing.id}}" role="dialog">
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
@@ -31,9 +42,16 @@
                                     <div class="modal-footer">
                                         <input type="button" value="Delete Showing" class="btn btn-primary"
                                                ng-click="ctrl.deleteShowing(showing)" data-dismiss="modal"
-                                               ui-sref='getshowing'/>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                               ui-sref='getshowing' onClick="window.location.reload()"/>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
+                </tr>
+            </table>
         </div>
     </div>
 
