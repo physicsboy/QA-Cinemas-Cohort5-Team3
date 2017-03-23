@@ -2,24 +2,36 @@
 
     <div class="container-fluid">
         <div class=row>
-
-            <div class="col-xs-12 col-sm-3 col-md-3"></div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="col-xs-12 col-sm-4 col-md-4 movie-poster">
                 <div class="movie-poster" ng-repeat="poster in movieCtrl.movies.media | filter:{type:'POSTER'}">
                     <img src='{{poster.url}}' class="img-responsive">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="Logo"><h2> {{movieCtrl.movies.title}}</h2></div>
-                <div class="Sypnosis">{{movieCtrl.movies.description}}</div>
-                <div class="Cast">Cast: {{movieCtrl.movies.cast}}</div>
-                <div class="MovieLength">Length: {{movieCtrl.movies.length}}</div>
-                <div class="Year">Release Date: {{movieCtrl.movies.year}}</div>
-                <div><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer">
-                    Trailer: <img src="http://www.clipartbest.com/cliparts/yck/gnM/yckgnMkMi.png" width="40px"
-                                  height="25px"/> </a>
+            <!--Movie information-->
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div id="text-box">
+                    <div class="Logo"><h3> {{movieCtrl.movies.title}}<img ng-src="{{movieCtrl.movies.classification}}" id="rating"></h3></div>
+                    <hr id="movie-line">
+                    <div class="Sypnosis"><br>{{movieCtrl.movies.description}}</div>
+                    <div class="Cast"><h3>Cast:</h3> {{movieCtrl.movies.cast}}</div>
+                    <div class="MovieLength"><h3>Length:</h3> {{movieCtrl.movies.length}}</div>
+                    <div class="Year"><h3>Release Date:</h3> {{movieCtrl.movies.year}}</div>
                 </div>
+				
+				
+				
+				
+                <div id="trailer-view"><a ui-sref="#trailerModal" data-toggle="modal" data-target="#trailerModal" id="trailer" class="btn btn-block btn-social btn-google"> 
+				<span class="fa fa-youtube-play" id="logo"></span> Watch "{{movieCtrl.movies.title}}" Trailer</a>
+                </div>
+           
 
+
+
+
+		   </div>
+            <!--Showings-->
+            <div class="col-sm-4 col-md-4">
                 <div>
                     <h2> Showings </h2>
                 </div>
@@ -29,39 +41,15 @@
                      ng-repeat="showing in movieCtrl.showings">
                     <div class="floating-box">
                         <h5>{{showing.dateShowing | date:' EEE '}}</h5>
+                        <h5>{{showing.dateShowing | date: 'd MMM'}}</h5>
                         <h5>{{showing.dateShowing | date:'HH:mm '}}</h5>
 
                     </div>
                 </div>
-                <div class="after-box"></div>
+                <!--<div class="after-box"></div>-->
             </div>
-
-            <div>
-                <!--<div class="table-responsive">-->
-                <!--<table class="table-striped">-->
-                <!--<tr ng-repeat="day in movieCtrl.days()">-->
-                <!--<tr>-->
-                <!--<th><h5>Day: </h5></th>-->
-                <!--<th><h5>Time: </h5></th>-->
-                <!--</tr>-->
-
-
-                <!--<tr ng-repeat="showing in movieCtrl.showings">-->
-                <!--<td ui-sref="payment({showingId:{{showing.id}}})"><h5>{{showing.dateShowing |-->
-                <!--date:'dd/MM' }}</h5></td>-->
-                <!--<td>-->
-                <!--<h5><p>{{showing.dateShowing | date:' EEE '}}</p></h5>-->
-                <!--</td>-->
-                <!--<td><h5>{{showing.dateShowing | date:'HH:mm '}}</h5></td>-->
-                <!--</tr>-->
-                <!--</table>-->
-                <!--</div>-->
-            </div>
-
-            <div class="col-xs-12 col-sm-3 col-md-3"></div>
         </div>
-
-
+        <!--Trailer-->
         <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-labelledby="myModal"
              ng-controller="getMediaController as mediaCtrl">
             <div class="modal-dialog">
@@ -82,8 +70,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -105,8 +93,39 @@
     });
 </script>
 
-
+<!--CSS, this should not be here though-->
 <style>
+
+	#trailer{
+		font-weight: bold;
+		text-align: center;
+	}
+
+    #movie-line {
+        margin-right: 20px;
+        padding-top: 10px;
+    }
+
+    #rating{
+        padding-left: 75px;
+    }
+    #text-box {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 1px;
+    }
+
+    #trailer-view {
+        padding-top: 30px;
+    }
+
+    .movie-poster {
+        max-width: 400px;
+        display: table-cell;
+        vertical-align: middle;
+    }
 
     #trailerModal .modal-dialog {
         width: 70%;
@@ -149,8 +168,8 @@
     .floating-box {
         text-align: center;
         float: left;
-        width: 100px;
-        height: 75px;
+        width: 125px;
+        height: 100px;
         margin: 3px;
         border: 1px solid #9198a3;
         overflow: hidden;

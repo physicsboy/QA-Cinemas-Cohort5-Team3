@@ -4,10 +4,10 @@
 
 		<form role="form" class="col-lg-2">
 			<div class="form-group">
-				<label>Select movie:</label> 
+				<label>Select movie:</label>
 				<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
 			</div>
-			
+
 		</form>
 		<form  ng-show="ChosenMovie" role="form" id="addMovieForm">
 		<div class="col-lg-4">
@@ -17,7 +17,7 @@
 					<input class="form-control" ng-value="ChosenMovie.title" ng-model="movie.title">
 				</div>
 				<div class="form-group">
-					<label>Genre</label><br> 
+					<label>Genre</label><br>
 					<input class="form-control" ng-value="ChosenMovie.genre" ng-model="movie.genre">
 				</div>
 				<div class="form-group">
@@ -25,19 +25,19 @@
 					<input class="form-control" ng-value="ChosenMovie.year" ng-model="movie.year">
 				</div>
 				<div class="form-group">
-					<label>Description</label><br> 
-					<textarea class="form-control" rows="5" form="addMovieForm" ng-value="ChosenMovie.description" ng-model="movie.description"></textarea>		
+					<label>Description</label><br>
+					<textarea class="form-control" rows="5" form="addMovieForm" ng-value="ChosenMovie.description" ng-model="movie.description"></textarea>
 				</div>
 				<div class="form-group">
 					<label>Cast</label><br>
 					<input class="form-control" ng-value="ChosenMovie.cast" ng-model="movie.cast">
 				</div>
 				<div class="form-group">
-					<label>Movie length</label><br> 
+					<label>Movie length</label><br>
 					<input class="form-control" type="number" ng-value="ChosenMovie.length" ng-model="movie.length">
 				</div>
 				<div class="form-group">
-					<label>Classification</label><br> 
+					<label>Classification</label><br>
 					<select id="classification" class="form-control" ng-value="ChosenMovie.classif" ng-model="movie.classif">
 						<option value="CLASS_U">U</option>
 						<option value="CLASS_PG">PG</option>
