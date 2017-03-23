@@ -3,9 +3,10 @@
 	var AddMovieController = function($state, movieDal) {
 		var vm = this;
 
-		vm.addMovie = function(movieToAdd) {
+		vm.addMovie = function(movieToAdd, media) {
 			console.log("This is the value of movie to add ");
 			console.log(movieToAdd);
+			console.log(media);
 
 			var movieToJson = JSON.stringify(movieToAdd);
 			console.log(movieToJson);

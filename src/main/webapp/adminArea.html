@@ -47,8 +47,7 @@
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="addmovie">Add movie</a></li>
                                 <li><a ui-sref="getmovie">Get movies</a></li>
-                                <li><a ui-sref="deletemovie">Delete movies</a></li>
-                                <li><a ui-sref="getmovie">Update movies</a></li>
+                                <li><a ui-sref="updatemovie">Update movies</a></li>
                                 <li><a ui-sref="getspecificmovie">Get Specific Movie</a></li>
                             </ul>
                         </li>
@@ -101,6 +100,16 @@
                 </div>
             </div>
         </nav>
+    </div>
+
+
+    <!-- PAGE VIEW -->
+    <div class="jumbotron" id="panelBody">
+        <div id="inner">
+            <div ui-view id="view">
+                <div class="push"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

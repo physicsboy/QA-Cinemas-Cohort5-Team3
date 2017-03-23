@@ -1,67 +1,75 @@
 <div ng-controller="updateMovieController as ctrl">
 	<div ng-controller="getMovieController as movieCtrl">
 		<h1>Update a movie</h1>
-
-		<form role="form" class="col-lg-2">
-			<div class="form-group">
-				<label>Select movie:</label>
-				<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
-			</div>
-
-		</form>
-		<form  ng-show="ChosenMovie" role="form" id="addMovieForm">
-		<div class="col-lg-4">
-			<label><h2>Movie</h2></label><br>
+		<div class="col-lg-3" ng-hide="ChosenMovie">
+			<form role="form" >
 				<div class="form-group">
-					<label>Title</label><br>
-					<input class="form-control" ng-value="ChosenMovie.title" ng-model="movie.title">
+					<label>Select movie:</label>
+					<select class="form-control" ng-model="ChosenMovie" ng-options="movie.title for movie in movieCtrl.movies"></select>
 				</div>
-				<div class="form-group">
-					<label>Genre</label><br>
-					<input class="form-control" ng-value="ChosenMovie.genre" ng-model="movie.genre">
-				</div>
-				<div class="form-group">
-					<label>Year</label><br>
-					<input class="form-control" ng-value="ChosenMovie.year" ng-model="movie.year">
-				</div>
-				<div class="form-group">
-					<label>Description</label><br>
-					<textarea class="form-control" rows="5" form="addMovieForm" ng-value="ChosenMovie.description" ng-model="movie.description"></textarea>
-				</div>
-				<div class="form-group">
-					<label>Cast</label><br>
-					<input class="form-control" ng-value="ChosenMovie.cast" ng-model="movie.cast">
-				</div>
-				<div class="form-group">
-					<label>Movie length</label><br>
-					<input class="form-control" type="number" ng-value="ChosenMovie.length" ng-model="movie.length">
-				</div>
-				<div class="form-group">
-					<label>Classification</label><br>
-					<select id="classification" class="form-control" ng-value="ChosenMovie.classif" ng-model="movie.classif">
-						<option value="CLASS_U">U</option>
-						<option value="CLASS_PG">PG</option>
-						<option value="CLASS_12A">12A</option>
-						<option value="CLASS_15">15</option>
-						<option value="CLASS_18">18</option>
-						<option value="CLASS_R18">R18</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Out Now</label> <br>
-						<select class="form-control" ng-value="ChosenMovie.outNow" ng-model="movie.outNow">
-							<option value="true">yes</option>
-							<option value="false">no</option>
+			</form>
+		</div>
+		<div class="col-lg-3"  ng-show="ChosenMovie">
+			<a class="btn btn-primary" ui-sref="updatemovie">Select a different movie</a>
+		</div>
+		<form ng-show="ChosenMovie" role="form" id="addMovieForm">
+			<div class="col-lg-7">
+				<label><h2>Movie</h2></label><br>
+					<div class="form-group">
+						<label>Title</label><br>
+						<input class="form-control" ng-value="ChosenMovie.title" ng-model="movie.title">
+					</div>
+					<div class="form-group">
+						<label>Genre</label><br> 
+						<input class="form-control" ng-value="ChosenMovie.genre" ng-model="movie.genre">
+					</div>
+					<div class="form-group">
+						<label>Year</label><br>
+						<input class="form-control" ng-value="ChosenMovie.year" ng-model="movie.year">
+					</div>
+					<div class="form-group">
+						<label>Description</label><br> 
+						<textarea class="form-control" rows="5" form="addMovieForm" ng-value="ChosenMovie.description" ng-model="movie.description"></textarea>		
+					</div>
+					<div class="form-group">
+						<label>Cast</label><br>
+						<input class="form-control" ng-value="ChosenMovie.cast" ng-model="movie.cast">
+					</div>
+					<div class="form-group">
+						<label>Movie length</label><br> 
+						<input class="form-control" type="number" min="0" ng-value="ChosenMovie.length" ng-model="movie.length">
+					</div>
+					<div class="form-group">
+						<label>Classification</label><br> 
+						<select id="classification" class="form-control" ng-value="ChosenMovie.classif" ng-model="movie.classif">
+							<option value="CLASS_U">U</option>
+							<option value="CLASS_PG">PG</option>
+							<option value="CLASS_12A">12A</option>
+							<option value="CLASS_15">15</option>
+							<option value="CLASS_18">18</option>
+							<option value="CLASS_R18">R18</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<label>Out Now</label> <br>
+							<select class="form-control" ng-value="ChosenMovie.outNow" ng-model="movie.outNow">
+								<option value="true">yes</option>
+								<option value="false">no</option>
+							</select>
+						<br>
+					</div>
+				<div class="col-md-3 col-lg-2">
+					<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a> <br>
 					<br>
 				</div>
-				<a class="btn btn-primary" ng-click="ctrl.updateMovie(movie, ChosenMovie)">Update movie</a>
-				<div ng-controller="deleteMovieController as deleteCtrl">		
-					<a class="btn btn-primary" ng-click="deleteCtrl.deleteMovie(ChosenMovie)">Delete movie</a>
+				<div class="col-md-3 col-lg-2">
+					<div ng-controller="deleteMovieController as deleteCtrl">
+						<a class="btn btn-primary" ng-click="deleteCtrl.deleteMovie(ChosenMovie)">Delete movie</a> <br>
+						<br>
+					</div>
 				</div>
-				<br><br>
 			</div>
-
+	
 			<div ng-controller="getMediaController as mediaCtrl">
 				<div class="col-lg-4">
 					<label><h2>Media</h2></label> <br>
@@ -72,18 +80,20 @@
 					</div>
 					<div class="form-group">
 						<div class="movie-poster" ng-show="ChosenMedia">
-							<img src='{{ChosenMedia.url}}' class="img-responsive" style="width: 350px; height: 515px;">
+							<img src='{{ChosenMedia.url}}' class="img-responsive" style="width: 415px; height: 584px;">
 						</div>
 					</div>
 					<div ng-repeat="media in ChosenMovie.media" ng-hide="ChosenMedia">
 						<div class="form-group" ng-if="media.type == 'POSTER'">
-							<div class="movie-poster">
-								<img src='{{media.url}}' class="img-responsive" style="width: 350px; height: 515px;">
+							<div class="movie-poster" align="center">
+								<img src='{{media.url}}' class="img-responsive" style="width: 415px; height: 584px;">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			
 		</form>
 	</div>
 </div>

@@ -16,7 +16,6 @@
                 </select>
             </div>
 
-
             <div>
                 Time:
                 <select ng-model="chosenTime"
@@ -24,16 +23,50 @@
                 </select>
             </div>
 
-
             <div>
-                <Button ng-click="showingCtrl.createShowing(chosenMovie, chosenDate, chosenTime)"> Submit</Button>
+                <Button class="alertButton btn btn-primary"
+                        ng-click="showingCtrl.addShowing(chosenMovie, chosenDate, chosenTime); showme=true"> Submit
+                </Button>
+
+                <div class="col-md-6 " >
+                <div class="alert alert-info" role="alert" ng-show="showme">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{{showingCtrl.message}}</p>
+                    <div>
+                        <Strong>Movie: {{showingCtrl.showing.movie.title}} </Strong>
+                        <br>
+                        <Strong>Date: {{showingCtrl.date}}</Strong>
+                        <br>
+                        <Strong>Time: {{showingCtrl.time}}</Strong>
+                        <br>
+                        <Strong>Screen: {{showingCtrl.showing.screen.screenId}}</Strong>
+                    </div>
+                </div>
+
             </div>
+            </div>
+
+
         </div>
 
 
-        <div class="col-md-6" >
-            {{showingCtrl.message}};
-        </div>
+
+
+        <script>
+            $(".alertButton").on("click", function () {
+
+                $(".alert").removeClass("in").fadeIn(500);
+   });
+
+        </script>
 
     </div>
+
+    <style>
+        select {
+            background: black;
+        }
+
+    </style>
 </div>
+
