@@ -28,19 +28,19 @@ html, body {
 
 	THE SYNTAX = LOCATION OF PATTER AND THEN THE COLOUR SCHEME (RAIDAL GRADIENT)
  */
-body {
+#main {
 	/* DARK BLUE 				/		background-image: url("../Background_images/4634818-dark-blue-wallpaper.jpg") !important; */
 	/* TEAL BACKGROUND			/		background-image: url("../Background_images/background.jpg") !important; */
 	/* LIGHT BLUE  				/		background-image: url("../Background_images/background2.jpg") !important; */
 	/* MUTED AND NICE TEXTURE	/		background-image: url("../Background_images/hpehPUv.jpg") !important;   */
 	/* BLACK DIAGONALS 			/	background-image: url("../Background_images/Patterns/black-twill.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
 	/* MY BLACK DIAGONALS 5		/	background-image: url("../Background_images/Patterns/diagonal-black-5.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
-	/* MY BLACK DIAGONALS 10	/	background-image: url("../Background_images/Patterns/diagonal-black-10.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
+	/* MY BLACK DIAGONALS 10	*/	background-image: url("../Background_images/Patterns/diagonal-black-10.png"), radial-gradient(circle at top center, #003da0 , #001333 80% ) !important; */
 	/* SUBTLE FABRIC	/	background-image: url("../Background_images/Patterns/classy-fabric.png"), radial-gradient(circle at top center, #003da0 , #001333 100% ) !important; */
 
-	 background-image: radial-gradient(circle at top center, rgb(26,124,163), rgb(23,46,99) 100% ) !important; 
+/* 	 background-image: radial-gradient(circle at top center, rgb(26,124,163), rgb(23,46,99) 100% ) !important;  */
 
-	background-attachment: fixed;
+	
 
     background-size: 100%;
   
